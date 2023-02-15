@@ -7,7 +7,7 @@ export default function ModalForm() {
   const [imageStyle, setImageStyle] = useState({});
   const [blurRightStyle, setBlurRightStyle] = useState({});
   const [blurLeftStyle, setBlurLeftStyle] = useState({});
-
+  const [render, setRender] = useState("Login");
   function handleForgotClick() {
     setImageStyle({
       animationName: "right",
@@ -16,6 +16,12 @@ export default function ModalForm() {
     });
     setBlurRightStyle({ animationName: "opaqueRight" });
     setBlurLeftStyle({ animationName: "appearLeft" });
+
+    const btn_forgot = document.querySelector(".btn_forgot");
+    const btn_login = document.querySelector(".btn_login");
+    btn_login.classList.remove("active");
+    btn_forgot.classList.add("active");
+    setRender(btn_forgot.innerHTML);
   }
 
   function handleSignInClick() {
@@ -26,7 +32,12 @@ export default function ModalForm() {
     });
     setBlurLeftStyle({ animationName: "opaqueLeft" });
     setBlurRightStyle({ animationName: "appearRight" });
-    console.log(imageStyle);
+
+    const btn_forgot = document.querySelector(".btn_forgot");
+    const btn_login = document.querySelector(".btn_login");
+    btn_forgot.classList.remove("active");
+    btn_login.classList.add("active");
+    setRender(document.querySelector(".btn_login").innerHTML);
   }
 
   return (
@@ -42,7 +53,7 @@ export default function ModalForm() {
           className="switch_button btn_login active"
           onClick={handleSignInClick}
         >
-          Log in
+          Login
         </button>
       </div>
       <div className="modal_image_container">
@@ -53,12 +64,15 @@ export default function ModalForm() {
           alt="img"
         />
       </div>
-      <div className="modal_form_right" style={blurRightStyle}>
-        <FormLogin />
-      </div>
-      <div className="modal_form_left" style={blurLeftStyle}>
-        <FormForgot />
-      </div>
+      {render === "Login" ? (
+        <div className="modal_form_right" style={blurRightStyle}>
+          <FormLogin />
+        </div>
+      ) : (
+        <div className="modal_form_left" style={blurLeftStyle}>
+          <FormForgot />
+        </div>
+      )}
     </div>
   );
 }

@@ -77,7 +77,7 @@ html{
     animation-fill-mode: forwards;
 }
 .form-field > input{
-    padding: 8px 30px 8px 8px;
+    padding: 8px 60px 8px 8px;
     margin-top: 8px;
 }
 
@@ -109,10 +109,9 @@ html{
     left: 0;
 }
 
-/* .forgot-form-body{
-    position: absolute;
-    left: 15%;
-} */
+.forgot-form-body{
+    width: 80%;
+}
 
 .forgot-form-body .form-header{
     position: absolute;

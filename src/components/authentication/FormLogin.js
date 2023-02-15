@@ -9,9 +9,18 @@ function FormLogin() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-    console.log(userName);
-    console.log(password);
+    const userInfo = { userName, password };
+    const url = "";
+    const options = {
+      method: "POST",
+      body: JSON.stringify(userInfo),
+    };
+    fetch(url, options)
+      .then((res) => res.json())
+      .then((data) => {})
+      .catch((error) => {
+        console.log("faul");
+      });
   };
 
   return (
@@ -19,7 +28,7 @@ function FormLogin() {
       <div className="form-container form-login">
         <div className="login-form-body">
           <div className="form-header">
-            <h1>Log in</h1>
+            <h1>Login</h1>
           </div>
           <form onSubmit={handleSubmit}>
             <div className="field-name">
