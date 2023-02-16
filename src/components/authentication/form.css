@@ -20,6 +20,14 @@ html{
     left: 25%;
     box-shadow: 0 1rem 3rem rgba(0,0,0,.8)!important;
     background-color: #567189 !important;
+    border-radius: 1%;
+    overflow: auto;
+}
+.modal_form_right{
+    animation-duration: 2s;
+}
+.modal_form_left{
+    animation-duration: 2s;
 }
 
 /* Form image */
@@ -31,6 +39,7 @@ html{
     left: 0;
     height: 100%;
     width: 50%;
+    display: block;
 }
 
 /* Switch button */
@@ -77,9 +86,17 @@ html{
     animation-fill-mode: forwards;
 }
 .form-field > input{
-    padding: 8px 60px 8px 8px;
+    padding: 8px 60px 8px 1px;
     margin-top: 8px;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    border-bottom: 2px solid #fff;
 }
+
+input::placeholder{
+    color: #f5f5f5;
+} 
 
 .form-field > label{
     display: flex;
@@ -170,5 +187,63 @@ html{
     100% {opacity: 1;}
 }
 
-
-
+/* Responsive */
+/* Mobile */
+@media only screen and (min-width: 374px) and (max-width: 799px){
+    .modal_form {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        border-radius: 0;
+        overflow: auto;
+        box-shadow: 0 1rem 3rem rgba(0,0,0,.8)!important;
+    }
+    .modal_image_container .modal_image{
+        display: none;
+    }
+    .App {
+        text-align: left;
+    }
+    .form-container {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+    }
+    .modal_form{
+        overflow: hidden;
+    }
+    
+}
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1024px){
+    .modal_form{
+        overflow: hidden;
+    }
+    .App {
+        text-align: unset;
+    }
+}
+/* Tablet */
+@media only screen and (min-width: 800px) and (max-width: 1023px){
+    .form-field > input{
+        padding: 8px 8px 8px 1px;
+        margin-top: 8px;
+        background: transparent;
+        border: 0;
+        outline: 0;
+        border-bottom: 2px solid #fff;
+    }
+    .modal_form{
+        overflow:hidden;
+    }
+    .modal_image_container .modal_image{
+        object-fit: cover;
+    }
+}
