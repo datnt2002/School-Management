@@ -1,9 +1,16 @@
-.navbar-dark {
-    padding: 0;
-    margin: 0;
-    min-height: 70px;
-    position: relative;
-    left: 0!important;
-    z-index: 1002;
-    background-color: #313a46;
+.active{
+    
+}
+img {
+    height: 32px;
+    width: 32px;
+}
+.account-user-name {
+    display: block;
+    font-weight: 600;
+}
+.account-position {
+    display: block;
+    font-size: 12px;
+    margin-top: -3px;
 }

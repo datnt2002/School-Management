@@ -1,74 +1,26 @@
+import Content from "./Content";
+import Input from "../../authentication/Input";
+import Media from "./Media";
+import LikeCmShare from "./LikeCmShare";
+
 function Post() {
   return (
     <div className="col-xl-6 col-lg-12 order-lg-2 order-xl-1">
       <div className="card-body pb-1">
-        <div className="media">
-          <img
-            className="mr-2 rounded"
-            src="assets/images/users/avatar-3.jpg"
-            alt="Generic placeholder image"
-            height="32"
-          />
-          <div className="media-body">
-            <div className="dropdown float-right text-muted">
-              <a
-                href="#"
-                className="dropdown-toggle arrow-none card-drop"
-                data-toggle="dropdown"
-                aria-expanded="false"
-              >
-                <i className="mdi mdi-dots-horizontal"></i>
-              </a>
-              <div className="dropdown-menu dropdown-menu-right">
-                <a href="javascript:void(0);" className="dropdown-item">
-                  Edit
-                </a>
-                <a href="javascript:void(0);" className="dropdown-item">
-                  Delete
-                </a>
-              </div>
-            </div>
-            <h5 className="m-0">Jeremy Tomlinson</h5>
-            <p className="text-muted">
-              <small>
-                about 2 minuts ago <span className="mx-1">⚬</span>{" "}
-                <span>Public</span>
-              </small>
-            </p>
-          </div>
-        </div>
+        <Media />
 
         <hr className="m-0" />
 
-        <div className="font-16 text-center text-dark my-3">
-          <i className="mdi mdi-format-quote-open font-20"></i> Leave one wolf
-          alive and the sheep are never safe. When people ask you what happened
-          here, tell them the North remembers. Tell them winter came for House
-          Frey.
-        </div>
+        <Content
+          Content="Leave one wolf alive and the sheep are never safe. When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey."
+        />
 
         <hr className="m-0" />
 
-        <div className="my-1">
-          <a
-            href="javascript: void(0);"
-            className="btn btn-sm btn-link text-muted pl-0"
-          >
-            <i className="mdi mdi-heart text-danger"></i> 2k Likes
-          </a>
-          <a
-            href="javascript: void(0);"
-            className="btn btn-sm btn-link text-muted"
-          >
-            <i className="uil uil-comments-alt"></i> 200 Comments
-          </a>
-          <a
-            href="javascript: void(0);"
-            className="btn btn-sm btn-link text-muted"
-          >
-            <i className="uil uil-share-alt"></i> Share
-          </a>
-        </div>
+        <LikeCmShare
+          Likes="2k"
+          Comments="200"
+        />
 
         <hr className="m-0" />
 
@@ -137,11 +89,11 @@ function Post() {
               alt="Arya Stark"
             />
             <div className="media-body">
-              <input
+              <Input
                 type="text"
                 className="form-control border-0 form-control-sm"
                 placeholder="Write a comment"
-              />
+              ></Input>
             </div>
           </div>
         </div>
