@@ -22,6 +22,7 @@ html{
     background-color: #567189 !important;
     border-radius: 1%;
     overflow: auto;
+    color: white;
 }
 .modal_form_right{
     animation-duration: 2s;
