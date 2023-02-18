@@ -67,13 +67,7 @@ function Header() {
                     </li>
 
                 </ul>
-                <a className="navbar-toggle" data-toggle="collapse" data-target="#topnav-menu-content">
-                    <div className="lines">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                </a>
+                
                 <div className="app-search dropdown">
                     <form>
                         <div className="input-group">
