@@ -75,7 +75,7 @@
 }
 .form-field > input{
     padding: 8px 60px 8px 1px;
-    margin-top: 8px;
+
     background: transparent;
     border: 0;
     outline: 0;
@@ -124,7 +124,7 @@ input::placeholder{
 }
 .forgot-form-body .field-name{
     position: absolute;
-    top: 30%;
+    top: 35%;
 }
 
 
@@ -145,7 +145,7 @@ input::placeholder{
 }
 
 .login-form-body .field-password{
-    margin-top: 65px;
+    margin-top: 80px;
 }
 
 
