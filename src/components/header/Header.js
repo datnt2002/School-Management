@@ -61,7 +61,9 @@ function Header() {
                             <i class="dripicons-bell noti-icon"></i>
                             <span class="noti-icon-badge"></span>
                         </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg show" aria-labelledby="topbar-notifydrop" x-placement="bottom-end" style="position: absolute; transform: translate3d(-278px, 70px, 0px); top: 0px; left: 0px; will-change: transform;">
+                        <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated dropdown-lg show" aria-labelledby="topbar-notifydrop" x-placement="bottom-end" 
+                        // style="position: absolute; transform: translate3d(-278px, 70px, 0px); top: 0px; left: 0px; will-change: transform;"
+                        >
 
                             {/* <!-- item--> */}
                             <div class="dropdown-item noti-title">
@@ -74,7 +76,17 @@ function Header() {
                                 </h5>
                             </div>
 
-                            <div style="max-height: 230px;" data-simplebar="init"><div class="simplebar-wrapper" style="margin: 0px;"><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" style="right: 0px; bottom: 0px;"><div class="simplebar-content-wrapper" style="height: auto; overflow: hidden scroll;"><div class="simplebar-content" style="padding: 0px;">
+                            <div 
+                            // style="max-height: 230px;"
+                             data-simplebar="init"><div class="simplebar-wrapper" 
+                            //  style="margin: 0px;"
+                             ><div class="simplebar-height-auto-observer-wrapper"><div class="simplebar-height-auto-observer"></div></div><div class="simplebar-mask"><div class="simplebar-offset" 
+                            //  style="right: 0px; bottom: 0px;"
+                             ><div class="simplebar-content-wrapper" 
+                            //  style="height: auto; overflow: hidden scroll;"
+                             ><div class="simplebar-content" 
+                            //  style="padding: 0px;"
+                             >
                                 {/* <!-- item--> */}
                                 <a href="javascript:void(0);" class="dropdown-item notify-item">
                                     <div class="notify-icon bg-primary">
@@ -135,7 +147,17 @@ function Header() {
                                         <small class="text-muted">13 days ago</small>
                                     </p>
                                 </a>
-                            </div></div></div></div><div class="simplebar-placeholder" style="width: auto; height: 389px;"></div></div><div class="simplebar-track simplebar-horizontal" style="visibility: hidden;"><div class="simplebar-scrollbar" style="width: 0px; display: none;"></div></div><div class="simplebar-track simplebar-vertical" style="visibility: visible;"><div class="simplebar-scrollbar" style="height: 135px; display: block; transform: translate3d(0px, 0px, 0px);"></div></div></div>
+                            </div></div></div></div><div class="simplebar-placeholder" 
+                            // style="width: auto; height: 389px;"
+                            ></div></div><div class="simplebar-track simplebar-horizontal" 
+                            // style="visibility: hidden;"
+                            ><div class="simplebar-scrollbar" 
+                            // style="width: 0px; display: none;"
+                            ></div></div><div class="simplebar-track simplebar-vertical" 
+                            // style="visibility: visible;"
+                            ><div class="simplebar-scrollbar" 
+                            // style="height: 135px; display: block; transform: translate3d(0px, 0px, 0px);"
+                            ></div></div></div>
 
                             {/* <!-- All--> */}
                             <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">

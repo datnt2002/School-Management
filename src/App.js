@@ -7,8 +7,8 @@ function App() {
   return (
     <div className="App">
       {/* <ModalForm /> */}
-      <IdeaFeed/>
-      {/* <Header /> */}
+      {/* <IdeaFeed/> */}
+      <Header />
     </div>
   );
 }
