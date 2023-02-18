@@ -6,7 +6,9 @@ function App() {
   return (
     <div className="App">
       <ModalForm />
-      {/* <IdeaFeed /> */}
+
+      {/* <IdeaFeed/> */}
+
       {/* <Header /> */}
     </div>
   );
