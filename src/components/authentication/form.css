@@ -1,16 +1,3 @@
-/* All document */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html{
-    background: #FFAACF no-repeat;
-    background-size: cover;
-    color: #fff;
-}
-
 /* Form login */
 .modal_form {
     position: fixed;
@@ -31,7 +18,7 @@ html{
 }
 
 /* Form image */
-.modal_image_container .modal_image {
+.modal_image {
     background: url('https://i.pinimg.com/564x/60/82/74/6082748c5ab4281795d0d5f46df2cdaa.jpg') no-repeat left center /cover !important;
     animation-duration: 1s;
     animation-fill-mode: forwards;
