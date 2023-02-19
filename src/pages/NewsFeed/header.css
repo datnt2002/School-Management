@@ -1,0 +1,30 @@
+.active{
+    
+}
+img {
+    height: 32px;
+    width: 32px;
+}
+.user > .media > img{
+    position: absolute;
+    top: calc(38px / 2);
+    left: 15px;
+}
+.user {
+    padding: calc(31px / 2) 20px calc(31px / 2) 57px!important;
+    text-align: left!important;
+    position: relative;
+    background-color: #fafbfd;
+    border: 1px solid #f1f3fa;
+    border-width: 0 1px;
+    min-height: 70px;
+}
+.user > .media > .media-body > h5 {
+    display: block;
+    margin-top: calc(14px / 2)!important;
+    font-weight: 600;
+    color: black;
+}
+.user > .media{
+    margin-top: 11px;
+}

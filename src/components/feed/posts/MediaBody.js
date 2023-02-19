@@ -9,7 +9,6 @@ function MediaBody({User, Status, PostTime}){
                 </small>
             </p>
         </>
-        
     )
 }
 export default MediaBody;
