@@ -1,13 +1,12 @@
-import ModalForm from "./components/authentication/ModalForm";
-import IdeaFeed from "./components/feed/IdeaFeed";
-import Header from "./components/header/Header";
+import Authentication from "./pages/Authentication/Authentication";
+import NewsFeed from "./pages/NewsFeed/NewsFeed";
 
 function App() {
   return (
     <div className="App">
-      {/* <ModalForm /> */}
-      <Header />
-      <IdeaFeed/>
+      {/* <Authentication /> */}
+
+      <NewsFeed />
     </div>
   );
 }

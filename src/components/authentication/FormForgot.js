@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
-import "./form.css";
 
-import Input from "./Input";
+import Input from "../Tags/Input";
 
 function FormForgot() {
   const [userName, setUserName] = useState("");

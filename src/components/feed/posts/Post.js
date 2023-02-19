@@ -1,22 +1,22 @@
 import Content from "./Content";
-import Input from "../../authentication/Input";
-import Media from "./Media";
-import LikeCmShare from "./LikeCmShare";
+import Input from "../../Tags/Input";
+import LikeCmt from "./LikeCmt";
+import Profile from "../../profile/Profile";
 
 function Post() {
   return (
-    <div className="col-xl-6 col-lg-12 order-lg-2 order-xl-1">
+    <div className="col-lg-8 news-post">
       <div className="card-body pb-1">
-        <Media />
-        <hr className="m-0" />
+        <Profile />
+        <hr />
 
-        <Content Content="Leave one wolf alive and the sheep are never safe. When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey." />
+        <Content content="Leave one wolf alive and the sheep are never safe. When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey." />
 
-        <hr className="m-0" />
+        <hr />
 
-        <LikeCmShare Likes="2k" Comments="200" />
+        <LikeCmt likes="2k" comments="200" />
 
-        <hr className="m-0" />
+        <hr />
 
         <div className="mt-3">
           <div className="media">
@@ -76,12 +76,7 @@ function Post() {
           <hr />
 
           <div className="media mb-2">
-            <img
-              src="assets/images/users/avatar-1.jpg"
-              height="32"
-              className="align-self-start rounded mr-2"
-              alt="Arya Stark"
-            />
+            <Profile />
             <div className="media-body">
               <Input
                 type="text"

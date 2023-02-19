@@ -2,7 +2,6 @@ function Trending() {
   return (
     <div>
       <h4 className="header-title mb-1">Trending</h4>
-
       <div className="media mt-3">
         <i className="uil uil-arrow-growth mr-2 font-18 text-primary"></i>
         <div className="media-body">

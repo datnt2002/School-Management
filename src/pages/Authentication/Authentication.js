@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import FormLogin from "./FormLogin";
-import FormForgot from "./FormForgot";
-import "./form.css";
+import FormForgot from "../../components/authentication/FormForgot";
+import FormLogin from "../../components/authentication/FormLogin";
+import "./authentication.css";
 
-export default function ModalForm() {
+function Authentication() {
   const [imageStyle, setImageStyle] = useState({});
   const [blurRightStyle, setBlurRightStyle] = useState({});
   const [blurLeftStyle, setBlurLeftStyle] = useState({});
@@ -76,3 +76,4 @@ export default function ModalForm() {
     </div>
   );
 }
+export default Authentication;

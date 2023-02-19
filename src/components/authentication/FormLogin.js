@@ -1,7 +1,6 @@
 import { useState } from "react";
-import "./form.css";
 
-import Input from "./Input";
+import Input from "../Tags/Input";
 
 function FormLogin() {
   const [userName, setUserName] = useState("");
