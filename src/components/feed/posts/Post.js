@@ -8,19 +8,13 @@ function Post() {
     <div className="col-xl-6 col-lg-12 order-lg-2 order-xl-1">
       <div className="card-body pb-1">
         <Media />
+        <hr className="m-0" />
+
+        <Content Content="Leave one wolf alive and the sheep are never safe. When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey." />
 
         <hr className="m-0" />
 
-        <Content
-          Content="Leave one wolf alive and the sheep are never safe. When people ask you what happened here, tell them the North remembers. Tell them winter came for House Frey."
-        />
-
-        <hr className="m-0" />
-
-        <LikeCmShare
-          Likes="2k"
-          Comments="200"
-        />
+        <LikeCmShare Likes="2k" Comments="200" />
 
         <hr className="m-0" />
 
