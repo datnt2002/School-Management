@@ -10,11 +10,7 @@ function Header() {
           Logo
         </a>
         <div className="search-btn">
-          <Input
-            className="form-control"
-            type="search"
-            placeholder="Search"
-          ></Input>
+          <Input className="form-control" type="search" placeholder="Search" />
           <button className="btn btn-outline-success" type="submit">
             Search
           </button>
