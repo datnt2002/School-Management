@@ -28,7 +28,7 @@ function SubNavAdmin() {
       </nav>
 
       <Routes>
-        <Route path="/Category" element={<Category />} />
+        <Route path="/Category" element={<Category />}></Route>
         <Route path="/NewsFeed" element={<NewsFeed />} />
       </Routes>
     </>
