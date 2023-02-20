@@ -1,0 +1,23 @@
+.tableCate > .row {
+    display: flex;
+    margin-right: -12px;
+    margin-left: -12px;
+}
+.tableCate .col-12 {
+    position: relative;
+    width: 100%;
+    padding-right: 12px;
+    padding-left: 12px;
+}
+.tableCate .card {
+    border: none;
+    -webkit-box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+    box-shadow: 0 0 35px 0 rgba(154,161,171,.15);
+    margin-bottom: 24px;
+    
+}
+.tableCate .card-body{
+    flex: 1 1 auto;
+    min-height: 1px;
+    padding: 1.5rem;
+}
