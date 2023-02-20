@@ -6,14 +6,7 @@ function Category(){
                     <div className="card-body">
                         <div className="row mb-2">
                             <div className="col-sm-4">
-                                <a href="javascript:void(0);" className="btn btn-danger mb-2"><i className="mdi mdi-plus-circle mr-2"></i> Add Products</a>
-                            </div>
-                            <div className="col-sm-8">
-                                <div className="text-sm-right">
-                                    <button type="button" className="btn btn-success mb-2 mr-1"><i className="mdi mdi-settings"></i></button>
-                                    <button type="button" className="btn btn-light mb-2 mr-1">Import</button>
-                                    <button type="button" className="btn btn-light mb-2">Export</button>
-                                </div>
+                                <a href="javascript:void(0);" className="btn btn-danger mb-2"><i className="mdi mdi-plus-circle mr-2"></i>Category</a>
                             </div>
                         </div>
 
