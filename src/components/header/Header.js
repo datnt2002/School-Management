@@ -4,18 +4,18 @@ import "./header.css";
 
 function Header() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        <a class="navbar-brand" href="#">
+    <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <div className="container">
+        <a className="navbar-brand" href="#">
           Logo
         </a>
-        <div class="search-btn">
+        <div className="search-btn">
           <Input
-            class="form-control"
+            className="form-control"
             type="search"
             placeholder="Search"
           ></Input>
-          <button class="btn btn-outline-success" type="submit">
+          <button className="btn btn-outline-success" type="submit">
             Search
           </button>
         </div>
