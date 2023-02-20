@@ -8,9 +8,9 @@ function App() {
     <div className="App">
       {/* <Authentication /> */}
       <Header />
-      <SemiHeader/>
+      <SemiHeader />
       {/* <NewsFeed /> */}
-      {/* <Category/> */}
+      <Category />
     </div>
   );
 }

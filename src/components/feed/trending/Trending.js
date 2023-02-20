@@ -7,7 +7,7 @@ function Trending() {
           <i className="uil uil-arrow-growth mr-2 font-18 text-primary"></i>
           <div className="media-body">
             <a className="mt-1 font-14" href="javascript:void(0);">
-              <strong>Golden Globes:</strong>
+              <strong>Golden Globes: </strong>
               <span className="text-muted">
                 The 27 Best moments from the Golden Globe Awards
               </span>
