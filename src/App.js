@@ -1,17 +1,15 @@
 import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import Header from "./components/header/Header";
 import Category from "./pages/Category/Category";
-import SemiHeader from "./components/SemiHeader/SemiHeader";
+import SubNavAdmin from "./components/subNav/SubNavAdmin";
 
 function App() {
   return (
     <div className="App">
       {/* <Authentication /> */}
       <Header />
-      <SemiHeader />
+      <SubNavAdmin/>
       {/* <NewsFeed /> */}
-
-      <Category />
     </div>
   );
 }

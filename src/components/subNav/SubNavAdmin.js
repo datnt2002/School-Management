@@ -2,7 +2,7 @@ import { Routes, Route, Link } from "react-router-dom";
 import Category from "../../pages/Category/Category";
 import NewsFeed from "../../pages/NewsFeed/NewsFeed";
 
-function SemiHeader() {
+function SubNavAdmin() {
   return (
     <>
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -34,4 +34,4 @@ function SemiHeader() {
     </>
   );
 }
-export default SemiHeader;
+export default SubNavAdmin;
