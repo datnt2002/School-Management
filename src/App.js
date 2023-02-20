@@ -10,7 +10,7 @@ function App() {
       <Header />
       <SemiHeader/>
       {/* <NewsFeed /> */}
-      {/* <Category/> */}
+      <Category/>
     </div>
   );
 }

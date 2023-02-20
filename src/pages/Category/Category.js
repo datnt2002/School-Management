@@ -18,33 +18,33 @@ function Category(){
                         </div>
 
                         <div className="table-responsive">
-                            <div id="products-datatable_wrapper" className="dataTables_wrapper dt-bootstrap4 no-footer"><div className="row"><div className="col-sm-12 col-md-6"><div className="dataTables_length" id="products-datatable_length"><label>Display <select className="custom-select custom-select-sm ml-1 mr-1"><option value="5">5</option><option value="10">10</option><option value="20">20</option><option value="-1">All</option></select> products</label></div></div><div className="col-sm-12 col-md-6"><div id="products-datatable_filter" className="dataTables_filter"><label>Search:<input type="search" className="form-control form-control-sm" placeholder="" aria-controls="products-datatable"/></label></div></div></div><div className="row"><div className="col-sm-12"><table className="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline" id="products-datatable" role="grid" aria-describedby="products-datatable_info" style="width: 1097px;">
+                            <div id="products-datatable_wrapper" className="dataTables_wrapper dt-bootstrap4 no-footer"><div className="row"><div className="col-sm-12 col-md-6"><div className="dataTables_length" id="products-datatable_length"><label>Display <select className="custom-select custom-select-sm ml-1 mr-1"><option value="5">5</option><option value="10">10</option><option value="20">20</option><option value="-1">All</option></select> products</label></div></div><div className="col-sm-12 col-md-6"><div id="products-datatable_filter" className="dataTables_filter"><label>Search:<input type="search" className="form-control form-control-sm" placeholder="" aria-controls="products-datatable"/></label></div></div></div><div className="row"><div className="col-sm-12"><table className="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline" id="products-datatable" role="grid" aria-describedby="products-datatable_info">
                                 <thead className="thead-light">
                                     <tr role="row">
-                                        <th className="all dt-checkboxes-cell dt-checkboxes-select-all sorting_disabled" style="width: 28.6px;" rowspan="1" colspan="1" data-col="0" aria-label=" &amp;nbsp;">
+                                        <th className="all dt-checkboxes-cell dt-checkboxes-select-all sorting_disabled" rowspan="1" colspan="1" data-col="0" aria-label=" &amp;nbsp;">
                                             <div className="custom-control custom-checkbox">
                                                 <input type="checkbox" className="custom-control-input dt-checkboxes"/>
                                                 <label className="custom-control-label">&nbsp;</label>
                                             </div>
                                         </th>
-                                        <th className="all sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 272.8px;" aria-sort="ascending" aria-label="Product: activate to sort column descending">
+                                        <th className="all sorting_asc" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Product: activate to sort column descending">
                                             Product
                                         </th>
-                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 106.8px;" aria-label="Category: activate to sort column ascending">
+                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" aria-label="Category: activate to sort column ascending">
                                             Category
                                         </th>
-                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 95.8px;" aria-label="Added Date: activate to sort column ascending">
+                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" aria-label="Added Date: activate to sort column ascending">
                                             Added Date</th>
-                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 50.8px;" aria-label="Price: activate to sort column ascending">
+                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" aria-label="Price: activate to sort column ascending">
                                             Price
                                         </th>
-                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 70.8px;" aria-label="Quantity: activate to sort column ascending">
+                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" aria-label="Quantity: activate to sort column ascending">
                                             Quantity
                                         </th>
-                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" style="width: 53.8px;" aria-label="Status: activate to sort column ascending">
+                                        <th className="sorting" tabindex="0" aria-controls="products-datatable" rowspan="1" colspan="1" aria-label="Status: activate to sort column ascending">
                                             Status
                                         </th>
-                                        <th style="width: 85.6px;" className="sorting_disabled" rowspan="1" colspan="1" aria-label="Action">
+                                        <th className="sorting_disabled" rowspan="1" colspan="1" aria-label="Action">
                                             Action
                                         </th>
                                     </tr>
