@@ -11,8 +11,8 @@ img {
     padding: calc(31px / 2) 20px calc(31px / 2) 57px !important;
     text-align: left!important;
     position: relative;
-    background-color: #fafbfd;
-    border: 1px solid #f1f3fa;
+    background-color: rgba(var(--bs-info-rgb),var(--bs-bg-opacity))!important;
+    border: none;
     border-width: 0 1px;
     min-height: 70px;
 }
