@@ -1,6 +1,3 @@
-.active{
-    
-}
 img {
     height: 32px;
     width: 32px;
@@ -11,7 +8,7 @@ img {
     left: 15px;
 }
 .user {
-    padding: calc(31px / 2) 20px calc(31px / 2) 57px!important;
+    padding: calc(31px / 2) 20px calc(31px / 2) 57px !important;
     text-align: left!important;
     position: relative;
     background-color: #fafbfd;
@@ -27,4 +24,18 @@ img {
 }
 .user > .media{
     margin-top: 11px;
+}
+
+.navbar{
+    padding: 0 !important;
+}
+
+.search-btn{
+    display: flex;
+    position: absolute;
+    left: 15%;
+}
+
+.navbar{
+    position: sticky-top;
 }

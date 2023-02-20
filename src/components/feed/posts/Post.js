@@ -5,10 +5,10 @@ import Profile from "../../profile/Profile";
 
 function Post() {
   return (
-    <div className="col-lg-8 news-post">
+    <div className="news-post">
       <div className="card-body pb-1">
         <div className="card">
-          <Profile 
+          <Profile
             className="mr-2 rounded"
             imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D"
             alt="image"
@@ -37,7 +37,7 @@ function Post() {
                 status="2 mins ago"
               />
               <p className="my-1">
-                <Content 
+                <Content
                   content="This is awesome! Proud of sis :) Waiting for you to come back to
                 winterfall"
                 />
@@ -47,9 +47,7 @@ function Post() {
             <hr />
 
             <div className="media mb-2 reply">
-              <Profile 
-                imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D"
-              />
+              <Profile imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D" />
               <div className="media-body">
                 <Input
                   type="text"
@@ -58,7 +56,6 @@ function Post() {
                 ></Input>
               </div>
             </div>
-        
           </div>
         </div>
       </div>
