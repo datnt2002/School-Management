@@ -1,32 +1,37 @@
+import { Routes, Route, Link } from "react-router-dom";
+import Category from "../../pages/Category/Category";
+import NewsFeed from "../../pages/NewsFeed/NewsFeed";
+
 function SemiHeader() {
   return (
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container">
-        {/* <a class="navbar-brand" href="#">Navbar</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNavDropdown"> */}
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Dashboard
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Features
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              Pricing
-            </a>
-          </li>
-        </ul>
-        {/* </div> */}
-      </div>
-    </nav>
+    <>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                Dashboard
+              </a>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/Category">
+                Category
+              </Link>
+            </li>
+            <li class="nav-item">
+              <Link class="nav-link" to="/NewsFeed">
+                News Feed
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <Routes>
+        <Route path="/Category" element={<Category />} />
+        <Route path="/NewsFeed" element={<NewsFeed />} />
+      </Routes>
+    </>
   );
 }
 export default SemiHeader;
