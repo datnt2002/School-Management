@@ -19,13 +19,10 @@ function CategoryDetail() {
       </td>
       <td>Aeron Chairs</td>
       <td>07/07/2018</td>
-      <td>
-        <span className="badge badge-success">In used</span>
-      </td>
 
       <td className="table-action">
         <a href="javascript:void(0);" className="action-icon">
-          <i className="mdi mdi-delete"></i>
+          {/* <i className="mdi mdi-delete"></i> */}Edit
         </a>
       </td>
     </tr>
