@@ -1,0 +1,6 @@
+small{
+    display: block;
+}
+.createEvent .card{
+    height: inherit;
+}

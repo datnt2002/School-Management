@@ -22,7 +22,7 @@ function FormForgot() {
           <form onSubmit={handleSubmit}>
             <div className="field-name">
               <Input
-                label="Username: "
+                label="Username "
                 state={userName}
                 onSetState={(e) => setUserName(e.target.value)}
                 placeholder="Enter name"
