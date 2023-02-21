@@ -1,5 +1,6 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Category from "../../pages/Category/Category";
+import CreateNewCategory from "../../pages/Category/CreateNewCategory";
 import NewsFeed from "../../pages/NewsFeed/NewsFeed";
 
 function SubNavAdmin() {
@@ -29,6 +30,10 @@ function SubNavAdmin() {
 
       <Routes>
         <Route path="/Category" element={<Category />}></Route>
+        <Route
+          path="/Category/CreateNewCategory"
+          element={<CreateNewCategory />}
+        ></Route>
         <Route path="/NewsFeed" element={<NewsFeed />} />
       </Routes>
     </>
