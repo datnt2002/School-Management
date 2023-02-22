@@ -4,8 +4,11 @@
 .card > .list-group {
     border-top: none!important;
 }
-.card > .media, .comment > .media, .reply{
+.card > .media, .comment > .user-comment > .media, .reply{
     display: flex;
+}
+.user-comment{
+    padding-top: 10px;
 }
 .h5, h5{
     font-size: .9375rem!important;
@@ -22,7 +25,7 @@
     width: 42px!important;
 }
 .news-post > .mb-0{
-    margin: 0!important;
+    margin: 0px!important;
 }
 .news-menu, .news-post, .news-trending {
     padding-top: 60px;
@@ -30,13 +33,16 @@
 input::placeholder{
     color: #adb5bd!important;
 }
-.reply .media-body{
-    
+.comment p .my-3{
+    margin-top: 0!important;
+}
+.mt-3{
+    max-height: 20rem;
+    overflow-y: auto;
 }
 .reply textarea{
     resize: none;
     border: 0;
     outline: 0;
     border-bottom: 1px solid #ccc;
-    
 }

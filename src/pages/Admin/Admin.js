@@ -18,7 +18,7 @@ function Admin() {
                 <div className="row mb-2">
                   <div className="col-sm-4">
                     <Link
-                      to="Category/CreateNewCategory"
+                      to="/Admin/AdminNewEvent"
                       className="btn btn-danger mb-2"
                     >
                       <i className="mdi mdi-plus-circle mr-2"></i>Create Event

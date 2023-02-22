@@ -3,6 +3,7 @@ import Category from "../../pages/Category/Category";
 import CreateNewCategory from "../../pages/Category/CreateNewCategory";
 import NewsFeed from "../../pages/NewsFeed/NewsFeed";
 import Admin from "../../pages/Admin/Admin";
+import AdminNewEvent from "../../pages/Admin/AdminNewEvent";
 
 function SubNavAdmin() {
   return (
@@ -36,12 +37,17 @@ function SubNavAdmin() {
 
       <Routes>
         <Route path="/Category/*" element={<Category />}></Route>
+        <Route path="/Admin/*" element={<Admin />} />
+        <Route
+          path="/Admin/AdminNewEvent"
+          element={<AdminNewEvent />}
+        ></Route>
         <Route
           path="/Category/CreateNewCategory"
           element={<CreateNewCategory />}
         ></Route>
         <Route path="/NewsFeed" element={<NewsFeed />} />
-        <Route path="/Admin" element={<Admin />} />
+        
       </Routes>
     </>
   );

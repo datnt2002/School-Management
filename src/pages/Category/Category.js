@@ -53,12 +53,6 @@ function Category() {
           </div>
         </div>
       </div>
-      {/* <Routes>
-        <Route
-          path="/Category/CreateNewCategory"
-          element={<CreateNewCategory />}
-        />
-      </Routes> */}
     </>
   );
 }
