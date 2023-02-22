@@ -35,7 +35,7 @@ function SubNavAdmin() {
       </nav>
 
       <Routes>
-        <Route path="/Category" element={<Category />}></Route>
+        <Route path="/Category/*" element={<Category />}></Route>
         <Route
           path="/Category/CreateNewCategory"
           element={<CreateNewCategory />}

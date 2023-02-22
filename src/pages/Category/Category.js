@@ -1,7 +1,7 @@
 import { Link, Route, Routes } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import CreateNewCategory from "./CreateNewCategory";
-import "./category.css"
+import "./category.css";
 
 function Category() {
   return (
@@ -9,7 +9,7 @@ function Category() {
       <div className="container">
         <div class="col-12">
           <div class="page-title-box">
-              <h4 class="page-title">Category</h4>
+            <h4 class="page-title">Category</h4>
           </div>
         </div>
         <div className="tableCate">
@@ -23,7 +23,8 @@ function Category() {
                         to="/Category/CreateNewCategory"
                         className="btn btn-danger mb-2"
                       >
-                        <i className="mdi mdi-plus-circle mr-2"></i>Create Category
+                        <i className="mdi mdi-plus-circle mr-2"></i>Create
+                        Category
                       </Link>
                     </div>
                   </div>
@@ -32,7 +33,7 @@ function Category() {
                     <div className="dataTables_wrapper dt-bootstrap4 no-footer">
                       <div className="row">
                         <div className="col-sm-12">
-                          <Table 
+                          <Table
                             content="Category"
                             description="Description"
                             addedDateTitle="Added Date"
@@ -41,7 +42,7 @@ function Category() {
                             addedDate="12/12/12/"
                             edit="Edit"
                             deleteA="Delete"
-                          />  
+                          />
                         </div>
                       </div>
                     </div>
@@ -52,10 +53,13 @@ function Category() {
           </div>
         </div>
       </div>
-      <Routes>
-        <Route path="./CreateNewCategory" element={<CreateNewCategory />}/>
-      </Routes>
+      {/* <Routes>
+        <Route
+          path="/Category/CreateNewCategory"
+          element={<CreateNewCategory />}
+        />
+      </Routes> */}
     </>
-    );
+  );
 }
 export default Category;

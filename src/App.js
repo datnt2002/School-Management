@@ -6,8 +6,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <SubNavAdmin/>
-      <CreateNewCategory/>
+      <SubNavAdmin />
     </div>
   );
 }
