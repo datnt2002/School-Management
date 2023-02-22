@@ -13,9 +13,9 @@ function Table({content, description, addedDate, firstClosure,finalClosure,conte
                     </th>
                     <th className="sorting">{content}</th>
                     <th className="sorting">{description}</th>
-                    <th className="sorting">{addedDateTitle}</th>
-                    <th className="sorting">{firstClosureTitle}</th>
-                    <th className="sorting">{finalClosureTitle}</th>
+                    <th className="sorting" hidden={!addedDateTitle ? "hidden" : ""}>{addedDateTitle}</th>
+                    <th className="sorting" hidden={!firstClosureTitle ? "hidden" : ""}>{firstClosureTitle}</th>
+                    <th className="sorting" hidden={!finalClosureTitle ? "hidden" : ""}>{finalClosureTitle}</th>
                     <th className="sorting_disabled">Action</th>
                 </tr>
             </thead>
@@ -38,9 +38,9 @@ function Table({content, description, addedDate, firstClosure,finalClosure,conte
                     </p>
                 </td>
                 <td>{descriptionTitle}</td>
-                <td>{addedDate}</td>
-                <td>{firstClosure}</td>
-                <td>{finalClosure}</td>
+                <td hidden={!addedDate ? "hidden" : ""}>{addedDate}</td>
+                <td hidden={!firstClosure ? "hidden" : ""}>{firstClosure}</td>
+                <td hidden={!finalClosure ? "hidden" : ""}>{finalClosure}</td>
 
                 <td className="table-action">
                     <a href="javascript:void(0);" className="action-icon">

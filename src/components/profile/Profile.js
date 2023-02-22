@@ -1,10 +1,6 @@
-function Profile({ imageSrc, userName, userDepartment, className, alt, height,status }) {
-  // if(imageSrc === ""){
-  //   const img = document.getElementsByTagName("img");
-  //   console.log(img)
-  //   img.classList.add("hidden")
-  // }
 
+
+function Profile({ imageSrc, userName, userDepartment, className, alt, height,status }) {
   return (
     <div className="media">
       <img
@@ -12,6 +8,7 @@ function Profile({ imageSrc, userName, userDepartment, className, alt, height,st
         src={imageSrc}
         alt={alt}
         height={height}
+        hidden={!imageSrc ? "hidden" : ""}
       />
       <div className="media-body">
         <h5 className="mt-1 mb-0">{userName}</h5>
