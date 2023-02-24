@@ -4,3 +4,6 @@ small{
 .createEvent .card{
     height: inherit;
 }
+.table-responsive{
+    overflow-x: hidden;
+}

@@ -14,7 +14,7 @@ function ShortCut() {
         href="javascript:void(0);"
         className="list-group-item list-group-item-action border-0"
       >
-        <i className="uil uil-comment-alt-message mr-1"></i> Messages
+        <i className="uil uil-comment-alt-message mr-1"></i> Up your post
       </a>
       <Link
         to="/Category"

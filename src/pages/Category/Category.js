@@ -1,6 +1,5 @@
 import { Link, Route, Routes } from "react-router-dom";
 import Table from "../../components/Table/Table";
-import CreateNewCategory from "./CreateNewCategory";
 import "./category.css";
 
 function Category() {
@@ -9,7 +8,7 @@ function Category() {
       <div className="container">
         <div class="col-12">
           <div class="page-title-box">
-            <h4 class="page-title">Category</h4>
+            <h3 class="page-title">Category</h3>
           </div>
         </div>
         <div className="tableCate">

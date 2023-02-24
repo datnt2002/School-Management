@@ -4,7 +4,7 @@ function Profile({ imageSrc, userName, userDepartment, className, alt, height,st
   return (
     <div className="media">
       <img
-        className={className} /* "d-flex align-self-start rounded mr-2" */
+        className={className}
         src={imageSrc}
         alt={alt}
         height={height}

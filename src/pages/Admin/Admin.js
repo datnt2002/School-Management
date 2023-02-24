@@ -7,10 +7,10 @@ function Admin() {
     <div className="container">
       <div class="col-12">
         <div class="page-title-box">
-          <h4 class="page-title">Admin</h4>
+          <h3 class="page-title">Admin</h3>
         </div>
       </div>
-      <div className="tableCate">
+      <div className="tableAdmin">
         <div className="row">
           <div className="col-12">
             <div className="card">

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import Input from "../Tags/Input";
 
@@ -14,6 +14,9 @@ function FormLogin() {
       method: "POST",
       body: JSON.stringify(userInfo),
     };
+    useEffect(()=>){
+      
+    }
     fetch(url, options)
       .then((res) => res.json())
       .then((data) => {})
