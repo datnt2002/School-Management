@@ -14,15 +14,15 @@ function FormLogin() {
       method: "POST",
       body: JSON.stringify(userInfo),
     };
-    useEffect(()=>){
-      
-    }
-    fetch(url, options)
-      .then((res) => res.json())
-      .then((data) => {})
-      .catch((error) => {
-        console.log("faul");
-      });
+    // useEffect(()=>()){
+
+    // }
+    // fetch(url, options)
+    //   .then((res) => res.json())
+    //   .then((data) => {})
+    //   .catch((error) => {
+    //     console.log("faul");
+    //   });
   };
 
   return (

@@ -1,8 +1,12 @@
-import { Link, Route, Routes } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Table from "../../components/Table/Table";
 import "./category.css";
 
 function Category() {
+  fetch("https://localhost:7069/api/category")
+    .then((res) => res.json())
+    .then((data) => console.log(data));
+
   return (
     <>
       <div className="container">
