@@ -31,6 +31,7 @@ function Admin() {
                     <div className="row">
                       <div className="col-sm-12">
                         <Table
+                          hidden="hidden"
                           content="Event"
                           description="Category"
                           firstClosureTitle="First Closure Date"

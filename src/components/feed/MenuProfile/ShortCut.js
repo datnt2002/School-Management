@@ -1,5 +1,4 @@
 import { Link, Route, Routes } from "react-router-dom";
-import NewsFeed from "../../../pages/NewsFeed/NewsFeed";
 
 function ShortCut() {
   return (

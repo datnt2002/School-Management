@@ -6,9 +6,9 @@ function Category() {
   return (
     <>
       <div className="container">
-        <div class="col-12">
-          <div class="page-title-box">
-            <h3 class="page-title">Category</h3>
+        <div className="col-12">
+          <div className="page-title-box">
+            <h3 className="page-title">Category</h3>
           </div>
         </div>
         <div className="tableCate">
