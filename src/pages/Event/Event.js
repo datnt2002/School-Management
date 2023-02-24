@@ -1,13 +1,26 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { apiEvent } from "../../api/Api";
 import Table from "../../components/Table/Table";
-import "./admin.css";
+import "./event.css";
 
-function Admin() {
+function Event() {
+  const [data, setData] = useState([]);
+  console.log(data);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(apiEvent);
+      const json = await response.json();
+      setData(json);
+    };
+    fetchData();
+  }, []);
+
   return (
     <div className="container">
-      <div class="col-12">
-        <div class="page-title-box">
-          <h3 class="page-title">Admin</h3>
+      <div className="col-12">
+        <div className="page-title-box">
+          <h3 className="page-title">Admin</h3>
         </div>
       </div>
       <div className="tableAdmin">
@@ -18,7 +31,7 @@ function Admin() {
                 <div className="row mb-2">
                   <div className="col-sm-4">
                     <Link
-                      to="/Admin/AdminNewEvent"
+                      to="/Event/CreateNewEvent"
                       className="btn btn-danger mb-2"
                     >
                       <i className="mdi mdi-plus-circle mr-2"></i>Create Event
@@ -32,14 +45,10 @@ function Admin() {
                       <div className="col-sm-12">
                         <Table
                           hidden="hidden"
-                          content="Event"
+                          name="Event"
                           description="Category"
                           firstClosureTitle="First Closure Date"
                           finalClosureTitle="Final Closure Date"
-                          contentTitle="Test"
-                          descriptionTitle="Game"
-                          firstClosure="12/12/12"
-                          finalClosure="34/34/34"
                           edit="Edit"
                         />
                       </div>
@@ -55,4 +64,4 @@ function Admin() {
   );
 }
 
-export default Admin;
+export default Event;

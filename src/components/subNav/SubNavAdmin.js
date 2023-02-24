@@ -2,8 +2,8 @@ import { Routes, Route, Link } from "react-router-dom";
 import Category from "../../pages/Category/Category";
 import CreateNewCategory from "../../pages/Category/CreateNewCategory";
 import NewsFeed from "../../pages/NewsFeed/NewsFeed";
-import Admin from "../../pages/Admin/Admin";
-import AdminNewEvent from "../../pages/Admin/AdminNewEvent";
+import Event from "../../pages/Event/Event";
+import CreateNewEvent from "../../pages/Event/CreateNewEvent";
 
 function SubNavAdmin() {
   return (
@@ -27,8 +27,8 @@ function SubNavAdmin() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Admin">
-                Admin (Test)
+              <Link className="nav-link" to="/Event">
+                Event (Test)
               </Link>
             </li>
           </ul>
@@ -37,10 +37,10 @@ function SubNavAdmin() {
 
       <Routes>
         <Route path="/Category/*" element={<Category />}></Route>
-        <Route path="/Admin/*" element={<Admin />} />
+        <Route path="/Event/*" element={<Event />} />
         <Route
-          path="/Admin/AdminNewEvent"
-          element={<AdminNewEvent />}
+          path="/Event/CreateNewEvent"
+          element={<CreateNewEvent />}
         ></Route>
         <Route
           path="/Category/CreateNewCategory"
