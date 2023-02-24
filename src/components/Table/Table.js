@@ -1,3 +1,4 @@
+import { apiCategory } from "../../api/Api";
 import "./table.css";
 function Table({
   data,
@@ -10,6 +11,24 @@ function Table({
   edit,
   deleteAction,
 }) {
+  const handleDelete = (e) => {
+    e.preventDefault();
+
+    const itemId = e.target.getAttribute("data-id");
+
+    fetch(apiCategory + `/${itemId}`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        if (res.ok) {
+          console.log("Resource deleted successfully");
+        } else {
+          console.error("Failed to delete resource");
+        }
+      })
+      .catch((error) => console.error("co loi r"));
+  };
+
   return (
     <table className="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline">
       <thead className="thead-light">
@@ -67,13 +86,19 @@ function Table({
               </td>
               <td className="table-action">
                 <div className="d-flex justify-content-evenly">
-                  <button type="button" className="btn btn-primary">
+                  <button
+                    type="button"
+                    className="btn btn-primary"
+                    hidden={!edit ? "hidden" : ""}
+                  >
                     {edit}
                   </button>
                   <button
                     type="button"
                     className="btn btn-danger"
                     hidden={!deleteAction ? "hidden" : ""}
+                    onClick={handleDelete}
+                    data-id={data.id}
                   >
                     {deleteAction}
                   </button>
