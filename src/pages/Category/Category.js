@@ -1,11 +1,22 @@
 import { Link } from "react-router-dom";
+
 import Table from "../../components/Table/Table";
 import "./category.css";
+import { apiCategory } from "../../api/Api";
+import { useEffect, useState } from "react";
 
 function Category() {
-  fetch("https://localhost:7069/api/category")
-    .then((res) => res.json())
-    .then((data) => console.log(data));
+  const [data, setData] = useState([]);
+
+  console.log(data);
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(apiCategory);
+      const json = await response.json();
+      setData(json);
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -40,11 +51,10 @@ function Category() {
                             content="Category"
                             description="Description"
                             addedDateTitle="Added Date"
-                            contentTitle="Adirondack Chair"
-                            descriptionTitle="Aeron Chairs"
-                            addedDate="12/12/12/"
+                            hidden="hidden"
+                            data={data}
                             edit="Edit"
-                            deleteA="Delete"
+                            deleteAction="Delete"
                           />
                         </div>
                       </div>
