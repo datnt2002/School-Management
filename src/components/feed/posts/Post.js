@@ -57,12 +57,10 @@ function Post() {
                   userName="Sansa Stark"
                   status="2 mins ago"
                 />
-                {/* <p className="my-1"> */}
                   <Content
                     content="This is awesome! Proud of sis :) Waiting for you to come back to
                   winterfall"
                   />
-                {/* </p> */}
               </div>
                 
               <div className="user-comment">
@@ -74,12 +72,10 @@ function Post() {
                   userName="Sansa Stark"
                   status="2 mins ago"
                 />
-                {/* <p className="my-1"> */}
                   <Content
                     content="This is awesome! Proud of sis :) Waiting for you to come back to
                   winterfall"
                   />
-                {/* </p> */}
               </div>
 
               <div className="user-comment">
@@ -91,12 +87,10 @@ function Post() {
                   userName="Sansa Stark"
                   status="2 mins ago"
                 />
-                {/* <p className="my-1"> */}
                   <Content
                     content="This is awesome! Proud of sis :) Waiting for you to come back to
                   winterfall"
                   />
-                {/* </p> */}
               </div>
               <div className="user-comment">
                 <Profile
@@ -107,12 +101,10 @@ function Post() {
                   userName="Sansa Stark"
                   status="2 mins ago"
                 />
-                {/* <p className="my-1"> */}
                   <Content
                     content="This is awesome! Proud of sis :) Waiting for you to come back to
                   winterfall"
                   />
-                {/* </p> */}
               </div>
               <div className="user-comment">
                 <Profile
@@ -123,12 +115,10 @@ function Post() {
                   userName="Sansa Stark"
                   status="2 mins ago"
                 />
-                {/* <p className="my-1"> */}
                   <Content
                     content="This is awesome! Proud of sis :) Waiting for you to come back to
                   winterfall"
                   />
-                {/* </p> */}
               </div>
               <div className="user-comment">
                 <Profile
@@ -139,12 +129,10 @@ function Post() {
                   userName="Sansa Stark"
                   status="2 mins ago"
                 />
-                {/* <p className="my-1"> */}
                   <Content
                     content="This is awesome! Proud of sis :) Waiting for you to come back to
                   winterfall"
                   />
-                {/* </p> */}
               </div>
               <div className="user-comment">
                 <Profile
@@ -155,12 +143,10 @@ function Post() {
                   userName="Sansa Stark"
                   status="2 mins ago"
                 />
-                {/* <p className="my-1"> */}
                   <Content
                     content="This is awesome! Proud of sis :) Waiting for you to come back to
                   winterfall"
                   />
-                {/* </p> */}
               </div>
             </div>
 
