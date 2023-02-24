@@ -53,7 +53,6 @@ function Category() {
                             addedDateTitle="Added Date"
                             hidden="hidden"
                             data={data}
-                            edit="Edit"
                             deleteAction="Delete"
                           />
                         </div>
