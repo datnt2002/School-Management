@@ -41,10 +41,8 @@ function Table({
       </thead>
       <tbody>
         {data.map((data) => {
-          
-
           return (
-            <tr role="row">
+            <tr role="row" key={data.id}>
               <td className="dt-checkboxes-cell" hidden={hidden}>
                 <div className="custom-control custom-checkbox">
                   <input
