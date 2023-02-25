@@ -14,8 +14,6 @@ function NewsFeed() {
           </div>
           <div className="col-lg-9 feed-content">
             <Post />
-            <Post />
-            <Post />
           </div>
         </div>
       </div>
