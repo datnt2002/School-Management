@@ -1,9 +1,9 @@
 import { Routes, Route, Link } from "react-router-dom";
 import Input from "../../components/Tags/Input";
-import Admin from "../Admin/Admin";
-import "./admin.css"
+import Event from "../Event/Event";
+import "./event.css"
 
-function AdminNewEvent() {
+function CreateNewEvent() {
     return(
         <>
       <div className="container createCate">
@@ -64,11 +64,11 @@ function AdminNewEvent() {
       </div>
 
       <Routes>
-        <Route path="/Admin" element={<Admin />}>
+        <Route path="/Admin" element={<Event />}>
           {" "}
         </Route>
       </Routes>
     </>
     )
 }
-export default AdminNewEvent;
+export default CreateNewEvent;
