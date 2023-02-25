@@ -7,16 +7,16 @@ import { useEffect, useState } from "react";
 
 function Category() {
   const [data, setData] = useState([]);
-
+  const [dataChanged, setDataChanged] = useState(false);
   console.log(data);
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(apiCategory);
-      const json = await response.json();
-      setData(json);
-    };
-    fetchData();
-  }, []);
+  const fetchData = async () => {
+    const response = await fetch(apiCategory);
+    const json = await response.json();
+    setData(json);
+  };
+
+  useEffect(fetchData, [data]);
+
 
   return (
     <>
