@@ -50,6 +50,7 @@ function Event() {
                           firstClosureTitle="First Closure Date"
                           finalClosureTitle="Final Closure Date"
                           edit="Edit"
+                          data={data}
                         />
                       </div>
                     </div>

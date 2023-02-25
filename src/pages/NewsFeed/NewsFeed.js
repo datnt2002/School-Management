@@ -4,6 +4,9 @@ import Trending from "../../components/feed/trending/Trending";
 import "./newsFeed.css";
 
 function NewsFeed() {
+  
+  
+  
   return (
     <>
       <div className="container">

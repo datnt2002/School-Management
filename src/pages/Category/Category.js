@@ -11,12 +11,12 @@ function Category() {
   console.log(data);
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(apiCategory);
+      const response = await fetch(`${apiCategory}/${data}`);
       const json = await response.json();
       setData(json);
     };
     fetchData();
-  }, []);
+  }, [data]);
 
   return (
     <>
