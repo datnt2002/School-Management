@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Tags/Input";
 import Category from "./Category";
 import { apiCategory } from "../../api/Api";
@@ -8,6 +8,8 @@ import "./category.css";
 function CreateNewCategory() {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
+
+  const navigate = useNavigate();
 
   const addedDate = new Date();
 
@@ -25,7 +27,9 @@ function CreateNewCategory() {
       body: JSON.stringify(newCategory),
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        navigate("/category");
+      })
       .catch((err) => console.log("cannot Post"));
   };
 

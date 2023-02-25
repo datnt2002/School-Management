@@ -1,22 +1,21 @@
 import { Link } from "react-router-dom";
 
+import { useEffect, useState } from "react";
 import Table from "../../components/Table/Table";
 import "./category.css";
 import { apiCategory } from "../../api/Api";
-import { useEffect, useState } from "react";
 
 function Category() {
   const [data, setData] = useState([]);
-  const [dataChanged, setDataChanged] = useState(false);
-  console.log(data);
-  const fetchData = async () => {
-    const response = await fetch(apiCategory);
-    const json = await response.json();
-    setData(json);
-  };
 
-  useEffect(fetchData, [data]);
-
+  useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(apiCategory);
+      const json = await response.json();
+      setData(json);
+    };
+    fetchData();
+  }, []);
 
   return (
     <>
@@ -53,6 +52,7 @@ function Category() {
                             addedDateTitle="Added Date"
                             hidden="hidden"
                             data={data}
+                            onSetData={setData}
                             deleteAction="Delete"
                           />
                         </div>

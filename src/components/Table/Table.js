@@ -9,24 +9,25 @@ function Table({
   finalClosureTitle,
   hidden,
   edit,
+  onSetData,
   deleteAction,
 }) {
-  const handleDelete = (e) => {
+  const handleDelete = async (e) => {
     e.preventDefault();
 
     const itemId = e.target.getAttribute("data-id");
 
-    fetch(apiCategory + `/${itemId}`, {
+    await fetch(apiCategory + `/${itemId}`, {
       method: "DELETE",
     })
       .then((res) => {
-        if (res.ok) {
-          console.log("Resource deleted successfully");
-        } else {
-          console.error("Failed to delete resource");
-        }
+        res.json();
       })
       .catch((error) => console.error("co loi r"));
+
+    fetch(apiCategory)
+      .then((res) => res.json())
+      .then((data) => onSetData(data));
   };
 
   return (
