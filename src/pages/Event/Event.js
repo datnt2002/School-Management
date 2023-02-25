@@ -49,8 +49,8 @@ function Event() {
                           description="Category"
                           firstClosureTitle="First Closure Date"
                           finalClosureTitle="Final Closure Date"
-                          edit="Edit"
                           data={data}
+                          edit="Edit"
                         />
                       </div>
                     </div>

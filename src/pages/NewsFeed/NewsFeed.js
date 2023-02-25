@@ -4,9 +4,6 @@ import Trending from "../../components/feed/trending/Trending";
 import "./newsFeed.css";
 
 function NewsFeed() {
-  
-  
-  
   return (
     <>
       <div className="container">
@@ -16,8 +13,6 @@ function NewsFeed() {
             <Trending />
           </div>
           <div className="col-lg-9 feed-content">
-            <Post />
-            <Post />
             <Post />
           </div>
         </div>
