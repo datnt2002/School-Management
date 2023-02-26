@@ -84,6 +84,6 @@ function CreateNewEvent() {
         </Route>
       </Routes>
     </>
-    )
+  );
 }
 export default CreateNewEvent;

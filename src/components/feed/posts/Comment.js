@@ -3,7 +3,7 @@ import { apiComment } from "../../../api/Api";
 import Profile from "../../profile/Profile";
 
 
-function Comment({activeCm}){
+function Comment({activeCmt}){
   const [dataComment, setDataComment] = useState([]);
   
   useEffect(()=>{
@@ -19,7 +19,7 @@ function Comment({activeCm}){
         <>
         {dataComment.map((dataComment) => {        
             return(
-                <div className="mt-3" hidden={activeCm}>
+                <div className="mt-3" hidden={activeCmt}>
                     <div className="comment" key={dataComment.commentId}>
                         <div className="user-comment">
                             <Profile

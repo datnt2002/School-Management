@@ -29,16 +29,16 @@ function FormLogin() {
     <>
       <div className="form-container form-login">
         <div className="login-form-body">
-          <div className="form-header">
-            <h1>Login</h1>
-          </div>
+          
           <form onSubmit={handleSubmit}>
+            <div className="form-header">
+              <h1>Login</h1>
+            </div>
             <div className="field-name">
               <Input
-                label="Username "
+                label="Username"
                 state={userName}
                 onSetState={(e) => setUserName(e.target.value)}
-                placeholder="Enter name"
                 type="text"
               ></Input>
             </div>
@@ -47,7 +47,6 @@ function FormLogin() {
                 label="Password"
                 state={password}
                 onSetState={(e) => setPassword(e.target.value)}
-                placeholder="Enter password"
                 type="password"
               ></Input>
             </div>

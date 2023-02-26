@@ -73,22 +73,22 @@
     animation-duration: 1s;
     animation-fill-mode: forwards;
 }
-.form-field > input{
+/* .form-field > input{
     padding: 8px 60px 8px 1px;
 
     background: transparent;
     border: 0;
     outline: 0;
     border-bottom: 2px solid #fff;
-}
+} */
 
 input::placeholder{
     color: #f5f5f5;
 } 
 
-.form-field > label{
+/* .form-field > label{
     display: flex;
-}
+} */
 
 .submit-button {
     background-color: #c2fbd7;
@@ -235,3 +235,8 @@ input::placeholder{
         object-fit: cover;
     }
 }
+
+
+
+
+  
