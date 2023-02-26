@@ -8,30 +8,30 @@ function Post() {
   const [dataIdea, setDataIdea] = useState([]);
   const [dataComment, setDataComment] = useState([]);
 
-  function handleActiveCm() {
-    if (activeCmt === "hidden") {
-      setActiveCmt("");
-    } else {
-      setActiveCmt("hidden");
-    }
-  }
+  // function handleActiveCm() {
+  //   if (activeCmt === "hidden") {
+  //     setActiveCmt("");
+  //   } else {
+  //     setActiveCmt("hidden");
+  //   }
+  // }
 
-  console.log(dataIdea);
-  console.log(dataComment);
-  useEffect(() => {
-    const fetchDataIdea = async () => {
-      const response = await fetch(apiIdea);
-      const json = await response.json();
-      setDataIdea(json);
-    };
-    const fetchDataComment = async () => {
-      const response = await fetch(apiComment);
-      const json = await response.json();
-      setDataComment(json);
-    };
-    fetchDataIdea();
-    fetchDataComment();
-  }, []);
+  // console.log(dataIdea);
+  // console.log(dataComment);
+  // useEffect(() => {
+  //   const fetchDataIdea = async () => {
+  //     const response = await fetch(apiIdea);
+  //     const json = await response.json();
+  //     setDataIdea(json);
+  //   };
+  //   const fetchDataComment = async () => {
+  //     const response = await fetch(apiComment);
+  //     const json = await response.json();
+  //     setDataComment(json);
+  //   };
+  //   fetchDataIdea();
+  //   fetchDataComment();
+  // }, []);
 
   return (
     <>
@@ -68,7 +68,7 @@ function Post() {
                     {dataIdea.vote} Like
                   </a>
                   <a
-                    onClick={handleActiveCm}
+                    // onClick={handleActiveCm}
                     className="btn btn-sm btn-link text-muted"
                   >
                     <i className="uil uil-comments-alt"></i> Comment
