@@ -4,7 +4,7 @@ import "./input.css"
 function Input({ state, onSetState, placeholder, type, label, className }) {
   return (
     <div className="form-field">
-      <label class="form-label">{label}</label>
+      <label className="form-label">{label}</label>
       <input
         className={className}
         placeholder={placeholder}

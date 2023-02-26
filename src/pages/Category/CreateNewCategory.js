@@ -42,7 +42,7 @@ function CreateNewCategory() {
           </div>
           <div className="card">
             <form>
-              <div class="mb-3">
+              <div className="mb-3">
                 <Input
                   label="Name"
                   placeholder="Name of category"
@@ -52,7 +52,7 @@ function CreateNewCategory() {
                   }}
                 />
               </div>
-              <div class="mb-3">
+              <div className="mb-3">
                 <Input
                   label="Content"
                   placeholder="Description of category"
@@ -65,13 +65,13 @@ function CreateNewCategory() {
               <div className="d-flex justify-content-evenly">
                 <button
                   type="submit"
-                  class="btn btn-success"
+                  className="btn btn-success"
                   onClick={handleSubmit}
                 >
                   Submit
                 </button>
                 <Link to="/Category">
-                  <button type="cancel" class="btn btn-danger">
+                  <button type="cancel" className="btn btn-danger">
                     Cancel
                   </button>
                 </Link>
