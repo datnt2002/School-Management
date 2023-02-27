@@ -1,11 +1,27 @@
+import React, { useState, useEffect } from "react";
 import { Routes, Route, Link } from "react-router-dom";
 import Input from "../../components/Tags/Input";
 import Event from "../Event/Event";
-import "./event.css";
+import "./event.css"
+import { apiCategory } from "../../api/Api";
+
 
 function CreateNewEvent() {
-  return (
-    <>
+
+  const [categories, setCategories] = useState([])
+
+  useEffect(()=>{
+    fetch(apiCategory)
+      .then(res=>res.json())
+      .then(data=>setCategories(data))
+  }, [])
+
+  const handleCreateEvent = (e)=>{
+    e.preventDefault()
+  } 
+  
+    return(
+        <>
       <div className="container createCate">
         <div className="row">
           <div className="col-12">
@@ -24,16 +40,14 @@ function CreateNewEvent() {
                 <div className="mb-3 col-4">
                   <label className="form-label">Category</label>
                   <select
-                    name=""
-                    id=""
                     className="form-control"
                     style={{ width: "30%", textAlign: "center" }}
                   >
-                    <option value="">Category</option>
-                    <option value="1">Volvo</option>
-                    <option value="2">Saab</option>
-                    <option value="3">Mercedes</option>
-                    <option value="4">Audi</option>
+                    {categories.map(category=>{
+                      return(
+                        <option value={category.id} key={category.id}>{category.name}</option>
+                      )
+                    })}
                   </select>
                 </div>
                 <div className="mb-3 col-8">
@@ -54,9 +68,10 @@ function CreateNewEvent() {
                 <button type="submit" className="btn btn-success">
                   Submit
                 </button>
-                <button type="cancel" className="btn btn-danger">
+                
+                <Link className="btn btn-danger" to='/Event'>
                   Cancel
-                </button>
+                </Link>
               </div>
             </form>
           </div>
@@ -64,7 +79,7 @@ function CreateNewEvent() {
       </div>
 
       <Routes>
-        <Route path="/Admin" element={<Event />}>
+        <Route path="/Event" element={<Event />}>
           {" "}
         </Route>
       </Routes>
