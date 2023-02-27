@@ -7,7 +7,7 @@ function LikeCmt({ likes, comments }) {
       >
         <i className="mdi mdi-heart text-danger"></i> {likes} Like
       </a>
-      <a onClick={handleActiveCmt} className="btn btn-sm btn-link text-muted">
+      <a onClick={handleActiveCm} className="btn btn-sm btn-link text-muted">
         <i className="uil uil-comments-alt"></i> Comment
       </a>
     </div>
