@@ -12,11 +12,9 @@ function Input({ label, placeholder, type }) {
         value={state}
         onChange={onSetState}
       /> */}
-      <form>
-        <input type={type} name="name" class="question" id="nme" required autocomplete="off" placeholder={placeholder} hidden={placeholder ? "hidden" : ""}/>
-        <label for="nme" placeholder={placeholder} hidden={placeholder ? "hidden" : ""}><span>{label}</span></label>
-        <textarea name="message" rows="2" class="question" id="msg" required autocomplete="off" placeholder={placeholder} hidden={!placeholder ? "hidden" : ""}></textarea>
-      </form>
+      <input type={type} name="name" className="question" id="nme" required autoComplete="off" placeholder={placeholder} hidden={placeholder ? "hidden" : ""}/>
+      <label htmlFor="nme" placeholder={placeholder} hidden={placeholder ? "hidden" : ""}><span>{label}</span></label>
+      <textarea name="message" rows="2" className="question" id="msg" required autoComplete="off" placeholder={placeholder} hidden={!placeholder ? "hidden" : ""}></textarea>
     </div>
   );
 }
