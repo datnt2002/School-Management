@@ -32,7 +32,6 @@ function CreateNewEvent() {
               <div className="mb-3">
                 <Input
                   label="Title"
-                  placeholder="title of category"
                   className="form-control"
                 />
               </div>

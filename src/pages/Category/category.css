@@ -24,3 +24,11 @@
 small{
     display: block;
 }
+
+.createCate label{
+    z-index: 1;
+}
+
+.createCate .row{
+    
+}

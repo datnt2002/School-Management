@@ -25,7 +25,6 @@ function FormForgot() {
                 label="Username "
                 state={userName}
                 onSetState={(e) => setUserName(e.target.value)}
-                placeholder="Enter name"
                 type="text"
               ></Input>
             </div>

@@ -44,8 +44,8 @@ function CreateNewCategory() {
               <div className="mb-3">
                 <Input
                   label="Name"
-                  placeholder="Name of category"
                   className="form-control"
+                  type="text"
                   onSetState={(e) => {
                     setName(e.target.value);
                   }}
@@ -54,7 +54,7 @@ function CreateNewCategory() {
               <div className="mb-3">
                 <Input
                   label="Content"
-                  placeholder="Description of category"
+                  type="text"
                   className="form-control"
                   onSetState={(e) => {
                     setContent(e.target.value);
