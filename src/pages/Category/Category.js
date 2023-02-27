@@ -9,12 +9,9 @@ function Category() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(apiCategory);
-      const json = await response.json();
-      setData(json);
-    };
-    fetchData();
+    fetch(apiCategory)
+      .then((res) => res.json())
+      .then((data) => setData(data));
   }, []);
 
   return (

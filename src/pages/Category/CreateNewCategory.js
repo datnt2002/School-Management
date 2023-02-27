@@ -11,13 +11,12 @@ function CreateNewCategory() {
 
   const navigate = useNavigate();
 
-  const addedDate = new Date();
+  // const addedDate = new Date();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const newCategory = { name, content, addedDate };
-    // const options = ;
+    const newCategory = { name, content };
 
     fetch(apiCategory, {
       method: "POST",
