@@ -16,28 +16,22 @@ function Input({ label, placeholder, type, onSetState }) {
       <input
         type={type}
         name="name"
-        class="question"
+        className="question"
         id="nme"
         required
-        autocomplete="off"
         placeholder={placeholder}
         hidden={placeholder ? "hidden" : ""}
         onChange={onSetState}
       />
-      <label
-        for="nme"
-        placeholder={placeholder}
-        hidden={placeholder ? "hidden" : ""}
-      >
+      <label placeholder={placeholder} hidden={placeholder ? "hidden" : ""}>
         <span>{label}</span>
       </label>
       <textarea
         name="message"
         rows="2"
-        class="question"
+        className="question"
         id="msg"
         required
-        autocomplete="off"
         placeholder={placeholder}
         hidden={!placeholder ? "hidden" : ""}
         onChange={onSetState}
