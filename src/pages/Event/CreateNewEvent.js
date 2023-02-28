@@ -8,23 +8,24 @@ import { apiCategory, apiEvent } from "../../api/Api";
 function CreateNewEvent() {
   const [categories, setCategories] = useState([]);
 
-  const [category, setCategory] = useState("");
+  const [cateId, setCateId] = useState(0);
   const [name, setName] = useState("");
-  const [firstClosure, setFirstClosure] = useState("");
+  const [content, setContent] = useState("");
+  const [first_Closure, setFirstClosure] = useState("");
 
-  console.log(category);
+  console.log(cateId);
   //show list categories
   useEffect(() => {
     fetch(apiCategory)
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
-
+  const navigate = useNavigate();
   //handle submit event
   const handleCreateEvent = (e) => {
     e.preventDefault();
 
-    const newEvent = { name, category, firstClosure };
+    const newEvent = { name, content, cateId, first_Closure };
 
     fetch(apiEvent, {
       method: "POST",
@@ -35,7 +36,7 @@ function CreateNewEvent() {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log("ok");
+        navigate("/Event");
       })
       .catch((err) => console.log("cannot Post Event"));
   };
@@ -56,19 +57,29 @@ function CreateNewEvent() {
                   onSetState={(e) => setName(e.target.value)}
                 />
               </div>
+              <div className="mb-3">
+                <Input
+                  label="Description"
+                  className="form-control"
+                  onSetState={(e) => setContent(e.target.value)}
+                />
+              </div>
               <div className="row">
                 <div className="mb-3 col-4">
                   <label className="form-label">Category</label>
                   <select
                     className="form-control"
                     style={{ width: "30%", textAlign: "center" }}
-                    onChange={(e) => setCategory(e.target.value)}
+                    onChange={(e) => setCateId(e.target.value)}
                   >
+                    <option value="0" key="0">---Please enter category---</option>
                     {categories.map((category) => {
                       return (
-                        <option value={category.name} key={category.id}>
-                          {category.name}
-                        </option>
+                        <>
+                          <option value={category.id} key={category.id}>
+                            {category.name}
+                          </option>
+                        </>
                       );
                     })}
                   </select>
@@ -78,7 +89,10 @@ function CreateNewEvent() {
                   <div className="row">
                     <div className="col-6 justify-content-end">
                       <small>First Closure Date</small>
-                      <input type="datetime-local"></input>
+                      <input
+                        type="datetime-local"
+                        onChange={(e) => setFirstClosure(e.target.value)}
+                      ></input>
                     </div>
                   </div>
                 </div>
