@@ -1,27 +1,47 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link } from "react-router-dom";
+import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Tags/Input";
 import Event from "../Event/Event";
-import "./event.css"
-import { apiCategory } from "../../api/Api";
-
+import "./event.css";
+import { apiCategory, apiEvent } from "../../api/Api";
 
 function CreateNewEvent() {
+  const [categories, setCategories] = useState([]);
 
-  const [categories, setCategories] = useState([])
+  const [category, setCategory] = useState("");
+  const [name, setName] = useState("");
+  const [firstClosure, setFirstClosure] = useState("");
 
-  useEffect(()=>{
+  console.log(category);
+  //show list categories
+  useEffect(() => {
     fetch(apiCategory)
-      .then(res=>res.json())
-      .then(data=>setCategories(data))
-  }, [])
+      .then((res) => res.json())
+      .then((data) => setCategories(data));
+  }, []);
 
-  const handleCreateEvent = (e)=>{
-    e.preventDefault()
-  } 
-  
-    return(
-        <>
+  //handle submit event
+  const handleCreateEvent = (e) => {
+    e.preventDefault();
+
+    const newEvent = { name, category, firstClosure };
+
+    fetch(apiEvent, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newEvent),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("ok");
+      })
+      .catch((err) => console.log("cannot Post Event"));
+  };
+
+  return (
+    <>
       <div className="container createCate">
         <div className="row">
           <div className="col-12">
@@ -33,6 +53,7 @@ function CreateNewEvent() {
                 <Input
                   label="Title"
                   className="form-control"
+                  onSetState={(e) => setName(e.target.value)}
                 />
               </div>
               <div className="row">
@@ -41,11 +62,14 @@ function CreateNewEvent() {
                   <select
                     className="form-control"
                     style={{ width: "30%", textAlign: "center" }}
+                    onChange={(e) => setCategory(e.target.value)}
                   >
-                    {categories.map(category=>{
-                      return(
-                        <option value={category.id} key={category.id}>{category.name}</option>
-                      )
+                    {categories.map((category) => {
+                      return (
+                        <option value={category.name} key={category.id}>
+                          {category.name}
+                        </option>
+                      );
                     })}
                   </select>
                 </div>
@@ -56,19 +80,19 @@ function CreateNewEvent() {
                       <small>First Closure Date</small>
                       <input type="datetime-local"></input>
                     </div>
-                    <div className="col-6 justify-content-end">
-                      <small>First Closure Date</small>
-                      <input type="datetime-local"></input>
-                    </div>
                   </div>
                 </div>
               </div>
               <div className="d-flex justify-content-evenly">
-                <button type="submit" className="btn btn-success">
+                <button
+                  type="submit"
+                  className="btn btn-success"
+                  onClick={handleCreateEvent}
+                >
                   Submit
                 </button>
-                
-                <Link className="btn btn-danger" to='/Event'>
+
+                <Link className="btn btn-danger" to="/Event">
                   Cancel
                 </Link>
               </div>

@@ -17,7 +17,6 @@ function Input({ label, placeholder, type, onSetState }) {
         type={type}
         name="name"
         className="question"
-        id="nme"
         required
         placeholder={placeholder}
         hidden={placeholder ? "hidden" : ""}
@@ -26,7 +25,7 @@ function Input({ label, placeholder, type, onSetState }) {
       <label placeholder={placeholder} hidden={placeholder ? "hidden" : ""}>
         <span>{label}</span>
       </label>
-      <textarea
+      {/* <textarea
         name="message"
         rows="2"
         className="question"
@@ -35,7 +34,7 @@ function Input({ label, placeholder, type, onSetState }) {
         placeholder={placeholder}
         hidden={!placeholder ? "hidden" : ""}
         onChange={onSetState}
-      ></textarea>
+      ></textarea> */}
     </div>
   );
 }

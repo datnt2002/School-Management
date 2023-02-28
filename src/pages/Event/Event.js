@@ -20,7 +20,7 @@ function Event() {
     <div className="container">
       <div className="col-12">
         <div className="page-title-box">
-          <h3 className="page-title">Admin</h3>
+          <h3 className="page-title">Event</h3>
         </div>
       </div>
       <div className="tableAdmin">
@@ -46,7 +46,8 @@ function Event() {
                         <Table
                           hidden="hidden"
                           name="Event"
-                          description="Category"
+                          content="Name"
+                          description="Description"
                           firstClosureTitle="First Closure Date"
                           finalClosureTitle="Final Closure Date"
                           data={data}

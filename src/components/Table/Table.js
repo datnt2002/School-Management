@@ -79,11 +79,11 @@ function Table({
               </td>
               <td>{data.content}</td>
               <td hidden={!data.addedDate ? "hidden" : ""}>{data.addedDate}</td>
-              <td hidden={!data.firstClosure ? "hidden" : ""}>
-                {data?.firstClosure}
+              <td hidden={!data.first_Closure ? "hidden" : ""}>
+                {data?.first_Closure}
               </td>
-              <td hidden={!data.finalClosure ? "hidden" : ""}>
-                {data?.finalClosure}
+              <td hidden={!data.last_Closure ? "hidden" : ""}>
+                {data?.last_Closure}
               </td>
               <td className="table-action">
                 <div className="d-flex justify-content-evenly">
