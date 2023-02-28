@@ -41,16 +41,16 @@ Basic input element using psuedo classes
     white-space: nowrap;
     padding: 0;
     margin: 0;
-    width: 10%;
+    /* width: 100%; */
     border-top: 1px solid red;
     -webkit-transition: width 0.4s ease;
     transition: width 0.4s ease;
     height: 0px;
   }
   
-  input.question:focus + label{
-    width: 80%;
-  }
+  /* input.question:focus + label{
+    width: 100%;
+  } */
   
   input.question:focus,
   input.question:valid {
@@ -61,8 +61,8 @@ Basic input element using psuedo classes
   
   input.question:focus + label > span,
   input.question:valid + label > span {
-    top: -80px;
-    font-size: 22px;
+    top: -90px;
+    font-size: 30px;
     color: #333;
   }
   
@@ -87,49 +87,10 @@ Basic input element using psuedo classes
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   }
   
-  input[type="submit"] {
-    -webkit-transition: opacity 0.2s ease, background 0.2s ease;
-    transition: opacity 0.2s ease, background 0.2s ease;
-    display: block;
-    opacity: 0;
-    margin: 10px 0 0 0;
-    padding: 10px;
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    background: #EEE;
-  }
-  
-  input[type="submit"]:active {
-    background: #999;
-  }
-  
-  input.question:valid ~ input[type="submit"]{
-    -webkit-animation: appear 1s forwards;
-    animation: appear 1s forwards;
-  }
-  
-  input.question:invalid ~ input[type="submit"]{
-    display: none;
-  }
 
   textarea{
     height: 45px;
     border-bottom: 1px solid #ccc;
     width: -webkit-fill-available;
     /* resize: none!important; */
-  }
-  
-  
-  @-webkit-keyframes appear {
-    100% {
-      opacity: 1;
-    }
-  }
-  
-  @keyframes appear {
-    100% {
-      opacity: 1;
-    }
   }

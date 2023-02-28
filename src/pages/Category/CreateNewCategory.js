@@ -35,12 +35,12 @@ function CreateNewCategory() {
   return (
     <>
       <div className="container createCate">
-        <div className="row">
-          <div className="col-12">
-            <h1>Create New Category</h1>
-          </div>
-          <div className="card">
+        <div className="d-flex justify-content-center">
+          <div className="card col-6">
             <form>
+              <div className="">
+                <h1>Create New Category</h1>
+              </div>
               <div className="mb-3">
                 <Input
                   label="Name"
