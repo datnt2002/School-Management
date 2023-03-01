@@ -4,6 +4,7 @@ import Input from "../../components/Tags/Input";
 import Category from "./Category";
 import { apiCategory } from "../../api/Api";
 import "./category.css";
+import "../../components/Tags/input.css"
 
 function CreateNewCategory() {
   const [name, setName] = useState("");
@@ -34,14 +35,14 @@ function CreateNewCategory() {
 
   return (
     <>
-      <div className="container createCate">
-        <div className="d-flex justify-content-center">
-          <div className="card col-6">
+      <div className="container-fuild createCate">
+        <div className="row">
+          <div className="card">
+            <div className="mb-4 col-12">
+              <h1>Create New Category</h1>
+            </div>
             <form>
-              <div className="">
-                <h1>Create New Category</h1>
-              </div>
-              <div className="mb-3">
+              <div className="mb-5">
                 <Input
                   label="Name"
                   className="form-control"
@@ -51,7 +52,7 @@ function CreateNewCategory() {
                   }}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-5">
                 <Input
                   label="Content"
                   type="text"
@@ -61,7 +62,7 @@ function CreateNewCategory() {
                   }}
                 />
               </div>
-              <div className="d-flex justify-content-evenly">
+              <div className="mt-3 d-flex justify-content-evenly">
                 <button
                   type="submit"
                   className="btn btn-success"

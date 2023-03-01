@@ -17,16 +17,16 @@ function Category() {
   return (
     <>
       <div className="container">
-        <div className="col-12">
-          <div className="page-title-box">
-            <h3 className="page-title">Category</h3>
-          </div>
-        </div>
         <div className="tableCate">
           <div className="row">
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
+                  <div className="mb-4 col-12">
+                    <div className="page-title-box">
+                      <h1 className="page-title">Category</h1>
+                    </div>
+                  </div>
                   <div className="row mb-2">
                     <div className="col-sm-4">
                       <Link

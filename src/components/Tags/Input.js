@@ -19,10 +19,10 @@ function Input({ label, placeholder, type, onSetState }) {
         className="question"
         required
         placeholder={placeholder}
-        hidden={placeholder ? "hidden" : ""}
+        // hidden={placeholder ? "hidden" : ""}
         onChange={onSetState}
       />
-      <label placeholder={placeholder} hidden={placeholder ? "hidden" : ""}>
+      <label placeholder={placeholder}>
         <span>{label}</span>
       </label>
       {/* <textarea

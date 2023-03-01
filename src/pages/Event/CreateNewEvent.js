@@ -43,33 +43,34 @@ function CreateNewEvent() {
 
   return (
     <>
-      <div className="container createCate">
+      <div className="container createEvent">
         <div className="row">
-          <div className="col-12">
-            <h1>Create New Event</h1>
-          </div>
           <div className="card">
+            {/* <div> */}
+            <div className="">
+              <h1>Create New Event</h1>
+            </div>
             <form>
-              <div className="mb-3">
+              <div className="mb-3 mt-5">
                 <Input
                   label="Title"
                   className="form-control"
                   onSetState={(e) => setName(e.target.value)}
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-3 mt-5">
                 <Input
                   label="Description"
                   className="form-control"
                   onSetState={(e) => setContent(e.target.value)}
                 />
               </div>
-              <div className="row">
-                <div className="mb-3 col-4">
+              <div className="mt-3 mb-3 d-flex justify-content-between" style={{ overflow:"hidden" }}>
+                <div className="mb-3">
                   <label className="form-label">Category</label>
                   <select
                     className="form-control"
-                    style={{ width: "30%", textAlign: "center" }}
+                    // style={{ width: "30%", textAlign: "center" }}
                     onChange={(e) => setCateId(e.target.value)}
                   >
                     <option value="0" key="0">---Please enter category---</option>
@@ -84,9 +85,9 @@ function CreateNewEvent() {
                     })}
                   </select>
                 </div>
-                <div className="mb-3 col-8">
+                <div className="">
                   <label className="form-label">Closure date</label>
-                  <div className="row">
+                  <div className="">
                     <div className="col-6 justify-content-end">
                       <small>First Closure Date</small>
                       <input
@@ -111,6 +112,8 @@ function CreateNewEvent() {
                 </Link>
               </div>
             </form>
+            {/* </div> */}
+            
           </div>
         </div>
       </div>

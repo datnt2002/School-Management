@@ -28,7 +28,7 @@ Basic input element using psuedo classes
     border-radius: 2px;
     margin: 0;
     border: none;
-    width: 80%;
+    width: 100%;
     background: rgba(0, 0, 0, 0);
     transition: padding-top 0.2s ease, margin-top 0.2s ease;
     overflow-x: hidden; /* Hack to make "rows" attribute apply in Firefox. */
@@ -46,6 +46,7 @@ Basic input element using psuedo classes
     -webkit-transition: width 0.4s ease;
     transition: width 0.4s ease;
     height: 0px;
+    z-index: 1;
   }
   
   /* input.question:focus + label{
@@ -83,14 +84,15 @@ Basic input element using psuedo classes
     top: -35px;
     left: 0px;
     z-index: -1;
+    
     -webkit-transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
     transition: top 0.2s ease, font-size 0.2s ease, color 0.2s ease;
   }
   
 
-  textarea{
+  /* textarea{
     height: 45px;
     border-bottom: 1px solid #ccc;
     width: -webkit-fill-available;
-    /* resize: none!important; */
-  }
+    resize: none!important;
+  } */
