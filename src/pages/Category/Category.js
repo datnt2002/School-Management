@@ -4,9 +4,20 @@ import { useEffect, useState } from "react";
 import Table from "../../components/Table/Table";
 import "./category.css";
 import { apiCategory } from "../../api/Api";
+import CreateNewCategory from "./CreateNewCategory";
 
 function Category() {
   const [data, setData] = useState([]);
+  const [showModal, setShowModal] = useState(false);
+
+  function handleFocus() {
+    setShowModal(true);
+  }
+  function handleBlur(e) {
+    if (!e.relatedTarget || !e.relatedTarget.closest(".modalCate")) {
+      setShowModal(false);
+    }
+  }
 
   useEffect(() => {
     fetch(apiCategory)
@@ -29,18 +40,20 @@ function Category() {
                   </div>
                   <div className="row mb-2">
                     <div className="col-sm-4">
-                      <Link
-                        to="/Category/CreateNewCategory"
+                      <button
+                        // to="/Category/CreateNewCategory"
                         className="btn btn-danger mb-2"
+                        onFocus={handleFocus}
+                        onBlur={handleBlur}
                       >
                         <i className="mdi mdi-plus-circle mr-2"></i>Create
                         Category
-                      </Link>
+                      </button>
                     </div>
                   </div>
 
                   <div className="table-responsive">
-                    <div className="dataTables_wrapper dt-bootstrap4 no-footer">
+                    <div className="dataTables_wrapper dt-bootstrap5 no-footer">
                       <div className="row">
                         <div className="col-sm-12">
                           <Table
@@ -62,6 +75,7 @@ function Category() {
           </div>
         </div>
       </div>
+      {showModal && <CreateNewCategory />}
     </>
   );
 }

@@ -2,11 +2,22 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiEvent } from "../../api/Api";
 import Table from "../../components/Table/Table";
+import CreateNewEvent from "./CreateNewEvent";
 import "./event.css";
 
 function Event() {
   const [data, setData] = useState([]);
-  console.log(data);
+  const [showModal, setShowModal] = useState(false);
+
+  function handleFocus() {
+    setShowModal(true);
+  }
+  function handleBlur(e) {
+    if (!e.relatedTarget || !e.relatedTarget.closest(".modalEvent")) {
+      setShowModal(false);
+    }
+  }
+  
   useEffect(() => {
     const fetchData = async () => {
       const response = await fetch(apiEvent);
@@ -17,6 +28,7 @@ function Event() {
   }, []);
 
   return (
+    <>
     <div className="container">
       <div className="tableAdmin">
         <div className="row">
@@ -30,12 +42,15 @@ function Event() {
                 </div>
                 <div className="row mb-2">
                   <div className="col-sm-4">
-                    <Link
-                      to="/Event/CreateNewEvent"
+                    <button
+                      // to="/Event/CreateNewEvent"
                       className="btn btn-danger mb-2"
+                      onFocus={handleFocus}
+                      onBlur={handleBlur}
                     >
+                      
                       <i className="mdi mdi-plus-circle mr-2"></i>Create Event
-                    </Link>
+                    </button>
                   </div>
                 </div>
 
@@ -63,6 +78,8 @@ function Event() {
         </div>
       </div>
     </div>
+    {showModal && <CreateNewEvent />}
+    </>
   );
 }
 

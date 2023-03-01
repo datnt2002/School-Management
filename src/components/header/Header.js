@@ -3,7 +3,7 @@ import "./header.css";
 
 function Header() {
   return (
-    <nav className="navbar navbar-expand-lg navbar-light bg-info">
+    <nav className="navbar navbar-expand-lg navbar-light bg-info"  >
     <div className="container">
       <a className="navbar-brand" href="#">Logo</a>
       

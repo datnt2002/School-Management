@@ -1,34 +1,73 @@
 small{
     display: block;
 }
-.createEvent .card{
-    height: inherit;
-}
 .table-responsive{
     overflow-x: hidden;
 }
-.createEvent > .row{
+
+.createEvent{
     position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 112px;
-    left: 12px;
+    top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
     display: flex;
-    justify-content:center;
+    padding: 0!important;
 }
-.createEvent .card{
-    margin: auto;
-    position: relative;
-    width: 40%;
-    height: 45%;
-    bottom: 10%;
-}
-.createEvent form{
-    display: grid;
+
+.modalOverlay {
+    position: absolute;
+    width: 100%;
     height: 100%;
+    background-color: rgb(0, 0, 0, 0.3);
+    z-index: 2;
 }
-.createEvent .justify-content-evenly{
-    height: 64%;
+.modalEvent{
+    --growth-from:0.7;
+    --growth-to:1;
+    margin: auto;
+    background-color: white;
+    border-radius: .5rem;
+    width: 70%;
+    height: 50%;
+    display: flex;
+    animation: growth linear 0.1s;
+    z-index: 3;
+}
+.createFormEvent_Select{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.createFormEvent{
+    padding: 30px 32px;
+    overflow: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.btnForm{
+    margin-top: 60px;
+}
+.createFormEvent_Header{
+    margin-bottom: 2rem;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
 }

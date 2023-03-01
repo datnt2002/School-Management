@@ -8,7 +8,7 @@ import CreateNewEvent from "../../pages/Event/CreateNewEvent";
 function SubNavAdmin() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light" >
         <div className="container">
           <ul className="navbar-nav">
             <li className="nav-item">
