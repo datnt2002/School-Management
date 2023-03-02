@@ -29,21 +29,30 @@ small{
     z-index: 1;
 }
 
-.createCate .row{
+.createCate{
     position: fixed;
-    width: 100%;
-    height: 100%;
-    top: 112px;
-    left: 12px;
+    top: 0;
+    left: 0;
     right: 0;
     bottom: 0;
     display: flex;
-    justify-content:center;
+    padding: 0!important;
 }
-.createCate .card{
+.modalCate{
     margin: auto;
-    position: relative;
-    width: 40%;
-    height: 30%;
-    bottom: 10%;
+    background-color: white;
+    border-radius: .5rem;
+    width: 70%;
+    height: 45%;
+    display: flex;
+    z-index: 3;
+}
+.createFormCate{
+    padding: 30px 32px;
+    overflow: auto;
+    width: 100%;
+    display: grid;
+}
+.btnForm{
+    margin-top: 60px;
 }

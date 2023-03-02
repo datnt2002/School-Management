@@ -122,11 +122,11 @@ function CreateNewEvent() {
         </div>
       </div>
 
-      <Routes>
+      {/* <Routes>
         <Route path="/Event" element={<Event />}>
           {" "}
         </Route>
-      </Routes>
+      </Routes> */}
     </>
   );
 }

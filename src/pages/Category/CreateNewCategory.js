@@ -12,8 +12,6 @@ function CreateNewCategory() {
 
   const navigate = useNavigate();
 
-  // const addedDate = new Date();
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -35,13 +33,14 @@ function CreateNewCategory() {
 
   return (
     <>
-      <div className="container-fuild createCate">
-        <div className="row">
-          <div className="card">
-            <div className="mb-4 col-12">
+      <div className="container-fluid createCate">
+        <div className="modalOverlay"></div>
+        <div className="modalCate">
+          <div className="createFormCate">
+            <div className="createFormCate_Header">
               <h1>Create New Category</h1>
             </div>
-            <form>
+            <form className="createFormCate_Input">
               <div className="mb-5">
                 <Input
                   label="Name"
@@ -62,7 +61,7 @@ function CreateNewCategory() {
                   }}
                 />
               </div>
-              <div className="mt-3 d-flex justify-content-evenly">
+              <div className="btnForm mt-3 d-flex justify-content-evenly">
                 <button
                   type="submit"
                   className="btn btn-success"
@@ -70,7 +69,9 @@ function CreateNewCategory() {
                 >
                   Submit
                 </button>
-                <Link to="/Category">
+                <Link 
+                  to="/Category"
+                >
                   <button type="cancel" className="btn btn-danger">
                     Cancel
                   </button>
@@ -81,11 +82,11 @@ function CreateNewCategory() {
         </div>
       </div>
 
-      <Routes>
+      {/* <Routes>
         <Route path="/Category" element={<Category />}>
           {" "}
         </Route>
-      </Routes>
+      </Routes> */}
     </>
   );
 }
