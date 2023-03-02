@@ -65,7 +65,10 @@ function CreateNewEvent() {
                   onSetState={(e) => setContent(e.target.value)}
                 />
               </div>
-              <div className="mt-3 mb-3 d-flex justify-content-between" style={{ overflow:"hidden" }}>
+              <div
+                className="mt-3 mb-3 d-flex justify-content-between"
+                style={{ overflow: "hidden" }}
+              >
                 <div className="mb-3">
                   <label className="form-label">Category</label>
                   <select
@@ -73,7 +76,9 @@ function CreateNewEvent() {
                     // style={{ width: "30%", textAlign: "center" }}
                     onChange={(e) => setCateId(e.target.value)}
                   >
-                    <option value="0" key="0">---Please enter category---</option>
+                    <option value="0" key="0">
+                      ---Please enter category---
+                    </option>
                     {categories.map((category) => {
                       return (
                         <>
@@ -113,7 +118,6 @@ function CreateNewEvent() {
               </div>
             </form>
             {/* </div> */}
-            
           </div>
         </div>
       </div>
