@@ -29,6 +29,7 @@ function CreateNewCategory() {
         navigate("/category");
       })
       .catch((err) => console.log("cannot Post"));
+      window.location.reload();
   };
 
   return (

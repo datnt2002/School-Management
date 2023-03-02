@@ -39,86 +39,82 @@ function CreateNewEvent() {
         navigate("/Event");
       })
       .catch((err) => console.log("cannot Post Event"));
+      window.location.reload();
   };
 
   return (
     <>
-      <div className="container createEvent">
-        <div className="row">
-          <div className="card">
-            {/* <div> */}
-            <div className="">
-              <h1>Create New Event</h1>
-            </div>
-            <form>
-              <div className="mb-3 mt-5">
-                <Input
-                  label="Title"
-                  className="form-control"
-                  onSetState={(e) => setName(e.target.value)}
-                />
+      <div className="container-fluid createEvent">
+        <div className="modalOverlay"></div>
+        <div className="modalEvent">
+            <div className="createFormEvent">
+              <div className="createFormEvent_Header">
+                <h1>Create New Event</h1>
               </div>
-              <div className="mb-3 mt-5">
-                <Input
-                  label="Description"
-                  className="form-control"
-                  onSetState={(e) => setContent(e.target.value)}
-                />
-              </div>
-              <div
-                className="mt-3 mb-3 d-flex justify-content-between"
-                style={{ overflow: "hidden" }}
-              >
-                <div className="mb-3">
-                  <label className="form-label">Category</label>
-                  <select
+              <form className="createFormEvent_Input">
+                <div className="mb-3 mt-5">
+                  <Input
+                    label="Title"
                     className="form-control"
-                    // style={{ width: "30%", textAlign: "center" }}
-                    onChange={(e) => setCateId(e.target.value)}
-                  >
-                    <option value="0" key="0">
-                      ---Please enter category---
-                    </option>
-                    {categories.map((category) => {
-                      return (
-                        <>
-                          <option value={category.id} key={category.id}>
-                            {category.name}
-                          </option>
-                        </>
-                      );
-                    })}
-                  </select>
+                    onSetState={(e) => setName(e.target.value)}
+                  />
                 </div>
-                <div className="">
-                  <label className="form-label">Closure date</label>
+                <div className="mb-3 mt-5">
+                  <Input
+                    label="Description"
+                    className="form-control"
+                    onSetState={(e) => setContent(e.target.value)}
+                  />
+                </div>
+                <div className="mt-3 mb-3 createFormEvent_Select" style={{ overflow:"hidden" }}>
+                  <div className="mb-3">
+                    <label className="form-label">Category</label>
+                    <select
+                      className="form-control"
+                      onChange={(e) => setCateId(e.target.value)}
+                    >
+                      <option value="0" key="0">---Please enter category---</option>
+                      {categories.map((category) => {
+                        return (
+                          <>
+                            <option value={category.id} key={category.id}>
+                              {category.name}
+                            </option>
+                          </>
+                        );
+                      })}
+                    </select>
+                  </div>
                   <div className="">
-                    <div className="col-6 justify-content-end">
-                      <small>First Closure Date</small>
-                      <input
-                        type="datetime-local"
-                        onChange={(e) => setFirstClosure(e.target.value)}
-                      ></input>
+                    <label className="form-label">Closure date</label>
+                    <div className="">
+                      <div className="col-6 justify-content-end">
+                        <small>First Closure Date</small>
+                        <input
+                          type="datetime-local"
+                          onChange={(e) => setFirstClosure(e.target.value)}
+                        ></input>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <div className="d-flex justify-content-evenly">
-                <button
-                  type="submit"
-                  className="btn btn-success"
-                  onClick={handleCreateEvent}
-                >
-                  Submit
-                </button>
+                <div className="btnForm d-flex justify-content-evenly">
+                  <button
+                    type="submit"
+                    className="btn btn-success"
+                    onClick={handleCreateEvent}
+                  >
+                    Submit
+                  </button>
 
-                <Link className="btn btn-danger" to="/Event">
-                  Cancel
-                </Link>
-              </div>
-            </form>
-            {/* </div> */}
-          </div>
+                  <Link className="btn btn-danger" 
+                  // to="/Event"
+                  >
+                    Cancel
+                  </Link>
+                </div>
+              </form>
+            </div>
         </div>
       </div>
 
