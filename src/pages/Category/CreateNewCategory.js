@@ -4,7 +4,7 @@ import Input from "../../components/Tags/Input";
 import Category from "./Category";
 import { apiCategory } from "../../api/Api";
 import "./category.css";
-import "../../components/Tags/input.css"
+import "../../components/Tags/input.css";
 
 function CreateNewCategory() {
   const [name, setName] = useState("");
@@ -14,13 +14,14 @@ function CreateNewCategory() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
+    const token = localStorage.getItem("token");
     const newCategory = { name, content };
 
     fetch(apiCategory, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(newCategory),
     })
@@ -69,9 +70,7 @@ function CreateNewCategory() {
                 >
                   Submit
                 </button>
-                <Link 
-                  to="/Category"
-                >
+                <Link to="/Category">
                   <button type="cancel" className="btn btn-danger">
                     Cancel
                   </button>
