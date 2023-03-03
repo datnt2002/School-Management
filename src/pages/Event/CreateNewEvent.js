@@ -45,7 +45,7 @@ function CreateNewEvent({style, handleClose}) {
   return (
     <>
       <div className="container-fluid createEvent" style={style}>
-        <div className="modalOverlay"></div>
+        <div className="modalOverlay" onClick={handleClose}></div>
         <div className="modalEvent">
             <div className="createFormEvent">
               <form className="createFormEvent_Input">
@@ -110,7 +110,7 @@ function CreateNewEvent({style, handleClose}) {
                   </button>
 
                   <Link className="btn btn-danger" 
-                  // to="/Event"
+                    to="/Event"
                   >
                     Cancel
                   </Link>

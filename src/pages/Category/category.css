@@ -1,3 +1,8 @@
+.tableCate{
+    width: 100%;
+    /* margin: auto; */
+    padding: 2rem 6rem;
+}
 .tableCate > .row {
     display: flex;
     margin-right: -12px;
@@ -26,7 +31,7 @@
     z-index: 1;
 }
 
-.createCate{
+.createCate, .tableCateList{
     position: fixed;
     top: 0;
     left: 0;
@@ -36,11 +41,14 @@
     padding: 0!important;
 }
 .modalCate{
+    --growth-from:0.7;
+    --growth-to:1;
+    animation: growth linear 0.1s;
     margin: auto;
     background-color: white;
     border-radius: .5rem;
-    width: 70%;
-    height: 45%;
+    width: 50%;
+    height: 65%;
     display: flex;
     z-index: 3;
 }
@@ -52,4 +60,22 @@
 }
 .btnForm{
     margin-top: 60px;
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
 }

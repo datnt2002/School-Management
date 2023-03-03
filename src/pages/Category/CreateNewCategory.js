@@ -6,7 +6,7 @@ import { apiCategory } from "../../api/Api";
 import "./category.css";
 import "../../components/Tags/input.css";
 
-function CreateNewCategory() {
+function CreateNewCategory({style, handleClose}) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
@@ -35,8 +35,8 @@ function CreateNewCategory() {
 
   return (
     <>
-      <div className="container-fluid createCate">
-        <div className="modalOverlay"></div>
+      <div className="container-fluid createCate" style={style}>
+        <div className="modalOverlay" onClick={handleClose}></div>
         <div className="modalCate">
           <div className="createFormCate">
             <div className="createFormCate_Header">
