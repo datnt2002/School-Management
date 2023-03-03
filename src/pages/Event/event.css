@@ -28,8 +28,8 @@ small{
     margin: auto;
     background-color: white;
     border-radius: .5rem;
-    width: 70%;
-    height: 50%;
+    width: 50%;
+    height: 75%;
     display: flex;
     animation: growth linear 0.1s;
     z-index: 3;

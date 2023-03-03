@@ -7,16 +7,21 @@ import "./event.css";
 
 function Event() {
   const [data, setData] = useState([]);
-  const [showModal, setShowModal] = useState(false);
+  const [showModal, setShowModal] = useState({display:"none"});
 
-  function handleFocus() {
-    setShowModal(true);
+  function handleOpen() {
+    setShowModal({
+      display:""
+    });
   }
-  function handleBlur(e) {
-    if (!e.relatedTarget || !e.relatedTarget.closest(".modalEvent")) {
-      setShowModal(false);
+  function handleClose(e) {
+    if(!e.relatedTarget?.closest(".modalEvent")){
+      setShowModal({
+        display:"none"
+      });
     }
   }
+  
   
   useEffect(() => {
     const fetchData = async () => {
@@ -45,8 +50,8 @@ function Event() {
                     <button
                       // to="/Event/CreateNewEvent"
                       className="btn btn-danger mb-2"
-                      onFocus={handleFocus}
-                      onBlur={handleBlur}
+                      onFocus={handleOpen}
+                      onBlur={handleClose}
                     >
                       
                       <i className="mdi mdi-plus-circle mr-2"></i>Create Event
@@ -78,7 +83,7 @@ function Event() {
         </div>
       </div>
     </div>
-    {showModal && <CreateNewEvent />}
+    <CreateNewEvent style={showModal}/>
     </>
   );
 }

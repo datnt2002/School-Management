@@ -7,9 +7,9 @@ import CreateIdea from "./pages/NewsFeed/CreateIdea";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <SubNavAdmin />
-      {/* <Authentication/> */}
+      {/* <Header /> */}
+      {/* <SubNavAdmin /> */}
+      <Authentication/>
       {/* <CreateIdea/> */}
       {/* <CreateNewEvent/> */}
     </div>

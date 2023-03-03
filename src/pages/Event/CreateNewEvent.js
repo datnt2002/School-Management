@@ -5,7 +5,7 @@ import Event from "../Event/Event";
 import "./event.css";
 import { apiCategory, apiEvent } from "../../api/Api";
 
-function CreateNewEvent() {
+function CreateNewEvent({style, handleClose}) {
   const [categories, setCategories] = useState([]);
 
   const [cateId, setCateId] = useState(0);
@@ -44,16 +44,17 @@ function CreateNewEvent() {
 
   return (
     <>
-      <div className="container-fluid createEvent">
+      <div className="container-fluid createEvent" style={style}>
         <div className="modalOverlay"></div>
         <div className="modalEvent">
             <div className="createFormEvent">
+              <form className="createFormEvent_Input">
               <div className="createFormEvent_Header">
                 <h1>Create New Event</h1>
               </div>
-              <form className="createFormEvent_Input">
                 <div className="mb-3 mt-5">
                   <Input
+                    type="text"
                     label="Title"
                     className="form-control"
                     onSetState={(e) => setName(e.target.value)}
@@ -61,6 +62,7 @@ function CreateNewEvent() {
                 </div>
                 <div className="mb-3 mt-5">
                   <Input
+                    type="text"
                     label="Description"
                     className="form-control"
                     onSetState={(e) => setContent(e.target.value)}
