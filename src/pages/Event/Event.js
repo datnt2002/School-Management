@@ -12,16 +12,13 @@ function Event() {
   function handleOpen() {
     setShowModal({
       display:""
+    })
+  }
+  function handleClose() {
+    setShowModal({
+      display:"none"
     });
   }
-  function handleClose(e) {
-    if(!e.relatedTarget?.closest(".modalEvent")){
-      setShowModal({
-        display:"none"
-      });
-    }
-  }
-  
   
   useEffect(() => {
     const fetchData = async () => {
@@ -50,8 +47,7 @@ function Event() {
                     <button
                       // to="/Event/CreateNewEvent"
                       className="btn btn-danger mb-2"
-                      onFocus={handleOpen}
-                      onBlur={handleClose}
+                      onClick={handleOpen}
                     >
                       
                       <i className="mdi mdi-plus-circle mr-2"></i>Create Event
@@ -83,7 +79,7 @@ function Event() {
         </div>
       </div>
     </div>
-    <CreateNewEvent style={showModal}/>
+    <CreateNewEvent style={showModal} handleClose={handleClose}/>
     </>
   );
 }

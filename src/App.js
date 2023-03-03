@@ -11,7 +11,7 @@ function App() {
 
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/" element={<Authentication />}></Route>
         <Route path="/Category/*" element={<Category />}></Route>
         <Route path="/Event/*" element={<Event />} />
@@ -24,7 +24,8 @@ function App() {
           element={<CreateNewCategory />}
         ></Route>
         <Route path="/NewsFeed" element={<NewsFeed />} />
-      </Routes>
+      </Routes> */}
+      <Category />
     </div>
   );
 }

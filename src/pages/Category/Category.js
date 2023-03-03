@@ -9,17 +9,18 @@ import { getAPI } from "../../api/FetchAPI";
 
 function Category() {
   const [data, setData] = useState([]);
-  const [showModal, setShowModal] = useState(false);
-
+  const [showModal, setShowModal] = useState({display:"none"});
   const token = localStorage.getItem("token");
 
-  function handleFocus() {
-    setShowModal(true);
+  function handleOpen() {
+    setShowModal({
+      display:""
+    })
   }
-  function handleBlur(e) {
-    if (!e.relatedTarget || !e.relatedTarget.closest(".modalCate")) {
-      setShowModal(false);
-    }
+  function handleClose() {
+    setShowModal({
+      display:"none"
+    });
   }
 
   useEffect(() => {
@@ -33,10 +34,10 @@ function Category() {
   //
   return (
     <>
-      <div className="container">
+      <div className="container-fluid tableCateList">
         <div className="tableCate">
-          <div className="row">
-            <div className="col-12">
+          {/* <div className="row">
+            <div className="col-12"> */}
               <div className="card">
                 <div className="card-body">
                   <div className="mb-4 col-12">
@@ -47,10 +48,8 @@ function Category() {
                   <div className="row mb-2">
                     <div className="col-sm-4">
                       <button
-                        // to="/Category/CreateNewCategory"
                         className="btn btn-danger mb-2"
-                        onFocus={handleFocus}
-                        onBlur={handleBlur}
+                        onClick={handleOpen}
                       >
                         <i className="mdi mdi-plus-circle mr-2"></i>Create
                         Category
@@ -77,12 +76,11 @@ function Category() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
         </div>
       </div>
-      {showModal && <CreateNewCategory />}
-      {/* <button onClick={handleLogout}>Log out</button> */}
+      <CreateNewCategory style={showModal} handleClose={handleClose}/>
     </>
   );
 }
