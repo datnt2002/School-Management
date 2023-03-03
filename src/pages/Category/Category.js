@@ -5,10 +5,13 @@ import Table from "../../components/Table/Table";
 import "./category.css";
 import { apiCategory } from "../../api/Api";
 import CreateNewCategory from "./CreateNewCategory";
+import { getAPI } from "../../api/FetchAPI";
 
 function Category() {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState(false);
+
+  const token = localStorage.getItem("token");
 
   function handleFocus() {
     setShowModal(true);
@@ -20,11 +23,14 @@ function Category() {
   }
 
   useEffect(() => {
-    fetch(apiCategory)
+    fetch(apiCategory, {
+      method: "GET",
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((res) => res.json())
       .then((data) => setData(data));
-  }, []);
-
+  }, [token]);
+  //
   return (
     <>
       <div className="container">
@@ -76,6 +82,7 @@ function Category() {
         </div>
       </div>
       {showModal && <CreateNewCategory />}
+      {/* <button onClick={handleLogout}>Log out</button> */}
     </>
   );
 }

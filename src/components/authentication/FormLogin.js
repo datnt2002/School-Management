@@ -1,36 +1,44 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
+import { apiLogin } from "../../api/Api";
 import Input from "../Tags/Input";
 
 function FormLogin() {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMsg, setErrorMsg] = useState();
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const navigate = useNavigate();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
     const userInfo = { userName, password };
-    const url = "";
-    const options = {
+
+    fetch(apiLogin, {
       method: "POST",
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(userInfo),
-    };
-    // useEffect(()=>()){
-
-    // }
-    // fetch(url, options)
-    //   .then((res) => res.json())
-    //   .then((data) => {})
-    //   .catch((error) => {
-    //     console.log("faul");
-    //   });
+    })
+      .then((res) => {
+        console.log(localStorage);
+        if (res.ok) {
+          return res.text();
+        } else {
+          throw Error(setErrorMsg("Wrong username or password"));
+        }
+      })
+      .then((data) => {
+        localStorage.setItem("token", data);
+        navigate("/category");
+      })
+      .catch((err) => console.log(err));
   };
-
   return (
     <>
       <div className="form-container form-login">
         <div className="login-form-body">
-          
-          <form onSubmit={handleSubmit}>
+          <form>
             <div className="form-header">
               <h1>Login</h1>
             </div>
@@ -50,8 +58,9 @@ function FormLogin() {
                 type="password"
               ></Input>
             </div>
+            {errorMsg && <p>{errorMsg}</p>}
 
-            <button className="submit-button" type="submit">
+            <button className="submit-button" onClick={handleLogin}>
               Login
             </button>
           </form>

@@ -8,11 +8,11 @@ import CreateNewEvent from "../../pages/Event/CreateNewEvent";
 function SubNavAdmin() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light" >
+      <nav className="navbar navbar-expand-lg navbar-light bg-light">
         <div className="container">
           <ul className="navbar-nav">
             <li className="nav-item">
-              <a className="nav-link" href="/">
+              <a className="nav-link" href="/Dashboard">
                 Dashboard
               </a>
             </li>
@@ -35,7 +35,7 @@ function SubNavAdmin() {
         </div>
       </nav>
 
-      <Routes>
+      {/* <Routes>
         <Route path="/Category/*" element={<Category />}></Route>
         <Route path="/Event/*" element={<Event />} />
         <Route
@@ -47,8 +47,7 @@ function SubNavAdmin() {
           element={<CreateNewCategory />}
         ></Route>
         <Route path="/NewsFeed" element={<NewsFeed />} />
-        
-      </Routes>
+      </Routes> */}
     </>
   );
 }
