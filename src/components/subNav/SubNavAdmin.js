@@ -1,10 +1,4 @@
-import { Routes, Route, Link } from "react-router-dom";
-import Category from "../../pages/Category/Category";
-import CreateNewCategory from "../../pages/Category/CreateNewCategory";
-import NewsFeed from "../../pages/NewsFeed/NewsFeed";
-import Event from "../../pages/Event/Event";
-import CreateNewEvent from "../../pages/Event/CreateNewEvent";
-
+import { Link } from "react-router-dom";
 function SubNavAdmin() {
   return (
     <>
@@ -34,20 +28,6 @@ function SubNavAdmin() {
           </ul>
         </div>
       </nav>
-
-      {/* <Routes>
-        <Route path="/Category/*" element={<Category />}></Route>
-        <Route path="/Event/*" element={<Event />} />
-        <Route
-          path="/Event/CreateNewEvent"
-          element={<CreateNewEvent />}
-        ></Route>
-        <Route
-          path="/Category/CreateNewCategory"
-          element={<CreateNewCategory />}
-        ></Route>
-        <Route path="/NewsFeed" element={<NewsFeed />} />
-      </Routes> */}
     </>
   );
 }

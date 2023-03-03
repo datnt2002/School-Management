@@ -5,25 +5,57 @@ import Event from "./pages/Event/Event";
 import CreateNewEvent from "./pages/Event/CreateNewEvent";
 import CreateNewCategory from "./pages/Category/CreateNewCategory";
 import NewsFeed from "./pages/NewsFeed/NewsFeed";
+import RequiredAuth from "./components/authentication/RequiredAuth";
+import Header from "./components/header/Header";
+import SubNavAdmin from "./components/subNav/SubNavAdmin";
 
 function App() {
-  const token = localStorage.getItem("token");
-
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Authentication />}></Route>
-        <Route path="/Category/*" element={<Category />}></Route>
-        <Route path="/Event/*" element={<Event />} />
+        <Route path="/Login" element={<Authentication />}></Route>
+
+        <Route path="/"></Route>
+        <Route
+          path="/Category/*"
+          element={
+            <RequiredAuth>
+              <Category />
+            </RequiredAuth>
+          }
+        ></Route>
+        <Route
+          path="/Event/*"
+          element={
+            <RequiredAuth>
+              <Event />
+            </RequiredAuth>
+          }
+        />
         <Route
           path="/Event/CreateNewEvent"
-          element={<CreateNewEvent />}
+          element={
+            <RequiredAuth>
+              <CreateNewEvent />
+            </RequiredAuth>
+          }
         ></Route>
         <Route
           path="/Category/CreateNewCategory"
-          element={<CreateNewCategory />}
+          element={
+            <RequiredAuth>
+              <CreateNewCategory />
+            </RequiredAuth>
+          }
         ></Route>
-        <Route path="/NewsFeed" element={<NewsFeed />} />
+        <Route
+          path="/NewsFeed"
+          element={
+            <RequiredAuth>
+              <NewsFeed />{" "}
+            </RequiredAuth>
+          }
+        />
       </Routes>
     </div>
   );

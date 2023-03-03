@@ -1,11 +1,10 @@
-import { Link } from "react-router-dom";
-
 import { useEffect, useState } from "react";
 import Table from "../../components/Table/Table";
 import "./category.css";
 import { apiCategory } from "../../api/Api";
 import CreateNewCategory from "./CreateNewCategory";
-import { getAPI } from "../../api/FetchAPI";
+import Header from "../../components/header/Header";
+import SubNavAdmin from "../../components/subNav/SubNavAdmin";
 
 function Category() {
   const [data, setData] = useState([]);
@@ -25,7 +24,7 @@ function Category() {
   useEffect(() => {
     fetch(apiCategory, {
       method: "GET",
-      headers: { Authorization: `Bearer ${token}` },
+      headers: !token ? {} : { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((data) => setData(data));
