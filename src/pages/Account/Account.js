@@ -95,10 +95,10 @@ function Account() {
                                                 </td>
                                                 <td>{data.email}</td>
                                                 <td>{data.phone}</td>
-                                                <td>{data.dob}</td>
+                                                <td>{data.doB}</td>
                                                 <td>{data.address}</td>
                                                 <td>{data.role}</td>
-                                                <td>{data.departmentId}</td>
+                                                <td>{data.departmentID}</td>
                                                 <td className="table-action">
                                                     <div className="d-flex justify-content-evenly">
                                                     <button

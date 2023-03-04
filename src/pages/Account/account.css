@@ -1,5 +1,19 @@
+/* Create account */
 .createFormAccount_Select{
     overflow: hidden;
     display: flex;
     justify-content: space-between;
+}
+
+/* userProfile */
+.userProfile{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    background-color: #eee;
+}
+.userProfile img{
+    width: 150px;
 }
