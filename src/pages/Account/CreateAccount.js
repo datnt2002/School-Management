@@ -94,41 +94,46 @@ function CreateAccount({style, handleClose}) {
                     //     }}
                     />
                 </div>
-                <div className="mb-5">
-                    <label className="form-label">Department</label>
-                    <select
-                      className="form-control"
-                    //   onChange={(e) => setCateId(e.target.value)}
-                    >
-                      <option value="0" key="0">---Please enter department---</option>
-                      {data.map((data) => {
-                        return (
-                          <>
-                            <option value={data.id} key={data.depId}>
-                              {data.name}
-                            </option>
-                          </>
-                        );
-                      })}
-                    </select>
-                </div>
-                <div className="mb-5">
-                    <label className="form-label">Department</label>
-                    <select
-                      className="form-control"
-                    //   onChange={(e) => setCateId(e.target.value)}
-                    >
-                      <option value="0" key="0">---Please enter department---</option>
-                      {data.map((data) => {
-                        return (
-                          <>
-                            <option value={data.id} key={data.depId}>
-                              {data.name}
-                            </option>
-                          </>
-                        );
-                      })}
-                    </select>
+                <div className="mt-3 mb-3 createFormAccount_Select">
+                  <div className="mb-5">
+                      <label className="form-label">Role</label>
+                      <select
+                        className="form-control"
+                      //   onChange={(e) => setCateId(e.target.value)}
+                      >
+                        <option value="0">---Please enter role---</option>
+                        <option value="Staff">Admin</option>
+                        <option value="Staff">Staff</option>
+                        {/* {data.map((data) => {
+                          return (
+                            <>
+                              <option value={`Quality Assurance Coordinator for ${data.name}`}>
+                                Quality Assurance Coordinator for {data.name}
+                              </option>
+                            </>
+                          );
+                        })} */}
+                        <option value="Staff">Staff</option>
+                      </select>
+                  </div>
+                  <div className="mb-5">
+                      <label className="form-label">Department</label>
+                      {/* <select
+                        className="form-control"
+                      //   onChange={(e) => setCateId(e.target.value)}
+                      >
+                        <option value="0" key="0">---Please enter department---</option>
+                        {data.map((data) => {
+                          return (
+                            <>
+                              <option value={data.id} key={data.depId}>
+                                {data.name}
+                              </option>
+                            </>
+                          );
+                        })}
+                      </select> */}
+                  </div>
                 </div>
                 <div className="btnForm mt-3 d-flex justify-content-evenly">
                     <button

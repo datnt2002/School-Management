@@ -79,14 +79,14 @@ function Account() {
                                     {data.map((data) => {
                                         return (
                                             <tr role="row" key={data.userID}>
-                                                <td className="dt-checkboxes-cell">
+                                                {/* <td className="dt-checkboxes-cell">
                                                     <div className="custom-control custom-checkbox">
                                                     <input
                                                         type="checkbox"
                                                         className="custom-control-input dt-checkboxes"
                                                     />
                                                     </div>
-                                                </td>
+                                                </td> */}
                                                 <td className="sorting_1">
                                                     <p className="m-0 d-inline-block align-middle font-16">
                                                     {data.userName}
