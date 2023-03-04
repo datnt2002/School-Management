@@ -13,7 +13,7 @@ function Table({
   deleteAction,
   apiLink,
 }) {
-  console.log(apiLink);
+
   const handleDelete = async (e) => {
     e.preventDefault();
 
@@ -22,7 +22,6 @@ function Table({
     await fetch(apiLink + `/${itemId}`, {
       method: "DELETE",
     })
-      .then((res) => res.json())
       .catch((error) => console.error("co loi r"));
 
     fetch(apiLink)

@@ -38,6 +38,8 @@ function CreateNewEvent({ style, handleClose }) {
       .catch((err) => console.log("cannot Post Event"))
       .finally(() => {
         setName("");
+        setContent("");
+        setFirstClosure("");
       });
   };
 
@@ -53,6 +55,7 @@ function CreateNewEvent({ style, handleClose }) {
               </div>
               <div className="mb-3 mt-5">
                 <Input
+                  value={name}
                   type="text"
                   label="Title"
                   className="form-control"
@@ -61,7 +64,7 @@ function CreateNewEvent({ style, handleClose }) {
               </div>
               <div className="mb-3 mt-5">
                 <Input
-                  value={name}
+                  value={content}
                   type="text"
                   label="Description"
                   className="form-control"
