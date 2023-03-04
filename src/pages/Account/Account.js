@@ -20,7 +20,7 @@ function Account() {
     useEffect(() => {
         fetch(apiAccount, {
             method: "GET",
-
+            
         })
         .then((res) => res.json())
         .then((data) => setData(data));

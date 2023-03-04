@@ -6,41 +6,23 @@ import CreateNewEvent from "./pages/Event/CreateNewEvent";
 import CreateNewCategory from "./pages/Category/CreateNewCategory";
 import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import RequiredAuth from "./components/authentication/RequiredAuth";
-import Header from "./components/header/Header";
-import SubNavAdmin from "./components/subNav/SubNavAdmin";
 import Account from "./pages/Account/Account";
 
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path="/Login" element={<Authentication />}></Route>
 
         <Route path="/"></Route>
-        <Route
+        {/* <Route
           path="/Category/*"
           element={
             <RequiredAuth>
               <Category />
             </RequiredAuth>
           }
-        ></Route>
-        <Route
-          path="/Event/*"
-          element={
-            <RequiredAuth>
-              <Event />
-            </RequiredAuth>
-          }
-        />
-        <Route
-          path="/Event/CreateNewEvent"
-          element={
-            <RequiredAuth>
-              <CreateNewEvent />
-            </RequiredAuth>
-          }
-        ></Route>
+        >
         <Route
           path="/Category/CreateNewCategory"
           element={
@@ -49,6 +31,24 @@ function App() {
             </RequiredAuth>
           }
         ></Route>
+        </Route> */}
+        <Route
+          path="/Event/*"
+          element={
+            <RequiredAuth>
+              <Event />
+            </RequiredAuth>
+          }
+        />
+        {/* <Route
+          path="/Event/CreateNewEvent"
+          element={
+            <RequiredAuth>
+              <CreateNewEvent />
+            </RequiredAuth>
+          }
+        /> */}
+
         <Route
           path="/NewsFeed"
           element={
@@ -57,9 +57,17 @@ function App() {
             </RequiredAuth>
           }
         />
-      </Routes> */}
-      <Account />
-      {/* <Event /> */}
+
+        <Route
+          path="/Account"
+          element={
+            <RequiredAuth>
+              {" "}
+              <Account />
+            </RequiredAuth>
+          }
+        />
+      </Routes>
     </div>
   );
 }

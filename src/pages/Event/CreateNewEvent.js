@@ -1,26 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Tags/Input";
 import Event from "../Event/Event";
 import "./event.css";
 import { apiCategory, apiEvent } from "../../api/Api";
 
-function CreateNewEvent({style, handleClose}) {
+function CreateNewEvent({ style, handleClose }) {
   const [categories, setCategories] = useState([]);
 
   const [cateId, setCateId] = useState(0);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
-
-  console.log(cateId);
   //show list categories
   useEffect(() => {
     fetch(apiCategory)
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
-  const navigate = useNavigate();
+
   //handle submit event
   const handleCreateEvent = (e) => {
     e.preventDefault();
@@ -36,10 +33,12 @@ function CreateNewEvent({style, handleClose}) {
     })
       .then((res) => res.json())
       .then((data) => {
-        navigate("/Event");
+        handleClose();
       })
-      .catch((err) => console.log("cannot Post Event"));
-      window.location.reload();
+      .catch((err) => console.log("cannot Post Event"))
+      .finally(() => {
+        setName("");
+      });
   };
 
   return (
@@ -47,84 +46,82 @@ function CreateNewEvent({style, handleClose}) {
       <div className="container-fluid createEvent" style={style}>
         <div className="modalOverlay" onClick={handleClose}></div>
         <div className="modalEvent">
-            <div className="createFormEvent">
-              <form className="createFormEvent_Input">
+          <div className="createFormEvent">
+            <form className="createFormEvent_Input">
               <div className="createFormEvent_Header">
                 <h1>Create New Event</h1>
               </div>
-                <div className="mb-3 mt-5">
-                  <Input
-                    type="text"
-                    label="Title"
+              <div className="mb-3 mt-5">
+                <Input
+                  type="text"
+                  label="Title"
+                  className="form-control"
+                  onSetState={(e) => setName(e.target.value)}
+                />
+              </div>
+              <div className="mb-3 mt-5">
+                <Input
+                  value={name}
+                  type="text"
+                  label="Description"
+                  className="form-control"
+                  onSetState={(e) => setContent(e.target.value)}
+                />
+              </div>
+              <div
+                className="mt-3 mb-3 createFormEvent_Select"
+                style={{ overflow: "hidden" }}
+              >
+                <div className="mb-3">
+                  <label className="form-label">Category</label>
+                  <select
                     className="form-control"
-                    onSetState={(e) => setName(e.target.value)}
-                  />
+                    onChange={(e) => setCateId(e.target.value)}
+                  >
+                    <option value="0" key="0">
+                      ---Please enter category---
+                    </option>
+                    {categories.map((category) => {
+                      return (
+                        <>
+                          <option value={category.id} key={category.id}>
+                            {category.name}
+                          </option>
+                        </>
+                      );
+                    })}
+                  </select>
                 </div>
-                <div className="mb-3 mt-5">
-                  <Input
-                    type="text"
-                    label="Description"
-                    className="form-control"
-                    onSetState={(e) => setContent(e.target.value)}
-                  />
-                </div>
-                <div className="mt-3 mb-3 createFormEvent_Select" style={{ overflow:"hidden" }}>
-                  <div className="mb-3">
-                    <label className="form-label">Category</label>
-                    <select
-                      className="form-control"
-                      onChange={(e) => setCateId(e.target.value)}
-                    >
-                      <option value="0" key="0">---Please enter category---</option>
-                      {categories.map((category) => {
-                        return (
-                          <>
-                            <option value={category.id} key={category.id}>
-                              {category.name}
-                            </option>
-                          </>
-                        );
-                      })}
-                    </select>
-                  </div>
+                <div className="">
+                  <label className="form-label">Closure date</label>
                   <div className="">
-                    <label className="form-label">Closure date</label>
-                    <div className="">
-                      <div className="col-6 justify-content-end">
-                        <small>First Closure Date</small>
-                        <input
-                          type="datetime-local"
-                          onChange={(e) => setFirstClosure(e.target.value)}
-                        ></input>
-                      </div>
+                    <div className="col-6 justify-content-end">
+                      <small>First Closure Date</small>
+                      <input
+                        type="datetime-local"
+                        onChange={(e) => setFirstClosure(e.target.value)}
+                      ></input>
                     </div>
                   </div>
                 </div>
-                <div className="btnForm d-flex justify-content-evenly">
-                  <button
-                    type="submit"
-                    className="btn btn-success"
-                    onClick={handleCreateEvent}
-                  >
-                    Submit
-                  </button>
+              </div>
+              <div className="btnForm d-flex justify-content-evenly">
+                <button
+                  type="submit"
+                  className="btn btn-success"
+                  onClick={handleCreateEvent}
+                >
+                  Submit
+                </button>
 
-                  <Link className="btn btn-danger" 
-                    to="/Event"
-                  >
-                    Cancel
-                  </Link>
-                </div>
-              </form>
-            </div>
+                <button onClick={handleClose} className="btn btn-danger">
+                  Cancel
+                </button>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
-
-      {/* <Routes>
-        <Route path="/Event" element={<Event />}>
-          {" "}
-        </Route>
-      </Routes> */}
     </>
   );
 }
