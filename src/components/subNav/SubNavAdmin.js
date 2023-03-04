@@ -10,11 +10,11 @@ function SubNavAdmin() {
                 Dashboard
               </a>
             </li>
-            <li className="nav-item">
+            {/* <li className="nav-item">
               <Link className="nav-link" to="/Category">
                 Category
               </Link>
-            </li>
+            </li> */}
             <li className="nav-item">
               <Link className="nav-link" to="/NewsFeed">
                 News Feed
@@ -22,7 +22,7 @@ function SubNavAdmin() {
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/Event">
-                Event (Test)
+                Event
               </Link>
             </li>
           </ul>

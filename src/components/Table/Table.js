@@ -1,4 +1,3 @@
-import { apiCategory } from "../../api/Api";
 import "./table.css";
 function Table({
   data,
@@ -12,21 +11,20 @@ function Table({
   edit,
   onSetData,
   deleteAction,
+  apiLink,
 }) {
+
   const handleDelete = async (e) => {
     e.preventDefault();
 
     const itemId = e.target.getAttribute("data-id");
 
-    await fetch(apiCategory + `/${itemId}`, {
+    await fetch(apiLink + `/${itemId}`, {
       method: "DELETE",
     })
-      .then((res) => {
-        res.json();
-      })
       .catch((error) => console.error("co loi r"));
 
-    fetch(apiCategory)
+    fetch(apiLink)
       .then((res) => res.json())
       .then((data) => onSetData(data));
   };
@@ -48,7 +46,9 @@ function Table({
           </th>
           <th className="sorting">{content}</th>
           <th className="sorting">{description}</th>
-          <th className="sorting" hidden={!category ? "hidden" : ""}>{category}</th>
+          <th className="sorting" hidden={!category ? "hidden" : ""}>
+            {category}
+          </th>
           <th className="sorting" hidden={!addedDateTitle ? "hidden" : ""}>
             {addedDateTitle}
           </th>
@@ -80,8 +80,8 @@ function Table({
                 </p>
               </td>
               <td>{data.content}</td>
-              
-              <td hidden={!data.name ? "hidden" : ""}>{data.name}</td>
+
+              <td hidden={!data.category ? "hidden" : ""}>{data.category}</td>
               <td hidden={!data.addedDate ? "hidden" : ""}>{data.addedDate}</td>
               <td hidden={!data.first_Closure ? "hidden" : ""}>
                 {data?.first_Closure}
