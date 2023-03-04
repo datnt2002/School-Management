@@ -8,11 +8,12 @@ import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import RequiredAuth from "./components/authentication/RequiredAuth";
 import Header from "./components/header/Header";
 import SubNavAdmin from "./components/subNav/SubNavAdmin";
+import Account from "./pages/Account/Account";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/Login" element={<Authentication />}></Route>
 
         <Route path="/"></Route>
@@ -56,7 +57,9 @@ function App() {
             </RequiredAuth>
           }
         />
-      </Routes>
+      </Routes> */}
+      <Account />
+      {/* <Event /> */}
     </div>
   );
 }
