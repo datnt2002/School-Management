@@ -21,7 +21,7 @@ function CreateAccount({style, handleClose}) {
             <div className="modalCate">
             <div className="createFormCate">
                 <div className="createFormCate_Header">
-                <h1>Create New Category</h1>
+                <h1>Create New Account</h1>
                 </div>
                 <form className="createFormCate_Input">
                 <div className="mb-5">
