@@ -5,6 +5,7 @@ function Table({
   content,
   description,
   addedDateTitle,
+  category,
   firstClosureTitle,
   finalClosureTitle,
   hidden,
@@ -47,6 +48,7 @@ function Table({
           </th>
           <th className="sorting">{content}</th>
           <th className="sorting">{description}</th>
+          <th className="sorting" hidden={!category ? "hidden" : ""}>{category}</th>
           <th className="sorting" hidden={!addedDateTitle ? "hidden" : ""}>
             {addedDateTitle}
           </th>
@@ -78,6 +80,8 @@ function Table({
                 </p>
               </td>
               <td>{data.content}</td>
+              
+              <td hidden={!data.name ? "hidden" : ""}>{data.name}</td>
               <td hidden={!data.addedDate ? "hidden" : ""}>{data.addedDate}</td>
               <td hidden={!data.first_Closure ? "hidden" : ""}>
                 {data?.first_Closure}

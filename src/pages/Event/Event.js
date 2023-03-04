@@ -63,6 +63,7 @@ function Event() {
                           hidden="hidden"
                           name="Event"
                           content="Name"
+                          category="Category"
                           description="Description"
                           firstClosureTitle="First Closure Date"
                           finalClosureTitle="Final Closure Date"
