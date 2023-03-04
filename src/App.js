@@ -58,8 +58,9 @@ function App() {
           }
         />
       </Routes> */}
-      <Account />
+      {/* <Account /> */}
       {/* <Event /> */}
+      <Category />
     </div>
   );
 }
