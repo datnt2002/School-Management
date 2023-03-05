@@ -13,7 +13,6 @@ function App() {
     <div className="App">
       <Routes>
         <Route path="/Login" element={<Authentication />}></Route>
-
         <Route path="/"></Route>
         {/* <Route
           path="/Category/*"
@@ -48,26 +47,11 @@ function App() {
             </RequiredAuth>
           }
         /> */}
-
         <Route
           path="/NewsFeed"
           element={
             <RequiredAuth>
               <NewsFeed />{" "}
-            </RequiredAuth>
-          }
-        />
-      </Routes> */}
-      {/* <Account /> */}
-      {/* <Event /> */}
-      <Category />
-
-        <Route
-          path="/Account"
-          element={
-            <RequiredAuth>
-              {" "}
-              <Account />
             </RequiredAuth>
           }
         />
