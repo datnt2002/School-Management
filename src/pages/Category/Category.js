@@ -7,27 +7,39 @@ import CreateNewCategory from "./CreateNewCategory";
 function Category() {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState({ display: "none" });
-  const token = localStorage.getItem("token");
+  // const token = localStorage.getItem("token");
+  const [modal, setModal] = useState(false);
 
   function handleOpen() {
     setShowModal({
       display: "",
     });
+    setModal(true);
   }
   function handleClose() {
     setShowModal({
       display: "none",
     });
+    setModal(false);
   }
 
+  // useEffect(() => {
+  //   fetch(apiCategory, {
+  //     method: "GET",
+  //     headers: !token ? {} : { Authorization: `Bearer ${token}` },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data));
+  // }, [token]);
+
   useEffect(() => {
-    fetch(apiCategory, {
-      method: "GET",
-      headers: !token ? {} : { Authorization: `Bearer ${token}` },
-    })
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, [token]);
+    const fetchData = async () => {
+      const response = await fetch(apiCategory);
+      const json = await response.json();
+      setData(json);
+    };
+    fetchData();
+  }, [modal]);
   //
   return (
     <>

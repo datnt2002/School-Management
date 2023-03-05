@@ -8,11 +8,12 @@ import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import RequiredAuth from "./components/authentication/RequiredAuth";
 import Account from "./pages/Account/Account";
 import UserProfile from "./pages/Account/UserProfile";
+import CreateIdea from "./pages/NewsFeed/CreateIdea";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/Login" element={<Authentication />}></Route>
         <Route path="/"></Route>
         <Route
@@ -39,7 +40,11 @@ function App() {
             </RequiredAuth>
           }
         />
-      </Routes>
+      </Routes> */}
+      {/* <Authentication/> */}
+      {/* <Category /> */}
+      {/* <Event /> */}
+      <CreateIdea/>
     </div>
   );
 }

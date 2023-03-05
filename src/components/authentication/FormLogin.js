@@ -48,6 +48,7 @@ function FormLogin() {
                 state={userName}
                 onSetState={(e) => setUserName(e.target.value)}
                 type="text"
+                placeholder="User Name"
               ></Input>
             </div>
             <div className="field-password">
@@ -57,6 +58,7 @@ function FormLogin() {
                 onSetState={(e) => setPassword(e.target.value)}
                 type="password"
                 value={password}
+                placeholder="Password"
               ></Input>
             </div>
             {errorMsg && <p>{errorMsg}</p>}
