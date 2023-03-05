@@ -21,16 +21,16 @@ function FormLogin() {
       body: JSON.stringify(userInfo),
     })
       .then((res) => {
-        console.log(localStorage);
         if (res.ok) {
           return res.text();
         } else {
+          setPassword("");
           throw Error(setErrorMsg("Wrong username or password"));
         }
       })
       .then((data) => {
         localStorage.setItem("token", data);
-        navigate("/category");
+        navigate("/event");
       })
       .catch((err) => console.log(err));
   };
@@ -56,6 +56,7 @@ function FormLogin() {
                 state={password}
                 onSetState={(e) => setPassword(e.target.value)}
                 type="password"
+                value={password}
               ></Input>
             </div>
             {errorMsg && <p>{errorMsg}</p>}

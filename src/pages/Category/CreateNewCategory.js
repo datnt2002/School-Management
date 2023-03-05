@@ -1,12 +1,12 @@
 import { useState } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Tags/Input";
 import Category from "./Category";
 import { apiCategory } from "../../api/Api";
 import "./category.css";
 import "../../components/Tags/input.css";
 
-function CreateNewCategory({style, handleClose}) {
+function CreateNewCategory({ style, handleClose }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
@@ -30,7 +30,6 @@ function CreateNewCategory({style, handleClose}) {
         navigate("/category");
       })
       .catch((err) => console.log("cannot Post"));
-      window.location.reload();
   };
 
   return (

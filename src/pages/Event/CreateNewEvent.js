@@ -80,8 +80,9 @@ function CreateNewEvent({ style, handleClose }) {
                   <select
                     className="form-control"
                     onChange={(e) => setCateId(e.target.value)}
+                    value={cateId}
                   >
-                    <option value="0" key="0">
+                    <option value="0" key="-1">
                       ---Please enter category---
                     </option>
                     {categories.map((category) => {
@@ -101,6 +102,7 @@ function CreateNewEvent({ style, handleClose }) {
                     <div className="col-6 justify-content-end">
                       <small>First Closure Date</small>
                       <input
+                        value={first_Closure}
                         type="datetime-local"
                         onChange={(e) => setFirstClosure(e.target.value)}
                       ></input>

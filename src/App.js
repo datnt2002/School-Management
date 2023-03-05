@@ -12,7 +12,7 @@ import UserProfile from "./pages/Account/UserProfile";
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path="/Login" element={<Authentication />}></Route>
         <Route path="/"></Route>
         <Route
@@ -22,16 +22,7 @@ function App() {
               <Category />
             </RequiredAuth>
           }
-        >
-        <Route
-          path="/Category/CreateNewCategory"
-          element={
-            <RequiredAuth>
-              <CreateNewCategory />
-            </RequiredAuth>
-          }
         ></Route>
-        </Route>
         <Route
           path="/Event/*"
           element={
@@ -41,18 +32,10 @@ function App() {
           }
         />
         <Route
-          path="/Event/CreateNewEvent"
-          element={
-            <RequiredAuth>
-              <CreateNewEvent />
-            </RequiredAuth>
-          }
-        /> */}
-        <Route
           path="/NewsFeed"
           element={
             <RequiredAuth>
-              <NewsFeed />{" "}
+              <NewsFeed />
             </RequiredAuth>
           }
         />

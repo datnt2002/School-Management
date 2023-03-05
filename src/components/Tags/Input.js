@@ -7,7 +7,6 @@ function Input({ label, type, onSetState, value }) {
       <input
         type={type}
         className="question"
-        required
         value={value}
         onChange={onSetState}
       />
