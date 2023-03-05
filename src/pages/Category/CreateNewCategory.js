@@ -13,7 +13,7 @@ function CreateNewCategory({ style, handleClose }) {
   
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleCreateCategory = (e) => {
     e.preventDefault();
     // const token = localStorage.getItem("token");
     const newCategory = { name, content };
@@ -71,7 +71,7 @@ function CreateNewCategory({ style, handleClose }) {
                 <button
                   type="submit"
                   className="btn btn-success"
-                  onClick={handleSubmit}
+                  onClick={handleCreateCategory}
                 >
                   Submit
                 </button>

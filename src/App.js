@@ -42,9 +42,9 @@ function App() {
         />
       </Routes> */}
       {/* <Authentication/> */}
-      {/* <Category /> */}
+      <Category />
       {/* <Event /> */}
-      <CreateIdea/>
+      {/* <CreateIdea/> */}
     </div>
   );
 }
