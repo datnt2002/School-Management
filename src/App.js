@@ -7,14 +7,15 @@ import CreateNewCategory from "./pages/Category/CreateNewCategory";
 import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import RequiredAuth from "./components/authentication/RequiredAuth";
 import Account from "./pages/Account/Account";
+import UserProfile from "./pages/Account/UserProfile";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/Login" element={<Authentication />}></Route>
         <Route path="/"></Route>
-        {/* <Route
+        <Route
           path="/Category/*"
           element={
             <RequiredAuth>
@@ -30,7 +31,7 @@ function App() {
             </RequiredAuth>
           }
         ></Route>
-        </Route> */}
+        </Route>
         <Route
           path="/Event/*"
           element={
@@ -39,7 +40,7 @@ function App() {
             </RequiredAuth>
           }
         />
-        {/* <Route
+        <Route
           path="/Event/CreateNewEvent"
           element={
             <RequiredAuth>
