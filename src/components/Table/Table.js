@@ -12,6 +12,7 @@ function Table({
   onSetData,
   deleteAction,
   apiLink,
+  token,
 }) {
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -20,11 +21,22 @@ function Table({
 
     await fetch(apiLink + `/${itemId}`, {
       method: "DELETE",
+      headers: { Authorization: `Bearer ${token}` },
     }).catch((error) => console.error("co loi r"));
 
-    fetch(apiLink)
+    fetch(apiLink, { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => res.json())
       .then((data) => onSetData(data));
+  };
+
+  const handleEdit = async (e) => {
+    e.preventDefault();
+    const itemId = e.target.getAttribute("data-id");
+
+    await fetch(apiLink + `/${itemId}`, {
+      method: "PUT",
+      headers: { Authorization: `Bearer ${token}` },
+    }).catch((error) => console.error("co loi r"));
   };
 
   return (
@@ -93,6 +105,8 @@ function Table({
                     type="button"
                     className="btn btn-primary"
                     hidden={!edit ? "hidden" : ""}
+                    onClick={handleEdit}
+                    data-id={data.id}
                   >
                     {edit}
                   </button>

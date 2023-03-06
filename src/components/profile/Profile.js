@@ -1,14 +1,10 @@
-
-
 function Profile({ imageSrc, userName, userDepartment, data }) {
-  
-
   return (
     <div className="media">
       <img
         className="mr-2 rounded"
         src={imageSrc}
-        alt="placeholder image"
+        alt="placeholder"
         height="32"
         hidden={!imageSrc ? "hidden" : ""}
       />

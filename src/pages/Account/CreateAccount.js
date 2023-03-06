@@ -1,18 +1,14 @@
 import Input from "../../components/Tags/Input";
-import { apiDepartment } from "../../api/Api"; //>????
-import { useEffect, useState } from "react";
-import { Routes, Route, Link, useNavigate } from "react-router-dom";
-import "./account.css";
-function CreateAccount({ style, handleClose }) {
-  // const [dataDepartment, setDataDepartment] = useState([]);
-  // useEffect(() => {
-  //     fetch(apiDepartment, {
-  //         method: "GET",
 
-  //     })
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data));
-  // },[])
+import { Link } from "react-router-dom";
+import "./account.css";
+import { useState } from "react";
+function CreateAccount({ style, handleClose }) {
+  const [userName, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [cfPassword, setCfPassword] = useState("");
+  const [role, setRole] = useState("");
 
   return (
     <>
@@ -21,7 +17,7 @@ function CreateAccount({ style, handleClose }) {
         <div className="modalCate">
           <div className="createFormCate">
             <div className="createFormCate_Header">
-              <h1>Create New Category</h1>
+              <h1>Create New Account</h1>
             </div>
             <form className="createFormCate_Input">
               <div className="mb-5">
@@ -29,9 +25,10 @@ function CreateAccount({ style, handleClose }) {
                   label="User Name"
                   className="form-control"
                   type="text"
-                  // onSetState={(e) => {
-                  //     setName(e.target.value);
-                  // }}
+                  onSetState={(e) => {
+                    setUsername(e.target.value);
+                  }}
+                  value={userName}
                 />
               </div>
               <div className="mb-5">
@@ -39,39 +36,10 @@ function CreateAccount({ style, handleClose }) {
                   label="Email"
                   type="text"
                   className="form-control"
-                  //     onSetState={(e) => {
-                  //         setContent(e.target.value);
-                  //     }}
-                />
-              </div>
-              <div className="mb-5">
-                <Input
-                  label="Phone"
-                  type="text"
-                  className="form-control"
-                  //     onSetState={(e) => {
-                  //         setContent(e.target.value);
-                  //     }}
-                />
-              </div>
-              <div className="mb-5">
-                <Input
-                  label="Address"
-                  type="text"
-                  className="form-control"
-                  //     onSetState={(e) => {
-                  //         setContent(e.target.value);
-                  //     }}
-                />
-              </div>
-              <div className="mb-5">
-                <Input
-                  label="Date of Birth"
-                  type="text"
-                  className="form-control"
-                  //     onSetState={(e) => {
-                  //         setContent(e.target.value);
-                  //     }}
+                  onSetState={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  value={email}
                 />
               </div>
               <div className="mb-5">
@@ -79,19 +47,21 @@ function CreateAccount({ style, handleClose }) {
                   label="Password"
                   type="password"
                   className="form-control"
-                  //     onSetState={(e) => {
-                  //         setContent(e.target.value);
-                  //     }}
+                  onSetState={(e) => {
+                    setPassword(e.target.value);
+                  }}
+                  value={password}
                 />
               </div>
               <div className="mb-5">
                 <Input
-                  label="Comfirm Password"
+                  label="Confirm Password"
                   type="password"
                   className="form-control"
-                  //     onSetState={(e) => {
-                  //         setContent(e.target.value);
-                  //     }}
+                  onSetState={(e) => {
+                    setCfPassword(e.target.value);
+                  }}
+                  value={cfPassword}
                 />
               </div>
               <div className="mt-3 mb-3 createFormAccount_Select">
@@ -99,40 +69,15 @@ function CreateAccount({ style, handleClose }) {
                   <label className="form-label">Role</label>
                   <select
                     className="form-control"
-                    //   onChange={(e) => setCateId(e.target.value)}
+                    onChange={(e) => setRole(e.target.value)}
+                    value={role}
                   >
                     <option value="0">---Please enter role---</option>
-                    <option value="Staff">Admin</option>
-                    <option value="Staff">Staff</option>
-                    {/* {data.map((data) => {
-                          return (
-                            <>
-                              <option value={`Quality Assurance Coordinator for ${data.name}`}>
-                                Quality Assurance Coordinator for {data.name}
-                              </option>
-                            </>
-                          );
-                        })} */}
                     <option value="Staff">Staff</option>
                   </select>
                 </div>
                 <div className="mb-5">
                   <label className="form-label">Department</label>
-                  {/* <select
-                        className="form-control"
-                      //   onChange={(e) => setCateId(e.target.value)}
-                      >
-                        <option value="0" key="0">---Please enter department---</option>
-                        {data.map((data) => {
-                          return (
-                            <>
-                              <option value={data.id} key={data.depId}>
-                                {data.name}
-                              </option>
-                            </>
-                          );
-                        })}
-                      </select> */}
                 </div>
               </div>
               <div className="btnForm mt-3 d-flex justify-content-evenly">
@@ -143,11 +88,13 @@ function CreateAccount({ style, handleClose }) {
                 >
                   Submit
                 </button>
-                <Link to="/Category">
-                  <button type="cancel" className="btn btn-danger">
-                    Cancel
-                  </button>
-                </Link>
+                <button
+                  type="cancel"
+                  className="btn btn-danger"
+                  onClick={handleClose}
+                >
+                  Cancel
+                </button>
               </div>
             </form>
           </div>

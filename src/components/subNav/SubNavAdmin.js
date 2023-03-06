@@ -25,6 +25,11 @@ function SubNavAdmin() {
                 Event
               </Link>
             </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/accounts">
+                Account
+              </Link>
+            </li>
           </ul>
         </div>
       </nav>

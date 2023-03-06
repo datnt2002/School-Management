@@ -3,7 +3,7 @@ import Input from "../../components/Tags/Input";
 import "./event.css";
 import { apiCategory, apiEvent } from "../../api/Api";
 
-function CreateNewEvent({ style, handleClose }) {
+function CreateNewEvent({ token, style, handleClose }) {
   const [categories, setCategories] = useState([]);
 
   const [cateId, setCateId] = useState(0);
@@ -22,15 +22,18 @@ function CreateNewEvent({ style, handleClose }) {
     e.preventDefault();
 
     const newEvent = { name, content, cateId, first_Closure };
-
     fetch(apiEvent, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
       },
+
       body: JSON.stringify(newEvent),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        res.json();
+      })
       .then((data) => {
         handleClose();
       })
@@ -79,7 +82,6 @@ function CreateNewEvent({ style, handleClose }) {
                   <select
                     className="form-control"
                     onChange={(e) => setCateId(e.target.value)}
-                    value={cateId}
                   >
                     <option value="0" key="-1">
                       ---Please enter category---
