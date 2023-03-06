@@ -30,6 +30,7 @@ function FormLogin() {
       })
       .then((data) => {
         localStorage.setItem("token", data);
+        navigate("/");
       })
       .catch((err) => console.log(err));
   };
