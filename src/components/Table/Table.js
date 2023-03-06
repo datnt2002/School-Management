@@ -13,7 +13,6 @@ function Table({
   deleteAction,
   apiLink,
 }) {
-
   const handleDelete = async (e) => {
     e.preventDefault();
 
@@ -21,8 +20,7 @@ function Table({
 
     await fetch(apiLink + `/${itemId}`, {
       method: "DELETE",
-    })
-      .catch((error) => console.error("co loi r"));
+    }).catch((error) => console.error("co loi r"));
 
     fetch(apiLink)
       .then((res) => res.json())
@@ -81,7 +79,7 @@ function Table({
               </td>
               <td>{data.content}</td>
 
-              <td hidden={!data.category ? "hidden" : ""}>{data.category}</td>
+              <td hidden={!data.cateName ? "hidden" : ""}>{data.cateName}</td>
               <td hidden={!data.addedDate ? "hidden" : ""}>{data.addedDate}</td>
               <td hidden={!data.first_Closure ? "hidden" : ""}>
                 {data?.first_Closure}

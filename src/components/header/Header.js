@@ -2,6 +2,8 @@ import Profile from "../profile/Profile";
 import "./header.css";
 
 function Header() {
+
+  
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-info"  >
     <div className="container">

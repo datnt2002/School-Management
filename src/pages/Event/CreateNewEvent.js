@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import Input from "../../components/Tags/Input";
-import Event from "../Event/Event";
 import "./event.css";
 import { apiCategory, apiEvent } from "../../api/Api";
 
