@@ -1,3 +1,5 @@
+import React from "react";
+
 import { useEffect, useState } from "react";
 import { useJwt } from "react-jwt";
 import { useNavigate } from "react-router";
@@ -39,7 +41,9 @@ function RequiredAuth({ children }) {
       <>
         <Header />
         <SubNavAdmin />
-        {children}
+        {React.Children.map(children, (child) => {
+          return React.cloneElement(child, { token: token });
+        })}
       </>
     );
   } else {

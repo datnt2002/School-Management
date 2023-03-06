@@ -5,7 +5,7 @@ import Table from "../../components/Table/Table";
 import CreateNewEvent from "./CreateNewEvent";
 import "./event.css";
 
-function Event() {
+function Event({ token }) {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
@@ -24,14 +24,14 @@ function Event() {
   }
 
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await fetch(apiEvent);
-      const json = await response.json();
-      setData(json);
-    };
-    fetchData();
+    fetch(apiEvent, {
+      headers: !token ? {} : { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => setData(data))
+      .catch((err) => console.log("404 r"));
   }, [modal]);
-
+  console.log(token);
   return (
     <>
       <div className="container">
