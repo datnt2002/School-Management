@@ -11,7 +11,6 @@ function RequiredAuth({ children }) {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [roleAuthorization, setRoleAuthorization] = useState("");
   const navigate = useNavigate();
-  console.log(token);
 
   useEffect(() => {
     if (!token) {
@@ -35,17 +34,22 @@ function RequiredAuth({ children }) {
     return <Authentication />;
   }
 
-  const validRoles = ["Admin", "Staff", "QAM"];
-  if (validRoles.includes(roleAuthorization)) {
-    return (
-      <>
-        <Header />
-        <SubNavAdmin />
-        {React.Children.map(children, (child) => {
-          return React.cloneElement(child, { token: token });
-        })}
-      </>
-    );
+  const authorizedRoutes = {
+    Admin: ["/", "/accounts", "/Event"],
+    Staff: ["/category"],
+  };
+  if (roleAuthorization in authorizedRoutes) {
+    const allowRoutes = authorizedRoutes[roleAuthorization];
+    if (allowRoutes.includes(window.location.pathname))
+      return (
+        <>
+          <Header />
+          <SubNavAdmin />
+          {React.Children.map(children, (child) => {
+            return React.cloneElement(child, { token: token });
+          })}
+        </>
+      );
   } else {
     return "cannot access";
   }

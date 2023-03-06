@@ -31,7 +31,7 @@ function Event({ token }) {
       .then((data) => setData(data))
       .catch((err) => console.log("404 r"));
   }, [modal]);
-  console.log(token);
+
   return (
     <>
       <div className="container">
@@ -73,6 +73,7 @@ function Event({ token }) {
                             deleteAction="Delete"
                             apiLink={apiEvent}
                             onSetData={setData}
+                            token={token}
                           />
                         </div>
                       </div>
@@ -84,7 +85,11 @@ function Event({ token }) {
           </div>
         </div>
       </div>
-      <CreateNewEvent style={showModal} handleClose={handleClose} />
+      <CreateNewEvent
+        style={showModal}
+        handleClose={handleClose}
+        token={token}
+      />
     </>
   );
 }
