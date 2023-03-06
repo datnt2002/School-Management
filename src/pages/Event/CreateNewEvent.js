@@ -34,7 +34,7 @@ function CreateNewEvent({ style, handleClose }) {
       .then((data) => {
         handleClose();
       })
-      .catch((err) => console.log("cannot Post Event"))
+      .catch((err) => console.log("Cannot Post Event"))
       .finally(() => {
         setName("");
         setContent("");

@@ -10,26 +10,31 @@ function CreateNewCategory({ style, handleClose }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
+  
   const navigate = useNavigate();
 
-  const handleSubmit = (e) => {
+  const handleCreateCategory = (e) => {
     e.preventDefault();
-    const token = localStorage.getItem("token");
+    // const token = localStorage.getItem("token");
     const newCategory = { name, content };
 
     fetch(apiCategory, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        // Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(newCategory),
     })
       .then((res) => res.json())
       .then((data) => {
-        navigate("/category");
+        handleClose();
       })
-      .catch((err) => console.log("cannot Post"));
+      .catch((err) => console.log("Cannot Post Category"))
+      .finally(() => {
+        setName("");
+        setContent("");
+      })
   };
 
   return (
@@ -66,7 +71,7 @@ function CreateNewCategory({ style, handleClose }) {
                 <button
                   type="submit"
                   className="btn btn-success"
-                  onClick={handleSubmit}
+                  onClick={handleCreateCategory}
                 >
                   Submit
                 </button>
