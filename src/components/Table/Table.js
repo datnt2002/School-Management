@@ -14,6 +14,7 @@ function Table({
   deleteAction,
   apiLink,
   token,
+  handleOpenEditEvent
 }) {
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -95,9 +96,10 @@ function Table({
                   {/* <EditEvent style={} handleClose={handleClose} token={token} /> */}
                   <button
                     type="button"
-                    className="btn btn-primary"
+                    className="btn btn-primary edit"
                     hidden={!edit ? "hidden" : ""}
                     data-id={data.id}
+                    onClick={handleOpenEditEvent}
                   >
                     {edit}
                   </button>

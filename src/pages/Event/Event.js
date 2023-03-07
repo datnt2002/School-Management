@@ -6,19 +6,61 @@ import CreateNewEvent from "./CreateNewEvent";
 import EditEvent from "./EditEvent";
 import "./event.css";
 
-function Event({ token }) {
+function Event({ token, handleOpen }) {
   const [data, setData] = useState([]);
-  const [showModal, setShowModal] = useState({ display: "none" });
+  const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
+  const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
 
-  function handleOpen() {
-    setShowModal({
-      display: "",
-    });
-    setModal(true);
+  const editBtn = document.querySelector(".table-action .edit")
+  const createBtn = document.querySelector(".create")
+  const modalEditEvent = document.querySelector(".editEvent")
+  const modalCreateEvent = document.querySelector(".createEvent")
+  
+
+  // if(createBtn){
+  //   createBtn.addEventListener("click", function handleOpenCreateEvent() {
+  //     setShowModal({
+  //       display: "",
+  //     });
+  //     console.log(createBtn)
+  //     modalEditEvent.setAttribute("hidden","hidden")
+  //     setModal(true);
+  //   })
+  // }
+  // else if(editBtn){
+  //   editBtn.addEventListener("click", function handleOpenEditEvent() {
+  //     setShowModal({
+  //       display: "",
+  //     });
+  //     console.log(editBtn)
+  //     modalCreateEvent.setAttribute("hidden","hidden")
+  //     setModal(true);
+  //   })
+  // }
+  function handleOpenCreateEvent() {
+    // if(createBtn){
+      setShowModalCreate({
+        display: "",
+      });
+      setModal(true);
+    // }
+    
+  }
+  function handleOpenEditEvent() {
+    // if(editBtn){
+      setShowModalEdit({
+        display: "",
+      });
+      setModal(true);
+      console.log(editBtn)
+    // }
   }
   function handleClose() {
-    setShowModal({
+    setShowModalCreate({
+      display: "none",
+    });
+    setShowModalEdit({
       display: "none",
     });
     setModal(false);
@@ -49,8 +91,8 @@ function Event({ token }) {
                   <div className="row mb-2">
                     <div className="col-sm-4">
                       <button
-                        className="btn btn-danger mb-2"
-                        onClick={handleOpen}
+                        className="btn btn-danger mb-2 create"
+                        onClick={handleOpenCreateEvent}
                       >
                         <i className="mdi mdi-plus-circle mr-2"></i>Create Event
                       </button>
@@ -75,6 +117,7 @@ function Event({ token }) {
                             apiLink={apiEvent}
                             onSetData={setData}
                             token={token}
+                            handleOpenEditEvent={handleOpenEditEvent} 
                           />
                         </div>
                       </div>
@@ -87,12 +130,12 @@ function Event({ token }) {
         </div>
       </div>
       <CreateNewEvent
-        style={showModal}
+        style={showModalCreate}
         handleClose={handleClose}
         token={token}
       />
       <EditEvent
-        style={showModal}
+        style={showModalEdit}
         handleClose={handleClose}
       />
     </>

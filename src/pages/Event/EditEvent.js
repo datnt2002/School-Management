@@ -4,7 +4,7 @@ import "./event.css";
 import { apiCategory, apiEvent } from "../../api/Api";
 import "../../components/Tags/select.css";
 
-function EditEvent({ token, style, handleClose, handleOpen }) {
+function EditEvent({ token, style, handleClose, handleOpenEditEvent }) {
   const [categories, setCategories] = useState([]);
 
   const [cateId, setCateId] = useState(0);
@@ -48,7 +48,7 @@ function EditEvent({ token, style, handleClose, handleOpen }) {
 
   return (
     <>
-      <div className="container-fluid createEvent" style={style}>
+      <div className="container-fluid editEvent" style={style}>
         <div className="modalOverlay" onClick={handleClose}></div>
         <div className="modalEvent">
           <div className="createFormEvent">
