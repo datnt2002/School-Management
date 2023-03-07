@@ -6,11 +6,15 @@ import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import RequiredAuth from "./components/authentication/RequiredAuth";
 import Account from "./pages/Account/Account";
 import UserProfile from "./pages/Account/UserProfile";
+import EditEvent from "./pages/Event/EditEvent";
+import CreateIdea from "./pages/NewsFeed/CreateIdea";
+import Error404 from "./pages/Error404/Error404";
+import Header from "./components/header/Header";
 
 function App() {
   return (
     <div className="App">
-      <Routes>
+      {/* <Routes>
         <Route path="/Login" element={<Authentication />} />
         <Route
           path="/"
@@ -35,7 +39,7 @@ function App() {
               <Account />
             </RequiredAuth>
           }
-        ></Route>
+        ></Route> */}
         {/* <Route
           path="/Category/*"
           element={
@@ -54,7 +58,8 @@ function App() {
           }
         />  */}
         {/* <Route path="*" element="404" /> */}
-      </Routes>
+      {/* </Routes> */}
+      <Header/>
     </div>
   );
 }

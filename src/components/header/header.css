@@ -1,3 +1,7 @@
+.navbar-dark{
+    background-color: #313a46;
+}
+
 img {
     height: 32px;
     width: 32px;
@@ -11,16 +15,22 @@ img {
     padding: calc(31px / 2) 20px calc(31px / 2) 57px !important;
     text-align: left!important;
     position: relative;
-    background-color: rgba(var(--bs-info-rgb),var(--bs-bg-opacity))!important;
+    background-color: #3c4655;
     border: none;
     border-width: 0 1px;
     min-height: 70px;
 }
+.user > .media > .media-body > h5:hover{
+    color: white;
+}
 .user > .media > .media-body > h5 {
+    /* padding: 0; */
+    color: #98a6ad;
+    min-width: 32px;
     display: block;
-    margin-top: calc(14px / 2)!important;
-    font-weight: 600;
-    color: black;
+    text-align: center;
+    /* margin: 0; */
+    position: relative;
 }
 .user > .media{
     margin-top: 11px;
@@ -39,3 +49,4 @@ img {
 .navbar{
     position: sticky-top;
 }
+

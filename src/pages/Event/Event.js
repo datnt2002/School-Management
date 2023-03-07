@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { apiEvent } from "../../api/Api";
 import Table from "../../components/Table/Table";
 import CreateNewEvent from "./CreateNewEvent";
+import EditEvent from "./EditEvent";
 import "./event.css";
 
 function Event({ token }) {
@@ -90,6 +91,10 @@ function Event({ token }) {
         handleClose={handleClose}
         token={token}
       />
+      {/* <EditEvent
+        style={showModal}
+        handleClose={handleClose}
+      /> */}
     </>
   );
 }

@@ -50,89 +50,13 @@ function CreateIdea(){
         function autosize(){
         setTimeout(function(){
             textarea.style.cssText = 'height:auto; padding:0';
-            // for box-sizing other than "content-box" use:
-            // el.style.cssText = '-moz-box-sizing:content-box';
             textarea.setAttribute("style", `${'height:' + textarea.scrollHeight + 'px'}`);
-            // 'height:' + textarea.scrollHeight + 'px'
         },0);
         }
     }
 
     return(
         <>
-            {/* <div className="container createIdea">
-                <div className="modalIdea">
-                    <div className="createFormIdea">
-                        <div className="createFormIdea_Header">
-                            <h1>Create New Idea</h1>
-                            <div className="createFormIdea_Event">
-                                <label className="form-label">Event</label>
-                                <input className="form-control" disabled/>
-                            </div>
-                        </div>
-                        <form className="createFormIdea_Input">
-                            <div className="mb-5">
-                                <Input
-                                label="Title"
-                                className="form-control"
-                                onSetState={(e) => setName(e.target.value)}
-                                />
-                            </div>
-                            <div className="mb-3 mt-5">
-                                <textarea
-                                    label="Description"
-                                    className="form-control"
-                                    onSetState={(e) => setContent(e.target.value)}
-                                />
-                            </div>
-                            <div className="mt-3 mb-3 createFormIdea_Select" style={{ overflow:"hidden" }}>
-                                <div className="mb-3">
-                                <label className="form-label">Category</label>
-                                <select
-                                    className="form-control"
-                                    onChange={(e) => setCateId(e.target.value)}
-                                >
-                                    <option value="0" key="0">---Please enter category---</option>
-                                    {categories.map((category) => {
-                                    return (
-                                        <>
-                                        <option value={category.id} key={category.id}>
-                                            {category.name}
-                                        </option>
-                                        </>
-                                    );
-                                })}
-                                </select>
-                                </div>
-                                    <div className="">
-                                        <label className="form-label">Closure date</label>
-                                    <div className="">
-                                    <input
-                                        type="file"
-                                        // onChange={(e) => setFirstClosure(e.target.value)}
-                                    ></input>
-                                    </div>
-                                </div>
-                            </div>
-                            <div className="btnForm d-flex justify-content-evenly">
-                                <button
-                                    type="submit"
-                                    className="btn btn-success"
-                                    // onClick={handleCreateIdea}
-                                >
-                                    Submit
-                                </button>
-
-                                <Link className="btn btn-danger"
-                                //  to="/Event"
-                                 >
-                                    Cancel
-                                </Link>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div> */}
             <section className="userProfile">
             <div className="container py-5">
                 <div className="userProfile_header col">
@@ -181,7 +105,7 @@ function CreateIdea(){
                                     </select>
                                 </div>
                                 <div className="">
-                                    <label className="form-label">Your File</label>
+                                    <label className="form-label">Drop files here or click to upload</label>
                                     <div className="">
                                         <div className="fileUploadInput">
                                             <input type="file" 
