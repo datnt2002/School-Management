@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function SubNavAdmin() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light" style={{ zIndex:1 }}>
         <div className="container">
           <ul className="navbar-nav">
             <li className="nav-item">

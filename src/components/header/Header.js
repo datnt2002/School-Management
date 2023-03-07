@@ -19,7 +19,7 @@ function Header() {
   };
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-dark">
+    <nav className="navbar navbar-expand-lg navbar-dark" style={{ zIndex:2 }}>
       <div className="container">
         <Link className="navbar-brand" to="/">
           Logo
