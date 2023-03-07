@@ -54,6 +54,10 @@ small{
     margin-bottom: 2rem;
 }
 
+.tableAdmin{
+    padding: 10rem;
+}
+
 /* Animation */
 @keyframes fadeIn {
     from {

@@ -36,8 +36,8 @@ function Account({ token }) {
 
   return (
     <>
-      <div className="container-fluid tableCateList">
-        <div className="tableCate">
+      <div className="container-fluid tableAccountList">
+        <div className="tableAccount">
           <div className="card">
             <div className="card-body">
               <div className="mb-4 col-12">

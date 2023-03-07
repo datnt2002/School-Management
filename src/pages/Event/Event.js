@@ -35,7 +35,7 @@ function Event({ token }) {
 
   return (
     <>
-      <div className="container">
+      <div className="container-fluid">
         <div className="tableAdmin">
           <div className="row">
             <div className="col-12">
@@ -90,6 +90,10 @@ function Event({ token }) {
         style={showModal}
         handleClose={handleClose}
         token={token}
+      />
+      <EditEvent
+        style={showModal}
+        handleClose={handleClose}
       />
     </>
   );

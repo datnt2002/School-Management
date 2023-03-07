@@ -5,12 +5,14 @@ import "./header.css";
 
 function Header() {
   const [showDropDown, setshowDropDown] = useState("");
-
+  const h5 = document.querySelector(".user h5")
   function Show() {
     if (showDropDown === "") {
       setshowDropDown("show");
+      h5.setAttribute("style", "color:white")
     } else {
       setshowDropDown("");
+      h5.setAttribute("style", "color:#98a6ad")
     }
   }
 

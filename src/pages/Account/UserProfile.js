@@ -17,8 +17,11 @@ function UserProfile({ token }) {
   return (
     <>
       <section className="userProfile">
-        <div className="container py-5">
-          <div className="row">
+        <div className="container">
+          <div className="row" style={{ margin: "6rem" }}>
+            <div className="textHeader">
+              <h1 style={{ fontSize: "3.5rem" }}>My Account</h1>
+            </div>
             <div className="col-lg-4">
               <div className="card mb-4">
                 <div className="card-body text-center">

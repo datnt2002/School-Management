@@ -1,4 +1,7 @@
 /* Create account */
+.tableAccount{
+    padding: 10rem;
+}
 .createFormAccount_Select{
     overflow: hidden;
     display: flex;
@@ -6,7 +9,6 @@
 }
 
 /* userProfile */
-
 .userProfile img{
     width: 150px;
 }

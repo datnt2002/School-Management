@@ -4,7 +4,7 @@ import "./event.css";
 import { apiCategory, apiEvent } from "../../api/Api";
 import "../../components/Tags/select.css";
 
-function EditEvent({ token, style, handleClose }) {
+function EditEvent({ token, style, handleClose, handleOpen }) {
   const [categories, setCategories] = useState([]);
 
   const [cateId, setCateId] = useState(0);
