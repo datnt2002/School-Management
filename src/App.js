@@ -14,7 +14,7 @@ import Header from "./components/header/Header";
 function App() {
   return (
     <div className="App">
-      {/* <Routes>
+      <Routes>
         <Route path="/Login" element={<Authentication />} />
         <Route
           path="/"
@@ -39,7 +39,15 @@ function App() {
               <Account />
             </RequiredAuth>
           }
-        ></Route> */}
+        ></Route>{" "}
+        <Route
+          path="/profile"
+          element={
+            <RequiredAuth>
+              <UserProfile />
+            </RequiredAuth>
+          }
+        ></Route>
         {/* <Route
           path="/Category/*"
           element={
@@ -57,9 +65,9 @@ function App() {
             </RequiredAuth>
           }
         />  */}
-        {/* <Route path="*" element="404" /> */}
-      {/* </Routes> */}
-      <Header/>
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+      {/* <Header/> */}
     </div>
   );
 }

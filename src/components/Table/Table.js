@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./table.css";
 function Table({
   data,
@@ -27,16 +28,6 @@ function Table({
     fetch(apiLink, { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => res.json())
       .then((data) => onSetData(data));
-  };
-
-  const handleEdit = async (e) => {
-    e.preventDefault();
-    const itemId = e.target.getAttribute("data-id");
-
-    await fetch(apiLink + `/${itemId}`, {
-      method: "PUT",
-      headers: { Authorization: `Bearer ${token}` },
-    }).catch((error) => console.error("co loi r"));
   };
 
   return (
@@ -101,11 +92,11 @@ function Table({
               </td>
               <td className="table-action">
                 <div className="d-flex justify-content-evenly">
+                  {/* <EditEvent style={} handleClose={handleClose} token={token} /> */}
                   <button
                     type="button"
                     className="btn btn-primary"
                     hidden={!edit ? "hidden" : ""}
-                    onClick={handleEdit}
                     data-id={data.id}
                   >
                     {edit}

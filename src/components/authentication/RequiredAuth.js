@@ -35,8 +35,8 @@ function RequiredAuth({ children }) {
   }
 
   const authorizedRoutes = {
-    Admin: ["/", "/accounts", "/Event"],
-    Staff: ["/category"],
+    Admin: ["/", "/accounts", "/Event", "/profile"],
+    Staff: ["/category", "/profile"],
   };
   if (roleAuthorization in authorizedRoutes) {
     const allowRoutes = authorizedRoutes[roleAuthorization];

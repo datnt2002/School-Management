@@ -91,10 +91,6 @@ function Event({ token }) {
         handleClose={handleClose}
         token={token}
       />
-      {/* <EditEvent
-        style={showModal}
-        handleClose={handleClose}
-      /> */}
     </>
   );
 }

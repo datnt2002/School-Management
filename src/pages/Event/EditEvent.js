@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Input from "../../components/Tags/Input";
 import "./event.css";
 import { apiCategory, apiEvent } from "../../api/Api";
-import "../../components/Tags/select.css"
+import "../../components/Tags/select.css";
 
 function EditEvent({ token, style, handleClose }) {
   const [categories, setCategories] = useState([]);
@@ -54,7 +54,7 @@ function EditEvent({ token, style, handleClose }) {
           <div className="createFormEvent">
             <form className="createFormEvent_Input">
               <div className="createFormEvent_Header">
-                <h1>Create New Event</h1>
+                <h1>Edit Event</h1>
               </div>
               <div className="mb-3 mt-5">
                 <Input
@@ -74,46 +74,64 @@ function EditEvent({ token, style, handleClose }) {
                   onSetState={(e) => setContent(e.target.value)}
                 />
               </div>
-              <div
-                className="mt-3 mb-3 row"
-                style={{ overflow: "hidden" }}
-              >
+              <div className="mt-3 mb-3 row" style={{ overflow: "hidden" }}>
                 <div className="col-lg-6">
-                    <span style={{ background:"#9fa6b3", color:"white", display:"block", padding:"5px 20px 5px 20px", width:"fit-content", fontWeight:"500" }}>Category</span>
-                    <div className="mb-3 select">
-                        <select
-                            className="form-control"
-                            onChange={(e) => setCateId(e.target.value)}
-                        >
-                            <option value="0" key="-1">
-                            ---Please enter category---
+                  <span
+                    style={{
+                      background: "#9fa6b3",
+                      color: "white",
+                      display: "block",
+                      padding: "5px 20px 5px 20px",
+                      width: "fit-content",
+                      fontWeight: "500",
+                    }}
+                  >
+                    Category
+                  </span>
+                  <div className="mb-3 select">
+                    <select
+                      className="form-control"
+                      onChange={(e) => setCateId(e.target.value)}
+                    >
+                      <option value="0" key="-1">
+                        ---Please enter category---
+                      </option>
+                      {categories.map((category) => {
+                        return (
+                          <>
+                            <option value={category.id} key={category.id}>
+                              {category.name}
                             </option>
-                            {categories.map((category) => {
-                                return (
-                                    <>
-                                    <option value={category.id} key={category.id}>
-                                        {category.name}
-                                    </option>
-                                    </>
-                                );
-                            })}
-                        </select>
-                    </div>
+                          </>
+                        );
+                      })}
+                    </select>
+                  </div>
                 </div>
-                    <div className="col-lg-6 d-flex justify-content-end">
-                        <div>
-                            <span style={{ background:"#9fa6b3", color:"white", display:"block", padding:"5px 20px 5px 20px", width:"fit-content", fontWeight:"500" }}>First Closure Date</span>
-                            <div className="mb-3">
-                                <input
-                                    value={first_Closure}
-                                    type="datetime-local"
-                                    onChange={(e) => setFirstClosure(e.target.value)}
-                                    style={{ height:"3.5em", width:"auto" }}
-                                ></input>
-                            </div>
-                        </div>
+                <div className="col-lg-6 d-flex justify-content-end">
+                  <div>
+                    <span
+                      style={{
+                        background: "#9fa6b3",
+                        color: "white",
+                        display: "block",
+                        padding: "5px 20px 5px 20px",
+                        width: "fit-content",
+                        fontWeight: "500",
+                      }}
+                    >
+                      First Closure Date
+                    </span>
+                    <div className="mb-3">
+                      <input
+                        value={first_Closure}
+                        type="datetime-local"
+                        onChange={(e) => setFirstClosure(e.target.value)}
+                        style={{ height: "3.5em", width: "auto" }}
+                      ></input>
                     </div>
-                
+                  </div>
+                </div>
               </div>
               <div className="btnForm d-flex justify-content-evenly">
                 <button
