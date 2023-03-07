@@ -6,63 +6,37 @@ import CreateNewEvent from "./CreateNewEvent";
 import EditEvent from "./EditEvent";
 import "./event.css";
 
-function Event({ token, handleOpen }) {
+function Event({ token }) {
   const [data, setData] = useState([]);
-  const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
-  const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
+  const [showModal, setShowModal] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
 
-  const editBtn = document.querySelector(".table-action .edit")
-  const createBtn = document.querySelector(".create")
+  const editBtn = document.querySelector(".table-action .editEventBtn")
+  const createBtn = document.getElementById("createEvent")
   const modalEditEvent = document.querySelector(".editEvent")
   const modalCreateEvent = document.querySelector(".createEvent")
-  
-
-  // if(createBtn){
-  //   createBtn.addEventListener("click", function handleOpenCreateEvent() {
-  //     setShowModal({
-  //       display: "",
-  //     });
-  //     console.log(createBtn)
-  //     modalEditEvent.setAttribute("hidden","hidden")
-  //     setModal(true);
-  //   })
-  // }
-  // else if(editBtn){
-  //   editBtn.addEventListener("click", function handleOpenEditEvent() {
-  //     setShowModal({
-  //       display: "",
-  //     });
-  //     console.log(editBtn)
-  //     modalCreateEvent.setAttribute("hidden","hidden")
-  //     setModal(true);
-  //   })
-  // }
-  function handleOpenCreateEvent() {
-    // if(createBtn){
-      setShowModalCreate({
+  function handleOpen(e) {
+    setShowModal({
         display: "",
       });
-      setModal(true);
-    // }
-    
-  }
-  function handleOpenEditEvent() {
-    // if(editBtn){
-      setShowModalEdit({
-        display: "",
-      });
-      setModal(true);
+    if(e.target === editBtn){
+      
+      modalEditEvent.removeAttribute("hidden","hidden")
+      modalCreateEvent.setAttribute("hidden","hidden")
       console.log(editBtn)
-    // }
+    }
+    else if(e.target === createBtn){
+      modalCreateEvent.removeAttribute("hidden","hidden")
+      modalEditEvent.setAttribute("hidden","hidden")
+      console.log(createBtn)
+    }
   }
   function handleClose() {
-    setShowModalCreate({
+    setShowModal({
       display: "none",
     });
-    setShowModalEdit({
-      display: "none",
-    });
+    
+    
     setModal(false);
   }
 
@@ -91,8 +65,9 @@ function Event({ token, handleOpen }) {
                   <div className="row mb-2">
                     <div className="col-sm-4">
                       <button
-                        className="btn btn-danger mb-2 create"
-                        onClick={handleOpenCreateEvent}
+                        className="btn btn-danger mb-2"
+                        id="createEvent"
+                        onClick={handleOpen}
                       >
                         <i className="mdi mdi-plus-circle mr-2"></i>Create Event
                       </button>
@@ -117,7 +92,7 @@ function Event({ token, handleOpen }) {
                             apiLink={apiEvent}
                             onSetData={setData}
                             token={token}
-                            handleOpenEditEvent={handleOpenEditEvent} 
+                            handleOpen={handleOpen}
                           />
                         </div>
                       </div>
@@ -130,12 +105,12 @@ function Event({ token, handleOpen }) {
         </div>
       </div>
       <CreateNewEvent
-        style={showModalCreate}
+        style={showModal}
         handleClose={handleClose}
         token={token}
       />
       <EditEvent
-        style={showModalEdit}
+        style={showModal}
         handleClose={handleClose}
       />
     </>
