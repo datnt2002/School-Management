@@ -9,3 +9,7 @@ export const apiDepartment = `${server}api/department`;
 export const apiLogin = `${server}api/auth/Login`;
 export const apiAccount = `${server}api/auth`;
 export const apiProfile = `${server}api/auth/profile`;
+
+function getUserGlobal() {
+  fetch();
+}

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-function SubNavAdmin() {
+function SubNavQAM() {
   return (
     <>
       <nav
@@ -19,13 +19,8 @@ function SubNavAdmin() {
               </Link>
             </li>
             <li className="nav-item">
-              <Link className="nav-link" to="/Event">
-                Event
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/accounts">
-                Account
+              <Link className="nav-link" to="/Category">
+                Category
               </Link>
             </li>
           </ul>
@@ -34,4 +29,4 @@ function SubNavAdmin() {
     </>
   );
 }
-export default SubNavAdmin;
+export default SubNavQAM;
