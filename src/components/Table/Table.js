@@ -14,7 +14,7 @@ function Table({
   deleteAction,
   apiLink,
   token,
-  handleOpen
+  handleOpen,
 }) {
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -83,7 +83,7 @@ function Table({
               </td>
               <td>{data.content}</td>
 
-              <td hidden={!data.cateId ? "hidden" : ""}>{data.cateId}</td>
+              <td hidden={!data.cateName ? "hidden" : ""}>{data.cateName}</td>
               <td hidden={!data.addedDate ? "hidden" : ""}>{data.addedDate}</td>
               <td hidden={!data.first_Closure ? "hidden" : ""}>
                 {data?.first_Closure}

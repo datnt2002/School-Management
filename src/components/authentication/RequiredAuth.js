@@ -6,6 +6,9 @@ import { useNavigate } from "react-router";
 import Authentication from "../../pages/Authentication/Authentication";
 import Header from "../header/Header";
 import SubNavAdmin from "../subNav/SubNavAdmin";
+import SubNavQAM from "../subNav/SubNavQAM";
+import SubNavQAC from "../subNav/SubNavQAC";
+import SubNavStaff from "../subNav/SubNavStaff";
 
 function RequiredAuth({ children }) {
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -35,21 +38,41 @@ function RequiredAuth({ children }) {
   }
 
   const authorizedRoutes = {
-    Admin: ["/", "/accounts", "/Event", "/profile"],
-    Staff: ["/category", "/profile"],
+    Admin: ["/", "/profile", "/accounts", "/Event"],
+    QAM: ["/", "/profile", "/Category"],
+    QAC: ["/", "profile"],
+    Staff: ["/", "/profile"],
   };
   if (roleAuthorization in authorizedRoutes) {
     const allowRoutes = authorizedRoutes[roleAuthorization];
-    if (allowRoutes.includes(window.location.pathname))
+    if (allowRoutes.includes(window.location.pathname)) {
+      let subNav;
+      switch (roleAuthorization) {
+        case "Admin":
+          subNav = <SubNavAdmin />;
+          break;
+        case "QAM":
+          subNav = <SubNavQAM />;
+          break;
+        case "QAC":
+          subNav = <SubNavQAC />;
+          break;
+        case "Staff":
+          subNav = <SubNavStaff />;
+          break;
+        default:
+          break;
+      }
       return (
         <>
           <Header />
-          <SubNavAdmin />
+          {subNav}
           {React.Children.map(children, (child) => {
             return React.cloneElement(child, { token: token });
           })}
         </>
       );
+    }
   } else {
     return "cannot access";
   }

@@ -48,15 +48,14 @@ function App() {
             </RequiredAuth>
           }
         ></Route>
-        {/* <Route
-          path="/Category/*"
+        <Route
+          path="/Category"
           element={
             <RequiredAuth>
               <Category />
             </RequiredAuth>
           }
         ></Route>
-        {/* <Route path="/Event" element={<Event />} /> */}
         {/* <Route
           path="/NewsFeed"
           element={
