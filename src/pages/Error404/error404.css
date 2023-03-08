@@ -1,65 +1,51 @@
-@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Fira+Mono:wght@500&display=swap');
-.bodyError{
-    height: 100vh;
-    background: #000000;
-    text-align: center;
-    color: #E0E0E0;
-    font-family: 'Fira Mono', monospace;
+.body404{
+    background-color:#141019;
+    background: radial-gradient(at 50% -20%, #908392, #0d060e) fixed;
+    position: absolute;
+    width: 100%;
+    height: 100%;
 }
-.text h1{
-    font-size: 2.5rem;
-    font-family: 'Permanent Marker', cursive;
+
+#handboy
+{
+   animation: swing ease-in-out 1.3s infinite alternate;
+    transform-origin: 98% 98%;
+    transform-box: fill-box;
+    
 }
-.bodyError div{
-    transform-style: preserve-3d;
+
+
+#girllight
+{
+   animation: swing ease-in-out 1.3s infinite alternate;
+    transform-origin: 0% 97%;
+    transform-box: fill-box;
 }
-.bodyError svg{
-    width: clamp(300px , 70% , 600px);
-    height: 500px;
+
+#hairgirl
+{
+    animation: swinghair ease-in-out 1.3s infinite alternate;
+   transform-origin: 60% 0%;
+    transform-box: fill-box;
   
 }
-#rocket{
-    
-    transform: translateY(750px);
-   
-    animation: launch 2s ease-out forwards;
+
+#zero
+{
+  transform-origin:bottom;
+  transform-box:fill-box;
+  
 }
 
-@keyframes launch {
-    from {
-        transform: translateY(750px);
-    }
-    to{
-        perspective: 500px;
-        transform: translateY(0px); 
-    }
+/*************swing************/
+@keyframes swing {
+    0% { transform: rotate(10deg); }
+    100% { transform: rotate(-10deg); }
 }
-#stars {
-    animation: twinkling 2s linear ;
-}
-@keyframes twinkling {
 
-    from{
-        transform: scale(0);
-    }
-    to{
-        transform: scale(1);
-    }
-}
-.text{
-    opacity: 0;
-    animation:appear 1s ease-in forwards;
-    animation-delay: 1.8s;
-}
-@keyframes appear {
-    from{
-        opacity: 0;
-    }
-    to{
-        opacity: 1;
-    }
-}
-.bodyError a{
-    color:#F66947;
-    text-decoration: none;
+
+/*************swing hair************/
+@keyframes swinghair {
+    0% { transform: rotate(6deg); }
+    100% { transform: rotate(-6deg); }
 }
