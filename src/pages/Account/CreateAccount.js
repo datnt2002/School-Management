@@ -1,14 +1,40 @@
 import Input from "../../components/Tags/Input";
 
-import { Link } from "react-router-dom";
 import "./account.css";
 import { useState } from "react";
-function CreateAccount({ style, handleClose }) {
+import { apiCreateAccount } from "../../api/Api";
+function CreateAccount({ style, handleClose, token }) {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
   const [cfPassword, setCfPassword] = useState("");
   const [role, setRole] = useState("");
+  const [departmentId, setDepartmentId] = useState(0);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const newAccount = {
+      userName,
+      password,
+      email,
+      cfPassword,
+      role,
+      departmentId,
+    };
+
+    fetch(apiCreateAccount, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newAccount),
+    })
+      .then((res) => res.json())
+      .then((data) => handleClose())
+      .catch((err) => console.log("loi create"));
+  };
 
   return (
     <>
@@ -78,13 +104,21 @@ function CreateAccount({ style, handleClose }) {
                 </div>
                 <div className="mb-5">
                   <label className="form-label">Department</label>
+                  <select
+                    className="form-control"
+                    onChange={(e) => setDepartmentId(e.target.value)}
+                    value={departmentId}
+                  >
+                    <option value="0">---Please enter Department---</option>
+                    <option value="1">IT</option>
+                  </select>
                 </div>
               </div>
               <div className="btnForm mt-3 d-flex justify-content-evenly">
                 <button
                   type="submit"
                   className="btn btn-success"
-                  // onClick={handleSubmit}
+                  onClick={handleSubmit}
                 >
                   Submit
                 </button>
