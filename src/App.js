@@ -10,6 +10,7 @@ import EditEvent from "./pages/Event/EditEvent";
 import CreateIdea from "./pages/NewsFeed/CreateIdea";
 import Error404 from "./pages/Error404/Error404";
 import Header from "./components/header/Header";
+import EventIdea from "./pages/NewsFeed/EventIdea";
 
 function App() {
   return (
@@ -64,7 +65,7 @@ function App() {
             </RequiredAuth>
           }
         />  */}
-        <Route path="*" element={<Error404 />} />
+        <Route path="*" element={<EventIdea />} />
       </Routes>
       {/* <Header/> */}
     </div>

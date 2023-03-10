@@ -1,20 +1,31 @@
-import { useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import Profile from "../profile/Profile";
 import "./header.css";
 
 function Header() {
   const [showDropDown, setshowDropDown] = useState("");
-  const h5 = document.querySelector(".user h5")
-  function Show() {
-    if (showDropDown === "") {
-      setshowDropDown("show");
-      h5.setAttribute("style", "color:white")
-    } else {
+  useEffect(() => {
+    const h5 = document.querySelector(".user h5")
+    const btn = document.querySelector(".user")
+    const item = document.querySelector(".dropdown-item")
+    function Show() {
+      if (showDropDown === "") {
+        setshowDropDown("show");
+        h5.setAttribute("style", "color:white")
+      } else {
+        setshowDropDown("");
+        h5.setAttribute("style", "color:#98a6ad")
+      }
+    }
+    function unShow(){
       setshowDropDown("");
       h5.setAttribute("style", "color:#98a6ad")
     }
-  }
+    btn.addEventListener("click", Show)
+    item.addEventListener("mouseup", unShow)
+  })
+
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -41,7 +52,7 @@ function Header() {
           </form>
         </div>
         <div className="d-flex">
-          <button className="user" onClick={Show}>
+          <button className="user">
             <Profile
               className="rounded-circle"
               imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D"
@@ -49,29 +60,32 @@ function Header() {
               userName="Dominic Keller"
             />
           </button>
-          <div
-            className={`dropdown-menu ${showDropDown}`}
-            style={{
-              width: "11rem",
-              position: "absolute",
-              transform: "translate3d(0px, 70px, 0px)",
-              top: "0px",
-              eft: "0px",
-              willChange: "transform",
-            }}
-          >
-            <Link to="/profile" className="dropdown-item notify-item">
-              <span>My Account</span>
-            </Link>
-
-            <Link
-              to="/Login"
-              className="dropdown-item notify-item"
-              onClick={handleLogout}
+          {/* {showDropdown && ( */}
+            <div
+              className={`dropdown-menu ${showDropDown}`}
+              // className="dropdown-menu show"
+              style={{
+                width: "11rem",
+                position: "absolute",
+                transform: "translate3d(0px, 70px, 0px)",
+                top: "0px",
+                eft: "0px",
+                willChange: "transform",
+              }}
             >
-              <span>Logout</span>
-            </Link>
-          </div>
+              <Link to="/profile" className="dropdown-item notify-item">
+                <span>My Account</span>
+              </Link>
+
+              <Link
+                to="/Login"
+                className="dropdown-item notify-item"
+                onClick={handleLogout}
+              >
+                <span>Logout</span>
+              </Link>
+            </div>
+          {/* )} */}
         </div>
       </div>
     </nav>
