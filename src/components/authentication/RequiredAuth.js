@@ -41,7 +41,7 @@ function RequiredAuth({ children }) {
     Admin: ["/", "/profile", "/accounts", "/Event"],
     QAM: ["/", "/profile", "/Category"],
     QAC: ["/", "profile"],
-    Staff: ["/", "/profile", "/MyIdea", "/createIdea"],
+    Staff: ["/", "/profile", "/MyIdea"],
   };
   if (roleAuthorization in authorizedRoutes) {
     const allowRoutes = authorizedRoutes[roleAuthorization];
@@ -68,7 +68,9 @@ function RequiredAuth({ children }) {
           <Header />
           {subNav}
           {React.Children.map(children, (child) => {
-            return React.cloneElement(child, { token: token });
+            return React.cloneElement(child, {
+              token: token,
+            });
           })}
         </>
       );

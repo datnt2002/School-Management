@@ -1,15 +1,14 @@
 import Authentication from "./pages/Authentication/Authentication";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useParams } from "react-router-dom";
 import Category from "./pages/Category/Category";
 import Event from "./pages/Event/Event";
 import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import RequiredAuth from "./components/authentication/RequiredAuth";
 import Account from "./pages/Account/Account";
 import UserProfile from "./pages/Account/UserProfile";
-import EditEvent from "./pages/Event/EditEvent";
 import Error404 from "./pages/Error404/Error404";
-import CreateIdea from "./pages/NewsFeed/CreateIdea";
-import EventIdea from "./pages/NewsFeed/eventIdea";
+import CreateIdea from "./pages/SubmitIdea/CreateIdea";
+import EventIdea from "./pages/SubmitIdea/eventIdea";
 
 function App() {
   return (
@@ -65,11 +64,11 @@ function App() {
           }
         />
         <Route
-          path="/createIdea"
+          path="/createIdea/:id"
           element={
-            <RequiredAuth>
-              <CreateIdea />
-            </RequiredAuth>
+            // <RequiredAuth>
+            <CreateIdea />
+            // </RequiredAuth>
           }
         />
         <Route path="*" element={<Error404 />} />
