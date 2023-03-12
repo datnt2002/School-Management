@@ -8,7 +8,7 @@ function EventIdea({ token }) {
 
   useEffect(() => {
     fetch(apiEvent, {
-      headers: !token ? {} : { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((data) => setDataEvent(data))
@@ -38,7 +38,6 @@ function EventIdea({ token }) {
                                 <th className="sorting">Name</th>
                                 <th className="sorting">description</th>
                                 <th className="sorting">category</th>
-                                {/* <th className="sorting">addedDateTitle</th> */}
                                 <th className="sorting">firstClosureTitle</th>
                                 <th className="sorting">finalClosureTitle</th>
                                 <th className="sorting">Action</th>
@@ -61,7 +60,7 @@ function EventIdea({ token }) {
                                     <td>{data?.first_Closure}</td>
                                     <td>{data?.last_Closure}</td>
                                     <td>
-                                      <Link to="/createIdea">
+                                      <Link to={`/createIdea/${data.id}`} >
                                         <button>Submit Idea</button>
                                       </Link>
                                     </td>

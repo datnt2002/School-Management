@@ -21,6 +21,7 @@ function Event({ token }) {
     setShowModal({
       display: "",
     });
+    setModal(true);
     if (e.target === editBtn) {
       modalEditEvent.removeAttribute("hidden", "hidden");
       modalCreateEvent.setAttribute("hidden", "hidden");
@@ -28,13 +29,11 @@ function Event({ token }) {
       modalCreateEvent.removeAttribute("hidden", "hidden");
       modalEditEvent.setAttribute("hidden", "hidden");
     }
-    setModal(true);
   }
   function handleClose() {
     setShowModal({
       display: "none",
     });
-
     setModal(false);
   }
 
