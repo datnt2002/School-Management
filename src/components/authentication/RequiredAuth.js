@@ -29,7 +29,7 @@ function RequiredAuth({ children }) {
   useEffect(() => {
     if (decodedToken) {
       const decodeToArray = Object.entries(decodedToken);
-      setRoleAuthorization(decodeToArray[1][1]);
+      setRoleAuthorization(decodeToArray[2][1]);
     }
   }, [decodedToken]);
   console.log(roleAuthorization);
@@ -41,7 +41,7 @@ function RequiredAuth({ children }) {
     Admin: ["/", "/profile", "/accounts", "/Event"],
     QAM: ["/", "/profile", "/Category"],
     QAC: ["/", "profile"],
-    Staff: ["/", "/profile"],
+    Staff: ["/", "/profile", "/MyIdea", "/createIdea"],
   };
   if (roleAuthorization in authorizedRoutes) {
     const allowRoutes = authorizedRoutes[roleAuthorization];

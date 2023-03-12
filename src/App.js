@@ -7,10 +7,9 @@ import RequiredAuth from "./components/authentication/RequiredAuth";
 import Account from "./pages/Account/Account";
 import UserProfile from "./pages/Account/UserProfile";
 import EditEvent from "./pages/Event/EditEvent";
-import CreateIdea from "./pages/NewsFeed/CreateIdea";
 import Error404 from "./pages/Error404/Error404";
-import Header from "./components/header/Header";
-import EventIdea from "./pages/NewsFeed/EventIdea";
+import CreateIdea from "./pages/NewsFeed/CreateIdea";
+import EventIdea from "./pages/NewsFeed/eventIdea";
 
 function App() {
   return (
@@ -57,17 +56,24 @@ function App() {
             </RequiredAuth>
           }
         ></Route>
-        {/* <Route
-          path="/NewsFeed"
+        <Route
+          path="/MyIdea"
           element={
             <RequiredAuth>
-              <NewsFeed />
+              <EventIdea />
             </RequiredAuth>
           }
-        />  */}
-        <Route path="*" element={<EventIdea />} />
+        />
+        <Route
+          path="/createIdea"
+          element={
+            <RequiredAuth>
+              <CreateIdea />
+            </RequiredAuth>
+          }
+        />
+        <Route path="*" element={<Error404 />} />
       </Routes>
-      {/* <Header/> */}
     </div>
   );
 }

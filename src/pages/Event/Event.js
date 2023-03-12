@@ -11,43 +11,39 @@ function Event({ token }) {
   const [showModal, setShowModal] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
 
-  const editBtn = document.querySelector(".table-action .editEventBtn")
-  const createBtn = document.getElementById("createEvent")
-  const modalEditEvent = document.querySelector(".editEvent")
-  const modalCreateEvent = document.querySelector(".createEvent")
+  const editBtn = document.querySelector(".table-action .editEventBtn");
+  const createBtn = document.getElementById("createEvent");
+  const modalEditEvent = document.querySelector(".editEvent");
+  const modalCreateEvent = document.querySelector(".createEvent");
   function handleOpen(e) {
     setShowModal({
-        display: "",
-      });
-    if(e.target === editBtn){
-      
-      modalEditEvent.removeAttribute("hidden","hidden")
-      modalCreateEvent.setAttribute("hidden","hidden")
-      console.log(editBtn)
+      display: "",
+    });
+    if (e.target === editBtn) {
+      modalEditEvent.removeAttribute("hidden", "hidden");
+      modalCreateEvent.setAttribute("hidden", "hidden");
+    } else if (e.target === createBtn) {
+      modalCreateEvent.removeAttribute("hidden", "hidden");
+      modalEditEvent.setAttribute("hidden", "hidden");
     }
-    else if(e.target === createBtn){
-      modalCreateEvent.removeAttribute("hidden","hidden")
-      modalEditEvent.setAttribute("hidden","hidden")
-      console.log(createBtn)
-    }
+    setModal(true);
   }
   function handleClose() {
     setShowModal({
       display: "none",
     });
-    
-    
+
     setModal(false);
   }
 
   useEffect(() => {
     fetch(apiEvent, {
-      headers: !token ? {} : { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((data) => setData(data))
       .catch((err) => console.log("404 r"));
-  }, [modal]);
+  }, [modal, token]);
 
   return (
     <>
@@ -109,10 +105,7 @@ function Event({ token }) {
         handleClose={handleClose}
         token={token}
       />
-      <EditEvent
-        style={showModal}
-        handleClose={handleClose}
-      />
+      <EditEvent style={showModal} handleClose={handleClose} token={token} />
     </>
   );
 }

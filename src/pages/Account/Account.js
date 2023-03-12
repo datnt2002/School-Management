@@ -19,7 +19,7 @@ function Account({ token }) {
 
   useEffect(() => {
     fetch(apiAccount, {
-      headers: !token ? {} : { Authorization: `Bearer ${token}` },
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -62,9 +62,6 @@ function Account({ token }) {
                           <tr role="row">
                             <th className="sorting">User Name</th>
                             <th className="sorting">Email</th>
-                            <th className="sorting">Phone</th>
-                            <th className="sorting">Date of Birth</th>
-                            <th className="sorting">Address</th>
                             <th className="sorting">Role</th>
                             <th className="sorting">Department</th>
                             <th className="sorting_disabled">Action</th>
@@ -81,11 +78,8 @@ function Account({ token }) {
                                   </p>
                                 </td>
                                 <td>{data.email}</td>
-                                <td>{data.phone}</td>
-                                <td>{data.doB}</td>
-                                <td>{data.address}</td>
                                 <td>{data.role}</td>
-                                <td>{data.departmentID}</td>
+                                <td>{data.department}</td>
                                 <td className="table-action">
                                   <div className="d-flex justify-content-evenly">
                                     <button

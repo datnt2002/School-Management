@@ -13,7 +13,9 @@ function EditEvent({ token, style, handleClose }) {
   const [first_Closure, setFirstClosure] = useState("");
   //show list categories
   useEffect(() => {
-    fetch(apiCategory)
+    fetch(apiCategory, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((res) => res.json())
       .then((data) => setCategories(data));
   }, []);
