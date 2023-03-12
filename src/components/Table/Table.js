@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./table.css";
 function Table({
   data,
@@ -15,6 +14,7 @@ function Table({
   apiLink,
   token,
   handleOpen,
+  setSelectEventId,
 }) {
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -31,6 +31,11 @@ function Table({
       .then((data) => onSetData(data));
   };
 
+  const getEventId = (e) => {
+    const eventId = e.target.getAttribute("data-id");
+    setSelectEventId(eventId); // Set giá trị event id vào state bên ngoài component Table
+    handleOpen();
+  };
   return (
     <table className="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline">
       <thead className="thead-light">
@@ -93,14 +98,13 @@ function Table({
               </td>
               <td className="table-action">
                 <div className="d-flex justify-content-evenly">
-                  {/* <EditEvent style={} handleClose={handleClose} token={token} /> */}
                   <button
                     type="button"
                     className="btn btn-primary editEventBtn"
                     id="editEvent"
                     hidden={!edit ? "hidden" : ""}
                     data-id={data.id}
-                    onClick={handleOpen}
+                    onClick={getEventId}
                   >
                     {edit}
                   </button>

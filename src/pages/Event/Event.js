@@ -11,6 +11,8 @@ function Event({ token }) {
   const [showModal, setShowModal] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
 
+  const [selectEventId, setSelectEventId] = useState(-1);
+
   const editBtn = document.querySelector(".table-action .editEventBtn");
   const createBtn = document.getElementById("createEvent");
   const modalEditEvent = document.querySelector(".editEvent");
@@ -89,6 +91,7 @@ function Event({ token }) {
                             onSetData={setData}
                             token={token}
                             handleOpen={handleOpen}
+                            setSelectEventId={setSelectEventId}
                           />
                         </div>
                       </div>
@@ -105,7 +108,12 @@ function Event({ token }) {
         handleClose={handleClose}
         token={token}
       />
-      <EditEvent style={showModal} handleClose={handleClose} token={token} />
+      <EditEvent
+        style={showModal}
+        handleClose={handleClose}
+        token={token}
+        selectEventId={selectEventId}
+      />
     </>
   );
 }

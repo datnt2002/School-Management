@@ -1,37 +1,10 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiEvent } from "../../api/Api";
-import CreateNewEvent from "../Event/CreateNewEvent";
-import EditEvent from "../Event/EditEvent";
 import "../Event/event.css";
 
 function EventIdea({ token }) {
   const [dataEvent, setDataEvent] = useState([]);
-  const [showModal, setShowModal] = useState({ display: "none" });
-
-  const editBtn = document.querySelector(".table-action .editEventBtn");
-  const createBtn = document.getElementById("createEvent");
-  const modalEditEvent = document.querySelector(".editEvent");
-  const modalCreateEvent = document.querySelector(".createEvent");
-  function handleOpen(e) {
-    setShowModal({
-      display: "",
-    });
-    if (e.target === editBtn) {
-      modalEditEvent.removeAttribute("hidden", "hidden");
-      modalCreateEvent.setAttribute("hidden", "hidden");
-      console.log(editBtn);
-    } else if (e.target === createBtn) {
-      modalCreateEvent.removeAttribute("hidden", "hidden");
-      modalEditEvent.setAttribute("hidden", "hidden");
-      console.log(createBtn);
-    }
-  }
-  function handleClose() {
-    setShowModal({
-      display: "none",
-    });
-  }
 
   useEffect(() => {
     fetch(apiEvent, {
@@ -40,7 +13,7 @@ function EventIdea({ token }) {
       .then((res) => res.json())
       .then((data) => setDataEvent(data))
       .catch((err) => console.log("404 r"));
-  }, []);
+  }, [token]);
 
   return (
     <>
@@ -107,12 +80,6 @@ function EventIdea({ token }) {
           </div>
         </div>
       </div>
-      <CreateNewEvent
-        style={showModal}
-        handleClose={handleClose}
-        token={token}
-      />
-      <EditEvent style={showModal} handleClose={handleClose} />
     </>
   );
 }
