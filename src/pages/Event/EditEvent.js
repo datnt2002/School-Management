@@ -67,7 +67,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
   }
 
   return (
-    <div className="container-fluid editEvent" style={style}>
+    <div className="container-fluid edit" style={style}>
       <div className="modalOverlay" onClick={handleClose}></div>
       <div className="modalEvent">
         <div className="createFormEvent">

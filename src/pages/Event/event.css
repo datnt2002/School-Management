@@ -5,7 +5,7 @@ small{
     overflow-x: hidden;
 }
 
-.createEvent, .editEvent{
+/* .createEvent, .editEvent{
     position: fixed;
     top: 0;
     left: 0;
@@ -13,15 +13,15 @@ small{
     bottom: 0;
     display: flex;
     padding: 0!important;
-}
+} */
 
-.modalOverlay {
+/* .modalOverlay {
     position: absolute;
     width: 100%;
     height: 100%;
     background-color: rgb(0, 0, 0, 0.3);
     z-index: 2;
-}
+} */
 .modalEvent{
     --growth-from:0.7;
     --growth-to:1;

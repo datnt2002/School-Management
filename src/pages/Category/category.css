@@ -31,7 +31,7 @@
     z-index: 1;
 }
 
-.createCate, .tableCateList{
+/* .createCate, .tableCateList{
     position: fixed;
     top: 0;
     left: 0;
@@ -39,7 +39,7 @@
     bottom: 0;
     display: flex;
     padding: 0!important;
-}
+} */
 .modalCate{
     --growth-from:0.7;
     --growth-to:1;
@@ -56,10 +56,15 @@
     padding: 30px 32px;
     overflow: auto;
     width: 100%;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .btnForm{
     margin-top: 60px;
+}
+.tableCate{
+    padding: 10rem;
 }
 
 /* Animation */

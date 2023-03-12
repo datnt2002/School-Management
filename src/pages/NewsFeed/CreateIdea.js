@@ -49,7 +49,7 @@ function CreateIdea(){
         
         function autosize(){
         setTimeout(function(){
-            textarea.style.cssText = 'height:auto; padding:0';
+            textarea.style.cssText = 'height:11.8rem; padding:0';
             textarea.setAttribute("style", `${'height:' + textarea.scrollHeight + 'px'}`);
         },0);
         }
@@ -122,8 +122,8 @@ function CreateIdea(){
                         <div className="card mb-4">
                             <div className="card-body">
                                 <h1>Content</h1>
-                                <div className="content">
-                                    <textarea placeholder="Tạm thế css sau"  className="textArea" onClick={autoHeight}/>
+                                <div className="Content">
+                                    <textarea placeholder="Type your content"  className="textArea col-12" style={{ height:"11.7rem", resize:"none" }} onClick={autoHeight}/>
                                 </div>
                             </div>
                         </div>

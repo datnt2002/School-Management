@@ -39,15 +39,15 @@ function CreateNewCategory({ style, handleClose }) {
 
   return (
     <>
-      <div className="container-fluid createCate" style={style}>
+      <div className="container-fluid create" style={style}>
         <div className="modalOverlay" onClick={handleClose}></div>
         <div className="modalCate">
           <div className="createFormCate">
-            <div className="createFormCate_Header">
-              <h1>Create New Category</h1>
-            </div>
             <form className="createFormCate_Input">
-              <div className="mb-5">
+              <div className="createFormCate_Header" style={{ marginBottom:"2rem" }}>
+                <h1>Create New Category</h1>
+              </div>
+              <div className="mb-3 mt-5">
                 <Input
                   label="Name"
                   className="form-control"
@@ -57,7 +57,7 @@ function CreateNewCategory({ style, handleClose }) {
                   }}
                 />
               </div>
-              <div className="mb-5">
+              <div className="mb-3 mt-5">
                 <Input
                   label="Content"
                   type="text"
@@ -67,7 +67,7 @@ function CreateNewCategory({ style, handleClose }) {
                   }}
                 />
               </div>
-              <div className="btnForm mt-3 d-flex justify-content-evenly">
+              <div className="btnForm d-flex justify-content-evenly">
                 <button
                   type="submit"
                   className="btn btn-success"

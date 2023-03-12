@@ -64,7 +64,7 @@ function Event({ token }) {
                     <div className="col-sm-4">
                       <button
                         className="btn btn-danger mb-2"
-                        id="createEvent"
+                        // id="createEvent"
                         onClick={handleOpen}
                       >
                         <i className="mdi mdi-plus-circle mr-2"></i>Create Event
