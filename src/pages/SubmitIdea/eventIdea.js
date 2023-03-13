@@ -16,6 +16,10 @@ function EventIdea({ token }) {
       .catch((err) => console.log("404 r"));
   }, [token]);
 
+const handleSubmitIdea = () => {
+  
+}
+
   return (
     <>
       <div className="container-fluid">
@@ -61,9 +65,7 @@ function EventIdea({ token }) {
                                     <td>{data?.first_Closure}</td>
                                     <td>{data?.last_Closure}</td>
                                     <td>
-                                      <Link to={`/createIdea/${data.id}`}>
-                                        <button>Submit Idea</button>
-                                      </Link>
+                                      <button onClick={handleSubmitIdea}>Submit Idea</button>
                                     </td>
                                   </tr>
                                 );

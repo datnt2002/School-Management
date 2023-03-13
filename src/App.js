@@ -52,9 +52,8 @@ function App() {
           path="/EditProfile"
           element={
             <RequiredAuth>
-              <EditProfile/>
+              <EditProfile />
             </RequiredAuth>
-            
           }
         ></Route>
         <Route
@@ -74,7 +73,7 @@ function App() {
           }
         />
         <Route
-          path="/createIdea/:id"
+          path="/createIdea"
           element={
             <RequiredAuth>
               <CreateIdea />

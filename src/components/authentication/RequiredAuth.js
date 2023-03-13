@@ -42,7 +42,7 @@ function RequiredAuth({ children }) {
     Admin: ["/", "/profile", "/accounts", "/Event", "/editProfile"],
     QAM: ["/", "/profile", "/Category", "/editProfile"],
     QAC: ["/", "profile", "/editProfile"],
-    Staff: ["/", "/profile", "/MyIdea", "/editProfile"],
+    Staff: ["/", "/profile", "/MyIdea", "/editProfile", "/createIdea"],
   };
   if (roleAuthorization in authorizedRoutes) {
     const allowRoutes = authorizedRoutes[roleAuthorization];
