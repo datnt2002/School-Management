@@ -5,6 +5,7 @@ import "./account.css";
 import Input from "../../components/Tags/Input"
 import { apiIdea } from "../../api/Api";
 import Comment from "../../components/feed/posts/Comment";
+import { Link } from "react-router-dom";
 
 function UserProfile({ token }) {
   const [dataUser, setDataUser] = useState([]);
@@ -57,12 +58,13 @@ function UserProfile({ token }) {
                   <h5 className="my-3">{dataUser.UserName}</h5>
                   <p className="text-muted mb-1">{dataUser.Role}</p>
                   <div className="d-flex justify-content-center mb-2">
-                    <button
+                    <Link
                       type="button"
                       className="btn btn-outline-primary ms-1"
+                      to="/editProfile"
                     >
                       Edit Profile
-                    </button>
+                    </Link>
                   </div>
                 </div>
               </div>
