@@ -33,6 +33,7 @@ function RequiredAuth({ children }) {
     }
   }, [decodedToken]);
   console.log(roleAuthorization);
+
   if (!token) {
     return <Authentication />;
   }
@@ -41,7 +42,7 @@ function RequiredAuth({ children }) {
     Admin: ["/", "/profile", "/accounts", "/Event"],
     QAM: ["/", "/profile", "/Category"],
     QAC: ["/", "profile"],
-    Staff: ["/", "/profile", "/MyIdea"],
+    Staff: ["/", "/profile", "/MyIdea", "/createIdea/3"],
   };
   if (roleAuthorization in authorizedRoutes) {
     const allowRoutes = authorizedRoutes[roleAuthorization];
