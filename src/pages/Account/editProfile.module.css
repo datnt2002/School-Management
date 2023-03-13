@@ -11,7 +11,7 @@
     border-radius: 0.35rem 0.35rem 0 0;
 }
 .card_header {
-    padding: 1rem 1.35rem;
+    padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
     margin-bottom: 0;
     background-color: rgba(33, 40, 50, 0.03);
     border-bottom: 1px solid rgba(33, 40, 50, 0.125);
