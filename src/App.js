@@ -6,6 +6,7 @@ import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import RequiredAuth from "./components/authentication/RequiredAuth";
 import Account from "./pages/Account/Account";
 import UserProfile from "./pages/Account/UserProfile";
+import EditProfile from "./pages/Account/EditProfile";
 import Error404 from "./pages/Error404/Error404";
 import CreateIdea from "./pages/SubmitIdea/CreateIdea";
 import EventIdea from "./pages/SubmitIdea/eventIdea";
@@ -45,6 +46,15 @@ function App() {
             <RequiredAuth>
               <UserProfile />
             </RequiredAuth>
+          }
+        ></Route>
+        <Route
+          path="/EditProfile"
+          element={
+            <RequiredAuth>
+              <EditProfile/>
+            </RequiredAuth>
+            
           }
         ></Route>
         <Route

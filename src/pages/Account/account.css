@@ -9,6 +9,6 @@
 }
 
 /* userProfile */
-.userProfile img{
+.userProfile img, .editProfile img{
     width: 150px;
 }
