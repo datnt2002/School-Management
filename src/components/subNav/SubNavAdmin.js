@@ -6,7 +6,7 @@ function SubNavAdmin() {
         className="navbar navbar-expand-lg navbar-light bg-light"
         style={{ zIndex: 1 }}
       >
-        <div className="container">
+        <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="nav-item">
               <a className="nav-link" href="/Dashboard">
