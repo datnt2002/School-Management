@@ -33,6 +33,7 @@ function RequiredAuth({ children }) {
     }
   }, [decodedToken]);
   console.log(roleAuthorization);
+
   if (!token) {
     return <Authentication />;
   }

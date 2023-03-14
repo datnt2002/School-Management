@@ -1,5 +1,5 @@
 import Authentication from "./pages/Authentication/Authentication";
-import { Routes, Route, useParams } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Category from "./pages/Category/Category";
 import Event from "./pages/Event/Event";
 import NewsFeed from "./pages/NewsFeed/NewsFeed";
@@ -76,9 +76,9 @@ function App() {
         <Route
           path="/createIdea/:id"
           element={
-            // <RequiredAuth>
-            <CreateIdea />
-            // </RequiredAuth>
+            <RequiredAuth>
+              <CreateIdea />
+            </RequiredAuth>
           }
         />
         <Route path="*" element={<Error404 />} />

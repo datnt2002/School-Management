@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { apiEvent } from "../../api/Api";
+import RequiredAuth from "../../components/authentication/RequiredAuth";
 import "../Event/event.css";
 
 function EventIdea({ token }) {
@@ -60,7 +61,7 @@ function EventIdea({ token }) {
                                     <td>{data?.first_Closure}</td>
                                     <td>{data?.last_Closure}</td>
                                     <td>
-                                      <Link to={`/createIdea/${data.id}`} >
+                                      <Link to={`/createIdea/${data.id}`}>
                                         <button>Submit Idea</button>
                                       </Link>
                                     </td>
