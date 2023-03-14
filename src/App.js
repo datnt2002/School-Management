@@ -1,5 +1,5 @@
 import Authentication from "./pages/Authentication/Authentication";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Category from "./pages/Category/Category";
 import Event from "./pages/Event/Event";
 import NewsFeed from "./pages/NewsFeed/NewsFeed";
@@ -11,8 +11,24 @@ import Error404 from "./pages/Error404/Error404";
 import CreateIdea from "./pages/SubmitIdea/CreateIdea";
 import EventIdea from "./pages/SubmitIdea/eventIdea";
 import UserProfile from "./pages/Account/UserProfile";
+import { useEffect, useState } from "react";
+import { apiProfile } from "./api/Api";
 
 function App() {
+  const [dataUser, setDataUser] = useState({});
+  const token = localStorage.getItem("token");
+  useEffect(() => {
+    console.log(token);
+    console.log(dataUser);
+    fetch(apiProfile, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setDataUser(data);
+      })
+      .catch((err) => console.log("gg"));
+  }, [token]);
   return (
     <div className="App">
       <Routes>
@@ -45,7 +61,12 @@ function App() {
           path="/profile"
           element={
             <RequiredAuth>
-              <UserProfile />
+              <UserProfile
+                dataUser={dataUser}
+                setDataUser={() => {
+                  setDataUser();
+                }}
+              />
             </RequiredAuth>
           }
         ></Route>
@@ -53,7 +74,12 @@ function App() {
           path="/EditProfile"
           element={
             <RequiredAuth>
-              <EditProfile />
+              <EditProfile
+                dataUser={dataUser}
+                setDataUser={() => {
+                  setDataUser();
+                }}
+              />
             </RequiredAuth>
           }
         ></Route>

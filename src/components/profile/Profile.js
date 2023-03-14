@@ -1,4 +1,4 @@
-function Profile({ imageSrc, userName, userDepartment, data }) {
+function Profile({ imageSrc, userName, userDepartment }) {
   return (
     <div className="media">
       <img

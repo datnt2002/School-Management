@@ -37,6 +37,8 @@ function Account({ token }) {
     e.preventDefault();
   };
 
+  console.log(data);
+
   return (
     <>
       <div className="container-fluid tableAccountList">
@@ -108,7 +110,12 @@ function Account({ token }) {
           </div>
         </div>
       </div>
-      <CreateAccount style={showModal} handleClose={handleClose} />
+
+      <CreateAccount
+        style={showModal}
+        handleClose={handleClose}
+        token={token}
+      />
     </>
   );
 }

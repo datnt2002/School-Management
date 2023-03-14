@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { apiProfile } from "../../api/Api";
 import Profile from "../../components/profile/Profile";
 import "./account.css";
@@ -7,20 +7,9 @@ import { apiIdea } from "../../api/Api";
 import Comment from "../../components/feed/posts/Comment";
 import { Link } from "react-router-dom";
 
-function UserProfile({ token, handleSetUserGlobal }) {
-  const [dataUser, setDataUser] = useState([]);
+function UserProfile({ dataUser }) {
   const [activeCmt, setActiveCmt] = useState("hidden");
   const [dataIdea, setDataIdea] = useState([]);
-
-  useEffect(() => {
-    fetch(apiProfile, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((res) => res.json())
-      .then((data) => {setDataUser(data)
-      handleSetUserGlobal(data)})
-      .catch((err) => console.log("404 getprofile"));
-  }, []);
 
   function handleActiveCmt() {
     if (activeCmt === "hidden") {
@@ -39,7 +28,7 @@ function UserProfile({ token, handleSetUserGlobal }) {
     fetchDataIdea();
   }, []);
 
-  // console.log(dataUser);
+  console.log(dataUser.userName);
   return (
     <>
       <section className="userProfile">
@@ -52,12 +41,16 @@ function UserProfile({ token, handleSetUserGlobal }) {
               <div className="card mb-4">
                 <div className="card-body text-center">
                   <img
-                    src={dataUser.Avatar}
+                    src={
+                      dataUser.Avatar
+                        ? dataUser.Avatar
+                        : "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
+                    }
                     alt="avatar"
                     className="rounded-circle img-fluid"
                   />
-                  <h5 className="my-3">{dataUser.UserName}</h5>
-                  <p className="text-muted mb-1">{dataUser.Role}</p>
+                  <h5 className="my-3">{dataUser.userName}</h5>
+                  <p className="text-muted mb-1">{dataUser.role}</p>
                   <div className="d-flex justify-content-center mb-2">
                     <Link
                       type="button"
@@ -76,7 +69,7 @@ function UserProfile({ token, handleSetUserGlobal }) {
                       <p className="mb-0">User Name</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{dataUser.UserName}</p>
+                      <p className="text-muted mb-0">{dataUser.userName}</p>
                     </div>
                   </div>
                   <hr />
@@ -85,7 +78,7 @@ function UserProfile({ token, handleSetUserGlobal }) {
                       <p className="mb-0">Email</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{dataUser.Email}</p>
+                      <p className="text-muted mb-0">{dataUser.email}</p>
                     </div>
                   </div>
                   <hr />
@@ -94,7 +87,7 @@ function UserProfile({ token, handleSetUserGlobal }) {
                       <p className="mb-0">Phone</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{dataUser.Phone}</p>
+                      <p className="text-muted mb-0">{dataUser.phone}</p>
                     </div>
                   </div>
                   <hr />
@@ -104,7 +97,7 @@ function UserProfile({ token, handleSetUserGlobal }) {
                       <p className="mb-0">Department</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{dataUser.DepartmentID}</p>
+                      <p className="text-muted mb-0">{dataUser.department}</p>
                     </div>
                   </div>
                   <hr />
@@ -113,7 +106,7 @@ function UserProfile({ token, handleSetUserGlobal }) {
                       <p className="mb-0">Address</p>
                     </div>
                     <div className="col-sm-9">
-                      <p className="text-muted mb-0">{dataUser.Address}</p>
+                      <p className="text-muted mb-0">{dataUser.address}</p>
                     </div>
                   </div>
                 </div>
@@ -149,19 +142,16 @@ function UserProfile({ token, handleSetUserGlobal }) {
                           className="my-1 justify-content-between"
                           style={{ display: "flex" }}
                         >
-                          <a
-                            href="javascript: void(0);"
-                            className="btn btn-sm btn-link text-muted pl-0"
-                          >
+                          <button className="btn btn-sm btn-link text-muted pl-0">
                             <i className="mdi mdi-heart text-danger"></i>{" "}
                             {dataIdea.vote} Like
-                          </a>
-                          <a
+                          </button>
+                          <button
                             onClick={handleActiveCmt}
                             className="btn btn-sm btn-link text-muted"
                           >
                             <i className="uil uil-comments-alt"></i> Comment
-                          </a>
+                          </button>
                         </div>
 
                         <hr />
