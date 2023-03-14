@@ -5,16 +5,19 @@ import CreateAccount from "./CreateAccount";
 function Account({ token }) {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState({ display: "none" });
+  const [modal, setModal] = useState(false);
 
   function handleOpen() {
     setShowModal({
       display: "",
     });
+    setModal(true);
   }
   function handleClose() {
     setShowModal({
       display: "none",
     });
+    setModal(false);
   }
 
   useEffect(() => {
@@ -28,7 +31,7 @@ function Account({ token }) {
       .catch((err) => {
         console.log("404 o account");
       });
-  }, []);
+  }, [modal]);
 
   const handleDeleteAccount = (e) => {
     e.preventDefault();
