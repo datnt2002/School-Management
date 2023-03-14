@@ -5,15 +5,17 @@ import {
   useParams,
   useRoutes,
 } from "react-router-dom";
-import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
+import { apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
-import "../NewsFeed/newsFeed.css"
+import "../NewsFeed/newsFeed.css";
 
 function CreateIdea({ token }) {
-  const [dataEvent, setDataEvent] = useState();
+  const [eventName, setEventName] = useState("");
+  const [categoryName, setCategoryName] = useState("");
+  const [first_Closure, setFirstClosure] = useState("");
+  const [lastClosure, setLastClosure] = useState("");
 
-  const [cateId, setCateId] = useState(0);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [file, setFile] = useState("");
@@ -27,30 +29,18 @@ function CreateIdea({ token }) {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
-      .then((data) => setDataEvent(data));
+      .then((data) => {
+        setEventName(data.name);
+        setCategoryName(data.cateName);
+        setFirstClosure(data.first_Closure);
+        setLastClosure(data.lastClosure);
+      });
   }, [eventId, token]);
-
-  console.log(dataEvent);
 
   const navigate = useNavigate();
   //handle submit event
   const handleCreateIdea = (e) => {
     e.preventDefault();
-
-    const newEvent = { name, content, cateId, file };
-
-    fetch(apiIdea, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(newEvent),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        navigate("/NewsFeed");
-      })
-      .catch((err) => console.log("cannot Post Event"));
   };
 
   // function textarea
@@ -119,7 +109,7 @@ function CreateIdea({ token }) {
                     placeholder="Tạm thế css sau"
                     className="textArea col-12"
                     onClick={autoHeight}
-                    style={{ height:"11.7rem", resize:"none" }}
+                    style={{ height: "11.7rem", resize: "none" }}
                   />
                 </div>
               </div>
@@ -127,12 +117,14 @@ function CreateIdea({ token }) {
             <div className="col-lg-5">
               <div className="card mb-4">
                 <h1>Event</h1>
+
                 <Input
                   id="event"
                   type="text"
                   name="event"
                   label="Event"
                   disabled="disable"
+                  value={eventName}
                 />
                 <Input
                   id="category"
@@ -140,6 +132,7 @@ function CreateIdea({ token }) {
                   name="category"
                   label="Category"
                   disabled="disable"
+                  value={categoryName}
                 />
                 <Input
                   id="firstClosureDate"
@@ -147,6 +140,7 @@ function CreateIdea({ token }) {
                   name="firstClosureDate"
                   label="First Closure Date"
                   disabled="disable"
+                  value={first_Closure}
                 />
                 <Input
                   id="finalClosureDate"
@@ -154,6 +148,7 @@ function CreateIdea({ token }) {
                   name="finalClosureDate"
                   label="Final Closure Date"
                   disabled="disable"
+                  value={lastClosure}
                 />
               </div>
             </div>

@@ -1,13 +1,13 @@
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { apiProfile } from "../../api/Api";
 import Profile from "../../components/profile/Profile";
 import "./account.css";
-import Input from "../../components/Tags/Input"
+import Input from "../../components/Tags/Input";
 import { apiIdea } from "../../api/Api";
 import Comment from "../../components/feed/posts/Comment";
 import { Link } from "react-router-dom";
 
-function UserProfile({ token }) {
+function UserProfile({ token, handleSetUserGlobal }) {
   const [dataUser, setDataUser] = useState([]);
   const [activeCmt, setActiveCmt] = useState("hidden");
   const [dataIdea, setDataIdea] = useState([]);
@@ -17,7 +17,8 @@ function UserProfile({ token }) {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
-      .then((data) => setDataUser(data))
+      .then((data) => {setDataUser(data)
+      handleSetUserGlobal(data)})
       .catch((err) => console.log("404 getprofile"));
   }, []);
 
@@ -38,7 +39,7 @@ function UserProfile({ token }) {
     fetchDataIdea();
   }, []);
 
-  console.log(dataUser);
+  // console.log(dataUser);
   return (
     <>
       <section className="userProfile">
@@ -119,9 +120,13 @@ function UserProfile({ token }) {
               </div>
             </div>
             <div className="col-lg-8">
-            {dataIdea.map((dataIdea) => {
+              {dataIdea.map((dataIdea) => {
                 return (
-                  <div className="news-post" key={dataIdea.id} style={{ padding:"0" }}>
+                  <div
+                    className="news-post"
+                    key={dataIdea.id}
+                    style={{ padding: "0" }}
+                  >
                     <div className="card-body pb-1">
                       <div className="card">
                         <Profile
@@ -160,7 +165,7 @@ function UserProfile({ token }) {
                         </div>
 
                         <hr />
-                        <Comment activeCmt={activeCmt}/>
+                        <Comment activeCmt={activeCmt} />
                         <div className="media mb-2 reply col-12">
                           <Profile imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D" />
                           <div className="media-body col-11">
