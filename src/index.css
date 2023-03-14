@@ -27,3 +27,6 @@ body a{
   display: flex;
   padding: 0!important;
 }
+.container-fluid{
+  max-width: 85%;
+}

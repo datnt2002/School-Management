@@ -8,6 +8,7 @@ import {
 import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
+import "../NewsFeed/newsFeed.css"
 
 function CreateIdea({ token }) {
   const [dataEvent, setDataEvent] = useState();
@@ -59,7 +60,7 @@ function CreateIdea({ token }) {
 
     function autosize() {
       setTimeout(function () {
-        textarea.style.cssText = "height:auto; padding:0";
+        textarea.style.cssText = "height:11.8rem; padding:0";
         textarea.setAttribute(
           "style",
           `${"height:" + textarea.scrollHeight + "px"}`
@@ -72,22 +73,14 @@ function CreateIdea({ token }) {
     <>
       <section className="userProfile">
         <div className="container py-5">
-          <div className="userProfile_header col">
+          <div className="userProfile_header">
             <h1>Create New Idea</h1>
           </div>
           <div className="row">
-            <div>
-              <Input
-                id="event"
-                type="text"
-                name="event"
-                label="Event"
-                disabled="disable"
-              />
-            </div>
-            <div className="col-lg-4">
+            <div className="col-lg-7">
               <div className="card mb-4">
                 {/* lấy name của event */}
+                <h1>Your Idea</h1>
                 <div>
                   <Input
                     id="title"
@@ -103,23 +96,6 @@ function CreateIdea({ token }) {
                   className="createFormIdea_Select"
                   style={{ overflow: "hidden" }}
                 >
-                  {/* <label className="form-label">Category</label> */}
-                  {/* <div className="mb-3 select">
-                    <select onChange={(e) => setCateId(e.target.value)}>
-                      <option value="0" key="0">
-                        Please enter category
-                      </option>
-                      {categories.map((category) => {
-                        return (
-                          <>
-                            <option value={category.id} key={category.id}>
-                              {category.name}
-                            </option>
-                          </>
-                        );
-                      })}
-                    </select>
-                  </div> */}
                   <div className="">
                     <label className="form-label">
                       Drop files here or click to upload
@@ -136,19 +112,49 @@ function CreateIdea({ token }) {
                   </div>
                 </div>
               </div>
-            </div>
-            <div className="col-lg-8">
               <div className="card mb-4">
-                <div className="card-body">
-                  <h1>Content</h1>
-                  <div className="content">
-                    <textarea
-                      placeholder="Tạm thế css sau"
-                      className="textArea"
-                      onClick={autoHeight}
-                    />
-                  </div>
+                <h1>Content</h1>
+                <div className="content">
+                  <textarea
+                    placeholder="Tạm thế css sau"
+                    className="textArea col-12"
+                    onClick={autoHeight}
+                    style={{ height:"11.7rem", resize:"none" }}
+                  />
                 </div>
+              </div>
+            </div>
+            <div className="col-lg-5">
+              <div className="card mb-4">
+                <h1>Event</h1>
+                <Input
+                  id="event"
+                  type="text"
+                  name="event"
+                  label="Event"
+                  disabled="disable"
+                />
+                <Input
+                  id="category"
+                  type="text"
+                  name="category"
+                  label="Category"
+                  disabled="disable"
+                />
+                <Input
+                  id="firstClosureDate"
+                  type="text"
+                  name="firstClosureDate"
+                  label="First Closure Date"
+                  disabled="disable"
+                />
+                <Input
+                  id="finalClosureDate"
+                  type="text"
+                  name="finalClosureDate"
+                  label="Final Closure Date"
+                  disabled="disable"
+                />
               </div>
             </div>
           </div>
