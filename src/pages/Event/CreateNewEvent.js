@@ -49,7 +49,7 @@ function CreateNewEvent({ token, style, handleClose }) {
 
   return (
     <>
-      <div className="container-fluid create" style={style}>
+      <div className="container-fluid create" id="create" style={style}>
         <div className="modalOverlay" onClick={handleClose}></div>
         <div className="modalEvent">
           <div className="createFormEvent">

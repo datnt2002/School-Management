@@ -8,30 +8,30 @@ import "./event.css";
 
 function Event({ token }) {
   const [data, setData] = useState([]);
-  const [showModal, setShowModal] = useState({ display: "none" });
+  const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
+  const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
 
   const [selectEventId, setSelectEventId] = useState(-1);
 
-  const editBtn = document.querySelector(".table-action .editEventBtn");
-  const createBtn = document.getElementById("createEvent");
-  const modalEditEvent = document.querySelector(".editEvent");
-  const modalCreateEvent = document.querySelector(".createEvent");
-  function handleOpen(e) {
-    setShowModal({
+  function handleOpenEdit() {
+    setShowModalEdit({
       display: "",
     });
     setModal(true);
-    if (e.target === editBtn) {
-      modalEditEvent.removeAttribute("hidden", "hidden");
-      modalCreateEvent.setAttribute("hidden", "hidden");
-    } else if (e.target === createBtn) {
-      modalCreateEvent.removeAttribute("hidden", "hidden");
-      modalEditEvent.setAttribute("hidden", "hidden");
-    }
+  }
+  function handleOpenCreate() {
+    setShowModalCreate({
+      display: "",
+    });
+    
+    setModal(true);
   }
   function handleClose() {
-    setShowModal({
+    setShowModalCreate({
+      display: "none",
+    });
+    setShowModalEdit({
       display: "none",
     });
     setModal(false);
@@ -63,8 +63,8 @@ function Event({ token }) {
                     <div className="col-sm-4">
                       <button
                         className="btn btn-danger mb-2"
-                        // id="createEvent"
-                        onClick={handleOpen}
+                        id="createEvent"
+                        onClick={handleOpenCreate}
                       >
                         <i className="mdi mdi-plus-circle mr-2"></i>Create Event
                       </button>
@@ -89,7 +89,7 @@ function Event({ token }) {
                             apiLink={apiEvent}
                             onSetData={setData}
                             token={token}
-                            handleOpen={handleOpen}
+                            handleOpen={handleOpenEdit}
                             setSelectEventId={setSelectEventId}
                           />
                         </div>
@@ -103,12 +103,12 @@ function Event({ token }) {
         </div>
       </div>
       <CreateNewEvent
-        style={showModal}
+        style={showModalCreate}
         handleClose={handleClose}
         token={token}
       />
       <EditEvent
-        style={showModal}
+        style={showModalEdit}
         handleClose={handleClose}
         token={token}
         selectEventId={selectEventId}

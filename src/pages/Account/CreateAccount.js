@@ -38,7 +38,7 @@ function CreateAccount({ style, handleClose, token }) {
 
   return (
     <>
-      <div className="container-fluid createCate" style={style}>
+      <div className="container-fluid create" style={style}>
         <div className="modalOverlay" onClick={handleClose}></div>
         <div className="modalCate">
           <div className="createFormCate">

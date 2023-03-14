@@ -65,9 +65,9 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
   if (isLoading) {
     return <div></div>;
   }
-
+  console.log(selectEventId)
   return (
-    <div className="container-fluid edit" style={style}>
+    <div className="container-fluid edit" id="edit" style={style} key={selectEventId}>
       <div className="modalOverlay" onClick={handleClose}></div>
       <div className="modalEvent">
         <div className="createFormEvent">
