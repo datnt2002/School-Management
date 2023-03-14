@@ -1,11 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { apiEvent } from "../../api/Api";
 import RequiredAuth from "../../components/authentication/RequiredAuth";
 import "../Event/event.css";
 
 function EventIdea({ token }) {
   const [dataEvent, setDataEvent] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(apiEvent, {
@@ -16,9 +18,9 @@ function EventIdea({ token }) {
       .catch((err) => console.log("404 r"));
   }, [token]);
 
-const handleSubmitIdea = () => {
-  
-}
+  const handleSubmitIdea = (id) => {
+    navigate("/createIdea", { state: { eventId: id } });
+  };
 
   return (
     <>
@@ -61,11 +63,16 @@ const handleSubmitIdea = () => {
 
                                     <td>{data.content}</td>
                                     <td>{data.cateName}</td>
-                                    {/* <td>{data.addedDate}</td> */}
                                     <td>{data?.first_Closure}</td>
                                     <td>{data?.last_Closure}</td>
                                     <td>
-                                      <button onClick={handleSubmitIdea}>Submit Idea</button>
+                                      <button
+                                        onClick={() =>
+                                          handleSubmitIdea(data.id)
+                                        }
+                                      >
+                                        Submit Idea
+                                      </button>
                                     </td>
                                   </tr>
                                 );

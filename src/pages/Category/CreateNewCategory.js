@@ -1,28 +1,26 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Tags/Input";
-import Category from "./Category";
 import { apiCategory } from "../../api/Api";
 import "./category.css";
 import "../../components/Tags/input.css";
 
-function CreateNewCategory({ style, handleClose }) {
+function CreateNewCategory({ style, handleClose, token }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
 
-  
   const navigate = useNavigate();
 
   const handleCreateCategory = (e) => {
     e.preventDefault();
-    // const token = localStorage.getItem("token");
+
     const newCategory = { name, content };
 
     fetch(apiCategory, {
       method: "POST",
       headers: {
+        Authorization: `Bearer ${token}`,
         "Content-Type": "application/json",
-        // Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(newCategory),
     })
@@ -30,11 +28,11 @@ function CreateNewCategory({ style, handleClose }) {
       .then((data) => {
         handleClose();
       })
-      .catch((err) => console.log("Cannot Post Category"))
+      .catch((err) => navigate("*"))
       .finally(() => {
         setName("");
         setContent("");
-      })
+      });
   };
 
   return (
@@ -44,7 +42,10 @@ function CreateNewCategory({ style, handleClose }) {
         <div className="modalCate">
           <div className="createFormCate">
             <form className="createFormCate_Input">
-              <div className="createFormCate_Header" style={{ marginBottom:"2rem" }}>
+              <div
+                className="createFormCate_Header"
+                style={{ marginBottom: "2rem" }}
+              >
                 <h1>Create New Category</h1>
               </div>
               <div className="mb-3 mt-5">

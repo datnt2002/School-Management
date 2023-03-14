@@ -1,13 +1,16 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams, useRoutes } from "react-router-dom";
-import { apiCategory, apiIdea } from "../../api/Api";
+import {
+  useLocation,
+  useNavigate,
+  useParams,
+  useRoutes,
+} from "react-router-dom";
+import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
 
-function CreateIdea({ token, setEventId }) {
-  const { id } = useParams();
-
-  const [categories, setCategories] = useState([]);
+function CreateIdea({ token }) {
+  const [dataEvent, setDataEvent] = useState();
 
   const [cateId, setCateId] = useState(0);
   const [name, setName] = useState("");
@@ -15,8 +18,18 @@ function CreateIdea({ token, setEventId }) {
   const [file, setFile] = useState("");
 
   // console.log(cateId);
-  console.log(id);
-  //show list categories
+  const location = useLocation();
+  const eventId = location.state.eventId;
+
+  useEffect(() => {
+    fetch(apiEvent + "/" + eventId, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => setDataEvent(data));
+  }, [eventId, token]);
+
+  console.log(dataEvent);
 
   const navigate = useNavigate();
   //handle submit event

@@ -3,11 +3,11 @@ import Table from "../../components/Table/Table";
 import "./category.css";
 import { apiCategory } from "../../api/Api";
 import CreateNewCategory from "./CreateNewCategory";
+import { Navigate } from "react-router-dom";
 
-function Category() {
+function Category({ token }) {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState({ display: "none" });
-  // const token = localStorage.getItem("token");
   const [modal, setModal] = useState(false);
 
   function handleOpen() {
@@ -23,23 +23,15 @@ function Category() {
     setModal(false);
   }
 
-  // useEffect(() => {
-  //   fetch(apiCategory, {
-  //     method: "GET",
-  //     headers: !token ? {} : { Authorization: `Bearer ${token}` },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => setData(data));
-  // }, [token]);
-
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(apiCategory);
-      const json = await response.json();
-      setData(json);
+      fetch(apiCategory, { headers: { Authorization: `Bearer ${token}` } })
+        .then((res) => res.json())
+        .then((data) => setData(data))
+        .catch((er) => Navigate("/*"));
     };
     fetchData();
-  }, [modal]);
+  }, [modal, token]);
   //
   return (
     <>
@@ -56,8 +48,12 @@ function Category() {
                   </div>
                   <div className="row mb-2">
                     <div className="col-sm-4">
-                      <button className="btn btn-danger mb-2" onClick={handleOpen}>
-                        <i className="mdi mdi-plus-circle mr-2"></i>Create Category
+                      <button
+                        className="btn btn-danger mb-2"
+                        onClick={handleOpen}
+                      >
+                        <i className="mdi mdi-plus-circle mr-2"></i>Create
+                        Category
                       </button>
                     </div>
                   </div>
@@ -84,7 +80,6 @@ function Category() {
               </div>
             </div>
           </div>
-              
         </div>
       </div>
       <CreateNewCategory style={showModal} handleClose={handleClose} />

@@ -2,10 +2,7 @@ const user = [
     {
         "userName": "dat",
         "password": "1",
-        "role": "admin",
-        "phone": "0989438214",
-        "avatar": "ok",
-        "address": "okk",
+        "role": "Admin",
         "email": "trongdat211002@gmail.com",
         "departmentId": "1"
     }
