@@ -1,7 +1,7 @@
 import { memo } from "react";
 import "./input.css";
 
-function Input({ id, label, type, onSetState, value, placeholder, name, disabled }) {
+function Input({ id, label, type, onSetState, value, placeholder, name, disabled, readOnly }) {
   return (
     // <div className="form-field">
     //   <input
@@ -23,6 +23,7 @@ function Input({ id, label, type, onSetState, value, placeholder, name, disabled
         value={value}
         onChange={onSetState}
         disabled={disabled}
+        readOnly={readOnly}
       />
 
       <label 

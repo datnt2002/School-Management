@@ -10,7 +10,7 @@ import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
 import "../NewsFeed/newsFeed.css";
 
-function CreateIdea({ token }) {
+function CreateIdea({ token, readOnly }) {
   const [eventName, setEventName] = useState("");
   const [categoryName, setCategoryName] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
@@ -33,7 +33,7 @@ function CreateIdea({ token }) {
         setEventName(data.name);
         setCategoryName(data.cateName);
         setFirstClosure(data.first_Closure);
-        setLastClosure(data.lastClosure);
+        setLastClosure(data.last_Closure);
       });
   }, [eventId, token]);
 
@@ -125,6 +125,7 @@ function CreateIdea({ token }) {
                   label="Event"
                   disabled="disable"
                   value={eventName}
+                  readOnly={readOnly}
                 />
                 <Input
                   id="category"
@@ -133,6 +134,7 @@ function CreateIdea({ token }) {
                   label="Category"
                   disabled="disable"
                   value={categoryName}
+                  readOnly={readOnly}
                 />
                 <Input
                   id="firstClosureDate"
@@ -141,6 +143,7 @@ function CreateIdea({ token }) {
                   label="First Closure Date"
                   disabled="disable"
                   value={first_Closure}
+                  readOnly={readOnly}
                 />
                 <Input
                   id="finalClosureDate"
@@ -149,6 +152,7 @@ function CreateIdea({ token }) {
                   label="Final Closure Date"
                   disabled="disable"
                   value={lastClosure}
+                  readOnly={readOnly}
                 />
               </div>
             </div>
