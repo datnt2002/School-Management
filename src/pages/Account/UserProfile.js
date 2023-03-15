@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { apiProfile } from "../../api/Api";
+import { Link } from "react-router-dom";
+
 import Profile from "../../components/profile/Profile";
 import "./account.css";
 import Input from "../../components/Tags/Input";
 import { apiIdea } from "../../api/Api";
 import Comment from "../../components/feed/posts/Comment";
-import { Link } from "react-router-dom";
 
 function UserProfile({ dataUser }) {
   const [activeCmt, setActiveCmt] = useState("hidden");
