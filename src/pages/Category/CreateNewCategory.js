@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Input from "../../components/Tags/Input";
 import { apiCategory } from "../../api/Api";
 import "./category.css";
-import "../../components/Tags/input.css";
+// import "../../components/Tags/input.css";
 
 function CreateNewCategory({ style, handleClose, token }) {
   const [name, setName] = useState("");

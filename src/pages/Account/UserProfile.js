@@ -44,7 +44,7 @@ function UserProfile({ token, handleSetUserGlobal }) {
     <>
       <section className="userProfile">
         <div className="container-fluid">
-          <div className="row" style={{ margin: "6rem" }}>
+          <div className="row">
             <div className="textHeader">
               <h1 style={{ fontSize: "3.5rem" }}>My Account</h1>
             </div>
