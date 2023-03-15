@@ -1,5 +1,5 @@
 import { memo } from "react";
-import "./input.css";
+import Style from "./input.module.css";
 
 function Input({ id, label, type, onSetState, value, placeholder, name, disabled, readOnly }) {
   return (
@@ -14,23 +14,39 @@ function Input({ id, label, type, onSetState, value, placeholder, name, disabled
     //     <span>{label}</span>
     //   </label>
     // </div>
-    <div className="control-group">
+    // <div className="control-group">
+    //   <input 
+    //     // id={id}
+    //     type={type} 
+    //     name={name}
+    //     placeholder={placeholder}
+    //     value={value}
+    //     onChange={onSetState}
+    //     disabled={disabled}
+    //     readOnly={readOnly}
+    //   />
+
+    //   <label 
+    //     // for="firstname"
+    //   >
+    //     <span>{label}</span>
+    //   </label>
+    // </div>
+    <div className={Style.form_field}>
       <input 
-        // id={id}
-        type={type} 
-        name={name}
-        placeholder={placeholder}
+        type={type}
+        className={Style.form_input}
+        placeholder=" "
         value={value}
         onChange={onSetState}
         disabled={disabled}
         readOnly={readOnly}
+        autocomplete="off"
       />
-
       <label 
-        // for="firstname"
-      >
-        <span>{label}</span>
-      </label>
+        htmlFor={name}
+        className={Style.form_label}
+      >{label}</label>
     </div>
   );
 }

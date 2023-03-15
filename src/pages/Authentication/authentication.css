@@ -6,10 +6,10 @@
     top: 15%;
     left: 25%;
     box-shadow: 0 1rem 3rem rgba(0,0,0,.8)!important;
-    background-color: #567189 !important;
+    background-color: #ffffff !important;
     border-radius: 1%;
     overflow: auto;
-    color: white;
+    color: black;
 }
 .modal_form_right{
     animation-duration: 2s;

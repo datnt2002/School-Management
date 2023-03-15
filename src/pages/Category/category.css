@@ -1,7 +1,7 @@
 .tableCate{
     width: 100%;
+    padding-top: 10rem;
     /* margin: auto; */
-    padding: 2rem 6rem;
 }
 .tableCate > .row {
     display: flex;
@@ -62,9 +62,6 @@
 }
 .btnForm{
     margin-top: 60px;
-}
-.tableCate{
-    padding: 10rem;
 }
 
 /* Animation */
