@@ -8,6 +8,8 @@
     "@testing-library/user-event": "^13.5.0",
     "animejs": "^3.2.1",
     "bootstrap": "^5.2.3",
+    "bootstrap-icons": "^1.10.3",
+    "bootstrap-icons-react": "^1.0.0",
     "clsx": "^1.2.1",
     "json-server": "^0.17.2",
     "jsonwebtoken": "^9.0.0",

@@ -10,7 +10,7 @@ function Profile({ imageSrc, userName, userDepartment }) {
       />
       <div className="media-body">
         <h5 className="mt-1 mb-0">{userName}</h5>
-        <p className="mb-1 mt-1 text-muted">{userDepartment}</p>
+        <p className="mb-1 mt-1">{userDepartment}</p>
       </div>
     </div>
   );

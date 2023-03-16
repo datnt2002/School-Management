@@ -8,17 +8,17 @@ function SubNavStaff() {
       >
         <div className="container-fluid">
           <ul className="navbar-nav">
-            <li className="nav-item">
+            <li className="subNav-item">
               <a className="nav-link" href="/Dashboard">
                 Dashboard
               </a>
             </li>
-            <li className="nav-item">
+            <li className="subNav-item">
               <Link className="nav-link" to="/NewsFeed">
                 News Feed
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="subNav-item">
               <Link className="nav-link" to="/MyIdea">
                 My Idea
               </Link>

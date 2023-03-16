@@ -3,27 +3,27 @@ function SubNavAdmin() {
   return (
     <>
       <nav
-        className="navbar navbar-expand-lg navbar-light bg-light"
+        className="navbar navbar-expand-lg navbar-light bg-light subNavBar"
         style={{ zIndex: 1 }}
       >
         <div className="container-fluid">
           <ul className="navbar-nav">
-            <li className="nav-item">
+            <li className="subNav-item">
               <a className="nav-link" href="/Dashboard">
                 Dashboard
               </a>
             </li>
-            <li className="nav-item">
+            <li className="subNav-item">
               <Link className="nav-link" to="/NewsFeed">
                 News Feed
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="subNav-item">
               <Link className="nav-link" to="/Event">
                 Event
               </Link>
             </li>
-            <li className="nav-item">
+            <li className="subNav-item">
               <Link className="nav-link" to="/accounts">
                 Account
               </Link>
