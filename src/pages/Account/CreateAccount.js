@@ -3,6 +3,7 @@ import Input from "../../components/Tags/Input";
 import "./account.css";
 import { useState } from "react";
 import { apiCreateAccount } from "../../api/Api";
+import { useNavigate } from "react-router-dom";
 function CreateAccount({ style, handleClose, token }) {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -10,6 +11,8 @@ function CreateAccount({ style, handleClose, token }) {
   const [cfPassword, setCfPassword] = useState("");
   const [role, setRole] = useState("");
   const [departmentId, setDepartmentId] = useState(0);
+
+  const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,6 +24,7 @@ function CreateAccount({ style, handleClose, token }) {
       cfPassword,
       role,
       departmentId,
+      status: "Enable",
     };
 
     fetch(apiCreateAccount, {
@@ -32,8 +36,8 @@ function CreateAccount({ style, handleClose, token }) {
       body: JSON.stringify(newAccount),
     })
       .then((res) => res.json())
-      .then((data) => handleClose())
-      .catch((err) => console.log("loi create"));
+      .then(() => handleClose())
+      .catch(() => navigate("*"));
   };
 
   return (

@@ -2,14 +2,19 @@ import React, { useState, useEffect } from "react";
 import Input from "../../components/Tags/Input";
 import "./event.css";
 import { apiCategory, apiEvent } from "../../api/Api";
+import { useNavigate } from "react-router-dom";
 
 function CreateNewEvent({ token, style, handleClose }) {
   const [categories, setCategories] = useState([]);
 
+  //data to post form
   const [cateId, setCateId] = useState(0);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
+
+  const navigate = useNavigate();
+
   //show list categories
   useEffect(() => {
     fetch(apiCategory, {
@@ -17,7 +22,7 @@ function CreateNewEvent({ token, style, handleClose }) {
     })
       .then((res) => res.json())
       .then((data) => setCategories(data));
-  }, []);
+  }, [token]);
 
   //handle submit event
   const handleCreateEvent = (e) => {
@@ -36,14 +41,15 @@ function CreateNewEvent({ token, style, handleClose }) {
       .then((res) => {
         res.json();
       })
-      .then((data) => {
+      .then(() => {
         handleClose();
       })
-      .catch((err) => console.log("Cannot Post Event"))
+      .catch(() => navigate("*"))
       .finally(() => {
         setName("");
         setContent("");
         setFirstClosure("");
+        setCateId(0);
       });
   };
 
@@ -84,17 +90,16 @@ function CreateNewEvent({ token, style, handleClose }) {
                   <select
                     className="form-control"
                     onChange={(e) => setCateId(e.target.value)}
+                    value={cateId}
                   >
                     <option value="0" key="-1">
                       ---Please enter category---
                     </option>
                     {categories.map((category) => {
                       return (
-                        <>
-                          <option value={category.id} key={category.id}>
-                            {category.name}
-                          </option>
-                        </>
+                        <option value={category.id} key={category.id}>
+                          {category.name}
+                        </option>
                       );
                     })}
                   </select>

@@ -41,7 +41,7 @@ function Input({ id, label, type, onSetState, value, placeholder, name, disabled
         onChange={onSetState}
         disabled={disabled}
         readOnly={readOnly}
-        autocomplete="off"
+        autoComplete="off"
       />
       <label 
         htmlFor={name}

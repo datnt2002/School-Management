@@ -1,6 +1,18 @@
+import { useState } from "react";
 import Style from "./editProfile.module.css";
 
 function EditProfile({ dataUser }) {
+  //dang chet o file avatar
+  console.log(dataUser.avatar);
+  const [fileAvatar, setFileAvatar] = useState(
+    "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
+  );
+  const [address, setAddress] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [dob, setDob] = useState("");
+  const [currentPassword, setCurrentPassword] = useState("");
+
   return (
     <div className="editProfile">
       <div className="container-xl px-4 mt-4">
@@ -15,19 +27,16 @@ function EditProfile({ dataUser }) {
                 <img
                   alt="avatar"
                   className={`${Style.img_account_profile} ${Style.rounded_circle} mb-2`}
-                  src={
-                    dataUser.Avatar
-                      ? dataUser.Avatar
-                      : "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
-                  }
+                  src={dataUser.avatar ? dataUser.avatar : fileAvatar}
                 />
                 <div className="font-italic text-muted mt-4 mb-2">
                   Upload new image
                 </div>
                 <div className="fileUploadInput">
                   <input
-                    type="file"
-                    // onChange={(e) => setFirstClosure(e.target.value)}
+                    type="text"
+                    value={dataUser.avatar ? dataUser.avatar : fileAvatar}
+                    onChange={(e) => setFileAvatar(e.target.value)}
                   />
                   <button>+</button>
                 </div>
@@ -51,38 +60,50 @@ function EditProfile({ dataUser }) {
                       className={Style.form_control}
                       id="inputUsername"
                       type="text"
-                      placeholder="Enter your username"
-                      value=""
+                      value={dataUser.userName ? dataUser.userName : ""}
+                      disabled
                     />
                   </div>
                   <div className="row gx-3 mb-3">
                     <div className="col-md-6">
-                      <label className="small mb-1" htmlFor="inputNewPassword">
-                        New Password
+                      <label className="small mb-1" htmlFor="inputRole">
+                        Role
                       </label>
                       <input
                         className={Style.form_control}
-                        id="inputNewPassword"
-                        type="password"
-                        placeholder="Enter your first name"
-                        value=""
+                        id="inputRole"
+                        type="text"
+                        value={dataUser.role ? dataUser.role : ""}
+                        disabled
                       />
                     </div>
                     <div className="col-md-6">
-                      <label
-                        className="small mb-1"
-                        htmlFor="inputComfirmNewPassword"
-                      >
-                        Comfirm New Password
+                      <label className="small mb-1" htmlFor="inputDepartment">
+                        Department
                       </label>
                       <input
                         className={Style.form_control}
-                        id="inputComfirmNewPassword"
-                        type="password"
-                        placeholder="Enter your last name"
-                        value=""
+                        id="inputDepartment"
+                        type="text"
+                        value={dataUser.department ? dataUser.department : ""}
+                        disabled
                       />
                     </div>
+                  </div>
+                  <div className="mb-3">
+                    <label className="small mb-1" htmlFor="inputEmail">
+                      Email
+                    </label>
+                    <input
+                      className={Style.form_control}
+                      id="inputEmail"
+                      type="text"
+                      placeholder="Enter your Email"
+                      value={dataUser.email ? dataUser.email : email}
+                      onChange={(e) => {
+                        setEmail(e.target.value);
+                      }}
+                    />
                   </div>
                   <div className="mb-3">
                     <label className="small mb-1" htmlFor="inputAddress">
@@ -93,21 +114,13 @@ function EditProfile({ dataUser }) {
                       id="inputAddress"
                       type="text"
                       placeholder="Enter your location"
-                      value=""
+                      value={dataUser.address ? dataUser.address : address}
+                      onChange={(e) => {
+                        setAddress(e.target.value);
+                      }}
                     />
                   </div>
-                  <div className="mb-3">
-                    <label className="small mb-1" htmlFor="inputEmailAddress">
-                      Email address
-                    </label>
-                    <input
-                      className={Style.form_control}
-                      id="inputEmailAddress"
-                      type="email"
-                      placeholder="Enter your email address"
-                      value=""
-                    />
-                  </div>
+
                   <div className="row gx-3 mb-3">
                     <div className="col-md-6">
                       <label className="small mb-1" htmlFor="inputPhone">
@@ -118,7 +131,10 @@ function EditProfile({ dataUser }) {
                         id="inputPhone"
                         type="tel"
                         placeholder="Enter your phone number"
-                        value=""
+                        value={dataUser.phone ? dataUser.phone : phone}
+                        onChange={(e) => {
+                          setPhone(e.target.value);
+                        }}
                       />
                     </div>
                     <div className="col-md-6">
@@ -131,7 +147,10 @@ function EditProfile({ dataUser }) {
                         type="date"
                         name="birthday"
                         placeholder="Enter your birthday"
-                        value=""
+                        value={dataUser.doB ? dataUser.doB : dob}
+                        onChange={(e) => {
+                          setDob(e.target.value);
+                        }}
                       />
                     </div>
                   </div>
@@ -147,7 +166,10 @@ function EditProfile({ dataUser }) {
                       id="inputCurrentPassword"
                       type="password"
                       placeholder="Enter your current password to edit your profile"
-                      value=""
+                      value={currentPassword}
+                      onChange={(e) => {
+                        setCurrentPassword(e.target.value);
+                      }}
                     />
                   </div>
                   <div className={`${Style.btnSave} mb-3`}>

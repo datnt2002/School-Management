@@ -16,7 +16,8 @@ import { apiProfile } from "./api/Api";
 
 function App() {
   const [dataUser, setDataUser] = useState({});
-  const token = localStorage.getItem("token");
+  const [token, setToken] = useState(localStorage.getItem("token"));
+
   useEffect(() => {
     console.log(token);
     console.log(dataUser);
@@ -25,14 +26,23 @@ function App() {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setDataUser(data);
       })
       .catch((err) => console.log("gg"));
   }, [token]);
+
+  const handleSetToken = (data) => {
+    setToken(data);
+  };
+
   return (
     <div className="App">
       <Routes>
-        <Route path="/Login" element={<Authentication />} />
+        <Route
+          path="/Login"
+          element={<Authentication handleSetToken={handleSetToken} />}
+        />
         <Route
           path="/"
           element={

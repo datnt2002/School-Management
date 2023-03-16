@@ -3,7 +3,7 @@ import FormForgot from "../../components/authentication/FormForgot";
 import FormLogin from "../../components/authentication/FormLogin";
 import "./authentication.css";
 
-function Authentication() {
+function Authentication({handleSetToken}) {
   const [imageStyle, setImageStyle] = useState({});
   const [blurRightStyle, setBlurRightStyle] = useState({});
   const [blurLeftStyle, setBlurLeftStyle] = useState({});
@@ -66,7 +66,7 @@ function Authentication() {
       </div>
       {render === "Login" ? (
         <div className="modal_form_right" style={blurRightStyle}>
-          <FormLogin />
+          <FormLogin handleSetToken={handleSetToken}/>
         </div>
       ) : (
         <div className="modal_form_left" style={blurLeftStyle}>

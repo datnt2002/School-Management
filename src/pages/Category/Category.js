@@ -82,7 +82,11 @@ function Category({ token }) {
           </div>
         </div>
       </div>
-      <CreateNewCategory style={showModal} handleClose={handleClose} />
+      <CreateNewCategory
+        style={showModal}
+        handleClose={handleClose}
+        token={token}
+      />
     </>
   );
 }

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { apiAccount } from "../../api/Api";
 import CreateAccount from "./CreateAccount";
 
@@ -6,6 +7,8 @@ function Account({ token }) {
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
+
+  const navigate = useNavigate();
 
   function handleOpen() {
     setShowModal({
@@ -28,8 +31,8 @@ function Account({ token }) {
       .then((data) => {
         setData(data);
       })
-      .catch((err) => {
-        console.log("404 o account");
+      .catch(() => {
+        navigate("*");
       });
   }, [modal]);
 
@@ -69,6 +72,7 @@ function Account({ token }) {
                             <th className="sorting">Email</th>
                             <th className="sorting">Role</th>
                             <th className="sorting">Department</th>
+                            <th className="sorting">Status</th>
                             <th className="sorting_disabled">Action</th>
                           </tr>
                         </thead>
@@ -85,6 +89,7 @@ function Account({ token }) {
                                 <td>{data.email}</td>
                                 <td>{data.role}</td>
                                 <td>{data.department}</td>
+                                <td>{data.status}</td>
                                 <td className="table-action">
                                   <div className="d-flex justify-content-evenly">
                                     <button

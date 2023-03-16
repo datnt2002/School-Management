@@ -112,7 +112,7 @@ function UserProfile({ dataUser }) {
                 </div>
               </div>
             </div>
-            <div className="col-lg-8">
+            {/* <div className="col-lg-8">
               {dataIdea.map((dataIdea) => {
                 return (
                   <div
@@ -167,7 +167,7 @@ function UserProfile({ dataUser }) {
                   </div>
                 );
               })}
-            </div>
+            </div> */}
           </div>
         </div>
       </section>

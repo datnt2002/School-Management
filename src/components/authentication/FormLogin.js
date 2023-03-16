@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { apiLogin } from "../../api/Api";
 import Input from "../Tags/Input";
 
-function FormLogin() {
+function FormLogin({ handleSetToken }) {
   const [userName, setUserName] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState();
@@ -13,8 +13,11 @@ function FormLogin() {
 
   const handleLogin = (e) => {
     e.preventDefault();
+
     const userInfo = { userName, password };
 
+    //post the userName and password to login
+    //if response is ok, token will store in localStorage
     fetch(apiLogin, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -30,6 +33,7 @@ function FormLogin() {
       })
       .then((data) => {
         localStorage.setItem("token", data);
+        handleSetToken(data);
         navigate("/");
       })
       .catch((err) => console.log(err));
