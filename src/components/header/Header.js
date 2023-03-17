@@ -149,6 +149,7 @@ function Header({ dataUser }) {
                     Search
                   </button>
                 </div>
+              </div>
             </form>
           </div>
         </div>
