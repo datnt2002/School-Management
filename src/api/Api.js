@@ -10,3 +10,4 @@ export const apiLogin = `${server}api/auth/Login`;
 export const apiAccount = `${server}api/auth`;
 export const apiProfile = `${server}api/auth/profile`;
 export const apiCreateAccount = `${server}api/auth/register`;
+export const apiEditAccount = `${server}api/auth/update`;

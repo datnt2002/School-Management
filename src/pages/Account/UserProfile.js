@@ -42,8 +42,8 @@ function UserProfile({ dataUser }) {
                 <div className="card-body text-center">
                   <img
                     src={
-                      dataUser.Avatar
-                        ? dataUser.Avatar
+                      dataUser.avatar
+                        ? dataUser.avatar
                         : "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
                     }
                     alt="avatar"

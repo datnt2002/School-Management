@@ -9,8 +9,9 @@ import SubNavAdmin from "../subNav/SubNavAdmin";
 import SubNavQAM from "../subNav/SubNavQAM";
 import SubNavQAC from "../subNav/SubNavQAC";
 import SubNavStaff from "../subNav/SubNavStaff";
+import UserContext from "../../api/UserContext";
 
-function RequiredAuth({ children }) {
+function RequiredAuth({ children, dataUser }) {
   const [token, setToken] = useState(localStorage.getItem("token"));
   const [roleAuthorization, setRoleAuthorization] = useState("");
   const navigate = useNavigate();
@@ -33,7 +34,6 @@ function RequiredAuth({ children }) {
     }
   }, [decodedToken]);
   console.log(roleAuthorization);
-
   if (!token) {
     return <Authentication />;
   }
@@ -66,13 +66,15 @@ function RequiredAuth({ children }) {
       }
       return (
         <>
-          <Header />
-          {subNav}
-          {React.Children.map(children, (child) => {
-            return React.cloneElement(child, {
-              token: token,
-            });
-          })}
+          <UserContext.Provider value={dataUser}>
+            <Header dataUser={dataUser} />
+            {subNav}
+            {React.Children.map(children, (child) => {
+              return React.cloneElement(child, {
+                token: token,
+              });
+            })}
+          </UserContext.Provider>
         </>
       );
     }

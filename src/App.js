@@ -11,7 +11,7 @@ import Error404 from "./pages/Error404/Error404";
 import CreateIdea from "./pages/SubmitIdea/CreateIdea";
 import EventIdea from "./pages/SubmitIdea/eventIdea";
 import UserProfile from "./pages/Account/UserProfile";
-import { useEffect, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
 
 function App() {
@@ -19,14 +19,11 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
   useEffect(() => {
-    console.log(token);
-    console.log(dataUser);
     fetch(apiProfile, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setDataUser(data);
       })
       .catch((err) => console.log("gg"));
@@ -46,7 +43,7 @@ function App() {
         <Route
           path="/"
           element={
-            <RequiredAuth>
+            <RequiredAuth dataUser={dataUser}>
               <Event />
             </RequiredAuth>
           }
@@ -54,7 +51,7 @@ function App() {
         <Route
           path="/event"
           element={
-            <RequiredAuth>
+            <RequiredAuth dataUser={dataUser}>
               <Event />
             </RequiredAuth>
           }
@@ -62,7 +59,7 @@ function App() {
         <Route
           path="/accounts"
           element={
-            <RequiredAuth>
+            <RequiredAuth dataUser={dataUser}>
               <Account />
             </RequiredAuth>
           }
@@ -70,7 +67,7 @@ function App() {
         <Route
           path="/profile"
           element={
-            <RequiredAuth>
+            <RequiredAuth dataUser={dataUser}>
               <UserProfile
                 dataUser={dataUser}
                 setDataUser={() => {
@@ -83,7 +80,7 @@ function App() {
         <Route
           path="/EditProfile"
           element={
-            <RequiredAuth>
+            <RequiredAuth dataUser={dataUser}>
               <EditProfile
                 dataUser={dataUser}
                 setDataUser={() => {
@@ -96,7 +93,7 @@ function App() {
         <Route
           path="/Category"
           element={
-            <RequiredAuth>
+            <RequiredAuth dataUser={dataUser}>
               <Category />
             </RequiredAuth>
           }
@@ -104,7 +101,7 @@ function App() {
         <Route
           path="/MyIdea"
           element={
-            <RequiredAuth>
+            <RequiredAuth dataUser={dataUser}>
               <EventIdea />
             </RequiredAuth>
           }
@@ -112,7 +109,7 @@ function App() {
         <Route
           path="/createIdea"
           element={
-            <RequiredAuth>
+            <RequiredAuth dataUser={dataUser}>
               <CreateIdea />
             </RequiredAuth>
           }

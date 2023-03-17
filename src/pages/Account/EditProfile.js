@@ -1,17 +1,53 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { apiEditAccount } from "../../api/Api";
 import Style from "./editProfile.module.css";
 
-function EditProfile({ dataUser }) {
+function EditProfile({ dataUser, token, setDataUser }) {
   //dang chet o file avatar
-  console.log(dataUser.avatar);
   const [fileAvatar, setFileAvatar] = useState(
     "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
   );
-  const [address, setAddress] = useState("");
+  const [address, setAddress] = useState(dataUser.address);
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
+
+  useEffect(() => {
+    setFileAvatar(dataUser.avatar);
+    setAddress(dataUser.address);
+    setEmail(dataUser.email);
+    setPhone(dataUser.phone);
+  }, [dataUser]);
+
+  const navigate = useNavigate();
+
+  const handleEditProfile = (e) => {
+    e.preventDefault();
+
+    const editProfile = {
+      password: currentPassword,
+      address,
+      email,
+      phone,
+      // doB: dob,
+      avatar: fileAvatar,
+    };
+
+    fetch(apiEditAccount, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(editProfile),
+    })
+      .catch(() => {
+        console.log("k edit dc");
+      })
+      .finally(navigate("/profile"));
+  };
 
   return (
     <div className="editProfile">
@@ -27,7 +63,7 @@ function EditProfile({ dataUser }) {
                 <img
                   alt="avatar"
                   className={`${Style.img_account_profile} ${Style.rounded_circle} mb-2`}
-                  src={dataUser.avatar ? dataUser.avatar : fileAvatar}
+                  src={fileAvatar}
                 />
                 <div className="font-italic text-muted mt-4 mb-2">
                   Upload new image
@@ -35,7 +71,7 @@ function EditProfile({ dataUser }) {
                 <div className="fileUploadInput">
                   <input
                     type="text"
-                    value={dataUser.avatar ? dataUser.avatar : fileAvatar}
+                    value={fileAvatar}
                     onChange={(e) => setFileAvatar(e.target.value)}
                   />
                   <button>+</button>
@@ -60,7 +96,7 @@ function EditProfile({ dataUser }) {
                       className={Style.form_control}
                       id="inputUsername"
                       type="text"
-                      value={dataUser.userName ? dataUser.userName : ""}
+                      value={dataUser.userName}
                       disabled
                     />
                   </div>
@@ -73,7 +109,7 @@ function EditProfile({ dataUser }) {
                         className={Style.form_control}
                         id="inputRole"
                         type="text"
-                        value={dataUser.role ? dataUser.role : ""}
+                        value={dataUser.role}
                         disabled
                       />
                     </div>
@@ -85,7 +121,7 @@ function EditProfile({ dataUser }) {
                         className={Style.form_control}
                         id="inputDepartment"
                         type="text"
-                        value={dataUser.department ? dataUser.department : ""}
+                        value={dataUser.department}
                         disabled
                       />
                     </div>
@@ -99,7 +135,7 @@ function EditProfile({ dataUser }) {
                       id="inputEmail"
                       type="text"
                       placeholder="Enter your Email"
-                      value={dataUser.email ? dataUser.email : email}
+                      value={email}
                       onChange={(e) => {
                         setEmail(e.target.value);
                       }}
@@ -114,7 +150,7 @@ function EditProfile({ dataUser }) {
                       id="inputAddress"
                       type="text"
                       placeholder="Enter your location"
-                      value={dataUser.address ? dataUser.address : address}
+                      value={address}
                       onChange={(e) => {
                         setAddress(e.target.value);
                       }}
@@ -131,14 +167,14 @@ function EditProfile({ dataUser }) {
                         id="inputPhone"
                         type="tel"
                         placeholder="Enter your phone number"
-                        value={dataUser.phone ? dataUser.phone : phone}
+                        value={phone}
                         onChange={(e) => {
                           setPhone(e.target.value);
                         }}
                       />
                     </div>
                     <div className="col-md-6">
-                      <label className="small mb-1" htmlFor="inputBirthday">
+                      {/* <label className="small mb-1" htmlFor="inputBirthday">
                         Birthday
                       </label>
                       <input
@@ -151,7 +187,7 @@ function EditProfile({ dataUser }) {
                         onChange={(e) => {
                           setDob(e.target.value);
                         }}
-                      />
+                      /> */}
                     </div>
                   </div>
                   <div className="mb-3">
@@ -173,7 +209,11 @@ function EditProfile({ dataUser }) {
                     />
                   </div>
                   <div className={`${Style.btnSave} mb-3`}>
-                    <button className="btn btn-primary" type="button">
+                    <button
+                      className="btn btn-primary"
+                      type="button"
+                      onClick={handleEditProfile}
+                    >
                       Save changes
                     </button>
                   </div>

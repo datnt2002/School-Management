@@ -65,9 +65,14 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
   if (isLoading) {
     return <div></div>;
   }
-  console.log(selectEventId)
+  console.log(selectEventId);
   return (
-    <div className="container-fluid edit" id="edit" style={style} key={selectEventId}>
+    <div
+      className="container-fluid edit"
+      id="edit"
+      style={style}
+      key={selectEventId}
+    >
       <div className="modalOverlay" onClick={handleClose}></div>
       <div className="modalEvent">
         <div className="createFormEvent">
@@ -118,11 +123,9 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                     </option>
                     {categories.map((category) => {
                       return (
-                        <>
-                          <option value={category.id} key={category.id}>
-                            {category.name}
-                          </option>
-                        </>
+                        <option value={category.id} key={category.id}>
+                          {category.name}
+                        </option>
                       );
                     })}
                   </select>
