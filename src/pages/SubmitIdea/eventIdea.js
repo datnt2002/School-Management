@@ -44,7 +44,7 @@ function EventIdea({ token }) {
                               <tr role="row">
                                 <th className="sorting">Name</th>
                                 <th className="sorting">description</th>
-                                <th className="sorting">category</th>
+                                {/* <th className="sorting">category</th> */}
                                 <th className="sorting">firstClosureTitle</th>
                                 <th className="sorting">finalClosureTitle</th>
                                 <th className="sorting">Action</th>
@@ -62,7 +62,7 @@ function EventIdea({ token }) {
                                     </td>
 
                                     <td>{data.content}</td>
-                                    <td>{data.cateName}</td>
+                                    {/* <td>{data.cateName}</td> */}
                                     <td>{data?.first_Closure}</td>
                                     <td>{data?.last_Closure}</td>
                                     <td>

@@ -1,19 +1,21 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { apiEvent, apiIdea } from "../../api/Api";
+import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
 import "../NewsFeed/newsFeed.css";
 
 function CreateIdea({ token, readOnly }) {
+  const [categories, setCategories] = useState([]);
+
   //data from apiEvent to show event that user submit to
   const [eventName, setEventName] = useState("");
-  const [categoryName, setCategoryName] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
   const [lastClosure, setLastClosure] = useState("");
 
   //state of idea form
   const [ideaName, setIdeaName] = useState("");
+  const [cateId, setCateId] = useState(0);
   const [ideaContent, setIdeaContent] = useState("");
   const [ideaFile, setIdeaFile] = useState("");
 
@@ -23,6 +25,19 @@ function CreateIdea({ token, readOnly }) {
 
   const navigate = useNavigate();
 
+  useEffect(() => {
+    fetch(apiCategory, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setCategories(data);
+      })
+      .catch(() => {
+        console.log("loi khi fetch cate");
+      });
+  }, [token]);
+
   //get event detail
   useEffect(() => {
     fetch(apiEvent + "/" + eventId, {
@@ -31,7 +46,6 @@ function CreateIdea({ token, readOnly }) {
       .then((res) => res.json())
       .then((data) => {
         setEventName(data.name);
-        setCategoryName(data.cateName);
         setFirstClosure(data.first_Closure);
         setLastClosure(data.last_Closure);
       });
@@ -40,6 +54,8 @@ function CreateIdea({ token, readOnly }) {
   //handle submit event
   const handleCreateIdea = (e) => {
     e.preventDefault();
+
+    const newIdea = {};
   };
 
   // function textarea
@@ -74,9 +90,29 @@ function CreateIdea({ token, readOnly }) {
                   type="text"
                   name="title"
                   placeholder="Title"
-                  onChange={(e) => setIdeaName(e.target.value)}
+                  value={ideaName}
+                  onSetState={(e) => setIdeaName(e.target.value)}
                   label="Title"
                 />
+              </div>
+              <div className="mb-3">
+                <label className="form-label">Category</label>
+                <select
+                  className="form-control"
+                  onChange={(e) => setCateId(e.target.value)}
+                  value={cateId}
+                >
+                  <option value="0" key="-1">
+                    ---Please enter category---
+                  </option>
+                  {categories.map((category) => {
+                    return (
+                      <option value={category.id} key={category.id}>
+                        {category.name}
+                      </option>
+                    );
+                  })}
+                </select>
               </div>
               <div
                 className="createFormIdea_Select"
@@ -90,7 +126,8 @@ function CreateIdea({ token, readOnly }) {
                     <div className="fileUploadInput">
                       <input
                         type="file"
-                        // onChange={(e) => setFirstClosure(e.target.value)}
+                        value={ideaFile}
+                        onChange={(e) => setIdeaFile(e.target.value)}
                       />
                       <button>+</button>
                     </div>
@@ -106,6 +143,10 @@ function CreateIdea({ token, readOnly }) {
                   className="textArea col-12"
                   onClick={autoHeight}
                   style={{ height: "11.7rem", resize: "none" }}
+                  value={ideaContent}
+                  onChange={(e) => {
+                    setIdeaContent(e.target.value);
+                  }}
                 />
               </div>
             </div>
@@ -121,15 +162,6 @@ function CreateIdea({ token, readOnly }) {
                 label="Event"
                 disabled="disable"
                 value={eventName}
-                readOnly={readOnly}
-              />
-              <Input
-                id="category"
-                type="text"
-                name="category"
-                label="Category"
-                disabled="disable"
-                value={categoryName}
                 readOnly={readOnly}
               />
               <Input
@@ -151,6 +183,7 @@ function CreateIdea({ token, readOnly }) {
                 readOnly={readOnly}
               />
             </div>
+            <button onClick={handleCreateIdea}>Submit Idea</button>
           </div>
         </div>
       </div>
