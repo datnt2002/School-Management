@@ -68,14 +68,14 @@ a {
     min-height: 87px;
     position: relative;
     left: 0!important;
-    z-index: 1002;
+    /* z-index: 1002; */
 }
 .topnav-navbar-dark {
     background-color: #313a46;
 }
 .navbar-custom .topbar-right-menu {
     position: relative;
-    z-index: 1;
+    /* z-index: 1; */
 }
 .mb-0, .my-0 {
     margin-bottom: 0!important;
@@ -289,7 +289,7 @@ button, input, optgroup, select, textarea {
 }
 .app-search .input-group-append {
     margin-left: 0;
-    z-index: 5;
+    /* z-index: 5; */
 }
 .input-group-append {
     margin-left: -1px;
@@ -377,7 +377,7 @@ a:not([href]) {
     display: block;
     height: 70px;
     position: absolute;
-    z-index: 9;
+    /* z-index: 9; */
     font-size: 22px;
     line-height: 38px;
     top: 10.5px;
