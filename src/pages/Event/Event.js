@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
 import { apiEvent } from "../../api/Api";
+
 import Table from "../../components/Table/Table";
 import CreateNewEvent from "./CreateNewEvent";
 import EditEvent from "./EditEvent";
@@ -24,7 +24,7 @@ function Event({ token }) {
     setShowModalCreate({
       display: "",
     });
-    
+
     setModal(true);
   }
   function handleClose() {
@@ -79,7 +79,6 @@ function Event({ token }) {
                             hidden="hidden"
                             name="Event"
                             content="Name"
-                            category="Category"
                             description="Description"
                             firstClosureTitle="First Closure Date"
                             finalClosureTitle="Final Closure Date"

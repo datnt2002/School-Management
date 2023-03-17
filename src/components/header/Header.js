@@ -78,19 +78,37 @@ function Header({ dataUser }) {
             </span>
           </Link>
           <ul className="list-unstyled topbar-right-menu float-right mb-0">
-            <li class="dropdown notification-list d-lg-none btnSearc">
-                <button class="nav-link arrow-none" data-toggle="dropdown" aria-haspopup="false" aria-expanded="false">
-                  <Search className="search-icon"/>
-                </button>
-                <div class={`dropdown-menu dropdown-menu-animated dropdown-lg p-0 dropSearch ${showDropDownSearch}`}>
-                    <form class="p-3">
-                        <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username"/>
-                    </form>
-                </div>
+            <li className="dropdown notification-list d-lg-none btnSearc">
+              <button
+                className="nav-link arrow-none"
+                data-toggle="dropdown"
+                aria-haspopup="false"
+                aria-expanded="false"
+              >
+                <Search className="search-icon" />
+              </button>
+              <div
+                className={`dropdown-menu dropdown-menu-animated dropdown-lg p-0 dropSearch ${showDropDownSearch}`}
+              >
+                <form className="p-3">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Search ..."
+                    aria-label="Recipient's username"
+                  />
+                </form>
+              </div>
             </li>
             <li className="dropdown notification-list">
-              <button className="nav-link nav-user arrow-none mr-0" data-toggle="dropdown" id="topbar-userdrop" aria-haspopup="true" aria-expanded="false">
-                <Profile 
+              <button
+                className="nav-link nav-user arrow-none mr-0"
+                data-toggle="dropdown"
+                id="topbar-userdrop"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <Profile
                   className="rounded-circle"
                   imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D"
                   alt="user-image"
@@ -125,11 +143,11 @@ function Header({ dataUser }) {
             </li>
           </ul>
           <button className="navbar-toggle">
-              <div className="lines">
-                  <span></span>
-                  <span></span>
-                  <span></span>
-              </div>
+            <div className="lines">
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </button>
           <div className="app-search dropdown">
             <form>
@@ -149,6 +167,7 @@ function Header({ dataUser }) {
                     Search
                   </button>
                 </div>
+              </div>
             </form>
           </div>
         </div>

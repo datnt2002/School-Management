@@ -1,34 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Input from "../../components/Tags/Input";
 import "./event.css";
-import { apiCategory, apiEvent } from "../../api/Api";
+import { apiEvent } from "../../api/Api";
 import { useNavigate } from "react-router-dom";
 
 function CreateNewEvent({ token, style, handleClose }) {
-  const [categories, setCategories] = useState([]);
-
   //data to post form
-  const [cateId, setCateId] = useState(0);
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
 
   const navigate = useNavigate();
-
-  //show list categories
-  useEffect(() => {
-    fetch(apiCategory, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((res) => res.json())
-      .then((data) => setCategories(data));
-  }, [token]);
-
   //handle submit event
   const handleCreateEvent = (e) => {
     e.preventDefault();
 
-    const newEvent = { name, content, cateId, first_Closure };
+    const newEvent = { name, content, first_Closure };
     fetch(apiEvent, {
       method: "POST",
       headers: {
@@ -49,7 +36,6 @@ function CreateNewEvent({ token, style, handleClose }) {
         setName("");
         setContent("");
         setFirstClosure("");
-        setCateId(0);
       });
   };
 
@@ -85,25 +71,6 @@ function CreateNewEvent({ token, style, handleClose }) {
                 className="mt-3 mb-3 createFormEvent_Select"
                 style={{ overflow: "hidden" }}
               >
-                <div className="mb-3">
-                  <label className="form-label">Category</label>
-                  <select
-                    className="form-control"
-                    onChange={(e) => setCateId(e.target.value)}
-                    value={cateId}
-                  >
-                    <option value="0" key="-1">
-                      ---Please enter category---
-                    </option>
-                    {categories.map((category) => {
-                      return (
-                        <option value={category.id} key={category.id}>
-                          {category.name}
-                        </option>
-                      );
-                    })}
-                  </select>
-                </div>
                 <div className="">
                   <label className="form-label">Closure date</label>
                   <div className="">
@@ -125,10 +92,6 @@ function CreateNewEvent({ token, style, handleClose }) {
                   onClick={handleCreateEvent}
                 >
                   Submit
-                </button>
-
-                <button onClick={handleClose} className="btn btn-danger">
-                  Cancel
                 </button>
               </div>
             </form>
