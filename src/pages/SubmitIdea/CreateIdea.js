@@ -1,11 +1,11 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
 import "../NewsFeed/newsFeed.css";
 
-function CreateIdea({ token, readOnly }) {
+function CreateIdea({ token, readOnly, dataUser }) {
   const [categories, setCategories] = useState([]);
 
   //data from apiEvent to show event that user submit to
@@ -22,6 +22,8 @@ function CreateIdea({ token, readOnly }) {
   //useLocation to get state of eventId when navigate
   const location = useLocation();
   const eventId = location.state.eventId;
+
+  console.log(dataUser);
 
   const navigate = useNavigate();
 
@@ -55,7 +57,28 @@ function CreateIdea({ token, readOnly }) {
   const handleCreateIdea = (e) => {
     e.preventDefault();
 
-    const newIdea = {};
+    let formData = new FormData();
+    formData.append("title", ideaName);
+    formData.append("content", ideaContent);
+    formData.append("ideaFile", ideaFile);
+    formData.append("cId", cateId);
+    formData.append("eId", eventId);
+    formData.append("uId", dataUser.userId);
+
+    fetch(apiIdea, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+      body: formData,
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log("after", data);
+      })
+      .catch(() => console.log("k post dc idea"));
   };
 
   // function textarea
@@ -186,8 +209,13 @@ function CreateIdea({ token, readOnly }) {
                 />
               </div>
             </div>
-            <div className="card" style={{ width: "100%", height: "39%",display: "flex" }}>
-              <button onClick={handleCreateIdea} style={{ margin:"auto" }}>Submit Idea</button>
+            <div
+              className="card"
+              style={{ width: "100%", height: "39%", display: "flex" }}
+            >
+              <button onClick={handleCreateIdea} style={{ margin: "auto" }}>
+                Submit Idea
+              </button>
             </div>
           </div>
         </div>

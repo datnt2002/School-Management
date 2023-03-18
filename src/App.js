@@ -32,6 +32,7 @@ function App() {
   const handleSetToken = (data) => {
     setToken(data);
   };
+  console.log(dataUser);
 
   return (
     <div className="App">
@@ -110,7 +111,7 @@ function App() {
           path="/createIdea"
           element={
             <RequiredAuth dataUser={dataUser}>
-              <CreateIdea />
+              <CreateIdea dataUser={dataUser} />
             </RequiredAuth>
           }
         />

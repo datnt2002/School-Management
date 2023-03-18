@@ -3,7 +3,7 @@ import UserContext from "../../api/UserContext";
 
 function Profile() {
   const user = useContext(UserContext);
-  console.log(user?.avatar);
+
   return (
     <div className="media">
       <img
