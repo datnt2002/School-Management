@@ -2,7 +2,7 @@ import Authentication from "./pages/Authentication/Authentication";
 import { Routes, Route } from "react-router-dom";
 import Category from "./pages/Category/Category";
 import Event from "./pages/Event/Event";
-import NewsFeed from "./pages/NewsFeed/NewsFeed";
+// import NewsFeed from "./pages/NewsFeed/NewsFeed";
 import RequiredAuth from "./components/authentication/RequiredAuth";
 import Account from "./pages/Account/Account";
 
@@ -11,7 +11,7 @@ import Error404 from "./pages/Error404/Error404";
 import CreateIdea from "./pages/SubmitIdea/CreateIdea";
 import EventIdea from "./pages/SubmitIdea/eventIdea";
 import UserProfile from "./pages/Account/UserProfile";
-import { createContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
 
 function App() {

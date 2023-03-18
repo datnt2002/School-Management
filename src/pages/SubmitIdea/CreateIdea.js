@@ -1,5 +1,5 @@
-import { useContext, useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
@@ -25,7 +25,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
 
   console.log(dataUser);
 
-  const navigate = useNavigate();
+  // const navigate = useNavigate();
 
   useEffect(() => {
     fetch(apiCategory, {

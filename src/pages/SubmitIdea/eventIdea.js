@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { apiEvent } from "../../api/Api";
-import RequiredAuth from "../../components/authentication/RequiredAuth";
+
 import "../Event/event.css";
 import "./style.css"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
