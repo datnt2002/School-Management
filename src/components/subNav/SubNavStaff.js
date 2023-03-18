@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 function SubNavStaff() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light subNavBar">
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="subNav-item">

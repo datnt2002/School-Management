@@ -1,0 +1,30 @@
+/* .iconShare:hover {
+    color: black;
+    background-color: ;
+} */
+@keyframes heartbeat {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.25);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.iconShare {
+    color: black;
+    opacity: 0.3;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+}
+.iconShare:hover {
+    animation: heartbeat 1s infinite;
+    fill: blue;
+    color: blue;
+    opacity: 1;
+    transition: opacity 500ms;
+}

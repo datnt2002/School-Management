@@ -3,6 +3,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { apiEvent } from "../../api/Api";
 import RequiredAuth from "../../components/authentication/RequiredAuth";
 import "../Event/event.css";
+import "./style.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShareFromSquare } from "@fortawesome/free-regular-svg-icons";
 
 function EventIdea({ token }) {
   const [dataEvent, setDataEvent] = useState([]);
@@ -47,7 +50,7 @@ function EventIdea({ token }) {
                                 {/* <th className="sorting">category</th> */}
                                 <th className="sorting">firstClosureTitle</th>
                                 <th className="sorting">finalClosureTitle</th>
-                                <th className="sorting">Action</th>
+                                <th className="sorting" style={{ textAlign:"center" }}>Action</th>
                               </tr>
                             </thead>
                             <tbody>
@@ -65,14 +68,14 @@ function EventIdea({ token }) {
                                     {/* <td>{data.cateName}</td> */}
                                     <td>{data?.first_Closure}</td>
                                     <td>{data?.last_Closure}</td>
-                                    <td>
-                                      <button
+                                    <td style={{ textAlign:"center" }}>
+                                      <FontAwesomeIcon 
+                                        icon={faShareFromSquare} 
+                                        className="iconShare"
                                         onClick={() =>
                                           handleSubmitIdea(data.id)
                                         }
-                                      >
-                                        Submit Idea
-                                      </button>
+                                      />
                                     </td>
                                   </tr>
                                 );

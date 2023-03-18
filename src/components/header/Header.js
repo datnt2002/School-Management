@@ -8,10 +8,11 @@ function Header({ dataUser }) {
   const [showDropDown, setShowDropDown] = useState("");
   const [showDropDownSearch, setShowDropDownSearch] = useState("");
   const [showSubNavBar, setShowSubNavBar] = useState("unshow");
+  
   useEffect(() => {
     const h5 = document.querySelector(".nav-user h5");
     const p = document.querySelector(".nav-user .media-body p");
-    const subNav = document.querySelectorAll(".subNav-item");
+    const subNavItem = document.querySelectorAll(".subNav-item");
     const btn = document.querySelector(".nav-user");
     const item = document.querySelector(".dropdown-item");
     const btnDrop = document.querySelector(".navbar-toggle");
@@ -44,18 +45,18 @@ function Header({ dataUser }) {
       p.setAttribute("style", "color:#98a6ad");
     }
     function showSubNav() {
-      if (subNavBar.hasAttribute("hidden")) {
-        subNavBar.removeAttribute("hidden");
+      if (subNavBar.hasAttribute("style")) {
+        subNavBar.removeAttribute("style")
       } else {
-        subNavBar.setAttribute("hidden", true);
+        subNavBar.setAttribute("style", "display:none")
       }
       console.log(subNavBar.hasAttribute("hidden"));
     }
     btnSearc.addEventListener("click", showSearch);
     btn.addEventListener("click", Show);
     item.addEventListener("mouseup", unShow);
-    for (var i = 0; i < subNav.length; i++) {
-      subNav[i].addEventListener("mouseup", unShow);
+    for (var i = 0; i < subNavItem.length; i++) {
+      subNavItem[i].addEventListener("mouseup", unShow);
     }
     btnDrop.addEventListener("click", showSubNav);
   });
@@ -84,6 +85,7 @@ function Header({ dataUser }) {
                 data-toggle="dropdown"
                 aria-haspopup="false"
                 aria-expanded="false"
+                style={{ backgroundColor:"#313a46" }}
               >
                 <Search className="search-icon" />
               </button>

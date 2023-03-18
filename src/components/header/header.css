@@ -286,6 +286,7 @@ button, input, optgroup, select, textarea {
     line-height: 38px;
     left: 10px;
     top: 10.5px;
+    background-color: #313a46;
 }
 .app-search .input-group-append {
     margin-left: 0;

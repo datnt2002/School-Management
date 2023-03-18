@@ -84,7 +84,7 @@ function CreateIdea({ token, readOnly }) {
           <div className="col-lg-7">
             <div className="card mb-4">
               <h1>Your Idea</h1>
-              <div>
+              <div className="mb-4 mt-4">
                 <Input
                   id="title"
                   type="text"
@@ -95,7 +95,7 @@ function CreateIdea({ token, readOnly }) {
                   label="Title"
                 />
               </div>
-              <div className="mb-3">
+              <div className="mb-4">
                 <label className="form-label">Category</label>
                 <select
                   className="form-control"
@@ -115,22 +115,20 @@ function CreateIdea({ token, readOnly }) {
                 </select>
               </div>
               <div
-                className="createFormIdea_Select"
+                className="createFormIdea_Select mb-4 mt-1"
                 style={{ overflow: "hidden" }}
               >
+                <label className="form-label">
+                  Drop files here or click to upload
+                </label>
                 <div className="">
-                  <label className="form-label">
-                    Drop files here or click to upload
-                  </label>
-                  <div className="">
-                    <div className="fileUploadInput">
-                      <input
-                        type="file"
-                        value={ideaFile}
-                        onChange={(e) => setIdeaFile(e.target.value)}
-                      />
-                      <button>+</button>
-                    </div>
+                  <div className="fileUploadInput">
+                    <input
+                      type="file"
+                      value={ideaFile}
+                      onChange={(e) => setIdeaFile(e.target.value)}
+                    />
+                    <button>+</button>
                   </div>
                 </div>
               </div>
@@ -154,36 +152,43 @@ function CreateIdea({ token, readOnly }) {
           <div className="col-lg-5">
             <div className="card mb-4">
               <h1>Event</h1>
-
-              <Input
-                id="event"
-                type="text"
-                name="event"
-                label="Event"
-                disabled="disable"
-                value={eventName}
-                readOnly={readOnly}
-              />
-              <Input
-                id="firstClosureDate"
-                type="text"
-                name="firstClosureDate"
-                label="First Closure Date"
-                disabled="disable"
-                value={first_Closure}
-                readOnly={readOnly}
-              />
-              <Input
-                id="finalClosureDate"
-                type="text"
-                name="finalClosureDate"
-                label="Final Closure Date"
-                disabled="disable"
-                value={lastClosure}
-                readOnly={readOnly}
-              />
+              <div className="mb-4 mt-4">
+                <Input
+                  id="event"
+                  type="text"
+                  name="event"
+                  label="Event"
+                  disabled="disable"
+                  value={eventName}
+                  readOnly={readOnly}
+                />
+              </div>
+              <div className="mb-4 mt-4">
+                <Input
+                  id="firstClosureDate"
+                  type="text"
+                  name="firstClosureDate"
+                  label="First Closure Date"
+                  disabled="disable"
+                  value={first_Closure}
+                  readOnly={readOnly}
+                />
+              </div>
+              <div className="mb-1 mt-4">
+                <Input
+                  id="finalClosureDate"
+                  type="text"
+                  name="finalClosureDate"
+                  label="Final Closure Date"
+                  disabled="disable"
+                  value={lastClosure}
+                  readOnly={readOnly}
+                />
+              </div>
             </div>
-            <button onClick={handleCreateIdea}>Submit Idea</button>
+            <div className="card" style={{ width: "100%", height: "39%",display: "flex" }}>
+              <button onClick={handleCreateIdea} style={{ margin:"auto" }}>Submit Idea</button>
+            </div>
           </div>
         </div>
       </div>

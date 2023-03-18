@@ -121,6 +121,7 @@ h1 {
   height: 65px;
   padding: 0 20px;
   transition: 0.25s ease;
+  background-color: white;
 }
 .form_input:focus {
   border-color: #6a5af9;
