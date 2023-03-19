@@ -19,13 +19,10 @@ function CreateIdea({ token, readOnly, dataUser }) {
   const [ideaName, setIdeaName] = useState("");
   const [cateId, setCateId] = useState(0);
   const [ideaContent, setIdeaContent] = useState("");
-  const [ideaFile, setIdeaFile] = useState("");
 
   //useLocation to get state of eventId when navigate
   const location = useLocation();
   const eventId = location.state.eventId;
-
-  console.log(dataUser);
 
   // const navigate = useNavigate();
 
@@ -59,10 +56,12 @@ function CreateIdea({ token, readOnly, dataUser }) {
   const handleCreateIdea = (e) => {
     e.preventDefault();
 
+    const fileField = document.querySelector('input[type="file"]');
+
     let formData = new FormData();
     formData.append("title", ideaName);
     formData.append("content", ideaContent);
-    formData.append("ideaFile", ideaFile);
+    formData.append("ideaFile", fileField.files[0]);
     formData.append("cId", cateId);
     formData.append("eId", eventId);
     formData.append("uId", dataUser.userId);
@@ -150,8 +149,8 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   <div className="fileUploadInput">
                     <input
                       type="file"
-                      value={ideaFile}
-                      onChange={(e) => setIdeaFile(e.target.value)}
+                      // value={ideaFile}
+                      // onChange={(e) => setIdeaFile(e.target.value)}
                     />
                     <button>+</button>
                   </div>

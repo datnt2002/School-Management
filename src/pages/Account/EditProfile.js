@@ -15,7 +15,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
   const [currentPassword, setCurrentPassword] = useState("");
 
   useEffect(() => {
-    setFileAvatar(dataUser.avatar);
+    // setFileAvatar(dataUser.avatar);
     setAddress(dataUser.address);
     setEmail(dataUser.email);
     setPhone(dataUser.phone);
