@@ -32,7 +32,7 @@ function App() {
   const handleSetToken = (data) => {
     setToken(data);
   };
-  console.log(dataUser);
+
 
   return (
     <div className="App">

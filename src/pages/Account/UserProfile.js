@@ -6,29 +6,9 @@ import "./account.css";
 import Input from "../../components/Tags/Input";
 import { apiIdea } from "../../api/Api";
 import Comment from "../../components/feed/posts/Comment";
+import MyIdea from "./MyIdea";
 
-function UserProfile({ dataUser }) {
-  const [activeCmt, setActiveCmt] = useState("hidden");
-  const [dataIdea, setDataIdea] = useState([]);
-
-  function handleActiveCmt() {
-    if (activeCmt === "hidden") {
-      setActiveCmt("");
-    } else {
-      setActiveCmt("hidden");
-    }
-  }
-
-  useEffect(() => {
-    const fetchDataIdea = async () => {
-      const response = await fetch(apiIdea);
-      const json = await response.json();
-      setDataIdea(json);
-    };
-    fetchDataIdea();
-  }, []);
-
-  console.log(dataUser.userName);
+function UserProfile({ dataUser, token }) {
   return (
     <>
       <section className="userProfile">
@@ -112,7 +92,8 @@ function UserProfile({ dataUser }) {
                 </div>
               </div>
             </div>
-            
+
+            <MyIdea token={token} />
           </div>
         </div>
       </section>
