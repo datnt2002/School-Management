@@ -1,0 +1,52 @@
+.card {
+    width: 12rem;
+    cursor: pointer;
+  }
+  
+  .content {
+    text-align: center;
+    position: relative;
+    transition: all 1s;
+    background-color: rgba(31, 41, 55, 1);
+    padding: 5em;
+    transform-style: preserve-3d;
+    border-radius: 1rem;
+  }
+  
+  .card:hover .content {
+    transform: rotateY(0.5turn);
+  }
+  
+  .front,
+  .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    padding: 2em;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+  }
+  
+  .title {
+    transform: translateZ(5rem);
+    font-size: 2rem;
+    color: white;
+  }
+  
+  .subtitle {
+    transform: translateZ(2rem);
+  }
+  
+  .back {
+    transform: rotateY(0.5turn);
+    background-color: rgba(31, 41, 55, 1);
+    height:fit-content;
+    border-radius: 1rem;
+  }
+  
+  .description {
+    transform: translateZ(3rem);
+  }
+  

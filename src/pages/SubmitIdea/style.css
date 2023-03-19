@@ -1,7 +1,7 @@
-/* .iconShare:hover {
-    color: black;
-    background-color: ;
-} */
+.card{
+  padding: 5%;
+}
+
 @keyframes heartbeat {
     0% {
         transform: scale(1);

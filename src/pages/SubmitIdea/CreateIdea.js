@@ -3,7 +3,6 @@ import { useLocation } from "react-router-dom";
 import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
-import "../NewsFeed/newsFeed.css";
 
 function CreateIdea({ token, readOnly, dataUser }) {
   const [categories, setCategories] = useState([]);
