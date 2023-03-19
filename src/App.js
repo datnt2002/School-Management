@@ -13,6 +13,7 @@ import EventIdea from "./pages/SubmitIdea/eventIdea";
 import UserProfile from "./pages/Account/UserProfile";
 import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
+import DetailIdea from "./components/feed/posts/DetailIdea";
 
 function App() {
   const [dataUser, setDataUser] = useState({});
@@ -118,7 +119,15 @@ function App() {
           path="/NewsFeed"
           element={
             <RequiredAuth dataUser={dataUser}>
-              <NewsFeed />
+              <NewsFeed dataUser={dataUser} />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/DetailIdea"
+          element={
+            <RequiredAuth dataUser={dataUser}>
+              <DetailIdea />
             </RequiredAuth>
           }
         />

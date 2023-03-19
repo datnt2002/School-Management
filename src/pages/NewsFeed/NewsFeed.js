@@ -6,11 +6,11 @@ import "./newsFeed.css";
 function NewsFeed({ token }) {
   return (
     <>
-      <div className="container">
+      <div className="container-fluid">
         <div className="row justify-content-between">
           <div className="col-lg-3 left-nav">
-            {/* <Menu />
-            <Trending /> */}
+            <Menu />
+            <Trending />
           </div>
           <div className="col-lg-9 feed-content">
             <Post token={token} />

@@ -30,3 +30,6 @@ body a{
 .container-fluid{
   max-width: 85%;
 }
+.container {
+  max-width: 50%;
+}
