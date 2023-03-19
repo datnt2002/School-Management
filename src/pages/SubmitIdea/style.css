@@ -123,6 +123,8 @@
     transition: filter 250ms;
     user-select: none;
     touch-action: manipulation;
+    margin-top: 10%;
+    width: 100%;
    }
    
    .shadow {

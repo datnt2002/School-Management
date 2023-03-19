@@ -87,7 +87,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
 
     function autosize() {
       setTimeout(function () {
-        textarea.style.cssText = "height:11.8rem; padding:0";
+        textarea.style.cssText = "height:30.1rem; padding:0";
         textarea.setAttribute(
           "style",
           `${"height:" + textarea.scrollHeight + "px"}`
