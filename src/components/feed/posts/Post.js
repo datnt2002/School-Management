@@ -5,7 +5,7 @@ import { apiIdea } from "../../../api/Api";
 import Comment from "./Comment";
 import Input from "../../Tags/Input";
 
-function Post() {
+function Post({ token }) {
   const [activeCmt, setActiveCmt] = useState("hidden");
   const [dataIdea, setDataIdea] = useState([]);
 
@@ -17,16 +17,19 @@ function Post() {
     }
   }
 
+  console.log(token);
   useEffect(() => {
-    const fetchDataIdea = async () => {
-      const response = await fetch(apiIdea);
-      const json = await response.json();
-      setDataIdea(json);
-    };
-    fetchDataIdea();
+    fetch(apiIdea, {})
+      .then((res) => res.json())
+      .then((data) => {
+        setDataIdea(dataIdea);
+      })
+      .catch(() => {
+        console.log("k get dc idea");
+      });
   }, []);
 
-  console.log("idea", dataIdea);
+  // console.log("idea", dataIdea);
 
   return (
     <>

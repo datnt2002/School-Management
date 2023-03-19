@@ -4,7 +4,7 @@ function ShortCut() {
   return (
     <div className="list-group list-group-flush mt-2">
       <Link
-        to="/NewsFeed"
+        to="/NewFeed"
         className="list-group-item list-group-item-action text-primary border-0"
       >
         <i className="uil uil-images mr-1"></i> News Feed

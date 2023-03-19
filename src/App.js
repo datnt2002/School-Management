@@ -33,7 +33,6 @@ function App() {
     setToken(data);
   };
 
-
   return (
     <div className="App">
       <Routes>
@@ -116,10 +115,10 @@ function App() {
           }
         />
         <Route
-          path="/NewFeed"
+          path="/NewsFeed"
           element={
             <RequiredAuth dataUser={dataUser}>
-              <NewsFeed dataUser={dataUser} />
+              <NewsFeed />
             </RequiredAuth>
           }
         />
