@@ -1,15 +1,33 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { apiForgotPassword } from "../../api/Api";
 
 import Input from "../Tags/Input";
 
 function FormForgot() {
   const [userName, setUserName] = useState("");
-  const [verifyCode, setVerifyCode] = useState();
+  const [email, SetEmail] = useState("");
+  const [verifyMessage, setVerifyMessage] = useState("");
+  const [errMess, setErrMess] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    console.log(userName);
+    const dataToVerify = { userName, email };
+
+    fetch(apiForgotPassword, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(dataToVerify),
+    })
+      .then((res) => res.text())
+      .then((mess) => {
+        setVerifyMessage(mess);
+      })
+      .catch((err) => {
+        setErrMess(err);
+      });
   };
 
   return (
@@ -28,7 +46,16 @@ function FormForgot() {
                 type="text"
               ></Input>
             </div>
-
+            <div className="field-email">
+              <Input
+                label="email "
+                state={email}
+                onSetState={(e) => SetEmail(e.target.value)}
+                type="text"
+              ></Input>
+            </div>
+            {verifyMessage && <p>{verifyMessage}</p>}
+            {errMess && <p>{errMess}</p>}
             <button className="submit-button" type="submit">
               Verify
             </button>
