@@ -4,8 +4,6 @@ import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
 import "../NewsFeed/newsFeed.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCloudArrowUp } from "@fortawesome/free-solid-svg-icons";
 
 function CreateIdea({ token, readOnly, dataUser }) {
   const [categories, setCategories] = useState([]);
@@ -219,7 +217,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                 <input type="file" id="file-input" />
               </label>
             </div>
-            <button className="btnSubmitIdea">
+            <button className="btnSubmitIdea" onClick={handleCreateIdea}>
               <span class="shadow"></span>
               <span class="edge"></span>
               <span class="front text"> Submit</span>
