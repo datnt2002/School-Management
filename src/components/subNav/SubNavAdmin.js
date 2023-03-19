@@ -3,7 +3,7 @@ import "./subNav.css"
 function SubNavAdmin() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light subNavBar">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light subNavBar" style={{ display:"none" }}>
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="subNav-item">
