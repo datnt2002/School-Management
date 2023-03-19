@@ -19,17 +19,18 @@ function Post({ token }) {
 
   console.log(token);
   useEffect(() => {
-    fetch(apiIdea, {})
+    fetch(apiIdea, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
       .then((res) => res.json())
       .then((data) => {
-        setDataIdea(dataIdea);
+        setDataIdea(data);
       })
       .catch(() => {
         console.log("k get dc idea");
       });
+    console.log("idea", dataIdea);
   }, []);
-
-  // console.log("idea", dataIdea);
 
   return (
     <>
