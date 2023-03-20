@@ -17,32 +17,31 @@ function UserProfile({ dataUser, token }) {
             <div className="textHeader">
               <h1 style={{ fontSize: "3.5rem" }}>My Account</h1>
             </div>
-            <div className="col-lg-4">
-              <div className="card mb-4">
-                <div className="card-body text-center">
-                  <img
-                    src={
-                      dataUser.avatar
-                        ? dataUser.avatar
-                        : "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
-                    }
-                    alt="avatar"
-                    className="rounded-circle img-fluid"
-                  />
-                  <h5 className="my-3">{dataUser.userName}</h5>
-                  <p className="text-muted mb-1">{dataUser.role}</p>
-                  <div className="d-flex justify-content-center mb-2">
-                    <Link
-                      type="button"
-                      className="btn btn-outline-primary ms-1"
-                      to="/editProfile"
-                    >
-                      Edit Profile
-                    </Link>
-                  </div>
+            <div className="col-lg-5">
+              {/* <div className="card-body text-center">
+                <img
+                  src={
+                    dataUser.avatar
+                      ? dataUser.avatar
+                      : "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
+                  }
+                  alt="avatar"
+                  className="rounded-circle img-fluid"
+                />
+                <h5 className="my-3">{dataUser.userName}</h5>
+                <p className="text-muted mb-1">{dataUser.role}</p>
+                <div className="d-flex justify-content-center mb-2">
+                  <Link
+                    type="button"
+                    className="btn btn-outline-primary ms-1"
+                    to="/editProfile"
+                  >
+                    Edit Profile
+                  </Link>
                 </div>
-              </div>
-              <div className="card mb-4">
+              </div> */}
+              <Profile/>
+              <div className="card mt-4">
                 <div className="card-body">
                   <div className="row">
                     <div className="col-sm-3">

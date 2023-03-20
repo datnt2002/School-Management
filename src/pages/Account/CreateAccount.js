@@ -103,8 +103,8 @@ function CreateAccount({ style, handleClose, token }) {
                 >
                   <option value="0">---Please enter role---</option>
                   <option value="Staff">Staff</option>
-                  <option value="QAM">Quality Management Assurance</option>
-                  <option value="QAC">Quality Management Cooperator</option>
+                  <option value="QAM">Quality Assurance Management</option>
+                  <option value="QAC">Quality Cooperator Management</option>
                   <option value="Admin">Admin</option>
                 </select>
               </div>

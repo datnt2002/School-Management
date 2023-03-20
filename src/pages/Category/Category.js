@@ -71,6 +71,7 @@ function Category({ token }) {
                             onSetData={setData}
                             deleteAction="Delete"
                             apiLink={apiCategory}
+                            token={token}
                           />
                         </div>
                       </div>
