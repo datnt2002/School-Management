@@ -1,6 +1,7 @@
 .card {
-    width: 12rem;
+    width: 100%;
     cursor: pointer;
+    margin-top: 2rem;
   }
   
   .content {
@@ -15,6 +16,10 @@
   
   .card:hover .content {
     transform: rotateY(0.5turn);
+  }
+  .card:hover .description {
+    opacity: 1;
+    transition: opacity 1s;
   }
   
   .front,
@@ -48,5 +53,10 @@
   
   .description {
     transform: translateZ(3rem);
+    opacity: 0;
+    color: white;
+    margin-top: 2rem;
   }
-  
+  span {
+    color: white;
+  }

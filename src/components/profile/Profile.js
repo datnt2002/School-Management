@@ -58,7 +58,7 @@ function Profile() {
           </div>
         </div>
       </div>
-      <Link className={Style.request} type="button" to="/">
+      <Link className={Style.request} type="button" to="/MyIdea">
         Create New Idea
       </Link>
     </div>
