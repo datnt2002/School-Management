@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-
 import Profile from "../../profile/Profile";
 import { apiIdea } from "../../../api/Api";
 import Comment from "./Comment";
 import Input from "../../Tags/Input";
+import Style from "../../../pages/NewsFeed/newsFeed.module.css"
 
 function Post({ token }) {
   const [activeCmt, setActiveCmt] = useState("hidden");
@@ -44,7 +44,19 @@ function Post({ token }) {
                   alt="image"
                   userName="Jeremy Tomlinson"
                 /> */}
-
+                <div className={Style.media}>
+                  <img
+                    className="mr-2 rounded"
+                    src="https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
+                    alt="placeholder"
+                    height="50"
+                  />
+                  <div className={Style.media_body}>
+                    <h5 className="mt-1 mb-0">TLaD</h5>
+                    <p className="mb-1 mt-1">IT</p>
+                  </div>
+                </div>
+                
                 <hr />
 
                 <div className="font-16 text-dark my-3">

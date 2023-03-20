@@ -57,6 +57,6 @@
     color: white;
     margin-top: 2rem;
   }
-  span {
-    color: white;
+  .text_muted{
+    color: white!important;
   }
