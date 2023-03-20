@@ -59,7 +59,7 @@ function Profile() {
         </div>
       </div>
       <Link className={Style.request} type="button" to="/MyIdea">
-        Create New Idea
+        Edit Profile
       </Link>
     </div>
 
