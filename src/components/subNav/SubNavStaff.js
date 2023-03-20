@@ -16,8 +16,8 @@ function SubNavStaff() {
               </Link>
             </li>
             <li className="subNav-item">
-              <Link className="nav-link" to="/MyIdea">
-                My Idea
+              <Link className="nav-link" to="/AllEvent">
+                Create Idea
               </Link>
             </li>
           </ul>

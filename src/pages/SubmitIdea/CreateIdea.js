@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
+import "./style.css"
 
 function CreateIdea({ token, readOnly, dataUser }) {
   const [categories, setCategories] = useState([]);
@@ -207,20 +208,27 @@ function CreateIdea({ token, readOnly, dataUser }) {
                 />
               </div>
             </div>
-            <div class="form">
-              <span class="form-title">Upload your file</span>
-              <p class="form-paragraph">File should be an image</p>
-              <label for="file-input" class="drop-container">
-                <span class="drop-title">Drop files here</span>
+            <div className="form">
+              <span className="form-title">Upload your file</span>
+              <p className="form-paragraph">File should be an image</p>
+              <label htmlFor="file-input" className="drop-container">
+                <span className="drop-title">Drop files here</span>
                 or
                 <input type="file" id="file-input" />
               </label>
             </div>
+            <div className="d-flex justify-content-between">
             <button className="btnSubmitIdea" onClick={handleCreateIdea}>
-              <span class="shadow"></span>
-              <span class="edge"></span>
-              <span class="front text"> Submit</span>
-            </button>
+                <span className="shadow"></span>
+                <span className="edge"></span>
+                <span className="front text">Submit</span>
+              </button>
+              <Link className="btnCancelIdea" to="/AllEvent">
+                <span className="shadow"></span>
+                <span className="edge"></span>
+                <span className="front text">Cancel</span>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

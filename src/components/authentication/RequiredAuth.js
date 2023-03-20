@@ -52,7 +52,7 @@ function RequiredAuth({ children, dataUser }) {
     Staff: [
       "/",
       "/profile",
-      "/MyIdea",
+      "/AllEvent",
       "/editProfile",
       "/createIdea",
       "/NewsFeed",

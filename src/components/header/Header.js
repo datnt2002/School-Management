@@ -133,8 +133,8 @@ function Header({ dataUser }) {
                     height="32"
                   />
                   <div className="media-body">
-                    <h5 className="mt-1 mb-0">Name</h5>
-                    <p className="mb-1 mt-1">Department</p>
+                    <h5 className="mt-1 mb-0">{user?.userName}</h5>
+                    <p className="mb-1 mt-1">{user?.department}</p>
                   </div>
                 </div>
               </button>
