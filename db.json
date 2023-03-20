@@ -1,4 +1,4 @@
-const user = [
+ [
     {
         "userName": "dat",
         "password": "1",
@@ -8,10 +8,3 @@ const user = [
     }
 ]
 
-{
-    "name": "dat2",
-    "content": "123213213ngu",
-    "first_Closure": "2023-03-27T20:54:00",
-    "last_Closure": "2023-04-03T20:54:00",
-    "cateId": 1
-}

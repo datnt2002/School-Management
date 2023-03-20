@@ -6,6 +6,7 @@ export const apiIdea = `${server}api/idea`;
 export const apiComment = `${server}api/comment`;
 export const apiDepartment = `${server}api/department`;
 
+//api authentication
 export const apiLogin = `${server}api/auth/Login`;
 export const apiAccount = `${server}api/auth`;
 export const apiProfile = `${server}api/auth/profile`;
