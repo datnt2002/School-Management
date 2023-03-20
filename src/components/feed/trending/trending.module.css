@@ -1,7 +1,8 @@
 .card {
     width: 100%;
     cursor: pointer;
-    margin-top: 2rem;
+    transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
+    /* margin-top: 2rem; */
   }
   
   .content {
@@ -11,9 +12,11 @@
     background-color: rgba(31, 41, 55, 1);
     padding: 5em;
     transform-style: preserve-3d;
-    border-radius: 1rem;
+    border-radius: 23px;
   }
-  
+  .card:hover {
+    transform: scale(1.05);
+  }
   .card:hover .content {
     transform: rotateY(0.5turn);
   }
@@ -48,7 +51,7 @@
     transform: rotateY(0.5turn);
     background-color: rgba(31, 41, 55, 1);
     height:fit-content;
-    border-radius: 1rem;
+    border-radius: 23px;
   }
   
   .description {

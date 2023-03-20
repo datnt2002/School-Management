@@ -13,7 +13,8 @@ import EventIdea from "./pages/SubmitIdea/eventIdea";
 import UserProfile from "./pages/Account/UserProfile";
 import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
-import DetailIdea from "./components/feed/posts/DetailIdea";
+import DetailIdea from "./pages/NewsFeed/DetailIdea";
+
 
 function App() {
   const [dataUser, setDataUser] = useState({});

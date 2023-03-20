@@ -6,16 +6,7 @@ import Input from "../../Tags/Input";
 import Style from "../../../pages/NewsFeed/newsFeed.module.css"
 
 function Post({ token }) {
-  const [activeCmt, setActiveCmt] = useState("hidden");
   const [dataIdea, setDataIdea] = useState([]);
-
-  function handleActiveCmt() {
-    if (activeCmt === "hidden") {
-      setActiveCmt("");
-    } else {
-      setActiveCmt("hidden");
-    }
-  }
 
   console.log(token);
   useEffect(() => {
@@ -38,22 +29,27 @@ function Post({ token }) {
         return (
           <div className="news-post" key={dataIdea.id}>
             <div className="card-body pb-1">
-              <div className="card">
+              <div className={Style.card}>
                 {/* <Profile
                   imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D"
                   alt="image"
                   userName="Jeremy Tomlinson"
                 /> */}
                 <div className={Style.media}>
-                  <img
-                    className="mr-2 rounded"
-                    src="https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
-                    alt="placeholder"
-                    height="50"
-                  />
                   <div className={Style.media_body}>
-                    <h5 className="mt-1 mb-0">TLaD</h5>
-                    <p className="mb-1 mt-1">IT</p>
+                    <img
+                      className="mr-2 rounded"
+                      src="https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
+                      alt="placeholder"
+                      height="50"
+                    />
+                    <div style={{ marginLeft:"10px" }}>
+                      <h5 className="mt- mb-1">TLaD</h5>
+                      <p className="mb-1 mt-1">IT</p>
+                    </div>
+                  </div>
+                  <div>
+                    <span>2 </span><span>views</span>
                   </div>
                 </div>
                 
@@ -79,7 +75,6 @@ function Post({ token }) {
                     {dataIdea.vote} Like
                   </a>
                   <a
-                    onClick={handleActiveCmt}
                     className="btn btn-sm btn-link text-muted"
                   >
                     <i className="uil uil-comments-alt"></i> Comment
@@ -87,7 +82,7 @@ function Post({ token }) {
                 </div>
 
                 {/* <hr /> */}
-                {/* <Comment activeCmt={activeCmt}/> */}
+                {/* <Comment/> */}
                 {/* <div className="media mb-2 reply col-12">
                   <Profile imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D" />
                   <div className="media-body col-11">

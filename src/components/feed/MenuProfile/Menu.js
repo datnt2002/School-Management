@@ -12,9 +12,9 @@ function Menu() {
           userDepartment="IT"
           height="48"
         ></Profile> */}
-        <Profile
+        {/* <Profile
 
-        />
+        /> */}
         {/* <ShortCut /> */}
       </div>
     </div>

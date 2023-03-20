@@ -15,11 +15,11 @@ function SubNavStaff() {
                 News Feed
               </Link>
             </li>
-            {/* <li className="subNav-item">
+            <li className="subNav-item">
               <Link className="nav-link" to="/MyIdea">
                 My Idea
               </Link>
-            </li> */}
+            </li>
           </ul>
         </div>
       </nav>
