@@ -40,8 +40,6 @@ function Account({ token }) {
     e.preventDefault();
   };
 
-  console.log(data);
-
   return (
     <>
       <div className="container-fluid tableAccountList">
@@ -98,7 +96,7 @@ function Account({ token }) {
                                       onClick={handleDeleteAccount}
                                       data-id={data.id}
                                     >
-                                      Delete
+                                      Disable
                                     </button>
                                   </div>
                                 </td>

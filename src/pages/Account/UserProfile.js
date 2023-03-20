@@ -40,7 +40,7 @@ function UserProfile({ dataUser, token }) {
                   </Link>
                 </div>
               </div> */}
-              <Profile/>
+              <Profile />
               <div className="card mt-4">
                 <div className="card-body">
                   <div className="row">
@@ -92,7 +92,7 @@ function UserProfile({ dataUser, token }) {
               </div>
             </div>
 
-            <MyIdea token={token} />
+            {/* <MyIdea token={token} /> */}
           </div>
         </div>
       </section>

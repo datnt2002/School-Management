@@ -15,7 +15,6 @@ import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
 import DetailIdea from "./pages/NewsFeed/DetailIdea";
 
-
 function App() {
   const [dataUser, setDataUser] = useState({});
   const [token, setToken] = useState(localStorage.getItem("token"));
@@ -44,11 +43,7 @@ function App() {
         />
         <Route
           path="/"
-          element={
-            <RequiredAuth dataUser={dataUser}>
-              <Event />
-            </RequiredAuth>
-          }
+          element={<RequiredAuth dataUser={dataUser}></RequiredAuth>}
         ></Route>
         <Route
           path="/event"
@@ -129,6 +124,14 @@ function App() {
           element={
             <RequiredAuth dataUser={dataUser}>
               <DetailIdea />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/editProfile"
+          element={
+            <RequiredAuth dataUser={dataUser}>
+              <EditProfile />
             </RequiredAuth>
           }
         />

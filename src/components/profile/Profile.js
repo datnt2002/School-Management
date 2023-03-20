@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { Link, Route, Routes } from "react-router-dom";
 import UserContext from "../../api/UserContext";
-import Style from "./profile.module.css"
+import Style from "./profile.module.css";
 
 function Profile() {
   const user = useContext(UserContext);
@@ -23,7 +23,7 @@ function Profile() {
     //     <p className="mb-1 mt-1">{user?.department}</p>
     //   </div>
     // </div>
-    
+
     <div className={Style.card}>
       <div className={Style.infos}>
         {/* <div className={Style.image}></div> */}
@@ -39,30 +39,21 @@ function Profile() {
         />
         <div className={Style.info}>
           <div>
-              <p className={Style.name}>
-                {user?.userName}
-              </p>
-              <p className={Style.function}>
-                {user?.department}
-              </p>
+            <p className={Style.name}>{user?.userName}</p>
+            <p className={Style.function}>{user?.department}</p>
           </div>
           <div className={Style.stats}>
-            <p className={`${Style.flex} flex_col`}>
-              Ideas
-            </p>
+            <p className={`${Style.flex} flex_col`}>Ideas</p>
             <p className={Style.flex}>
-              <span className={Style.state_value}>
-                  455
-              </span>
+              <span className={Style.state_value}>455</span>
             </p>
           </div>
         </div>
       </div>
-      <Link className={Style.request} type="button" to="/MyIdea">
+      <Link className={Style.request} type="button" to="/editProfile">
         Edit Profile
       </Link>
     </div>
-
   );
 }
 

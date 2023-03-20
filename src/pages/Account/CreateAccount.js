@@ -1,9 +1,9 @@
-import Input from "../../components/Tags/Input";
-
-import "./account.css";
 import { useState } from "react";
 import { apiCreateAccount } from "../../api/Api";
 import { useNavigate } from "react-router-dom";
+
+import Input from "../../components/Tags/Input";
+import "./account.css";
 function CreateAccount({ style, handleClose, token }) {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +24,6 @@ function CreateAccount({ style, handleClose, token }) {
       cfPassword,
       role,
       departmentId,
-      status: "Enable",
     };
 
     fetch(apiCreateAccount, {
@@ -36,7 +35,15 @@ function CreateAccount({ style, handleClose, token }) {
       body: JSON.stringify(newAccount),
     })
       .then((res) => res.json())
-      .then(() => handleClose())
+      .then(() => {
+        setUsername("")
+        setPassword("")
+        setCfPassword("")
+        setEmail("")
+        setRole("")
+        setDepartmentId(0)
+        handleClose();
+      })
       .catch(() => navigate("*"));
   };
 
@@ -130,13 +137,6 @@ function CreateAccount({ style, handleClose, token }) {
                 onClick={handleSubmit}
               >
                 Submit
-              </button>
-              <button
-                type="cancel"
-                className="btn btn-danger"
-                onClick={handleClose}
-              >
-                Cancel
               </button>
             </div>
           </form>

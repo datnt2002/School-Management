@@ -174,7 +174,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                       />
                     </div>
                     <div className="col-md-6">
-                      {/* <label className="small mb-1" htmlFor="inputBirthday">
+                      <label className="small mb-1" htmlFor="inputBirthday">
                         Birthday
                       </label>
                       <input
@@ -187,7 +187,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                         onChange={(e) => {
                           setDob(e.target.value);
                         }}
-                      /> */}
+                      />
                     </div>
                   </div>
                   <div className="mb-3">

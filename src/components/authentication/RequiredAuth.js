@@ -56,7 +56,8 @@ function RequiredAuth({ children, dataUser }) {
       "/editProfile",
       "/createIdea",
       "/NewsFeed",
-      "/DetailIdea"
+      "/DetailIdea",
+      "/MyIdea",
     ],
   };
   if (roleAuthorization in authorizedRoutes) {

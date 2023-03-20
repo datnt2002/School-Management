@@ -43,7 +43,7 @@ function Event({ token }) {
     })
       .then((res) => res.json())
       .then((data) => setData(data))
-      .catch((err) => console.log("404 r"));
+      .catch(() => console.log("404 r"));
   }, [modal, token]);
 
   return (
@@ -84,7 +84,6 @@ function Event({ token }) {
                             finalClosureTitle="Final Closure Date"
                             data={data}
                             edit="Edit"
-                            deleteAction="Delete"
                             apiLink={apiEvent}
                             onSetData={setData}
                             token={token}
