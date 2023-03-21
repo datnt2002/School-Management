@@ -25,14 +25,12 @@ function CreateNewCategory({ style, handleClose, token }) {
       body: JSON.stringify(newCategory),
     })
       .then((res) => res.json())
-      .then((data) => {
-        handleClose();
-      })
-      .catch((err) => navigate("*"))
-      .finally(() => {
+      .then(() => {
         setName("");
         setContent("");
-      });
+        handleClose();
+      })
+      .catch((err) => navigate("*"));
   };
 
   return (
@@ -53,6 +51,7 @@ function CreateNewCategory({ style, handleClose, token }) {
                   label="Name"
                   className="form-control"
                   type="text"
+                  value={name}
                   onSetState={(e) => {
                     setName(e.target.value);
                   }}
@@ -63,6 +62,7 @@ function CreateNewCategory({ style, handleClose, token }) {
                   label="Content"
                   type="text"
                   className="form-control"
+                  value={content}
                   onSetState={(e) => {
                     setContent(e.target.value);
                   }}
