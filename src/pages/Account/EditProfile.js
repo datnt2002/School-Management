@@ -1,27 +1,30 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { apiEditAccount } from "../../api/Api";
+import { apiEditAccount, server } from "../../api/Api";
 import Style from "./editProfile.module.css";
 import "../SubmitIdea/style.css"
 
 function EditProfile({ dataUser, token, setDataUser }) {
   //dang chet o file avatar
-  const [fileAvatar, setFileAvatar] = useState(
-    "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
-  );
-  const [address, setAddress] = useState(dataUser.address);
+  const [fileAvatar, setFileAvatar] = useState(dataUser.avatar);
+  const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
 
   useEffect(() => {
-    // setFileAvatar(dataUser.avatar);
+    let formatDob = "";
+    if (dataUser.doB) {
+      formatDob = dataUser.doB.substring(0, 10);
+    }
+    setFileAvatar(dataUser.avatar);
     setAddress(dataUser.address);
     setEmail(dataUser.email);
+    setDob(formatDob);
     setPhone(dataUser.phone);
   }, [dataUser]);
-
+  console.log(fileAvatar);
   const navigate = useNavigate();
 
   const handleEditProfile = (e) => {
@@ -32,7 +35,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
       address,
       email,
       phone,
-      // doB: dob,
+      doB: dob,
       avatar: fileAvatar,
     };
 
@@ -64,7 +67,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                 <img
                   alt="avatar"
                   className={`${Style.img_account_profile} ${Style.rounded_circle} mb-2`}
-                  src={fileAvatar}
+                  src={server + fileAvatar}
                 />
                 <div className="form">
                   <span className="form-title">Upload your avatar</span>
@@ -182,7 +185,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                         type="date"
                         name="birthday"
                         placeholder="Enter your birthday"
-                        value={dataUser.doB ? dataUser.doB : dob}
+                        value={dob}
                         onChange={(e) => {
                           setDob(e.target.value);
                         }}

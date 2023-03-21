@@ -62,7 +62,6 @@ function Header({ dataUser }) {
     btnDrop.addEventListener("click", showSubNav);
   });
 
-
   const user = useContext(UserContext);
 
   const handleLogout = () => {
@@ -124,11 +123,7 @@ function Header({ dataUser }) {
                 <div className="media">
                   <img
                     className="rounded-circle"
-                    src={
-                      user?.avatar
-                        ? user?.avatar
-                        : "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
-                    }
+                    src={user?.avatar}
                     alt="placeholder"
                     height="32"
                   />

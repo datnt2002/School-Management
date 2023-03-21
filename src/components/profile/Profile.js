@@ -1,10 +1,14 @@
 import { useContext } from "react";
 import { Link, Route, Routes } from "react-router-dom";
+import { server } from "../../api/Api";
 import UserContext from "../../api/UserContext";
+import NoOfIdea from "./NoOfIdeas";
 import Style from "./profile.module.css";
 
 function Profile() {
   const user = useContext(UserContext);
+
+  console.log(user);
 
   return (
     // <div className="media">
@@ -29,11 +33,7 @@ function Profile() {
         {/* <div className={Style.image}></div> */}
         <img
           className={Style.image}
-          src={
-            user?.avatar
-              ? user?.avatar
-              : "https://phongreviews.com/wp-content/uploads/2022/11/avatar-facebook-mac-dinh-15.jpg"
-          }
+          src={server + user?.avatar}
           alt="placeholder"
           height="32"
         />
@@ -42,12 +42,7 @@ function Profile() {
             <p className={Style.name}>{user?.userName}</p>
             <p className={Style.function}>{user?.department}</p>
           </div>
-          <div className={Style.stats}>
-            <p className={`${Style.flex} flex_col`}>Ideas</p>
-            <p className={Style.flex}>
-              <span className={Style.state_value}>455</span>
-            </p>
-          </div>
+          {user.role === "Staff" && <NoOfIdea />}
         </div>
       </div>
       <Link className={Style.request} type="button" to="/editProfile">

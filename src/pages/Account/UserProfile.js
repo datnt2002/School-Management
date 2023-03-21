@@ -7,8 +7,11 @@ import Input from "../../components/Tags/Input";
 import { apiIdea } from "../../api/Api";
 import Comment from "../../components/feed/posts/Comment";
 import MyIdea from "./MyIdea";
+import MyExp from "./MyExp";
 
 function UserProfile({ dataUser, token }) {
+  console.log(dataUser);
+
   return (
     <>
       <section className="userProfile">
@@ -92,7 +95,7 @@ function UserProfile({ dataUser, token }) {
               </div>
             </div>
 
-            {/* <MyIdea token={token} /> */}
+            {dataUser.role === "Staff" ? <MyIdea token={token} /> : <MyExp />}
           </div>
         </div>
       </section>
