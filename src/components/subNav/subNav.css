@@ -1,8 +1,8 @@
-@media (max-width: 993px){
+/* @media (max-width: 993px){
     .App .subNavBar {
         display: none;
     }
-}
+} */
 @media (min-width: 993px){
     .App .subNavBar {
         display: block!important;
