@@ -67,8 +67,8 @@ function App() {
             <RequiredAuth dataUser={dataUser}>
               <UserProfile
                 dataUser={dataUser}
-                setDataUser={() => {
-                  setDataUser();
+                setDataUser={(newUser) => {
+                  setDataUser(newUser);
                 }}
               />
             </RequiredAuth>

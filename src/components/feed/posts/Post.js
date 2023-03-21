@@ -3,12 +3,11 @@ import Profile from "../../profile/Profile";
 import { apiIdea } from "../../../api/Api";
 import Comment from "./Comment";
 import Input from "../../Tags/Input";
-import Style from "../../../pages/NewsFeed/newsFeed.module.css"
+import Style from "../../../pages/NewsFeed/newsFeed.module.css";
 
 function Post({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
 
-  console.log(token);
   useEffect(() => {
     fetch(apiIdea, {
       headers: { Authorization: `Bearer ${token}` },
@@ -20,9 +19,8 @@ function Post({ token }) {
       .catch(() => {
         console.log("k get dc idea");
       });
-    console.log("idea", dataIdea);
   }, []);
-
+  console.log(dataIdea);
   return (
     <>
       {dataIdea.map((dataIdea) => {
@@ -30,11 +28,6 @@ function Post({ token }) {
           <div className="news-post" key={dataIdea.id}>
             <div className="card-body pb-1">
               <div className={Style.card}>
-                {/* <Profile
-                  imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D"
-                  alt="image"
-                  userName="Jeremy Tomlinson"
-                /> */}
                 <div className={Style.media}>
                   <div className={Style.media_body}>
                     <img
@@ -43,18 +36,21 @@ function Post({ token }) {
                       alt="placeholder"
                       height="50"
                     />
-                    <div style={{ marginLeft:"10px" }}>
-                      <h5 className="mt- mb-1">TLaD</h5>
-                      <p className="mb-1 mt-1">IT</p>
+                    <div style={{ marginLeft: "10px" }}>
+                      <h5 className="mt- mb-1">Join bang user</h5>
+                      <p className="mb-1 mt-1">Join</p>
                     </div>
                   </div>
                   <div>
-                    <span>2 </span><span>views</span>
+                    <span>{dataIdea.viewed}</span>
+                    <span> views</span>
                   </div>
                 </div>
-                
-                <hr />
 
+                <hr />
+                <div className="font-16 text-dark my-3">
+                  <p className="my-1">{dataIdea.name}</p>
+                </div>
                 <div className="font-16 text-dark my-3">
                   <p className="my-1">{dataIdea.content}</p>
                 </div>
@@ -67,11 +63,7 @@ function Post({ token }) {
                   className="my-1 justify-content-between"
                   style={{ display: "flex" }}
                 >
-                  <p
-                    className="text-muted pl-0"
-                  >
-                    {dataIdea.vote} Like
-                  </p>
+                  <p className="text-muted pl-0">{dataIdea.vote} Like</p>
                 </div>
 
                 {/* <hr /> */}
