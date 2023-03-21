@@ -2,51 +2,57 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiEditAccount, server } from "../../api/Api";
 import Style from "./editProfile.module.css";
-import "../SubmitIdea/style.css"
+import "../SubmitIdea/style.css";
 
 function EditProfile({ dataUser, token, setDataUser }) {
   //dang chet o file avatar
-  const [fileAvatar, setFileAvatar] = useState(dataUser.avatar);
+  const [fileAvatarInDb, setFileAvatarInDb] = useState(dataUser.avatar);
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
-
+  const [fileAvatarEdit, setFileAvatarEdit] = useState("");
   useEffect(() => {
     let formatDob = "";
     if (dataUser.doB) {
       formatDob = dataUser.doB.substring(0, 10);
     }
-    setFileAvatar(dataUser.avatar);
+    setFileAvatarInDb(dataUser.avatar);
     setAddress(dataUser.address);
     setEmail(dataUser.email);
     setDob(formatDob);
     setPhone(dataUser.phone);
   }, [dataUser]);
-  console.log(fileAvatar);
+
   const navigate = useNavigate();
 
   const handleEditProfile = (e) => {
     e.preventDefault();
 
-    const editProfile = {
-      password: currentPassword,
-      address,
-      email,
-      phone,
-      doB: dob,
-      avatar: fileAvatar,
-    };
+    // const avatarFile = document.querySelector('input[type="file"]');
+    // console.log(avatarFile.files[0]);
+    const fileAvaFormat = fileAvatarInDb.substring(8);
+    console.log(fileAvaFormat);
+    const formEdit = new FormData();
+    formEdit.append("password", currentPassword);
+    formEdit.append("address", address);
+    formEdit.append("email", email);
+    formEdit.append("phone", phone);
+    formEdit.append("doB", dob ? dob + `T00:00:00` : null);
+    formEdit.append("Image", fileAvatarEdit ? fileAvatarEdit : fileAvaFormat);
 
     fetch(apiEditAccount, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
       },
-      body: JSON.stringify(editProfile),
+      body: formEdit,
     })
+      .then((res) => res.json())
+      .then((data) => {
+        // setDataUser(data);
+      })
       .catch(() => {
         console.log("k edit dc");
       })
@@ -67,7 +73,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                 <img
                   alt="avatar"
                   className={`${Style.img_account_profile} ${Style.rounded_circle} mb-2`}
-                  src={server + fileAvatar}
+                  src={server + fileAvatarInDb}
                 />
                 <div className="form">
                   <span className="form-title">Upload your avatar</span>
@@ -75,7 +81,11 @@ function EditProfile({ dataUser, token, setDataUser }) {
                   <label htmlFor="file-input" className="drop-container">
                     <span className="drop-title">Drop files here</span>
                     or
-                    <input type="file" id="file-input" accept="image/*"/>
+                    <input
+                      type="file"
+                      id="file-input"
+                      onChange={(e) => setFileAvatarEdit(e.target.files[0])}
+                    />
                   </label>
                 </div>
               </div>
@@ -84,7 +94,10 @@ function EditProfile({ dataUser, token, setDataUser }) {
           <div className="col-xl-8">
             <div
               className="card"
-              style={{ boxShadow: "0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%)", padding: "20.391px" }}
+              style={{
+                boxShadow: "0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%)",
+                padding: "20.391px",
+              }}
             >
               <div className={Style.card_header}>Account Details</div>
               <div className={Style.card_body}>

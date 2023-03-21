@@ -4,6 +4,7 @@ import Profile from "../profile/Profile";
 import "./header.css";
 import { Search } from "bootstrap-icons-react";
 import UserContext from "../../api/UserContext";
+import { server } from "../../api/Api";
 
 function Header({ dataUser }) {
   const [showDropDown, setShowDropDown] = useState("");
@@ -126,7 +127,7 @@ function Header({ dataUser }) {
                 <div className="media">
                   <img
                     className="rounded-circle"
-                    src={user?.avatar}
+                    src={server + user?.avatar}
                     alt="placeholder"
                     height="32"
                   />
