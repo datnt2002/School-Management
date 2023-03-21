@@ -32,7 +32,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
 
     // const avatarFile = document.querySelector('input[type="file"]');
     // console.log(avatarFile.files[0]);
-    const fileAvaFormat = fileAvatarInDb.substring(8);
+    const fileAvaFormat = fileAvatarInDb.substring(250);
     console.log(fileAvaFormat);
     const formEdit = new FormData();
     formEdit.append("password", currentPassword);

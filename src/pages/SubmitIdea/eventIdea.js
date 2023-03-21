@@ -29,12 +29,12 @@ function EventIdea({ token }) {
   return (
     <>
       <div className="container-fluid">
-        <div className="tableAdmin">
+        <div className={Style.event_idea}>
           <div className="row">
             
               {dataEvent.map((data) => {
                 return(
-                  <div className="col-4">
+                  <div className="col-4 mt-5">
                   <div className={Style.card} key={data.id} onClick={() =>handleSubmitIdea(data.id)}>
                     <h3 className={Style.card__title}>{data.name}</h3>
                     <p className={Style.card__content}>{data.content}</p>

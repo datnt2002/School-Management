@@ -52,8 +52,10 @@ function DetailIdea() {
                             </div>
                             
                             <hr />
-
-                            <div className="font-16 text-dark p-3">
+                            <div className="font-16 text-dark my-3" style={{ overflowWrap:"break-word" }}>
+                                <h2 className="my-1">Title</h2>
+                            </div>
+                            <div className="font-16 text-dark">
                                 <p className={`${Style.content} my-1`}>overflow-wrap overflow-wrapoverflow-wrapoverflow-wrapoverflow-wrapv v v v overflow-wrap overflow-wrap overflow-wrap v v vv voverflow-wrapsdmaf ádmajwkass  mạ s,admj á,ionw mạkna sdm</p>
                             </div>
 

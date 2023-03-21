@@ -124,7 +124,7 @@ function Header({ dataUser }) {
                   userName="Dominic Keller"
                   userDepartment="IT"
                 /> */}
-                <div className="media">
+                <div className="media" style={{ height:"50px" }}>
                   <img
                     className="rounded-circle"
                     src={server + user?.avatar}

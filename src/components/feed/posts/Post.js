@@ -25,7 +25,7 @@ function Post({ token }) {
     <>
       {dataIdea.map((dataIdea) => {
         return (
-          <div className="news-post" key={dataIdea.id}>
+          <div className={Style.news_post} key={dataIdea.id}>
             <div className="card-body pb-1">
               <div className={Style.card}>
                 <div className={Style.media}>
@@ -49,10 +49,10 @@ function Post({ token }) {
 
                 <hr />
                 <div className="font-16 text-dark my-3">
-                  <p className="my-1">{dataIdea.name}</p>
+                  <h2 className="my-1">{dataIdea.name}</h2>
                 </div>
-                <div className="font-16 text-dark my-3">
-                  <p className="my-1">{dataIdea.content}</p>
+                <div className="font-16 text-dark my-3" style={{ overflowWrap:"break-word" }}>
+                  <p className="my-1">{`${dataIdea.content.substring(0, 250)}`}<strong>...</strong><a href="#">Read more</a></p>
                 </div>
                 <div className="file-group"></div>
                 <div className="time-group"></div>
