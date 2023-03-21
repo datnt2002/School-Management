@@ -2,14 +2,12 @@
   padding: 5%;
 }
 
-
-
 /* icon */
 /* upload */
 .form {
-    background-color: #fff;
-    box-shadow: 0 10px 60px rgb(218, 229, 255);
-    border-radius: 4px;
+    /* background-color: #fff; */
+    /* box-shadow: 0 10px 60px rgb(218, 229, 255); */
+    /* border-radius: 4px; */
     padding: 2rem .7rem .7rem .7rem;
     text-align: center;
     font-size: 1.125rem;

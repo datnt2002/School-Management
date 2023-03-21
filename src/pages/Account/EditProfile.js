@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiEditAccount, server } from "../../api/Api";
 import Style from "./editProfile.module.css";
+import "../SubmitIdea/style.css";
 
 function EditProfile({ dataUser, token, setDataUser }) {
   //dang chet o file avatar
@@ -74,24 +75,29 @@ function EditProfile({ dataUser, token, setDataUser }) {
                   className={`${Style.img_account_profile} ${Style.rounded_circle} mb-2`}
                   src={server + fileAvatarInDb}
                 />
-                <div className="font-italic text-muted mt-4 mb-2">
-                  Upload new image
-                </div>
-                <div className="fileUploadInput">
-                  <input
-                    type="file"
-                    // value={fileAvatar}
-                    onChange={(e) => setFileAvatarEdit(e.target.files[0])}
-                  />
-                  <button>+</button>
+                <div className="form">
+                  <span className="form-title">Upload your avatar</span>
+                  <p className="form-paragraph">File should be an image</p>
+                  <label htmlFor="file-input" className="drop-container">
+                    <span className="drop-title">Drop files here</span>
+                    or
+                    <input
+                      type="file"
+                      id="file-input"
+                      onChange={(e) => setFileAvatarEdit(e.target.files[0])}
+                    />
+                  </label>
                 </div>
               </div>
             </div>
           </div>
           <div className="col-xl-8">
             <div
-              className="card mb-4"
-              style={{ boxShadow: "0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%)" }}
+              className="card"
+              style={{
+                boxShadow: "0 0.15rem 1.75rem 0 rgb(33 40 50 / 15%)",
+                padding: "20.391px",
+              }}
             >
               <div className={Style.card_header}>Account Details</div>
               <div className={Style.card_body}>
