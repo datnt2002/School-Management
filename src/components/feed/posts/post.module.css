@@ -1,0 +1,31 @@
+
+.like {
+    position: relative;
+    background-color: #548dff;
+    /* border-radius: 50%; */
+    height: 30px;
+    width: 50%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    
+}
+.fas {
+    position: absolute;
+    color: white;
+    top: 7px;
+    left: 7px;
+    animation-name: Like;
+    animation-duration: 1s;
+    transform-origin: 0% 100%;
+}
+@keyframes Like {
+    25%{
+        transform: rotate(15deg);
+    }
+    50%{
+        transform: rotate(-15deg) translateY(-3px);
+    }
+    75%,100%{
+        transform: rotate(0deg);
+    }
+}

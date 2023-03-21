@@ -4,10 +4,11 @@ import { apiIdea } from "../../../api/Api";
 import Comment from "./Comment";
 import Input from "../../Tags/Input";
 import Style from "../../../pages/NewsFeed/newsFeed.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Post({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
-
+  const navigate = useNavigate();
   useEffect(() => {
     fetch(apiIdea, {
       headers: { Authorization: `Bearer ${token}` },
@@ -20,6 +21,9 @@ function Post({ token }) {
         console.log("k get dc idea");
       });
   }, []);
+  const handleReadMore = (id) => {
+    navigate("/DetailIdea", { state: { ideaId: id } });
+  }
   console.log(dataIdea);
   return (
     <>
@@ -52,7 +56,7 @@ function Post({ token }) {
                   <h2 className="my-1">{dataIdea.name}</h2>
                 </div>
                 <div className="font-16 text-dark my-3" style={{ overflowWrap:"break-word" }}>
-                  <p className="my-1">{`${dataIdea.content.substring(0, 250)}`}<strong>...</strong><a href="#">Read more</a></p>
+                  <p className="my-1">{`${dataIdea.content.substring(0, 250)}`}<strong>...</strong><button onClick={() => handleReadMore(dataIdea.id)}>Read more</button></p>
                 </div>
                 <div className="file-group"></div>
                 <div className="time-group"></div>
@@ -65,15 +69,6 @@ function Post({ token }) {
                 >
                   <p className="text-muted pl-0">{dataIdea.vote} Like</p>
                 </div>
-
-                {/* <hr /> */}
-                {/* <Comment/> */}
-                {/* <div className="media mb-2 reply col-12">
-                  <Profile imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D" />
-                  <div className="media-body col-11">
-                    <Input placeholder="Write a comment" />
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
