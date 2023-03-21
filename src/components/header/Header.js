@@ -19,7 +19,7 @@ function Header({ dataUser }) {
     const btnDrop = document.querySelector(".navbar-toggle");
     const subNavBar = document.querySelector(".subNavBar");
     const btnSearc = document.querySelector(".btnSearc");
-    // const icon = document.querySelector(".btnSearc svg")
+    const icon = document.querySelector(".btnSearc svg")
     function Show() {
       if (showDropDown === "") {
         setShowDropDown("show");
@@ -34,10 +34,10 @@ function Header({ dataUser }) {
     function showSearch() {
       if (showDropDownSearch === "") {
         setShowDropDownSearch("show");
-        // icon.setAttribute("active", true)
+        icon.setAttribute("style", "color:white")
       } else {
         setShowDropDownSearch("");
-        // icon.removeAttribute("active")
+        icon.removeAttribute("style")
       }
     }
     function unShow() {
@@ -46,12 +46,15 @@ function Header({ dataUser }) {
       p.setAttribute("style", "color:#98a6ad");
     }
     function showSubNav() {
-      if (subNavBar.hasAttribute("style")) {
-        subNavBar.removeAttribute("style");
-      } else {
-        subNavBar.setAttribute("style", "display:none");
+      if (!subNavBar.hasAttribute("style")) {
+        subNavBar.setAttribute("style", "display:block");
       }
-      console.log(subNavBar.hasAttribute("hidden"));
+      else if (subNavBar.hasAttribute("style")) {
+        subNavBar.setAttribute("style", "display:none");
+      } 
+      // return subNavBar.removeAttribute("style");
+      
+      // console.log(subNavBar.hasAttribute("style","display:none"))
     }
     btnSearc.addEventListener("click", showSearch);
     btn.addEventListener("click", Show);
