@@ -20,7 +20,7 @@ function Header({ dataUser }) {
     const btnDrop = document.querySelector(".navbar-toggle");
     const subNavBar = document.querySelector(".subNavBar");
     const btnSearc = document.querySelector(".btnSearc");
-    const icon = document.querySelector(".btnSearc svg")
+    const icon = document.querySelector(".btnSearc svg");
     function Show() {
       if (showDropDown === "") {
         setShowDropDown("show");
@@ -35,10 +35,10 @@ function Header({ dataUser }) {
     function showSearch() {
       if (showDropDownSearch === "") {
         setShowDropDownSearch("show");
-        icon.setAttribute("style", "color:white")
+        icon.setAttribute("style", "color:white");
       } else {
         setShowDropDownSearch("");
-        icon.removeAttribute("style")
+        icon.removeAttribute("style");
       }
     }
     function unShow() {
@@ -49,12 +49,11 @@ function Header({ dataUser }) {
     function showSubNav() {
       if (!subNavBar.hasAttribute("style")) {
         subNavBar.setAttribute("style", "display:block");
-      }
-      else if (subNavBar.hasAttribute("style")) {
+      } else if (subNavBar.hasAttribute("style")) {
         subNavBar.setAttribute("style", "display:none");
-      } 
+      }
       // return subNavBar.removeAttribute("style");
-      
+
       // console.log(subNavBar.hasAttribute("style","display:none"))
     }
     btnSearc.addEventListener("click", showSearch);
@@ -66,7 +65,7 @@ function Header({ dataUser }) {
     btnDrop.addEventListener("click", showSubNav);
   });
 
-  const user = useContext(UserContext);
+  // const user = useContext(UserContext);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
@@ -117,23 +116,16 @@ function Header({ dataUser }) {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                {/* <Profile
-                  className="rounded-circle"
-                  imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D"
-                  alt="user-image"
-                  userName="Dominic Keller"
-                  userDepartment="IT"
-                /> */}
-                <div className="media" style={{ height:"50px" }}>
+                <div className="media" style={{ height: "50px" }}>
                   <img
                     className="rounded-circle"
-                    src={server + user?.avatar}
+                    src={server + dataUser?.avatar}
                     alt="placeholder"
                     height="32"
                   />
                   <div className="media-body">
-                    <h5 className="mt-1 mb-0">{user?.userName}</h5>
-                    <p className="mb-1 mt-1">{user?.department}</p>
+                    <h5 className="mt-1 mb-0">{dataUser?.userName}</h5>
+                    <p className="mb-1 mt-1">{dataUser?.department}</p>
                   </div>
                 </div>
               </button>

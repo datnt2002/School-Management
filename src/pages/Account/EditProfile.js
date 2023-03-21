@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { apiEditAccount, server } from "../../api/Api";
+import { apiEditAccount, apiProfile, server } from "../../api/Api";
 import Style from "./editProfile.module.css";
 import "../SubmitIdea/style.css";
+import { useNavigate } from "react-router-dom";
 
 function EditProfile({ dataUser, token, setDataUser }) {
   //dang chet o file avatar
@@ -12,6 +12,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
   const [phone, setPhone] = useState("");
   const [dob, setDob] = useState("");
   const [currentPassword, setCurrentPassword] = useState("");
+  //control value input file
   const [fileAvatarEdit, setFileAvatarEdit] = useState("");
   useEffect(() => {
     let formatDob = "";
@@ -27,13 +28,12 @@ function EditProfile({ dataUser, token, setDataUser }) {
 
   const navigate = useNavigate();
 
-  const handleEditProfile = (e) => {
+  const handleEditProfile = async (e) => {
     e.preventDefault();
 
-    // const avatarFile = document.querySelector('input[type="file"]');
-    // console.log(avatarFile.files[0]);
-    const fileAvaFormat = fileAvatarInDb.substring(250);
+    const fileAvaFormat = fileAvatarInDb.substring(8);
     console.log(fileAvaFormat);
+
     const formEdit = new FormData();
     formEdit.append("password", currentPassword);
     formEdit.append("address", address);
@@ -42,7 +42,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
     formEdit.append("doB", dob ? dob + `T00:00:00` : null);
     formEdit.append("Image", fileAvatarEdit ? fileAvatarEdit : fileAvaFormat);
 
-    fetch(apiEditAccount, {
+    await fetch(apiEditAccount, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -52,12 +52,26 @@ function EditProfile({ dataUser, token, setDataUser }) {
       .then((res) => res.json())
       .then((data) => {
         // setDataUser(data);
+        navigate("/profile");
       })
       .catch(() => {
         console.log("k edit dc");
+      });
+
+    fetch(apiProfile, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setDataUser(data);
       })
-      .finally(navigate("/profile"));
+      .catch((err) => console.log("gg"));
   };
+
+  useEffect(() => {
+    console.log("k rerender à");
+    setFileAvatarInDb(dataUser.avatar);
+  }, [dataUser]);
 
   return (
     <div className="editProfile">

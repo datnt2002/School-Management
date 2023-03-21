@@ -9,7 +9,7 @@ import Account from "./pages/Account/Account";
 import EditProfile from "./pages/Account/EditProfile";
 import Error404 from "./pages/Error404/Error404";
 import CreateIdea from "./pages/SubmitIdea/CreateIdea";
-import EventIdea from "./pages/SubmitIdea/EventIdea";
+import EventIdea from "./pages/SubmitIdea/eventIdea";
 import UserProfile from "./pages/Account/UserProfile";
 import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
@@ -18,6 +18,7 @@ import DetailIdea from "./pages/NewsFeed/DetailIdea";
 function App() {
   const [dataUser, setDataUser] = useState({});
   const [token, setToken] = useState(localStorage.getItem("token"));
+  const [apiData, setApiData] = useState({});
 
   useEffect(() => {
     fetch(apiProfile, {
@@ -25,10 +26,14 @@ function App() {
     })
       .then((res) => res.json())
       .then((data) => {
-        setDataUser(data);
+        setApiData(data);
       })
       .catch((err) => console.log("gg"));
   }, [token]);
+
+  useEffect(() => {
+    setDataUser(apiData);
+  }, [apiData]);
 
   const handleSetToken = (data) => {
     setToken(data);
@@ -68,20 +73,7 @@ function App() {
               <UserProfile
                 dataUser={dataUser}
                 setDataUser={(newUser) => {
-                  setDataUser(newUser);
-                }}
-              />
-            </RequiredAuth>
-          }
-        ></Route>
-        <Route
-          path="/EditProfile"
-          element={
-            <RequiredAuth dataUser={dataUser}>
-              <EditProfile
-                dataUser={dataUser}
-                setDataUser={() => {
-                  setDataUser();
+                  setApiData(newUser);
                 }}
               />
             </RequiredAuth>
@@ -131,7 +123,12 @@ function App() {
           path="/editProfile"
           element={
             <RequiredAuth dataUser={dataUser}>
-              <EditProfile />
+              <EditProfile
+                dataUser={dataUser}
+                setDataUser={(newUser) => {
+                  setApiData(newUser);
+                }}
+              />
             </RequiredAuth>
           }
         />
