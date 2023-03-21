@@ -37,3 +37,18 @@
     display: flex;
     justify-content: center;
 }
+.editProfile .card {
+    height: 100%;
+}
+.form_control::placeholder {
+  color: #adb5bd;
+  opacity: 1; /* Firefox */
+}
+
+.form_control:-ms-input-placeholder { /* Internet Explorer 10-11 */
+ color: #adb5bd;
+}
+
+.form_control::-ms-input-placeholder { /* Microsoft Edge */
+ color: #adb5bd;
+}
