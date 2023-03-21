@@ -59,14 +59,7 @@ function DetailIdea() {
                                 <p className={`${Style.content} my-1`}>overflow-wrap overflow-wrapoverflow-wrapoverflow-wrapoverflow-wrapv v v v overflow-wrap overflow-wrap overflow-wrap v v vv voverflow-wrapsdmaf ádmajwkass  mạ s,admj á,ionw mạkna sdm</p>
                             </div>
 
-                            <hr />
-
-                            <div
-                            className="my-1 justify-content-between"
-                            style={{ display: "flex" }}
-                            >
                             <LikeCmt/>
-                            </div>
 
                             <hr />
                             <Comment/>
