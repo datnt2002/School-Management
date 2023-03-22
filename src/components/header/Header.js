@@ -47,6 +47,8 @@ function Header({ dataUser }) {
       p.setAttribute("style", "color:#98a6ad");
     }
     function showSubNav() {
+      /*
+      var x = document.getElementById("#menuLine")
       if (!subNavBar.hasAttribute("style")) {
         subNavBar.setAttribute("style", "display:block");
       } else if (subNavBar.hasAttribute("style")) {
@@ -55,6 +57,7 @@ function Header({ dataUser }) {
       // return subNavBar.removeAttribute("style");
 
       // console.log(subNavBar.hasAttribute("style","display:none"))
+      */
     }
     btnSearc.addEventListener("click", showSearch);
     btn.addEventListener("click", Show);
@@ -69,8 +72,20 @@ function Header({ dataUser }) {
 
   const handleLogout = () => {
     localStorage.removeItem("token");
+    
   };
+  let addClass = ()=>{
+    var x = document.getElementById("subStaff")
+    if(x.classList.contains("displayBlockonclick")){
+      x.remove("displayBlockonclick")
+      x.addClass("displayNoneonclick")    
+    }
+    else if(x.classList.contains("displayNoneonclick")){
+      x.remove("displayNoneonclick")
+      x.addClass("displayBlockonclick")
+    }
 
+  }
   return (
     <>
       <div className="navbar-custom topnav-navbar topnav-navbar-dark">
@@ -155,8 +170,9 @@ function Header({ dataUser }) {
               </div>
             </li>
           </ul>
+          
           <button className="navbar-toggle">
-            <div className="lines">
+            <div className="lines" id="menuLine" onClick={addClass}>
               <span></span>
               <span></span>
               <span></span>

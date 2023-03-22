@@ -22,10 +22,11 @@ function Comment(){
                 <div className="mt-3">
                     <div className="comment" key={dataComment.commentId}>
                         <div className="user-comment">
-                            <Profile
+                            {/* <Profile
                                 imageSrc="https://scontent.fhan14-3.fna.fbcdn.net/v/t1.6435-9/146614516_1768473006657991_2851123883348124585_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=174925&_nc_ohc=LUmm1lzU44kAX-qv5s2&tn=7YDAcjGu5PpJ9IVW&_nc_ht=scontent.fhan14-3.fna&oh=00_AfCgbW8g8OCAD_LhNdB0wSyJn2jTpgI82Eexg7lYdTp0YQ&oe=6417F67D"
                                 userName="Sansa Stark"
-                            />
+                            /> */}
+                            <h3>ảnh css lại sau</h3>
                             <div className="font-16 text-dark my-3" >
                                 <p className="my-1">{dataComment.content}</p>
                             </div>

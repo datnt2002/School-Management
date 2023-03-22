@@ -98,6 +98,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                     <input
                       type="file"
                       id="file-input"
+                      accept="image/*"
                       onChange={(e) => setFileAvatarEdit(e.target.files[0])}
                     />
                   </label>

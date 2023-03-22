@@ -9,7 +9,7 @@ import Account from "./pages/Account/Account";
 import EditProfile from "./pages/Account/EditProfile";
 import Error404 from "./pages/Error404/Error404";
 import CreateIdea from "./pages/SubmitIdea/CreateIdea";
-import EventIdea from "./pages/SubmitIdea/eventIdea";
+import EventIdea from "./pages/SubmitIdea/EventIdea";
 import UserProfile from "./pages/Account/UserProfile";
 import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";

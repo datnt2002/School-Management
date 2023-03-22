@@ -399,3 +399,9 @@ a:not([href]) {
         display: none;
     }
 }
+.displayNoneonclick{
+    display: none;
+}
+.displayBlockonclick{
+    display: block;
+}

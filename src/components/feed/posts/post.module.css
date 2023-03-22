@@ -1,17 +1,28 @@
-
-.like {
+.like_cmt{
+    justify-content: space-evenly;
+}
+/* .like {
     position: relative;
-    background-color: #548dff;
-    /* border-radius: 50%; */
+    background-color: white;
+    border-radius: 50%;
     height: 30px;
-    width: 50%;
+    width: 100%;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
     cursor: pointer;
-    
+    border: none;
 }
-.fas {
-    position: absolute;
-    color: white;
+.like:hover {
+    position: relative;
+    background-color: white;
+    border-radius: 50%;
+    height: 30px;
+    width: 100%;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+    border: none;
+    z-index: 1;
+} */
+/* .fasHeart {
     top: 7px;
     left: 7px;
     animation-name: Like;
@@ -28,4 +39,37 @@
     75%,100%{
         transform: rotate(0deg);
     }
-}
+} */
+
+
+
+.button_name {
+    background-color: white;
+    width: 100%;
+    font-size: 18px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    cursor: pointer;
+    /* will-change: box-shadow,transform; */
+    /* background: radial-gradient( 100% 100% at 100% 0%, #89E5FF 0%, #5468FF 100% ); */
+    /* box-shadow: 0px 0.01em 0.01em rgb(45 35 66 / 40%), 0px 0.3em 0.7em -0.01em rgb(45 35 66 / 30%), inset 0px -0.01em 0px rgb(58 65 111 / 50%); */
+    padding: 0 2em;
+    border-radius: 0.3em;
+    /* color: #fff; */
+    height: 2.6em;
+    text-shadow: 0 1px 0 rgb(0 0 0 / 40%);
+    transition: box-shadow 0.15s ease, transform 0.15s ease;
+  }
+  
+  .button_name:hover {
+    box-shadow: 0px 0.1em 0.2em rgb(45 35 66 / 40%), 0px 0.4em 0.7em -0.1em rgb(45 35 66 / 30%), inset 0px -0.1em 0px #bbc0c7;
+    transform: translateY(-0.1em);
+    background-color: #f0f2f5;
+    color: red;
+  }
+  
+  .button_name:active {
+    box-shadow: inset 0px 0.1em 0.6em #bbc0c7;
+    transform: translateY(0em);
+  }

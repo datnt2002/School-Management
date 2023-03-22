@@ -1,12 +1,14 @@
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useLocation } from "react-router-dom";
 import Comment from "../../components/feed/posts/Comment";
 import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 import Weather from "../../components/optional/Weather";
 import Style from "./newsFeed.module.css";
+import { apiIdea } from "../../api/Api";
 
-function DetailIdea() {
+function DetailIdea({ token }) {
     const [ideaContent, setIdeaContent] = useState("");
     // function textarea
     function autoHeight() {
@@ -23,6 +25,31 @@ function DetailIdea() {
         }, 0);
         }
     }
+
+    const [name, setName] = useState("");
+    const [content, setContent] = useState("");
+    const [vote, setVote] = useState("");
+    const [viewed, setViewed] = useState("");
+    // const [ideaFile, setIdeaFile] = useState("");
+
+    const location = useLocation();
+    const ideaId = location.state.id;
+    useEffect(() => {
+        fetch(apiIdea + "/" + ideaId, {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            setName(data.name);
+            setContent(data.content);
+            setVote(data.vote);
+            setViewed(data.viewed);
+          })
+          .catch(() => {
+            console.log("k get dc idea");
+          });
+      }, [ideaId, token]);
+
     return(
         <>
             <div className="container-fluid">
@@ -47,19 +74,21 @@ function DetailIdea() {
                                     </div>
                                 </div>
                                 <div>
-                                    <span>2 </span><span>views</span>
+                                    <span>{viewed} </span><span>views</span>
                                 </div>
                             </div>
                             
                             <hr />
                             <div className="font-16 text-dark my-3" style={{ overflowWrap:"break-word" }}>
-                                <h2 className="my-1">Title</h2>
+                                <h2 className="my-1">{name}</h2>
                             </div>
                             <div className="font-16 text-dark">
-                                <p className={`${Style.content} my-1`}>overflow-wrap overflow-wrapoverflow-wrapoverflow-wrapoverflow-wrapv v v v overflow-wrap overflow-wrap overflow-wrap v v vv voverflow-wrapsdmaf ádmajwkass  mạ s,admj á,ionw mạkna sdm</p>
+                                <p className={`${Style.content} my-1`}>{content}</p>
                             </div>
 
-                            <LikeCmt/>
+                            <LikeCmt 
+                                likes={vote}
+                            />
 
                             <hr />
                             <Comment/>

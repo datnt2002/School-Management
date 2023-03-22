@@ -1,0 +1,33 @@
+.fasHeart {
+    /* top: 7px;
+    left: 7px; */
+    /* animation-name: ""; */
+    animation-duration: 1s;
+    transform-origin: 0% 100%;
+}
+.fasCrack {
+    /* top: 7px;
+    left: 7px; */
+    animation-name: "";
+    animation-duration: 1s;
+    transform-origin: 0% 100%;
+}
+.fasCmt {
+    /* top: 7px;
+    left: 7px; */
+    animation-name: "";
+    animation-duration: 1s;
+    transform-origin: 0% 100%;
+}
+
+@keyframes Like {
+    25%{
+        transform: rotate(15deg);
+    }
+    50%{
+        transform: rotate(-15deg) translateY(-3px);
+    }
+    75%,100%{
+        transform: rotate(0deg);
+    }
+}
