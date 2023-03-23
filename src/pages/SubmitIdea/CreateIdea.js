@@ -3,7 +3,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
-import "./style.css"
+import "./style.css";
 
 function CreateIdea({ token, readOnly, dataUser }) {
   const [categories, setCategories] = useState([]);
@@ -22,7 +22,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
   const location = useLocation();
   const eventId = location.state.eventId;
 
-  // const navigate = useNavigate();
+  const [errMes, setErrMess] = useState();
 
   useEffect(() => {
     fetch(apiCategory, {
@@ -72,12 +72,18 @@ function CreateIdea({ token, readOnly, dataUser }) {
       body: formData,
     })
       .then((res) => {
+        if (!res.ok) {
+          throw res;
+        }
         return res.json();
       })
-      .then((data) => {
-        console.log("after", data);
-      })
-      .catch(() => console.log("k post dc idea"));
+
+      .catch((err) =>
+        err.json().then((err) => {
+          let errMes = Object.values(err.errors);
+          setErrMess(errMes);
+        })
+      );
   };
 
   // function textarea
@@ -217,8 +223,16 @@ function CreateIdea({ token, readOnly, dataUser }) {
                 <input type="file" id="file-input" />
               </label>
             </div>
+            {errMes &&
+              errMes.map((err) => {
+                return (
+                  <div>
+                    <p style={{ color: "red" }}>{err}</p>
+                  </div>
+                );
+              })}
             <div className="d-flex justify-content-between">
-            <button className="btnSubmitIdea" onClick={handleCreateIdea}>
+              <button className="btnSubmitIdea" onClick={handleCreateIdea}>
                 <span className="shadow"></span>
                 <span className="edge"></span>
                 <span className="front text">Submit</span>

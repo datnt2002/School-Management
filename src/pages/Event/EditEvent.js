@@ -11,6 +11,9 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
   const [content, setContent] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
 
+  const [errMes, setErrMess] = useState();
+
+  //get data by eventId
   useEffect(() => {
     const fetchDataFunction = async () => {
       await fetch(apiEvent + `/${selectEventId}`, {
@@ -43,12 +46,20 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
       body: JSON.stringify(newEditEvent),
     })
       .then((res) => {
-        res.json();
+        if (!res.ok) {
+          throw res;
+        }
+        return res.json();
       })
       .then(() => {
         handleClose();
       })
-      .catch(() => console.log("cannot put event 404"));
+      .catch((err) =>
+        err.json().then((err) => {
+          let errArray = Object.values(err.errors);
+          setErrMess(errArray);
+        })
+      );
   };
 
   if (isLoading) {
@@ -113,6 +124,14 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                 </div>
               </div>
             </div>
+            {errMes &&
+              errMes.map((err) => {
+                return (
+                  <div>
+                    <p style={{ color: "red" }}>{err}</p>
+                  </div>
+                );
+              })}
             <div className="btnForm d-flex justify-content-evenly">
               <button
                 type="submit"

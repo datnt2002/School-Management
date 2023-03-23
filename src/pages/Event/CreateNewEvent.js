@@ -2,15 +2,15 @@ import React, { useState } from "react";
 import Input from "../../components/Tags/Input";
 import "./event.css";
 import { apiEvent } from "../../api/Api";
-import { useNavigate } from "react-router-dom";
 
 function CreateNewEvent({ token, style, handleClose }) {
   //data to post form
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  const [first_Closure, setFirstClosure] = useState("");
+  const [first_Closure, setFirstClosure] = useState("0001-01-01T00:00:00");
 
-  const navigate = useNavigate();
+  const [errMes, setErrMess] = useState();
+
   //handle submit event
   const handleCreateEvent = (e) => {
     e.preventDefault();
@@ -26,17 +26,23 @@ function CreateNewEvent({ token, style, handleClose }) {
       body: JSON.stringify(newEvent),
     })
       .then((res) => {
-        res.json();
+        if (!res.ok) {
+          throw res;
+        }
+        return res.json();
       })
       .then(() => {
-        handleClose();
-      })
-      .catch(() => navigate("*"))
-      .finally(() => {
         setName("");
         setContent("");
         setFirstClosure("");
-      });
+        handleClose();
+      })
+      .catch((err) =>
+        err.json().then((err) => {
+          let errArray = Object.values(err.errors);
+          setErrMess(errArray);
+        })
+      );
   };
 
   return (
@@ -80,11 +86,21 @@ function CreateNewEvent({ token, style, handleClose }) {
                         value={first_Closure}
                         type="datetime-local"
                         onChange={(e) => setFirstClosure(e.target.value)}
+                        required
                       ></input>
                     </div>
                   </div>
                 </div>
               </div>
+
+              {errMes &&
+                errMes.map((err) => {
+                  return (
+                    <div>
+                      <p style={{ color: "red" }}>{err}</p>
+                    </div>
+                  );
+                })}
               <div className="btnForm d-flex justify-content-evenly">
                 <button
                   type="submit"

@@ -23,6 +23,7 @@ function Input({
         disabled={disabled}
         readOnly={readOnly}
         autoComplete="off"
+        required
       />
       <label htmlFor={name} className={Style.form_label}>
         {label}

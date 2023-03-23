@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { apiCreateAccount } from "../../api/Api";
-import { useNavigate } from "react-router-dom";
 
 import Input from "../../components/Tags/Input";
 import "./account.css";
@@ -10,9 +9,9 @@ function CreateAccount({ style, handleClose, token }) {
   const [email, setEmail] = useState("");
   const [cfPassword, setCfPassword] = useState("");
   const [role, setRole] = useState("");
-  const [departmentId, setDepartmentId] = useState(0);
+  const [departmentId, setDepartmentId] = useState();
 
-  const navigate = useNavigate();
+  const [errMes, setErrMess] = useState();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -34,17 +33,27 @@ function CreateAccount({ style, handleClose, token }) {
       },
       body: JSON.stringify(newAccount),
     })
-      .then((res) => res.json())
+      .then((res) => {
+        if (!res.ok) {
+          throw res;
+        }
+        return res.json();
+      })
       .then(() => {
-        setUsername("")
-        setPassword("")
-        setCfPassword("")
-        setEmail("")
-        setRole("")
-        setDepartmentId(0)
+        setUsername("");
+        setPassword("");
+        setCfPassword("");
+        setEmail("");
+        setRole("");
+        setDepartmentId(0);
         handleClose();
       })
-      .catch(() => navigate("*"));
+      .catch((err) =>
+        err.json().then((err) => {
+          let errArray = Object.values(err.errors);
+          setErrMess(errArray);
+        })
+      );
   };
 
   return (
@@ -108,7 +117,7 @@ function CreateAccount({ style, handleClose, token }) {
                   onChange={(e) => setRole(e.target.value)}
                   value={role}
                 >
-                  <option value="0">---Please enter role---</option>
+                  <option value="">---Please enter role---</option>
                   <option value="Staff">Staff</option>
                   <option value="QAM">Quality Assurance Management</option>
                   <option value="QAC">Quality Cooperator Management</option>
@@ -122,7 +131,7 @@ function CreateAccount({ style, handleClose, token }) {
                   onChange={(e) => setDepartmentId(e.target.value)}
                   value={departmentId}
                 >
-                  <option value="0">---Please enter Department---</option>
+                  <option value="">---Please enter Department---</option>
                   <option value="1">IT</option>
                   <option value="2">HR</option>
                   <option value="3">Design</option>
@@ -130,6 +139,14 @@ function CreateAccount({ style, handleClose, token }) {
                 </select>
               </div>
             </div>
+            {errMes &&
+              errMes.map((err) => {
+                return (
+                  <div>
+                    <p style={{ color: "red" }}>{err}</p>
+                  </div>
+                );
+              })}
             <div className="btnForm mt-3 d-flex justify-content-evenly">
               <button
                 type="submit"

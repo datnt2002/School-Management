@@ -34,7 +34,7 @@ function Account({ token }) {
       .catch(() => {
         navigate("*");
       });
-  }, [modal]);
+  }, [modal, token]);
 
   const handleDeleteAccount = (e) => {
     e.preventDefault();

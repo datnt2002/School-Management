@@ -1,3 +1,4 @@
+import { useState } from "react";
 import "./table.css";
 function Table({
   data,
@@ -16,6 +17,8 @@ function Table({
   handleOpen,
   setSelectEventId,
 }) {
+  const [err, setErr] = useState();
+
   const handleDelete = async (e) => {
     e.preventDefault();
 
@@ -24,7 +27,14 @@ function Table({
     await fetch(apiLink + `/${itemId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` },
-    }).catch((error) => console.error("co loi r"));
+    })
+      .then((res) => {
+        if (!res.ok) {
+          throw res;
+        }
+        return res.json();
+      })
+      .catch((err) => err.json().then((err) => setErr(err.message)));
 
     fetch(apiLink, { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => res.json())
@@ -38,6 +48,12 @@ function Table({
   };
   return (
     <table className="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline">
+      {err && (
+        <div>
+          <p style={{ color: "red" }}>{err}</p>
+        </div>
+      )}
+
       <thead className="thead-light">
         <tr role="row">
           <th
