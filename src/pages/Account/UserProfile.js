@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import Profile from "../../components/profile/Profile";
-import "./account.css";
+import Style from "./account.module.css";
 import Input from "../../components/Tags/Input";
 import { apiIdea } from "../../api/Api";
 import Comment from "../../components/feed/posts/Comment";

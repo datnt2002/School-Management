@@ -14,6 +14,8 @@ import UserProfile from "./pages/Account/UserProfile";
 import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
 import DetailIdea from "./pages/NewsFeed/DetailIdea";
+import ComfirmPassword from "./components/authentication/ComfirmPassword";
+import CreateNewCategory from "./pages/Category/CreateNewCategory";
 
 function App() {
   const [dataUser, setDataUser] = useState({});
@@ -134,6 +136,7 @@ function App() {
         />
         <Route path="*" element={<Error404 />} />
       </Routes>
+      {/* <ComfirmPassword/> */}
     </div>
   );
 }
