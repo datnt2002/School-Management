@@ -208,7 +208,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                 />
               </div>
             </div>
-            <div className="form">
+            <div className="form" style={{ backgroundColor:"#fff", boxShadow:"0 10px 60px rgb(218, 229, 255)", borderRadius:"4px" }}>
               <span className="form-title">Upload your file</span>
               <p className="form-paragraph">File should be an image</p>
               <label htmlFor="file-input" className="drop-container">

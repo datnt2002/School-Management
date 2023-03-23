@@ -3,8 +3,9 @@ import { apiCreateAccount } from "../../api/Api";
 import { useNavigate } from "react-router-dom";
 
 import Input from "../../components/Tags/Input";
-import "./account.css";
-function CreateAccount({ style, handleClose, token }) {
+import Style from "./account.module.css";
+
+function CreateAccount({ handleClose, token }) {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -48,15 +49,15 @@ function CreateAccount({ style, handleClose, token }) {
   };
 
   return (
-    <div className="container-fluid create" style={style}>
+    <div className="container-fluid create">
       <div className="modalOverlay" onClick={handleClose}></div>
-      <div className="modalCate">
-        <div className="createFormCate">
-          <div className="createFormCate_Header">
+      <div className={Style.modalAccount}>
+        <div className={Style.createFormAccount}>
+          <div className="createFormCate_Header mb-5">
             <h1>Create New Account</h1>
           </div>
           <form className="createFormCate_Input">
-            <div className="mb-5">
+            <div className="mb-4">
               <Input
                 label="User Name"
                 className="form-control"
@@ -67,7 +68,7 @@ function CreateAccount({ style, handleClose, token }) {
                 value={userName}
               />
             </div>
-            <div className="mb-5">
+            <div className="mb-4">
               <Input
                 label="Email"
                 type="text"
@@ -78,7 +79,7 @@ function CreateAccount({ style, handleClose, token }) {
                 value={email}
               />
             </div>
-            <div className="mb-5">
+            <div className="mb-4">
               <Input
                 label="Password"
                 type="password"
@@ -89,7 +90,7 @@ function CreateAccount({ style, handleClose, token }) {
                 value={password}
               />
             </div>
-            <div className="mb-5">
+            <div className="mb-4">
               <Input
                 label="Confirm Password"
                 type="password"
@@ -100,8 +101,8 @@ function CreateAccount({ style, handleClose, token }) {
                 value={cfPassword}
               />
             </div>
-            <div className="mt-3 mb-3 createFormAccount_Select">
-              <div className="mb-5">
+            <div className={`mt-3 mb-3 ${Style.createFormAccount_Select}`}>
+              <div className="mb-3">
                 <label className="form-label">Role</label>
                 <select
                   className="form-control"
@@ -115,7 +116,7 @@ function CreateAccount({ style, handleClose, token }) {
                   <option value="Admin">Admin</option>
                 </select>
               </div>
-              <div className="mb-5">
+              <div className="mb-3">
                 <label className="form-label">Department</label>
                 <select
                   className="form-control"

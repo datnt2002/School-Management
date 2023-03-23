@@ -1,25 +1,25 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { apiAccount } from "../../api/Api";
+import ComfirmPassword from "../../components/authentication/ComfirmPassword";
 import CreateAccount from "./CreateAccount";
+import Style from "./account.module.css"
 
 function Account({ token }) {
   const [data, setData] = useState([]);
-  const [showModal, setShowModal] = useState({ display: "none" });
+  const [showModalCreate, setShowModalCreate] = useState(false);
+  const [showModalComfirm, setShowModalComfirm] = useState(false);
   const [modal, setModal] = useState(false);
 
   const navigate = useNavigate();
 
   function handleOpen() {
-    setShowModal({
-      display: "",
-    });
+    setShowModalCreate(true);
     setModal(true);
   }
   function handleClose() {
-    setShowModal({
-      display: "none",
-    });
+    setShowModalCreate(false);
+    setShowModalComfirm(false);
     setModal(false);
   }
 
@@ -36,14 +36,15 @@ function Account({ token }) {
       });
   }, [modal]);
 
-  const handleDeleteAccount = (e) => {
-    e.preventDefault();
+  const handleOpenConfirm = (e) => {
+    setShowModalComfirm(true);
+    setModal(true);
   };
 
   return (
     <>
       <div className="container-fluid tableAccountList">
-        <div className="tableAccount">
+        <div className={Style.tableAccount}>
           <div className="card">
             <div className="card-body">
               <div className="mb-4 col-12">
@@ -93,7 +94,7 @@ function Account({ token }) {
                                     <button
                                       type="button"
                                       className="btn btn-danger"
-                                      onClick={handleDeleteAccount}
+                                      onClick={handleOpenConfirm}
                                       data-id={data.id}
                                     >
                                       Disable
@@ -113,12 +114,16 @@ function Account({ token }) {
           </div>
         </div>
       </div>
-
-      <CreateAccount
-        style={showModal}
+      
+      {showModalCreate && <CreateAccount
         handleClose={handleClose}
         token={token}
-      />
+      />}
+      {showModalComfirm && <ComfirmPassword
+        handleClose={handleClose}
+        token={token}
+      />}
+      
     </>
   );
 }
