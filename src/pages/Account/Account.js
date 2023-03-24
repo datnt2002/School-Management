@@ -3,13 +3,16 @@ import { useNavigate } from "react-router-dom";
 import { apiAccount } from "../../api/Api";
 import ComfirmPassword from "../../components/authentication/ComfirmPassword";
 import CreateAccount from "./CreateAccount";
-import Style from "./account.module.css"
+import Style from "./account.module.css";
 
 function Account({ token }) {
   const [data, setData] = useState([]);
   const [showModalCreate, setShowModalCreate] = useState(false);
   const [showModalComfirm, setShowModalComfirm] = useState(false);
   const [modal, setModal] = useState(false);
+
+  //get username to disable
+  const [userName, setUserName] = useState("");
 
   const navigate = useNavigate();
 
@@ -37,8 +40,12 @@ function Account({ token }) {
   }, [modal, token]);
 
   const handleOpenConfirm = (e) => {
+    e.preventDefault();
     setShowModalComfirm(true);
     setModal(true);
+
+    const name = e.target.getAttribute("data-username");
+    setUserName(name);
   };
 
   return (
@@ -89,18 +96,20 @@ function Account({ token }) {
                                 <td>{data.role}</td>
                                 <td>{data.department}</td>
                                 <td>{data.status}</td>
-                                <td className="table-action">
-                                  <div className="d-flex justify-content-evenly">
-                                    <button
-                                      type="button"
-                                      className="btn btn-danger"
-                                      onClick={handleOpenConfirm}
-                                      data-id={data.id}
-                                    >
-                                      Disable
-                                    </button>
-                                  </div>
-                                </td>
+                                {data.status !== "Disable" ? (
+                                  <td className="table-action">
+                                    <div className="d-flex justify-content-evenly">
+                                      <button
+                                        type="button"
+                                        className="btn btn-danger"
+                                        onClick={handleOpenConfirm}
+                                        data-username={data.userName}
+                                      >
+                                        Disable
+                                      </button>
+                                    </div>
+                                  </td> 
+                                ): <td></td>}
                               </tr>
                             );
                           })}
@@ -114,16 +123,17 @@ function Account({ token }) {
           </div>
         </div>
       </div>
-      
-      {showModalCreate && <CreateAccount
-        handleClose={handleClose}
-        token={token}
-      />}
-      {showModalComfirm && <ComfirmPassword
-        handleClose={handleClose}
-        token={token}
-      />}
-      
+
+      {showModalCreate && (
+        <CreateAccount handleClose={handleClose} token={token} />
+      )}
+      {showModalComfirm && (
+        <ComfirmPassword
+          handleClose={handleClose}
+          token={token}
+          userName={userName}
+        />
+      )}
     </>
   );
 }
