@@ -82,7 +82,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
             <div className="createFormEvent_Header">
               <h1>Edit Event</h1>
             </div>
-            <div className="mb-3 mt-5">
+            <div className="mb-4">
               <Input
                 value={name}
                 type="text"
@@ -91,7 +91,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                 onSetState={(e) => setName(e.target.value)}
               />
             </div>
-            <div className="mb-3 mt-5">
+            <div className="mb-4">
               <Input
                 value={content}
                 type="text"

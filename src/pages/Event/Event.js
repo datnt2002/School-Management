@@ -1,3 +1,5 @@
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { apiEvent } from "../../api/Api";
 
@@ -54,23 +56,21 @@ function Event({ token }) {
             <div className="col-12">
               <div className="card">
                 <div className="card-body">
-                  <div className="mb-4 col-12">
-                    <div className="page-title-box">
-                      <h1 className="page-title">Event</h1>
-                    </div>
-                  </div>
-                  <div className="row mb-2">
-                    <div className="col-sm-4">
+                  <div className="page-title-box">
+                    
+                      <h1 className="page-title">Event <span>
                       <button
                         className="btn btn-danger mb-2"
                         id="createEvent"
                         onClick={handleOpenCreate}
+                        style={{ borderRadius:"50%" }}
                       >
-                        <i className="mdi mdi-plus-circle mr-2"></i>Create Event
+                        <FontAwesomeIcon icon={faPlus}/>
                       </button>
-                    </div>
+                    </span></h1>
+                    
+                    
                   </div>
-
                   <div className="table-responsive">
                     <div className="dataTables_wrapper dt-bootstrap4 no-footer">
                       <div className="row">
