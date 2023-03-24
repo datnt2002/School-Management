@@ -57,19 +57,19 @@ function Event({ token }) {
               <div className="card">
                 <div className="card-body">
                   <div className="page-title-box">
-                    
-                      <h1 className="page-title">Event <span>
-                      <button
-                        className="btn btn-danger mb-2"
-                        id="createEvent"
-                        onClick={handleOpenCreate}
-                        style={{ borderRadius:"50%" }}
-                      >
-                        <FontAwesomeIcon icon={faPlus}/>
-                      </button>
-                    </span></h1>
-                    
-                    
+                    <h1 className="page-title">
+                      Event{" "}
+                      <span>
+                        <button
+                          className="btn btn-danger mb-2"
+                          id="createEvent"
+                          onClick={handleOpenCreate}
+                          style={{ borderRadius: "50%" }}
+                        >
+                          <FontAwesomeIcon icon={faPlus} />
+                        </button>
+                      </span>
+                    </h1>
                   </div>
                   <div className="table-responsive">
                     <div className="dataTables_wrapper dt-bootstrap4 no-footer">
@@ -89,6 +89,7 @@ function Event({ token }) {
                             token={token}
                             handleOpen={handleOpenEdit}
                             setSelectEventId={setSelectEventId}
+                            path="/ListIdea"
                           />
                         </div>
                       </div>

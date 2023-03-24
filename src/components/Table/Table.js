@@ -1,11 +1,12 @@
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
-import Tooltip from 'rc-tooltip';
-import 'rc-tooltip/assets/bootstrap.css';
+import Tooltip from "rc-tooltip";
+import "rc-tooltip/assets/bootstrap.css";
 import "./table.css";
-import Style from "./modu.module.css"
+import Style from "./modu.module.css";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
+import { Link, useNavigate } from "react-router-dom";
 function Table({
   data,
   content,
@@ -24,6 +25,7 @@ function Table({
   setSelectEventId,
 }) {
   const [err, setErr] = useState();
+  const navigate = useNavigate();
 
   const handleDelete = async (e) => {
     e.preventDefault();
@@ -52,6 +54,11 @@ function Table({
     setSelectEventId(eventId); // Set giá trị event id vào state bên ngoài component Table
     handleOpen();
   };
+
+  const handleViewListIdea = (evId) => {
+    navigate("/ListIdea", { state: { eventId: evId } });
+  };
+
   return (
     <table className="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline">
       {err && (
@@ -62,10 +69,7 @@ function Table({
 
       <thead className="thead-light">
         <tr role="row">
-          <th
-            className="link"
-            hidden={hidden}
-          >
+          <th className="link" hidden={hidden}>
             <FontAwesomeIcon icon={faLink} />
           </th>
           <th className="sorting">{content}</th>
@@ -90,9 +94,17 @@ function Table({
           return (
             <tr role="row" key={data.id}>
               <td className="dt-checkboxes-cell" hidden={hidden}>
-                <Tooltip placement="left" trigger={['hover']} overlay={<span className={Style.tooltip}>List Idea Of {data.name}</span>}>
-                  <button>
-                    <FontAwesomeIcon icon={faLink} className={Style.icon}/>
+                <Tooltip
+                  placement="left"
+                  trigger={["hover"]}
+                  overlay={
+                    <span className={Style.tooltip}>
+                      List Idea Of {data.name}
+                    </span>
+                  }
+                >
+                  <button onClick={() => handleViewListIdea(data.id)}>
+                    <FontAwesomeIcon icon={faLink} className={Style.icon} />
                   </button>
                 </Tooltip>
               </td>
@@ -121,7 +133,7 @@ function Table({
                     data-id={data.id}
                     onClick={getEventId}
                   >
-                    <FontAwesomeIcon icon={faPenToSquare}/>
+                    <FontAwesomeIcon icon={faPenToSquare} />
                   </button>
                   <button
                     type="button"
