@@ -4,6 +4,9 @@ import { apiAccount } from "../../api/Api";
 import ComfirmPassword from "../../components/authentication/ComfirmPassword";
 import CreateAccount from "./CreateAccount";
 import Style from "./account.module.css"
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Account({ token }) {
   const [data, setData] = useState([]);
@@ -49,17 +52,12 @@ function Account({ token }) {
             <div className="card-body">
               <div className="mb-4 col-12">
                 <div className="page-title-box">
-                  <h1 className="page-title">Account</h1>
+                  <h1 className="page-title">Account <span><button className="btn btn-danger mb-2" onClick={handleOpen} style={{ borderRadius:"50%" }}>
+                  <FontAwesomeIcon icon={faPlus}/>
+                </button></span></h1>
                 </div>
+                
               </div>
-              <div className="row mb-2">
-                <div className="col-sm-4">
-                  <button className="btn btn-danger mb-2" onClick={handleOpen}>
-                    <i className="mdi mdi-plus-circle mr-2"></i>Create Account
-                  </button>
-                </div>
-              </div>
-
               <div className="table-responsive">
                 <div className="dataTables_wrapper dt-bootstrap5 no-footer">
                   <div className="row">
@@ -97,7 +95,7 @@ function Account({ token }) {
                                       onClick={handleOpenConfirm}
                                       data-id={data.id}
                                     >
-                                      Disable
+                                      <FontAwesomeIcon icon={faRectangleXmark} />
                                     </button>
                                   </div>
                                 </td>

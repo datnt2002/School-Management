@@ -5,6 +5,7 @@ import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap.css';
 import "./table.css";
 import Style from "./modu.module.css"
+import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
 function Table({
   data,
   content,
@@ -120,7 +121,7 @@ function Table({
                     data-id={data.id}
                     onClick={getEventId}
                   >
-                    {edit}
+                    <FontAwesomeIcon icon={faPenToSquare}/>
                   </button>
                   <button
                     type="button"

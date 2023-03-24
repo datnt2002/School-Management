@@ -9,13 +9,14 @@ import Account from "./pages/Account/Account";
 import EditProfile from "./pages/Account/EditProfile";
 import Error404 from "./pages/Error404/Error404";
 import CreateIdea from "./pages/SubmitIdea/CreateIdea";
-import EventIdea from "./pages/SubmitIdea/eventIdea";
+import EventIdea from "./pages/SubmitIdea/EventIdea";
 import UserProfile from "./pages/Account/UserProfile";
 import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
 import DetailIdea from "./pages/NewsFeed/DetailIdea";
 import ComfirmPassword from "./components/authentication/ComfirmPassword";
 import CreateNewCategory from "./pages/Category/CreateNewCategory";
+import ListIdea from "./pages/Event/ListIdea";
 
 function App() {
   const [dataUser, setDataUser] = useState({});
@@ -117,7 +118,12 @@ function App() {
           path="/DetailIdea"
           element={
             <RequiredAuth dataUser={dataUser}>
-              <DetailIdea />
+              <DetailIdea 
+                dataUser={dataUser}
+                setDataUser={(newUser) => {
+                  setApiData(newUser);
+                }}
+              />
             </RequiredAuth>
           }
         />
@@ -126,6 +132,19 @@ function App() {
           element={
             <RequiredAuth dataUser={dataUser}>
               <EditProfile
+                dataUser={dataUser}
+                setDataUser={(newUser) => {
+                  setApiData(newUser);
+                }}
+              />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/ListIdea"
+          element={
+            <RequiredAuth dataUser={dataUser}>
+              <ListIdea
                 dataUser={dataUser}
                 setDataUser={(newUser) => {
                   setApiData(newUser);
