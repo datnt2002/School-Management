@@ -1,5 +1,10 @@
+import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
+import Tooltip from 'rc-tooltip';
+import 'rc-tooltip/assets/bootstrap.css';
 import "./table.css";
+import Style from "./modu.module.css"
 function Table({
   data,
   content,
@@ -57,15 +62,10 @@ function Table({
       <thead className="thead-light">
         <tr role="row">
           <th
-            className="all dt-checkboxes-cell dt-checkboxes-select-all sorting_disabled_checkB"
+            className="link"
             hidden={hidden}
           >
-            <div className="custom-control custom-checkbox">
-              <input
-                type="checkbox"
-                className="custom-control-input dt-checkboxes"
-              />
-            </div>
+            <FontAwesomeIcon icon={faLink} />
           </th>
           <th className="sorting">{content}</th>
           <th className="sorting">{description}</th>
@@ -89,17 +89,15 @@ function Table({
           return (
             <tr role="row" key={data.id}>
               <td className="dt-checkboxes-cell" hidden={hidden}>
-                <div className="custom-control custom-checkbox">
-                  <input
-                    type="checkbox"
-                    className="custom-control-input dt-checkboxes"
-                  />
-                </div>
+                <Tooltip placement="left" trigger={['hover']} overlay={<span className={Style.tooltip}>List Idea Of {data.name}</span>}>
+                  <button>
+                    <FontAwesomeIcon icon={faLink} className={Style.icon}/>
+                  </button>
+                </Tooltip>
               </td>
               <td className="sorting_1">
                 <p className="m-0 d-inline-block align-middle font-16">
                   {data.name}
-                  <br />
                 </p>
               </td>
               <td>{data.content}</td>

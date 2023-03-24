@@ -4,3 +4,15 @@
 .table-responsive{
     overflow-x: hidden!important;
 }
+.dt-checkboxes-cell > button{
+    border: none;
+    background-color: white;
+}
+body .rc-tooltip-inner {
+  background-color: white;
+  border: solid black;
+}
+body .rc-tooltip-arrow {
+    border-width: 5px 0 5px 9px!important;
+    border-left-color: black!important;
+}

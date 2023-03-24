@@ -76,7 +76,7 @@ function Event({ token }) {
                       <div className="row">
                         <div className="col-sm-12">
                           <Table
-                            hidden="hidden"
+                            // hidden="hidden"
                             name="Event"
                             content="Name"
                             description="Description"

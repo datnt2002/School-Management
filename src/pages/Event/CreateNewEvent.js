@@ -7,7 +7,7 @@ function CreateNewEvent({ token, style, handleClose }) {
   //data to post form
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
-  const [first_Closure, setFirstClosure] = useState("0001-01-01T00:00:00");
+  const [first_Closure, setFirstClosure] = useState("");
 
   const [errMes, setErrMess] = useState();
   const [last_Closure, setLast_Closure] = useState("");
@@ -138,6 +138,7 @@ function CreateNewEvent({ token, style, handleClose }) {
                       onChange={(e) => Dategiday(e.target.value)}
                       style={{ height: "3.5em", width: "90%" }}
                     ></input>
+                    <p for="err" style={{ color: "red" }}></p>
                   </div>
                   <div>
                     <span
@@ -167,7 +168,7 @@ function CreateNewEvent({ token, style, handleClose }) {
                 errMes.map((err) => {
                   return (
                     <div>
-                      <p style={{ color: "red" }}>{err}</p>
+                      <p id="err" style={{ color: "red" }}>{err}</p>
                     </div>
                   );
                 })}
