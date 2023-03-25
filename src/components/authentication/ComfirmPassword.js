@@ -20,15 +20,17 @@ function ComfirmPassword({ handleClose, userName, token }) {
     })
       .then((res) => {
         console.log(res);
-        if (!res.ok) {
+        if (res.ok) {
+          return res.json();
+        } else {
           throw res;
         }
-        return res.json();
       })
       .then(() => {
         handleClose();
       })
       .catch((err) => {
+        console.log("catch", err);
         err.json().then((errObj) => {
           let err = Object.values(errObj.errors);
           setErr(err);

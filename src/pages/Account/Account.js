@@ -17,7 +17,7 @@ function Account({ token }) {
 
   //get username to disable
   const [userName, setUserName] = useState("");
-
+  console.log(userName);
   const navigate = useNavigate();
 
   function handleOpen() {
@@ -48,7 +48,7 @@ function Account({ token }) {
     setShowModalComfirm(true);
     setModal(true);
 
-    const name = e.target.getAttribute("data-username");
+    const name = e.currentTarget.getAttribute("data-username");
     setUserName(name);
   };
 
@@ -110,7 +110,7 @@ function Account({ token }) {
                                         type="button"
                                         className="btn btn-danger"
                                         onClick={handleOpenConfirm}
-                                        data-id={data.id}
+                                        data-username={data.userName}
                                       >
                                         <FontAwesomeIcon
                                           icon={faRectangleXmark}
