@@ -51,7 +51,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        // setDataUser(data);
+        setDataUser(data);
         navigate("/profile");
       })
       .catch(() => {
@@ -69,7 +69,6 @@ function EditProfile({ dataUser, token, setDataUser }) {
   };
 
   useEffect(() => {
-    console.log("k rerender à");
     setFileAvatarInDb(dataUser.avatar);
   }, [dataUser]);
 
@@ -180,7 +179,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                       id="inputAddress"
                       type="text"
                       placeholder="Enter your location"
-                      value={address}
+                      value={address !== "0" ? address : ""}
                       onChange={(e) => {
                         setAddress(e.target.value);
                       }}
@@ -197,7 +196,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                         id="inputPhone"
                         type="tel"
                         placeholder="Enter your phone number"
-                        value={phone}
+                        value={phone !== "0" ? phone : ""}
                         onChange={(e) => {
                           setPhone(e.target.value);
                         }}

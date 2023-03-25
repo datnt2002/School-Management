@@ -17,7 +17,6 @@ function Account({ token }) {
 
   //get username to disable
   const [userName, setUserName] = useState("");
-  console.log(userName);
   const navigate = useNavigate();
 
   function handleOpen() {

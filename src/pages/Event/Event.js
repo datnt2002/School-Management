@@ -10,7 +10,6 @@ import EditEvent from "./EditEvent";
 import "./event.css";
 
 function Event({ token }) {
-  const [loading, setLoading] = useState(false)
   const [data, setData] = useState([]);
   const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
   const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
@@ -22,8 +21,8 @@ function Event({ token }) {
   const indexOfLastData = currentPage * dataPerPage;
   const indexOfFirstData = indexOfLastData - dataPerPage;
   const currentData = data.slice(indexOfFirstData, indexOfLastData);
-  function Paginate(pageNumber){
-    setCurrentPage(pageNumber)
+  function Paginate(pageNumber) {
+    setCurrentPage(pageNumber);
   }
 
   const [selectEventId, setSelectEventId] = useState(-1);
@@ -52,19 +51,13 @@ function Event({ token }) {
   }
 
   useEffect(() => {
-    fetch(apiEvent,{
+    fetch(apiEvent, {
       headers: { Authorization: `Bearer ${token}` },
     })
-      // .then(setLoading(true))
       .then((res) => res.json())
       .then((data) => setData(data))
-      // .then(setLoading(false))
       .catch(() => console.log("404 r"));
   }, [modal, token]);
-
-  if(loading){
-    return <h2>Loading...</h2>
-  }
 
   return (
     <>
@@ -76,7 +69,7 @@ function Event({ token }) {
                 <div className="card-body">
                   <div className="page-title-box">
                     <h1 className="page-title">
-                      Event{" "}
+                      Event
                       <span>
                         <button
                           className="btn btn-danger mb-2"
@@ -114,13 +107,18 @@ function Event({ token }) {
                     </div>
                   </div>
                 </div>
-                <Pagination dataPerPage={dataPerPage} totalData={data.length} paginate={Paginate} currentPage={currentPage}/>
+                <Pagination
+                  dataPerPage={dataPerPage}
+                  totalData={data.length}
+                  paginate={Paginate}
+                  currentPage={currentPage}
+                />
               </div>
             </div>
           </div>
         </div>
       </div>
-      
+
       <CreateNewEvent
         style={showModalCreate}
         handleClose={handleClose}
