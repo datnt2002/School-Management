@@ -68,7 +68,7 @@ function App() {
               <Account />
             </RequiredAuth>
           }
-        ></Route>{" "}
+        ></Route>
         <Route
           path="/profile"
           element={
@@ -118,7 +118,7 @@ function App() {
           path="/DetailIdea"
           element={
             <RequiredAuth dataUser={dataUser}>
-              <DetailIdea 
+              <DetailIdea
                 dataUser={dataUser}
                 setDataUser={(newUser) => {
                   setApiData(newUser);
@@ -144,18 +144,12 @@ function App() {
           path="/ListIdea"
           element={
             <RequiredAuth dataUser={dataUser}>
-              <ListIdea
-                dataUser={dataUser}
-                setDataUser={(newUser) => {
-                  setApiData(newUser);
-                }}
-              />
+              <ListIdea dataUser={dataUser} />
             </RequiredAuth>
           }
         />
         <Route path="*" element={<Error404 />} />
       </Routes>
-      {/* <ComfirmPassword/> */}
     </div>
   );
 }

@@ -8,11 +8,11 @@ function CreateAccount({ handleClose, token }) {
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
-  const [cfPassword, setCfPassword] = useState("");
   const [role, setRole] = useState("");
   const [departmentId, setDepartmentId] = useState();
 
   const [errMes, setErrMess] = useState();
+
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -21,7 +21,6 @@ function CreateAccount({ handleClose, token }) {
       userName,
       password,
       email,
-      cfPassword,
       role,
       departmentId,
     };
@@ -43,7 +42,6 @@ function CreateAccount({ handleClose, token }) {
       .then(() => {
         setUsername("");
         setPassword("");
-        setCfPassword("");
         setEmail("");
         setRole("");
         setDepartmentId(0);
@@ -99,17 +97,8 @@ function CreateAccount({ handleClose, token }) {
                 value={password}
               />
             </div>
-            <div className="mb-4">
-              <Input
-                label="Confirm Password"
-                type="password"
-                className="form-control"
-                onSetState={(e) => {
-                  setCfPassword(e.target.value);
-                }}
-                value={cfPassword}
-              />
-            </div>
+          
+         
             <div className={`mt-3 mb-3 ${Style.createFormAccount_Select}`}>
               <div className="mb-3">
                 <label className="form-label">Role</label>

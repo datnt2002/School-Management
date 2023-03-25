@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { apiAccount } from "../../api/Api";
 import ComfirmPassword from "../../components/authentication/ComfirmPassword";
 import CreateAccount from "./CreateAccount";
-import Style from "./account.module.css"
+import Style from "./account.module.css";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
@@ -13,6 +14,9 @@ function Account({ token }) {
   const [showModalCreate, setShowModalCreate] = useState(false);
   const [showModalComfirm, setShowModalComfirm] = useState(false);
   const [modal, setModal] = useState(false);
+
+  //get username to disable
+  const [userName, setUserName] = useState("");
 
   const navigate = useNavigate();
 
@@ -40,8 +44,12 @@ function Account({ token }) {
   }, [modal, token]);
 
   const handleOpenConfirm = (e) => {
+    e.preventDefault();
     setShowModalComfirm(true);
     setModal(true);
+
+    const name = e.target.getAttribute("data-username");
+    setUserName(name);
   };
 
   return (
@@ -52,11 +60,19 @@ function Account({ token }) {
             <div className="card-body">
               <div className="mb-4 col-12">
                 <div className="page-title-box">
-                  <h1 className="page-title">Account <span><button className="btn btn-danger mb-2" onClick={handleOpen} style={{ borderRadius:"50%" }}>
-                  <FontAwesomeIcon icon={faPlus}/>
-                </button></span></h1>
+                  <h1 className="page-title">
+                    Account{" "}
+                    <span>
+                      <button
+                        className="btn btn-danger mb-2"
+                        onClick={handleOpen}
+                        style={{ borderRadius: "50%" }}
+                      >
+                        <FontAwesomeIcon icon={faPlus} />
+                      </button>
+                    </span>
+                  </h1>
                 </div>
-                
               </div>
               <div className="table-responsive">
                 <div className="dataTables_wrapper dt-bootstrap5 no-footer">
@@ -87,18 +103,24 @@ function Account({ token }) {
                                 <td>{data.role}</td>
                                 <td>{data.department}</td>
                                 <td>{data.status}</td>
-                                <td className="table-action">
-                                  <div className="d-flex justify-content-evenly">
-                                    <button
-                                      type="button"
-                                      className="btn btn-danger"
-                                      onClick={handleOpenConfirm}
-                                      data-id={data.id}
-                                    >
-                                      <FontAwesomeIcon icon={faRectangleXmark} />
-                                    </button>
-                                  </div>
-                                </td>
+                                {data.status !== "Disable" ? (
+                                  <td className="table-action">
+                                    <div className="d-flex justify-content-evenly">
+                                      <button
+                                        type="button"
+                                        className="btn btn-danger"
+                                        onClick={handleOpenConfirm}
+                                        data-id={data.id}
+                                      >
+                                        <FontAwesomeIcon
+                                          icon={faRectangleXmark}
+                                        />
+                                      </button>
+                                    </div>
+                                  </td>
+                                ) : (
+                                  <td></td>
+                                )}
                               </tr>
                             );
                           })}
@@ -112,16 +134,17 @@ function Account({ token }) {
           </div>
         </div>
       </div>
-      
-      {showModalCreate && <CreateAccount
-        handleClose={handleClose}
-        token={token}
-      />}
-      {showModalComfirm && <ComfirmPassword
-        handleClose={handleClose}
-        token={token}
-      />}
-      
+
+      {showModalCreate && (
+        <CreateAccount handleClose={handleClose} token={token} />
+      )}
+      {showModalComfirm && (
+        <ComfirmPassword
+          handleClose={handleClose}
+          token={token}
+          userName={userName}
+        />
+      )}
     </>
   );
 }
