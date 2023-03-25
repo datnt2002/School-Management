@@ -41,10 +41,10 @@
 
 .switch_button{
     border: none;
-    background-color: black;
+    background-color: #6c757d;
     cursor: pointer;
     padding: 7px 10px;
-    color: #fff;
+    color: #adb5bd;
 }
 
 .btn_forgot{
@@ -57,8 +57,8 @@
     border-bottom-right-radius: 100px;
 }
 
-.active{
-    background-color: #c2fbd7;
+.switch_button_container button.active{
+    background-color: #58d3e4;
     color: black;
 }
 

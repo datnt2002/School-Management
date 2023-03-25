@@ -14,7 +14,7 @@ function Pagination({ dataPerPage, totalData, paginate, currentPage }){
                     return(
                         <li onClick={() => paginate(number)} key={number} className={`${Style.page_item} ${currentPage === number ? "active" : null}`}>
                             {console.log(currentPage)}
-                                {number}
+                            {number}
                         </li>
                     );
                 })}

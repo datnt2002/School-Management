@@ -29,7 +29,7 @@
     padding: 10px;
     border: 1px solid black;
 }
-.pagination .active {
+.page_item li.active {
     background-color: black!important;
     color: white!important;
 }
