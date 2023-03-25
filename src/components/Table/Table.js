@@ -1,6 +1,6 @@
 import { faLink } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Tooltip from 'rc-tooltip';
 import 'rc-tooltip/assets/bootstrap.css';
 import "./table.css";
@@ -52,6 +52,8 @@ function Table({
     setSelectEventId(eventId); // Set giá trị event id vào state bên ngoài component Table
     handleOpen();
   };
+  
+
   return (
     <table className="table table-centered w-100 dt-responsive nowrap dataTable no-footer dtr-inline">
       {err && (

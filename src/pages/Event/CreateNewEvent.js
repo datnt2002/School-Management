@@ -138,7 +138,7 @@ function CreateNewEvent({ token, style, handleClose }) {
                       onChange={(e) => Dategiday(e.target.value)}
                       style={{ height: "3.5em", width: "90%" }}
                     ></input>
-                    <p for="err" style={{ color: "red" }}></p>
+                    <p htmlFor="err" style={{ color: "red" }}></p>
                   </div>
                   <div>
                     <span
