@@ -10,27 +10,24 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
-  const [last_Closure, setLast_Closure] = useState("")
+  const [last_Closure, setLast_Closure] = useState("");
 
   const [errMes, setErrMess] = useState();
 
   //get data by eventId
   useEffect(() => {
-    const fetchDataFunction = async () => {
-      await fetch(apiEvent + `/${selectEventId}`, {
-        headers: { Authorization: `Bearer ${token}` },
+    fetch(apiEvent + `/${selectEventId}`, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIsLoading(false);
+        setName(data.name);
+        setContent(data.content);
+        setFirstClosure(data.first_Closure);
+        setLast_Closure(data.last_Closure);
       })
-        .then((res) => res.json())
-        .then((data) => {
-          setIsLoading(false);
-          setName(data.name);
-          setContent(data.content);
-          setFirstClosure(data.first_Closure);
-          setLast_Closure(data.last_Closure)
-        })
-        .catch((err) => console.log("edit404"));
-    };
-    fetchDataFunction();
+      .catch((err) => console.log("edit404"));
   }, [token, selectEventId]);
 
   //handle submit event
@@ -125,52 +122,55 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                   </div>
                 </div>
               </div> */}
-              <div className="col-lg-6 d-flex justify-content-between" style={{ width:"100%" }}>
-                  <div>
-                    <span
-                      style={{
-                        background: "#9fa6b3",
-                        color: "white",
-                        display: "block",
-                        padding: "5px 20px 5px 20px",
-                        width: "fit-content",
-                        fontWeight: "500",
-                      }}
-                    >
-                      First Closure Date
-                    </span>
-                    <div className="">
-                      <input
-                        value={first_Closure}
-                        type="datetime-local"
-                        onChange={(e) => setFirstClosure(e.target.value)}
-                        style={{ height: "3.5em", width: "90%" }}
-                      ></input>
-                    </div>
-                  </div>
-                  <div>
-                    <span
-                      style={{
-                        background: "#9fa6b3",
-                        color: "white",
-                        display: "block",
-                        padding: "5px 20px 5px 20px",
-                        width: "fit-content",
-                        fontWeight: "500",
-                      }}
-                    >
-                      First Closure Date
-                    </span>
-                    <div className="">
-                      <input
-                        value={last_Closure}
-                        type="datetime-local"
-                        onChange={(e) => setFirstClosure(e.target.value)}
-                        style={{ height: "3.5em", width: "auto" }}
-                      ></input>
-                    </div>
+              <div
+                className="col-lg-6 d-flex justify-content-between"
+                style={{ width: "100%" }}
+              >
+                <div>
+                  <span
+                    style={{
+                      background: "#9fa6b3",
+                      color: "white",
+                      display: "block",
+                      padding: "5px 20px 5px 20px",
+                      width: "fit-content",
+                      fontWeight: "500",
+                    }}
+                  >
+                    First Closure Date
+                  </span>
+                  <div className="">
+                    <input
+                      value={first_Closure}
+                      type="datetime-local"
+                      onChange={(e) => setFirstClosure(e.target.value)}
+                      style={{ height: "3.5em", width: "90%" }}
+                    ></input>
                   </div>
                 </div>
+                <div>
+                  <span
+                    style={{
+                      background: "#9fa6b3",
+                      color: "white",
+                      display: "block",
+                      padding: "5px 20px 5px 20px",
+                      width: "fit-content",
+                      fontWeight: "500",
+                    }}
+                  >
+                    First Closure Date
+                  </span>
+                  <div className="">
+                    <input
+                      value={last_Closure}
+                      type="datetime-local"
+                      onChange={(e) => setFirstClosure(e.target.value)}
+                      style={{ height: "3.5em", width: "auto" }}
+                    ></input>
+                  </div>
+                </div>
+              </div>
             </div>
             {errMes &&
               errMes.map((err) => {

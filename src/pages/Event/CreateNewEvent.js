@@ -138,7 +138,7 @@ function CreateNewEvent({ token, style, handleClose }) {
                       onChange={(e) => Dategiday(e.target.value)}
                       style={{ height: "3.5em", width: "90%" }}
                     ></input>
-                    <p for="err" style={{ color: "red" }}></p>
+                    <p htmlFor="err" style={{ color: "red" }}></p>
                   </div>
                   <div>
                     <span
@@ -156,6 +156,7 @@ function CreateNewEvent({ token, style, handleClose }) {
                     <input
                       value={last_Closure}
                       type="datetime-local"
+                      readOnly
                       // onChange={(e) => setFirstClosure(e.target.value)}
                       style={{ height: "3.5em", width: "auto" }}
                       disable="true"
@@ -168,7 +169,9 @@ function CreateNewEvent({ token, style, handleClose }) {
                 errMes.map((err) => {
                   return (
                     <div>
-                      <p id="err" style={{ color: "red" }}>{err}</p>
+                      <p id="err" style={{ color: "red" }}>
+                        {err}
+                      </p>
                     </div>
                   );
                 })}
