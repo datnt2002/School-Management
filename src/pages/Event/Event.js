@@ -2,17 +2,29 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { apiEvent } from "../../api/Api";
-
 import Table from "../../components/Table/Table";
+import Pagination from "../../components/Pagination/Pagination";
+
 import CreateNewEvent from "./CreateNewEvent";
 import EditEvent from "./EditEvent";
 import "./event.css";
 
 function Event({ token }) {
+  const [loading, setLoading] = useState(false)
   const [data, setData] = useState([]);
   const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
   const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
+
+  //Pagination
+  const [currentPage, setCurrentPage] = useState(1);
+  const [dataPerPage] = useState(7);
+  const indexOfLastData = currentPage * dataPerPage;
+  const indexOfFirstData = indexOfLastData - dataPerPage;
+  const currentData = data.slice(indexOfFirstData, indexOfLastData);
+  function Paginate(pageNumber){
+    setCurrentPage(pageNumber)
+  }
 
   const [selectEventId, setSelectEventId] = useState(-1);
 
@@ -40,13 +52,19 @@ function Event({ token }) {
   }
 
   useEffect(() => {
-    fetch(apiEvent, {
+    fetch(apiEvent,{
       headers: { Authorization: `Bearer ${token}` },
     })
+      // .then(setLoading(true))
       .then((res) => res.json())
       .then((data) => setData(data))
+      // .then(setLoading(false))
       .catch(() => console.log("404 r"));
   }, [modal, token]);
+
+  if(loading){
+    return <h2>Loading...</h2>
+  }
 
   return (
     <>
@@ -82,7 +100,7 @@ function Event({ token }) {
                             description="Description"
                             firstClosureTitle="First Closure Date"
                             finalClosureTitle="Final Closure Date"
-                            data={data}
+                            data={currentData}
                             edit="Edit"
                             apiLink={apiEvent}
                             onSetData={setData}
@@ -96,11 +114,13 @@ function Event({ token }) {
                     </div>
                   </div>
                 </div>
+                <Pagination dataPerPage={dataPerPage} totalData={data.length} paginate={Paginate} currentPage={currentPage}/>
               </div>
             </div>
           </div>
         </div>
       </div>
+      
       <CreateNewEvent
         style={showModalCreate}
         handleClose={handleClose}
