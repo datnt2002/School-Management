@@ -62,9 +62,9 @@ function Event({ token }) {
       .catch(() => console.log("404 r"));
   }, [modal, token]);
 
-  if(loading){
-    return <h2>Loading...</h2>
-  }
+  // if(loading){
+  //   return <h2>Loading...</h2>
+  // }
 
   return (
     <>
