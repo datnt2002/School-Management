@@ -57,7 +57,7 @@
     border-bottom-right-radius: 100px;
 }
 
-.switch_button_container button.active{
+.active{
     background-color: #58d3e4;
     color: black;
 }

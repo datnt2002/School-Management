@@ -19,17 +19,26 @@
     text-align: center;
     padding: 0.5rem 0.9rem;
 } */
-.pagination {
-    display: inline;
+.pagination{
     list-style: none;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 1.2rem;
+    gap:5px;
 }
-.page_item {
+.page_num {
+    padding: 8px 15px;
     cursor: pointer;
-    display: inline;
-    padding: 10px;
-    border: 1px solid black;
+    border-radius: 3px;
+    font-weight: 400;
 }
-.page_item li.active {
-    background-color: black!important;
-    color: white!important;
+.page_num:hover {
+    background-color: #5AB1BB;
+    color: white;
+}
+.pagination .active {
+    background-color: #5AB1BB;
+    color: white;
+    border-radius: 3px;
 }

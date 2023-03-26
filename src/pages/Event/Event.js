@@ -4,26 +4,34 @@ import { useEffect, useState } from "react";
 import { apiEvent } from "../../api/Api";
 import Table from "../../components/Table/Table";
 import Pagination from "../../components/Pagination/Pagination";
-
+import ReactPaginate from "react-paginate";
 import CreateNewEvent from "./CreateNewEvent";
 import EditEvent from "./EditEvent";
 import "./event.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css"
+import Loading from "../../components/optional/Loading";
+
 
 function Event({ token }) {
-  const [loading, setLoading] = useState(false)
+  const [loading, setLoading] = useState(true)
   const [data, setData] = useState([]);
   const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
   const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
 
-  //Pagination
-  const [currentPage, setCurrentPage] = useState(1);
-  const [dataPerPage] = useState(7);
-  const indexOfLastData = currentPage * dataPerPage;
-  const indexOfFirstData = indexOfLastData - dataPerPage;
-  const currentData = data.slice(indexOfFirstData, indexOfLastData);
-  function Paginate(pageNumber){
-    setCurrentPage(pageNumber)
+  //paginate
+  const [currenItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffSet, setItemOffSet] = useState(0);
+  const itemPerPage = 7;
+  useEffect(() => {
+    const endOffSet = itemOffSet + itemPerPage;
+    setCurrentItems(data.slice(itemOffSet, endOffSet));
+    setPageCount(Math.ceil(data.length / itemPerPage));
+  }, [itemOffSet, itemPerPage, data]);
+  function handlePageClick(e){
+    const newOffSet = (e.selected * itemPerPage) % data.length;
+    setItemOffSet(newOffSet);
   }
 
   const [selectEventId, setSelectEventId] = useState(-1);
@@ -55,16 +63,15 @@ function Event({ token }) {
     fetch(apiEvent,{
       headers: { Authorization: `Bearer ${token}` },
     })
-      // .then(setLoading(true))
       .then((res) => res.json())
       .then((data) => setData(data))
-      // .then(setLoading(false))
+      .then(setLoading(false))
       .catch(() => console.log("404 r"));
   }, [modal, token]);
 
-  // if(loading){
-  //   return <h2>Loading...</h2>
-  // }
+  if(loading){
+    return <Loading/>
+  }
 
   return (
     <>
@@ -100,7 +107,7 @@ function Event({ token }) {
                             description="Description"
                             firstClosureTitle="First Closure Date"
                             finalClosureTitle="Final Closure Date"
-                            data={currentData}
+                            data={currenItems}
                             edit="Edit"
                             apiLink={apiEvent}
                             onSetData={setData}
@@ -114,7 +121,21 @@ function Event({ token }) {
                     </div>
                   </div>
                 </div>
-                <Pagination dataPerPage={dataPerPage} totalData={data.length} paginate={Paginate} currentPage={currentPage}/>
+                {/* <Pagination dataPerPage={dataPerPage} totalData={data.length} paginate={Paginate} currentPage={currentPage}/> */}
+                <ReactPaginate
+                  breakLabel="..."
+                  nextLabel=">"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={3}
+                  pageCount={pageCount}
+                  previousLabel="<"
+                  renderOnZeroPageCount={null}
+                  containerClassName={StylePaginate.pagination}
+                  pageLinkClassName={StylePaginate.page_num}
+                  previousLinkClassName={StylePaginate.page_num}
+                  nextLinkClassName={StylePaginate.page_num}
+                  activeClassName={StylePaginate.active}
+                />
               </div>
             </div>
           </div>

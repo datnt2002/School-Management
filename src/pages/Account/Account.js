@@ -4,6 +4,8 @@ import { apiAccount } from "../../api/Api";
 import ComfirmPassword from "../../components/authentication/ComfirmPassword";
 import CreateAccount from "./CreateAccount";
 import Style from "./account.module.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css"
+import ReactPaginate from "react-paginate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
@@ -52,6 +54,21 @@ function Account({ token }) {
     setUserName(name);
   };
 
+  //paginate
+  const [currenItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffSet, setItemOffSet] = useState(0);
+  const itemPerPage = 7;
+  useEffect(() => {
+    const endOffSet = itemOffSet + itemPerPage;
+    setCurrentItems(data.slice(itemOffSet, endOffSet));
+    setPageCount(Math.ceil(data.length / itemPerPage));
+  }, [itemOffSet, itemPerPage, data]);
+  function handlePageClick(e){
+    const newOffSet = (e.selected * itemPerPage) % data.length;
+    setItemOffSet(newOffSet);
+  }
+
   return (
     <>
       <div className="container-fluid tableAccountList">
@@ -90,7 +107,7 @@ function Account({ token }) {
                           </tr>
                         </thead>
                         <tbody>
-                          {data.map((data) => {
+                          {currenItems.map((data) => {
                             return (
                               <tr role="row" key={data.userId}>
                                 <td className="sorting_1">
@@ -131,6 +148,20 @@ function Account({ token }) {
                 </div>
               </div>
             </div>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel="next >"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={3}
+              pageCount={pageCount}
+              previousLabel="< previous"
+              renderOnZeroPageCount={null}
+              containerClassName={StylePaginate.pagination}
+              pageLinkClassName={StylePaginate.page_num}
+              previousLinkClassName={StylePaginate.page_num}
+              nextLinkClassName={StylePaginate.page_num}
+              activeClassName={StylePaginate.active}
+            />
           </div>
         </div>
       </div>

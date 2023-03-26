@@ -8,7 +8,7 @@ function Pagination({ dataPerPage, totalData, paginate, currentPage }){
     }
 
     return(
-        <nav className={`${Style.nav_pagination}`}>
+        <nav className="nav_pagination">
             <ul className={Style.pagination}>
                 {pageNumbers.map(number => {
                     return(

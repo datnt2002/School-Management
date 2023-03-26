@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react";
 import Table from "../../components/Table/Table";
 import "./category.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css"
 import { apiCategory } from "../../api/Api";
 import CreateNewCategory from "./CreateNewCategory";
 import { Navigate } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 function Category({ token }) {
   const [data, setData] = useState([]);
@@ -32,7 +34,22 @@ function Category({ token }) {
     };
     fetchData();
   }, [modal, token]);
-  //
+  
+  //paginate
+  const [currenItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffSet, setItemOffSet] = useState(0);
+  const itemPerPage = 4;
+  useEffect(() => {
+    const endOffSet = itemOffSet + itemPerPage;
+    setCurrentItems(data.slice(itemOffSet, endOffSet));
+    setPageCount(Math.ceil(data.length / itemPerPage));
+  }, [itemOffSet, itemPerPage, data]);
+  function handlePageClick(e){
+    const newOffSet = (e.selected * itemPerPage) % data.length;
+    setItemOffSet(newOffSet);
+  }
+
   return (
     <>
       <div className="container-fluid">
@@ -67,7 +84,7 @@ function Category({ token }) {
                             description="Description"
                             addedDateTitle="Added Date"
                             hidden="hidden"
-                            data={data}
+                            data={currenItems}
                             onSetData={setData}
                             deleteAction="Delete"
                             apiLink={apiCategory}
@@ -78,6 +95,20 @@ function Category({ token }) {
                     </div>
                   </div>
                 </div>
+                <ReactPaginate
+                  breakLabel="..."
+                  nextLabel="next >"
+                  onPageChange={handlePageClick}
+                  pageRangeDisplayed={3}
+                  pageCount={pageCount}
+                  previousLabel="< previous"
+                  renderOnZeroPageCount={null}
+                  containerClassName={StylePaginate.pagination}
+                  pageLinkClassName={StylePaginate.page_num}
+                  previousLinkClassName={StylePaginate.page_num}
+                  nextLinkClassName={StylePaginate.page_num}
+                  activeClassName={StylePaginate.active}
+                />
               </div>
             </div>
           </div>
