@@ -4,7 +4,9 @@ import { apiAccount } from "../../api/Api";
 import ComfirmPassword from "../../components/authentication/ComfirmPassword";
 import CreateAccount from "./CreateAccount";
 import Style from "./account.module.css";
+import StyleCard from "../Account/myExp.module.css"
 import StylePaginate from "../../components/Pagination/pagination.module.css"
+import Loading from "../../components/optional/Loading";
 import ReactPaginate from "react-paginate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -12,6 +14,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Account({ token }) {
+  const [loading, setLoading] = useState(true)
   const [data, setData] = useState([]);
   const [showModalCreate, setShowModalCreate] = useState(false);
   const [showModalComfirm, setShowModalComfirm] = useState(false);
@@ -39,6 +42,7 @@ function Account({ token }) {
       .then((data) => {
         setData(data);
       })
+      .then(setLoading(false))
       .catch(() => {
         navigate("*");
       });
@@ -68,11 +72,15 @@ function Account({ token }) {
     setItemOffSet(newOffSet);
   }
 
+  if(loading){
+    return <Loading/>
+  }
+
   return (
     <>
       <div className="container-fluid tableAccountList">
         <div className={Style.tableAccount}>
-          <div className="card">
+          <div className={`${StyleCard.card} card`}>
             <div className="card-body">
               <div className="mb-4 col-12">
                 <div className="page-title-box">

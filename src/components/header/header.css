@@ -15,28 +15,6 @@
     left: 10px;
     border-radius: 50%!important;
 }
-/* .nav-user {
-    padding: calc(31px / 2) 20px calc(31px / 2) 57px !important;
-    text-align: left!important;
-    position: relative;
-    background-color: #3c4655;
-    border: none;
-    border-width: 0 1px;
-    min-height: 70px;
-}
-.user > .media > .media-body > h5 {
-    padding: 0;
-    color: #98a6ad;
-    min-width: 32px;
-    display: block;
-    text-align: center;
-    margin: 0;
-    position: relative;
-    top: -3px;
-}
-.user > .media{
-    margin-top: 11px;
-} */
 
 
 .search-btn{
@@ -53,14 +31,6 @@
     min-width: 6rem;
     top:10px;
 }
-/* a, button {
-    outline: 0!important;
-}
-a {
-    color: #3688fc;
-    text-decoration: none;
-    background-color: transparent;
-} */
 
 .topnav-navbar{
     padding: 0;
@@ -286,7 +256,6 @@ button, input, optgroup, select, textarea {
     line-height: 38px;
     left: 10px;
     top: 10.5px;
-    background-color: #313a46;
 }
 .app-search .input-group-append {
     margin-left: 0;

@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
 import { apiEvent } from "../../api/Api";
 import Table from "../../components/Table/Table";
-import Pagination from "../../components/Pagination/Pagination";
 import ReactPaginate from "react-paginate";
 import CreateNewEvent from "./CreateNewEvent";
 import EditEvent from "./EditEvent";
 import "./event.css";
+import Style from "../Account/myExp.module.css"
 import StylePaginate from "../../components/Pagination/pagination.module.css"
 import Loading from "../../components/optional/Loading";
 
@@ -79,7 +79,7 @@ function Event({ token }) {
         <div className="tableAdmin">
           <div className="row">
             <div className="col-12">
-              <div className="card">
+              <div className={`${Style.card} card`}>
                 <div className="card-body">
                   <div className="page-title-box">
                     <h1 className="page-title">
@@ -89,7 +89,7 @@ function Event({ token }) {
                           className="btn btn-danger mb-2"
                           id="createEvent"
                           onClick={handleOpenCreate}
-                          style={{ borderRadius: "50%" }}
+                          style={{ borderRadius: "50%", marginLeft:"2%" }}
                         >
                           <FontAwesomeIcon icon={faPlus} />
                         </button>

@@ -1,15 +1,16 @@
 import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Profile from "../profile/Profile";
 import "./header.css";
 import { Search } from "bootstrap-icons-react";
 import UserContext from "../../api/UserContext";
 import { server } from "../../api/Api";
+import { set } from "animejs";
 
 function Header({ dataUser }) {
   const [showDropDown, setShowDropDown] = useState("");
   const [showDropDownSearch, setShowDropDownSearch] = useState("");
-  const [showSubNavBar, setShowSubNavBar] = useState("unshow");
+  const [showBtnSub, setShowBtnSuv] = useState(false);
+  const [hideBtnSub, setHideBtnSuv] = useState(true);
 
   useEffect(() => {
     const h5 = document.querySelector(".nav-user h5");
@@ -17,7 +18,8 @@ function Header({ dataUser }) {
     const subNavItem = document.querySelectorAll(".subNav-item");
     const btn = document.querySelector(".nav-user");
     const item = document.querySelector(".dropdown-item");
-    const btnDrop = document.querySelector(".navbar-toggle");
+    const btnDrop = document.getElementById("menuLine");
+    const btnHideDrop = document.getElementById("hideMenuLine");
     const subNavBar = document.querySelector(".subNavBar");
     const btnSearc = document.querySelector(".btnSearc");
     const icon = document.querySelector(".btnSearc svg");
@@ -32,6 +34,7 @@ function Header({ dataUser }) {
         p.setAttribute("style", "color:#98a6ad");
       }
     }
+
     function showSearch() {
       if (showDropDownSearch === "") {
         setShowDropDownSearch("show");
@@ -46,19 +49,18 @@ function Header({ dataUser }) {
       h5.setAttribute("style", "color:#98a6ad");
       p.setAttribute("style", "color:#98a6ad");
     }
-    function showSubNav() {
-      /*
-      var x = document.getElementById("#menuLine")
-      if (!subNavBar.hasAttribute("style")) {
-        subNavBar.setAttribute("style", "display:block");
-      } else if (subNavBar.hasAttribute("style")) {
-        subNavBar.setAttribute("style", "display:none");
-      }
-      // return subNavBar.removeAttribute("style");
 
-      // console.log(subNavBar.hasAttribute("style","display:none"))
-      */
+    function showSubNav() {
+      setShowBtnSuv(true)
+      setHideBtnSuv(false)
+      subNavBar.setAttribute("style", "display:block")
     }
+    function hideSubNav() {
+      setShowBtnSuv(false)
+      setHideBtnSuv(true)
+      subNavBar.setAttribute("style", "display:none")
+    }
+
     btnSearc.addEventListener("click", showSearch);
     btn.addEventListener("click", Show);
     item.addEventListener("mouseup", unShow);
@@ -66,26 +68,15 @@ function Header({ dataUser }) {
       subNavItem[i].addEventListener("mouseup", unShow);
     }
     btnDrop.addEventListener("click", showSubNav);
+    btnHideDrop.addEventListener("click", hideSubNav);
   });
 
   // const user = useContext(UserContext);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
-    
   };
-  let addClass = ()=>{
-    var x = document.getElementById("subStaff")
-    if(x.classList.contains("displayBlockonclick")){
-      x.remove("displayBlockonclick")
-      x.addClass("displayNoneonclick")    
-    }
-    else if(x.classList.contains("displayNoneonclick")){
-      x.remove("displayNoneonclick")
-      x.addClass("displayBlockonclick")
-    }
-
-  }
+  
   return (
     <>
       <div className="navbar-custom topnav-navbar topnav-navbar-dark">
@@ -106,7 +97,7 @@ function Header({ dataUser }) {
                 data-toggle="dropdown"
                 aria-haspopup="false"
                 aria-expanded="false"
-                style={{ backgroundColor: "#313a46" }}
+                style={{ backgroundColor: "#313a46", border: "none" }}
               >
                 <Search className="search-icon" />
               </button>
@@ -172,7 +163,12 @@ function Header({ dataUser }) {
           </ul>
           
           <button className="navbar-toggle">
-            <div className="lines" id="menuLine" onClick={addClass}>
+            <div className="lines" id="menuLine" hidden={showBtnSub}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+            <div className="lines" id="hideMenuLine" hidden={hideBtnSub}>
               <span></span>
               <span></span>
               <span></span>

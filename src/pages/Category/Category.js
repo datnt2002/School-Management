@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import Table from "../../components/Table/Table";
+import Loading from "../../components/optional/Loading";
 import "./category.css";
+import Style from "../Account/myExp.module.css"
 import StylePaginate from "../../components/Pagination/pagination.module.css"
 import { apiCategory } from "../../api/Api";
 import CreateNewCategory from "./CreateNewCategory";
@@ -8,6 +10,7 @@ import { Navigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
 function Category({ token }) {
+  const [loading, setLoading] = useState(true)
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
@@ -30,6 +33,7 @@ function Category({ token }) {
       fetch(apiCategory, { headers: { Authorization: `Bearer ${token}` } })
         .then((res) => res.json())
         .then((data) => setData(data))
+        .then(setLoading(false))
         .catch((er) => Navigate("/*"));
     };
     fetchData();
@@ -50,13 +54,17 @@ function Category({ token }) {
     setItemOffSet(newOffSet);
   }
 
+  if(loading){
+    return <Loading/>
+  }
+
   return (
     <>
       <div className="container-fluid">
         <div className="tableCate">
           <div className="row">
             <div className="col-12">
-              <div className="card">
+              <div className={`${Style.card} card`}>
                 <div className="card-body">
                   <div className="mb-4 col-12">
                     <div className="page-title-box">

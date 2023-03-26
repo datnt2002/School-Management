@@ -1,24 +1,3 @@
-/* .nav_pagination {
-    width: 32rem;
-}
-.pagination,.page_item {
-    display: inline;
-    padding-left: 0px;
-    list-style: none;
-}
-.page_item {
-    counter-increment: pagination;
-}
-.page_link {
-    border: solid 1px darken;
-    border-radius: 0.2rem;
-    color: darken;
-    text-decoration: none;
-    text-transform: uppercase;
-    display: inline-block;
-    text-align: center;
-    padding: 0.5rem 0.9rem;
-} */
 .pagination{
     list-style: none;
     display: flex;

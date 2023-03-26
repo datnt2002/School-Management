@@ -3,6 +3,8 @@ import Style from "./loading.module.css"
 function Loading() {
     return(
         <>
+        <div className="container-fluid create">
+            <div className="modalOverlay"></div>
             <div className={Style.spinner}>
                 <span>L</span>
                 <span>O</span>
@@ -11,7 +13,11 @@ function Loading() {
                 <span>I</span>
                 <span>N</span>
                 <span>G</span>
+                <span>.</span>
+                <span>.</span>
+                <span>.</span>
             </div>
+        </div>
         </>
     );
 }
