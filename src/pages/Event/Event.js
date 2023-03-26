@@ -60,7 +60,7 @@ function Event({ token }) {
   }
 
   useEffect(() => {
-    fetch(apiEvent,{
+    fetch(apiEvent, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -83,7 +83,7 @@ function Event({ token }) {
                 <div className="card-body">
                   <div className="page-title-box">
                     <h1 className="page-title">
-                      Event{" "}
+                      Event
                       <span>
                         <button
                           className="btn btn-danger mb-2"
@@ -141,7 +141,7 @@ function Event({ token }) {
           </div>
         </div>
       </div>
-      
+
       <CreateNewEvent
         style={showModalCreate}
         handleClose={handleClose}

@@ -7,6 +7,8 @@ function ComfirmPassword({ handleClose, userName, token }) {
   const [cfPassword, setCfPassword] = useState("");
 
   const [err, setErr] = useState();
+
+  console.log("State", err);
   const handleDisableAccount = (e) => {
     e.preventDefault();
 
@@ -19,9 +21,8 @@ function ComfirmPassword({ handleClose, userName, token }) {
       body: formPassword,
     })
       .then((res) => {
-        console.log(res);
         if (res.ok) {
-          return res.json();
+          return res.text();
         } else {
           throw res;
         }
@@ -30,7 +31,6 @@ function ComfirmPassword({ handleClose, userName, token }) {
         handleClose();
       })
       .catch((err) => {
-        console.log("catch", err);
         err.json().then((errObj) => {
           let err = Object.values(errObj.errors);
           setErr(err);

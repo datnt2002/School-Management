@@ -1,11 +1,6 @@
-import { useContext, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
 
 import Profile from "../../components/profile/Profile";
-import Style from "./account.module.css";
-import Input from "../../components/Tags/Input";
-import { apiIdea } from "../../api/Api";
-import Comment from "../../components/feed/posts/Comment";
 import MyIdea from "./MyIdea";
 import MyExp from "./MyExp";
 import UserContext from "../../api/UserContext";

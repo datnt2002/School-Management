@@ -5,8 +5,6 @@ import { apiEvent } from "../../api/Api";
 import "../../components/Tags/select.css";
 
 function EditEvent({ token, style, handleClose, selectEventId }) {
-  const [isLoading, setIsLoading] = useState(true);
-
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
@@ -21,7 +19,6 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        setIsLoading(false);
         setName(data.name);
         setContent(data.content);
         setFirstClosure(data.first_Closure);
@@ -61,10 +58,6 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
       );
   };
 
-  if (isLoading) {
-    return <div></div>;
-  }
-
   return (
     <div
       className="container-fluid edit"
@@ -98,30 +91,6 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
               />
             </div>
             <div className="mt-3 mb-3 row" style={{ overflow: "hidden" }}>
-              {/* <div className="col-lg-6 d-flex justify-content-end">
-                <div>
-                  <span
-                    style={{
-                      background: "#9fa6b3",
-                      color: "white",
-                      display: "block",
-                      padding: "5px 20px 5px 20px",
-                      width: "fit-content",
-                      fontWeight: "500",
-                    }}
-                  >
-                    First Closure Date
-                  </span>
-                  <div className="mb-3">
-                    <input
-                      value={first_Closure}
-                      type="datetime-local"
-                      onChange={(e) => setFirstClosure(e.target.value)}
-                      style={{ height: "3.5em", width: "auto" }}
-                    ></input>
-                  </div>
-                </div>
-              </div> */}
               <div
                 className="col-lg-6 d-flex justify-content-between"
                 style={{ width: "100%" }}
@@ -159,7 +128,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                       fontWeight: "500",
                     }}
                   >
-                    First Closure Date
+                    Last Closure Date
                   </span>
                   <div className="">
                     <input
