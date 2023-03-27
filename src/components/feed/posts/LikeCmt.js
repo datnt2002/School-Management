@@ -6,7 +6,7 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-function LikeCmt({ likes, comments, handleActiveCm }) {
+function LikeCmt({ likes, comments }) {
   const [like, setLike] = useState({ animationName: "" });
   const [disLike, setDisLike] = useState({ animationName: "" });
   function handleLike() {

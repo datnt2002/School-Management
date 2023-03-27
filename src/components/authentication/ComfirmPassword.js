@@ -8,7 +8,6 @@ function ComfirmPassword({ handleClose, userName, token }) {
 
   const [err, setErr] = useState();
 
-  console.log("State", err);
   const handleDisableAccount = (e) => {
     e.preventDefault();
 
@@ -21,17 +20,17 @@ function ComfirmPassword({ handleClose, userName, token }) {
       body: formPassword,
     })
       .then((res) => {
-        if (res.ok) {
-          return res.text();
-        } else {
+        if (!res.ok) {
+          console.log("if");
           throw res;
         }
+        return res.text();
       })
       .then(() => {
         handleClose();
       })
       .catch((err) => {
-        err.json().then((errObj) => {
+        err.text().then((errObj) => {
           let err = Object.values(errObj.errors);
           setErr(err);
         });

@@ -7,13 +7,12 @@ import ReactPaginate from "react-paginate";
 import CreateNewEvent from "./CreateNewEvent";
 import EditEvent from "./EditEvent";
 import "./event.css";
-import Style from "../Account/myExp.module.css"
-import StylePaginate from "../../components/Pagination/pagination.module.css"
+import Style from "../Account/myExp.module.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css";
 import Loading from "../../components/optional/Loading";
 
-
 function Event({ token }) {
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
   const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
@@ -29,13 +28,13 @@ function Event({ token }) {
     setCurrentItems(data.slice(itemOffSet, endOffSet));
     setPageCount(Math.ceil(data.length / itemPerPage));
   }, [itemOffSet, itemPerPage, data]);
-  function handlePageClick(e){
+  function handlePageClick(e) {
     const newOffSet = (e.selected * itemPerPage) % data.length;
     setItemOffSet(newOffSet);
   }
 
   const [selectEventId, setSelectEventId] = useState(-1);
-
+  console.log(selectEventId);
   function handleOpenEdit() {
     setShowModalEdit({
       display: "",
@@ -69,8 +68,8 @@ function Event({ token }) {
       .catch(() => console.log("404 r"));
   }, [modal, token]);
 
-  if(loading){
-    return <Loading/>
+  if (loading) {
+    return <Loading />;
   }
 
   return (
@@ -89,7 +88,7 @@ function Event({ token }) {
                           className="btn btn-danger mb-2"
                           id="createEvent"
                           onClick={handleOpenCreate}
-                          style={{ borderRadius: "50%", marginLeft:"2%" }}
+                          style={{ borderRadius: "50%", marginLeft: "2%" }}
                         >
                           <FontAwesomeIcon icon={faPlus} />
                         </button>

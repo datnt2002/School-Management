@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
-import { apiIdea } from "../../api/Api";
+import { useLocation, useNavigate } from "react-router-dom";
+import { apiIdeaByEvent } from "../../api/Api";
 
 function ListIdea({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
@@ -9,9 +9,9 @@ function ListIdea({ token }) {
   const location = useLocation();
   const eventId = location.state.eventId;
 
-  //dinhs cor
+  const navigate = useNavigate();
   useEffect(() => {
-    fetch(apiIdea + "/" + eventId, {
+    fetch(apiIdeaByEvent + "/" + eventId, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -22,7 +22,9 @@ function ListIdea({ token }) {
         console.log("lỗi này");
       });
   }, [eventId, token]);
-
+  const handleReadMore = (id) => {
+    navigate("/DetailIdea", { state: { ideaId: id } });
+  };
   return (
     <div className="container-fluid tableListIdea">
       <div className="tableListIdea">
@@ -49,7 +51,9 @@ function ListIdea({ token }) {
                       <thead className="thead-light">
                         <tr role="row">
                           <th className="sorting">Title</th>
-                          <th className="sorting">File</th>
+                          <th className="sorting">Content</th>
+                          <th className="sorting">Category</th>
+                          <th className="sorting">Author</th>
                           <th className="sorting_disabled">Action</th>
                         </tr>
                       </thead>
@@ -63,10 +67,19 @@ function ListIdea({ token }) {
                                   <br />
                                 </p>
                               </td>
-                              <td>{dataIdea.ideaFile}</td>
+                              <td>{dataIdea.content}</td>
+                              <td>{dataIdea.category}</td>
+                              <td>{dataIdea.userName}</td>
                               <td className="table-action">
-                                <div className="d-flex justify-content-evenly"></div>
+                                <div className="d-flex justify-content-evenly">
+                                  <button
+                                    onClick={() => handleReadMore(dataIdea.id)}
+                                  >
+                                    View Detail
+                                  </button>
+                                </div>
                               </td>
+                              <td></td>
                             </tr>
                           );
                         })}

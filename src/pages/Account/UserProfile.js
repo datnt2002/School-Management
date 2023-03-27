@@ -16,7 +16,7 @@ function UserProfile({ token }) {
               <h1 style={{ fontSize: "3.5rem" }}>My Account</h1>
             </div>
             <div className="col-lg-5">
-              <Profile />
+              <Profile token={token} />
               <div className="card mt-4">
                 <div className="card-body">
                   <div className="row">

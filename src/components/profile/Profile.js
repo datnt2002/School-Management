@@ -5,7 +5,7 @@ import UserContext from "../../api/UserContext";
 import NoOfIdea from "./NoOfIdeas";
 import Style from "./profile.module.css";
 
-function Profile() {
+function Profile({ token }) {
   const user = useContext(UserContext);
 
   return (
@@ -23,7 +23,7 @@ function Profile() {
             <p className={Style.name}>{user?.userName}</p>
             <p className={Style.function}>{user?.department}</p>
           </div>
-          {user.role === "Staff" && <NoOfIdea />}
+          {user.role === "Staff" && <NoOfIdea token={token} />}
         </div>
       </div>
       <Link className={Style.request} type="button" to="/editProfile">
