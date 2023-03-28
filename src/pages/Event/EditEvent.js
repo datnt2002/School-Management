@@ -3,6 +3,7 @@ import Input from "../../components/Tags/Input";
 import "./event.css";
 import { apiEvent } from "../../api/Api";
 import "../../components/Tags/select.css";
+import SelectDate from "../../components/Tags/SelectDate";
 
 function EditEvent({ token, style, handleClose, selectEventId }) {
   const [name, setName] = useState("");
@@ -58,6 +59,18 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
       );
   };
 
+  async function Dategiday(value) {
+    await setFirstClosure(value);
+    let firstClosure = new Date(value);
+
+    let sevenDay = new Date(
+      firstClosure.getTime() + 7 * 24 * 60 * 60 * 1000 + 7 * 60 * 60 * 1000
+    );
+    let formattedDate = sevenDay.toISOString().slice(0, 16);
+    console.log(formattedDate);
+    setLast_Closure(formattedDate);
+  }
+
   return (
     <div
       className="container-fluid edit"
@@ -90,54 +103,60 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                 onSetState={(e) => setContent(e.target.value)}
               />
             </div>
-            <div className="mt-3 mb-3 row" style={{ overflow: "hidden" }}>
+            <div className="row" style={{ overflow: "hidden" }}>
               <div
                 className="col-lg-6 d-flex justify-content-between"
-                style={{ width: "100%" }}
+                style={{ width: "100%", paddingBottom:"14px" }}
               >
                 <div>
                   <span
                     style={{
-                      background: "#9fa6b3",
-                      color: "white",
+                      position:"relative",
+                      backgroundColor: "white",
+                      color: "#999",
                       display: "block",
                       padding: "5px 20px 5px 20px",
                       width: "fit-content",
                       fontWeight: "500",
+                      borderRadius:"5px 5px 0 0",
+                      border: "1px solid #eee",
+                      borderBottom:"1px solid white",
+                      zIndex: "100",
+                      top: "18%",
                     }}
                   >
                     First Closure Date
                   </span>
-                  <div className="">
-                    <input
-                      value={first_Closure}
-                      type="datetime-local"
-                      onChange={(e) => setFirstClosure(e.target.value)}
-                      style={{ height: "3.5em", width: "90%" }}
-                    ></input>
-                  </div>
+                  <SelectDate
+                    value={first_Closure}
+                    onChange={(e) => Dategiday(e.target.value)}
+                  />
                 </div>
                 <div>
                   <span
                     style={{
-                      background: "#9fa6b3",
-                      color: "white",
+                      position:"relative",
+                      backgroundColor: "white",
+                      color: "#999",
                       display: "block",
                       padding: "5px 20px 5px 20px",
                       width: "fit-content",
                       fontWeight: "500",
+                      borderRadius:"5px 5px 0 0",
+                      border: "1px solid #eee",
+                      borderBottom:"1px solid white",
+                      zIndex: "100",
+                      top: "18%",
+                      left: "28%"
                     }}
                   >
                     Last Closure Date
                   </span>
-                  <div className="">
-                    <input
-                      value={last_Closure}
-                      type="datetime-local"
-                      onChange={(e) => setFirstClosure(e.target.value)}
-                      style={{ height: "3.5em", width: "auto" }}
-                    ></input>
-                  </div>
+                  <SelectDate
+                    value={last_Closure}
+                    disable="true"
+                    readOnly
+                  />
                 </div>
               </div>
             </div>

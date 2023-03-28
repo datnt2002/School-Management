@@ -51,13 +51,13 @@ function DetailIdea({ token }) {
 
   return (
     <>
-      <div className="container-fluid">
+      <div className="container">
         <div className="row" style={{ marginTop: "4rem" }}>
           {/* <div className="col-lg-3 leftContent">
             {/* <Profile/> */}
           {/* <Trending /> */}
           {/* </div>  */}
-          <div className="col-lg-9 centerContent">
+          <div className={`col-lg-9 ${Style.centerContent}`}>
             <div className={Style.card}>
               <div className={Style.media}>
                 <div className={Style.media_body}>
@@ -107,7 +107,7 @@ function DetailIdea({ token }) {
               </div>
             </div>
           </div>
-          <div className="col-lg-3 rightContent">
+          <div className={`col-lg-3 ${Style.rightContent}`}>
             {/* <Weather /> */}
             <Trending />
           </div>
