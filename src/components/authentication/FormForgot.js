@@ -4,7 +4,7 @@ import { apiForgotPassword } from "../../api/Api";
 import Input from "../Tags/Input";
 
 function FormForgot() {
-  const [userName, setUserName] = useState("");
+  // const [userName, setUserName] = useState("");
   const [email, SetEmail] = useState("");
   const [verifyMessage, setVerifyMessage] = useState("");
   const [errMess, setErrMess] = useState("");
@@ -12,7 +12,7 @@ function FormForgot() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    const dataToVerify = { userName, email };
+    const dataToVerify = { email };
 
     fetch(apiForgotPassword, {
       method: "POST",
@@ -38,14 +38,14 @@ function FormForgot() {
             <h1>Forgot Password</h1>
           </div>
           <form onSubmit={handleSubmit}>
-            <div className="field-name">
+            {/* <div className="field-name">
               <Input
                 label="Username "
                 state={userName}
                 onSetState={(e) => setUserName(e.target.value)}
                 type="text"
               ></Input>
-            </div>
+            </div> */}
             <div className="field-email">
               <Input
                 label="email "

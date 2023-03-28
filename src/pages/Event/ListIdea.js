@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { apiIdeaByEvent } from "../../api/Api";
+import { apiDownloadAllFiles, apiIdeaByEvent } from "../../api/Api";
 
 function ListIdea({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
@@ -22,9 +22,19 @@ function ListIdea({ token }) {
         console.log("lỗi này");
       });
   }, [eventId, token]);
-  const handleReadMore = (id) => {
+
+  const handleDetail = (id) => {
     navigate("/DetailIdea", { state: { ideaId: id } });
   };
+
+  const handleDownloadAllFiles = () => {
+    window.location.href = window.location.href.replace(
+      window.location.href,
+      apiDownloadAllFiles
+    );
+    // console.log(window.location.href);
+  };
+
   return (
     <div className="container-fluid tableListIdea">
       <div className="tableListIdea">
@@ -37,7 +47,10 @@ function ListIdea({ token }) {
             </div>
             <div className="row mb-2">
               <div className="col-sm-4">
-                <button className="btn btn-danger mb-2">
+                <button
+                  className="btn btn-danger mb-2"
+                  onClick={handleDownloadAllFiles}
+                >
                   <i className="mdi mdi-plus-circle mr-2"></i>Download All Files
                 </button>
               </div>
@@ -73,7 +86,7 @@ function ListIdea({ token }) {
                               <td className="table-action">
                                 <div className="d-flex justify-content-evenly">
                                   <button
-                                    onClick={() => handleReadMore(dataIdea.id)}
+                                    onClick={() => handleDetail(dataIdea.id)}
                                   >
                                     View Detail
                                   </button>

@@ -33,7 +33,6 @@ function RequiredAuth({ children, dataUser }) {
       setRoleAuthorization(decodeToArray[2][1]);
     }
   }, [decodedToken]);
-  console.log(roleAuthorization);
   if (!token) {
     return <Authentication />;
   }

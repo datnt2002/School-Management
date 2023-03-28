@@ -1,39 +1,29 @@
-import { useEffect, useState } from "react";
-import { apiIdea } from "../../api/Api";
-import Comment from "../../components/feed/posts/Comment";
-import LikeCmt from "../../components/feed/posts/LikeCmt";
-import Profile from "../../components/profile/Profile";
-import Input from "../../components/Tags/Input";
-import Style from "../../pages/NewsFeed/newsFeed.module.css";
+import { useContext } from "react";
+import { apiIdeaByUser } from "../../api/Api";
+import UserContext from "../../api/UserContext";
+import Post from "../../components/feed/posts/Post";
 
 function MyIdea({ token }) {
-  const [activeCmt, setActiveCmt] = useState("hidden");
-  const [dataIdea, setDataIdea] = useState([]);
-
-  function handleActiveCmt() {
-    if (activeCmt === "hidden") {
-      setActiveCmt("");
-    } else {
-      setActiveCmt("hidden");
-    }
-  }
-
-  useEffect(() => {
-    fetch(apiIdea, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setDataIdea(data);
-      })
-      .catch(() => {
-        console.log("k fetch dc idea");
-      });
-  }, []);
+  // const [activeCmt, setActiveCmt] = useState("hidden");
+  // const [dataIdea, setDataIdea] = useState([]);
+  const user = useContext(UserContext);
+  // useEffect(() => {
+  //   fetch(apiIdeaByUser, {
+  //     headers: { Authorization: `Bearer ${token}` },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => {
+  //       setDataIdea(data);
+  //     })
+  //     .catch(() => {
+  //       console.log("k fetch dc idea");
+  //     });
+  // }, []);
+  console.log(user);
 
   return (
     <div className="col-lg-7">
-      {dataIdea.map((dataIdea) => {
+      {/* {dataIdea.map((dataIdea) => {
         return (
           <div className={Style.card} key={dataIdea.id}>
             <div className={Style.media}>
@@ -74,12 +64,10 @@ function MyIdea({ token }) {
             >
               <LikeCmt />
             </div>
-
-            <hr />
-            <Comment />
           </div>
         );
-      })}
+      })} */}
+      <Post token={token} apiUrl={apiIdeaByUser} id={user.userId} />
     </div>
   );
 }

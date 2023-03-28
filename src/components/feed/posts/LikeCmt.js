@@ -6,46 +6,50 @@ import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
-function LikeCmt({ likes, comments }) {
+function LikeCmt({ userId, ideaId, likes, comments }) {
   const [like, setLike] = useState({ animationName: "" });
   const [disLike, setDisLike] = useState({ animationName: "" });
-  function handleLike() {
-    // const fasHeart = document.getElementById("Heart");
-    // setDisLike({
-    //   animationName: "",
-    //   color:""
-    // })
-    // if(fasHeart.style.animationName==="")
-    // setLike({
-    //   animationName: "Like",
-    //   color:"red"
-    // })
-    // else{
-    //   setLike({
-    //     animationName: "",
-    //     color:""
-    //   })
-    // }
-  }
-  function handleDisLike() {
-    // const fasCrack = document.getElementById("Crack");
-    // setLike({
-    //   animationName: "",
-    //   color:""
-    // })
-    // if(fasCrack.style.animationName==="")
-    //   setDisLike({
-    //     animationName: "Like",
-    //     color:"red"
-    //   })
-    // else{
-    //   setDisLike({
-    //     animationName: "",
-    //     color:""
-    //   })
-    // }
-  }
+  // function handleLike() {
+  //   // const fasHeart = document.getElementById("Heart");
+  //   // setDisLike({
+  //   //   animationName: "",
+  //   //   color:""
+  //   // })
+  //   // if(fasHeart.style.animationName==="")
+  //   // setLike({
+  //   //   animationName: "Like",
+  //   //   color:"red"
+  //   // })
+  //   // else{
+  //   //   setLike({
+  //   //     animationName: "",
+  //   //     color:""
+  //   //   })
+  //   // }
+  // }
+  // function handleDisLike() {
+  //   // const fasCrack = document.getElementById("Crack");
+  //   // setLike({
+  //   //   animationName: "",
+  //   //   color:""
+  //   // })
+  //   // if(fasCrack.style.animationName==="")
+  //   //   setDisLike({
+  //   //     animationName: "Like",
+  //   //     color:"red"
+  //   //   })
+  //   // else{
+  //   //   setDisLike({
+  //   //     animationName: "",
+  //   //     color:""
+  //   //   })
+  //   // }
+  // }
 
+  const [vote, setVote] = useState(null);
+  const handleVote = (e) => {
+    e.preventDefault();
+  };
   return (
     <div style={{ width: "100%", marginTop: "2rem" }}>
       <div className="d-flex justify-content-between">
@@ -57,7 +61,7 @@ function LikeCmt({ likes, comments }) {
 
       <div className={`${Style.like_cmt} my-1 d-flex`}>
         {/* <div className=""> */}
-        <button className={Style.button_name} onClick={handleLike}>
+        <button className={Style.button_name} onClick={handleVote}>
           <FontAwesomeIcon
             icon={faHeart}
             className="fasHeart"
@@ -66,7 +70,7 @@ function LikeCmt({ likes, comments }) {
           />
         </button>
 
-        <button className={Style.button_name} onClick={handleDisLike}>
+        <button className={Style.button_name} onClick={handleVote}>
           <FontAwesomeIcon
             icon={faHeartCrack}
             className="fasCrack"

@@ -1,16 +1,20 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Profile from "../../profile/Profile";
 import { apiIdea, server } from "../../../api/Api";
 import Style from "../../../pages/NewsFeed/newsFeed.module.css";
 import { useNavigate } from "react-router-dom";
 import LikeCmt from "./LikeCmt";
+import UserContext from "../../../api/UserContext";
 
-function Post({ token }) {
+function Post({ token, apiUrl, id }) {
   const [dataIdea, setDataIdea] = useState([]);
+
+  const user = useContext(UserContext);
+
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(apiIdea, {
+    fetch(id ? apiUrl + "/" + id : apiUrl, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -20,7 +24,7 @@ function Post({ token }) {
       .catch(() => {
         console.log("k get dc idea");
       });
-  }, []);
+  }, [apiUrl, token, id]);
 
   const handleReadMore = (id) => {
     navigate("/DetailIdea", { state: { ideaId: id } });
@@ -71,7 +75,7 @@ function Post({ token }) {
 
                 <hr />
 
-                <LikeCmt />
+                {/* <LikeCmt userId={user.userId} ideaId={dataIdea.id} /> */}
               </div>
             </div>
           </div>
