@@ -1,0 +1,19 @@
+input[type="datetime-local"]{
+    background-color: white;
+    padding: 10px;
+    position: relative;
+    top: 17%;
+    font-family: "Roboto Mono", monospace;
+    color: #999;
+    font-size: 15px;
+    border: 1px solid #eee;
+    outline: none;
+    /* border-radius: 5px;
+    border-top-left-radius: 0px; */
+}
+::-webkit-calendar-picker-indicator{
+    background-color: white;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 3px;
+}

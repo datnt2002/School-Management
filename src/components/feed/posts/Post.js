@@ -5,7 +5,7 @@ import Style from "../../../pages/NewsFeed/newsFeed.module.css";
 import { useNavigate } from "react-router-dom";
 import LikeCmt from "./LikeCmt";
 
-function Post({ token }) {
+function Post({ token, idIdea }) {
   const [dataIdea, setDataIdea] = useState([]);
   const navigate = useNavigate();
 
@@ -26,6 +26,11 @@ function Post({ token }) {
     navigate("/DetailIdea", { state: { ideaId: id } });
   };
   console.log(dataIdea);
+
+  if(dataIdea === null){
+    return <div><h1>No Idea</h1></div>
+  }
+
   return (
     <>
       {dataIdea.map((dataIdea) => {

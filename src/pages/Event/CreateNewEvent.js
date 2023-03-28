@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Input from "../../components/Tags/Input";
 import "./event.css";
 import { apiEvent } from "../../api/Api";
+import SelectDate from "../../components/Tags/SelectDate";
 
 function CreateNewEvent({ token, style, handleClose }) {
   //data to post form
@@ -36,6 +37,7 @@ function CreateNewEvent({ token, style, handleClose }) {
         setName("");
         setContent("");
         setFirstClosure("");
+        setLast_Closure("");
         handleClose();
       })
       .catch((err) =>
@@ -45,15 +47,6 @@ function CreateNewEvent({ token, style, handleClose }) {
         })
       );
   };
-
-  // if(!first_Closure){
-  //   let firstClosure = new Date(first_Closure);
-  //   console.log(firstClosure)
-  //   console.log(first_Closure)
-  //   let sevenDay = new Date(firstClosure.getTime() + 7 * 24 * 60 * 60 * 1000);
-  //   let formattedDate = sevenDay.toISOString().slice(0, 16);
-  //   setLast_Closure(formattedDate)
-  // }
 
   async function Dategiday(value) {
     await setFirstClosure(value);
@@ -95,72 +88,61 @@ function CreateNewEvent({ token, style, handleClose }) {
                   onSetState={(e) => setContent(e.target.value)}
                 />
               </div>
-              {/* <div
-                className="mt-3 mb-3 createFormEvent_Select"
-                style={{ overflow: "hidden" }}
-              >
-                <div className="">
-                  <label className="form-label">Closure date</label>
-                  <div className="">
-                    <div className="col-6 justify-content-end">
-                      <small>First Closure Date</small>
-                      <input
-                        value={first_Closure}
-                        type="datetime-local"
-                        onChange={(e) => setFirstClosure(e.target.value)}
-                        required
-                      ></input>
-                    </div>
-                  </div>
-                </div>
-              </div> */}
               <div className="row" style={{ overflow: "hidden" }}>
                 <div
                   className="col-lg-6 d-flex justify-content-between"
-                  style={{ width: "100%" }}
+                  style={{ width: "100%", paddingBottom:"1px" }}
                 >
                   <div>
                     <span
                       style={{
-                        background: "#9fa6b3",
-                        color: "white",
+                        position:"relative",
+                        backgroundColor: "white",
+                        color: "#999",
                         display: "block",
                         padding: "5px 20px 5px 20px",
                         width: "fit-content",
                         fontWeight: "500",
+                        borderRadius:"5px 5px 0 0",
+                        border: "1px solid #eee",
+                        borderBottom:"1px solid white",
+                        zIndex: "100",
+                        top: "18%",
                       }}
                     >
                       First Closure Date
                     </span>
-                    <input
+                    <SelectDate
                       value={first_Closure}
-                      type="datetime-local"
                       onChange={(e) => Dategiday(e.target.value)}
-                      style={{ height: "3.5em", width: "90%" }}
-                    ></input>
+                    />
                     <p htmlFor="err" style={{ color: "red" }}></p>
                   </div>
                   <div>
                     <span
                       style={{
-                        background: "#9fa6b3",
-                        color: "white",
+                        position:"relative",
+                        backgroundColor: "white",
+                        color: "#999",
                         display: "block",
                         padding: "5px 20px 5px 20px",
                         width: "fit-content",
                         fontWeight: "500",
+                        borderRadius:"5px 5px 0 0",
+                        border: "1px solid #eee",
+                        borderBottom:"1px solid white",
+                        zIndex: "100",
+                        top: "18%",
+                        left: "28%"
                       }}
                     >
-                      First Closure Date
+                      Last Closure Date
                     </span>
-                    <input
+                    <SelectDate
                       value={last_Closure}
-                      type="datetime-local"
-                      readOnly
-                      // onChange={(e) => setFirstClosure(e.target.value)}
-                      style={{ height: "3.5em", width: "auto" }}
                       disable="true"
-                    ></input>
+                      readOnly
+                    />
                   </div>
                 </div>
               </div>

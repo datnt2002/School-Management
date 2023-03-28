@@ -18,7 +18,11 @@
 }
 .card:hover {
     transform: scale(1.05);
+    margin-right: 10px;
 }
 .content {
     overflow-wrap:break-word;
+}
+.centerContent {
+    /* margin: 0 5px; */
 }

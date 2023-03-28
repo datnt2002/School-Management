@@ -5,6 +5,7 @@ import { Search } from "bootstrap-icons-react";
 import UserContext from "../../api/UserContext";
 import { server } from "../../api/Api";
 import { set } from "animejs";
+import { faL } from "@fortawesome/free-solid-svg-icons";
 
 function Header({ dataUser }) {
   const [showDropDown, setShowDropDown] = useState("");
@@ -79,7 +80,7 @@ function Header({ dataUser }) {
   
   return (
     <>
-      <div className="navbar-custom topnav-navbar topnav-navbar-dark">
+      <div className="navbar-custom topnav-navbar topnav-navbar-dark" id="Top">
         <div className="container-fluid">
           <Link to="/" className="topnav-logo">
             <span className="topnav-logo-lg">

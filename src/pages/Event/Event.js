@@ -12,7 +12,7 @@ import StylePaginate from "../../components/Pagination/pagination.module.css";
 import Loading from "../../components/optional/Loading";
 
 function Event({ token }) {
-  const [loading, setLoading] = useState(true);
+  // const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
   const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
@@ -64,13 +64,8 @@ function Event({ token }) {
     })
       .then((res) => res.json())
       .then((data) => setData(data))
-      .then(setLoading(false))
       .catch(() => console.log("404 r"));
   }, [modal, token]);
-
-  if (loading) {
-    return <Loading />;
-  }
 
   return (
     <>

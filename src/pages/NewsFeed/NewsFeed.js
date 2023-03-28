@@ -1,27 +1,34 @@
 import Menu from "../../components/feed/MenuProfile/Menu";
 import LikeCmt from "../../components/feed/posts/LikeCmt";
-import Post from "../../components/feed/posts/Post";
+// import Post from "../../components/feed/posts/Post";
 import Trending from "../../components/feed/trending/Trending";
+import ShowGotoTop from "../../components/optional/ShowGotoTop";
 import Weather from "../../components/optional/Weather";
 import Profile from "../../components/profile/Profile";
-import "./newsFeed.module.css";
+import Style from "./newsFeed.module.css";
+import React, { lazy, Suspense } from "react";
 
 function NewsFeed({ token }) {
+  const Post = lazy(() => import("../../components/feed/posts/Post"))
+
   return (
     <>
-      <div className="container-fluid">
+      <div className="container">
         <div className="row" style={{ marginTop: "4rem" }}>
-          <div className="col-lg-3 leftContent">
+          <div className={`col-lg-3 ${Style.leftContent}`}>
             {/* <Profile/> */}
             <Trending />
           </div>
-          <div className="col-lg-6 centerContent">
-            <Post token={token} />
+          <div className={`col-lg-6 ${Style.centerContent}`}>
+            <Suspense fallback={<div>Loading...</div>}>
+              <Post token={token} />
+            </Suspense>
           </div>
-          <div className="col-lg-3 rightContent">
+          <div className={`col-lg-3 ${Style.rightContent}`}>
             <Weather />
           </div>
         </div>
+        <ShowGotoTop/>
       </div>
     </>
   );
