@@ -26,7 +26,12 @@ function Post({ token, apiUrl, id }) {
       });
   }, [apiUrl, token, id]);
 
-  const handleReadMore = (id) => {
+  // const handleReadMore = (id) => {
+  //   navigate("/DetailIdea", { state: { ideaId: id } });
+  // };
+
+  const handleDetail = (id) => {
+    console.log(id);
     navigate("/DetailIdea", { state: { ideaId: id } });
   };
   console.log(dataIdea);
@@ -65,7 +70,7 @@ function Post({ token, apiUrl, id }) {
                 >
                   <p className="my-1">
                     {`${dataIdea.content.substring(0, 250)}`}
-                    <button onClick={() => handleReadMore(dataIdea.id)}>
+                    <button onClick={() => handleDetail(dataIdea.id)}>
                       Read more
                     </button>
                   </p>
