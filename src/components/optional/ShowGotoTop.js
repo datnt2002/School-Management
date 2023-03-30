@@ -26,7 +26,7 @@ function ShowGotoTop() {
     return(
         <>
             {showGotoTop && (
-                <a href="#Top" className={Style.gotop} id="GoTop" >
+                <a href="#" className={Style.gotop} id="GoTop" >
                     <FontAwesomeIcon icon={faChevronUp}/>
                 </a>
             )}

@@ -71,11 +71,13 @@ function Post({ token, apiUrl, id }) {
                   </p>
                 </div>
                 <div className="file-group"></div>
-                <div className="time-group"></div>
 
                 <hr />
-
-                {/* <LikeCmt userId={user.userId} ideaId={dataIdea.id} /> */}
+                <div className="d-flex justify-content-between">
+                  <span>{dataIdea.vote} Likes</span>
+                  <span>{dataIdea.comments} Comments</span>
+                </div>
+                <LikeCmt userId={user.userId} ideaId={dataIdea.id} />
               </div>
             </div>
           </div>

@@ -14,7 +14,6 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Account({ token }) {
-  const [loading, setLoading] = useState(true)
   const [data, setData] = useState([]);
   const [showModalCreate, setShowModalCreate] = useState(false);
   const [showModalComfirm, setShowModalComfirm] = useState(false);
@@ -42,7 +41,6 @@ function Account({ token }) {
       .then((data) => {
         setData(data);
       })
-      .then(setLoading(false))
       .catch(() => {
         navigate("*");
       });
@@ -70,10 +68,6 @@ function Account({ token }) {
   function handlePageClick(e){
     const newOffSet = (e.selected * itemPerPage) % data.length;
     setItemOffSet(newOffSet);
-  }
-
-  if(loading){
-    return <Loading/>
   }
 
   return (

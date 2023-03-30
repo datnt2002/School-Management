@@ -27,3 +27,6 @@ export const apiCountIdeaByUser = `${server}api/idea/countByUser`;
 
 //apiDownload
 export const apiDownloadAllFiles = `${server}api/auth/Download/Idea`;
+
+//apiCount
+export const apiCount = `${server}api/dashboard/Count`;

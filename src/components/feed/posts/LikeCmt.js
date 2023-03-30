@@ -52,10 +52,7 @@ function LikeCmt({ userId, ideaId, likes, comments }) {
   };
   return (
     <div style={{ width: "100%", marginTop: "2rem" }}>
-      <div className="d-flex justify-content-between">
-        <span>{likes} Likes</span>
-        <span>{comments} Comments</span>
-      </div>
+      
 
       <hr style={{ width: "100%" }} />
 

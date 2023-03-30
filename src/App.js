@@ -17,6 +17,7 @@ import DetailIdea from "./pages/NewsFeed/DetailIdea";
 import ComfirmPassword from "./components/authentication/ComfirmPassword";
 import CreateNewCategory from "./pages/Category/CreateNewCategory";
 import ListIdea from "./pages/Event/ListIdea";
+import DashBoard from "./pages/DashBoardMain/DashBoard";
 
 function App() {
   const [dataUser, setDataUser] = useState({});
@@ -145,6 +146,14 @@ function App() {
           element={
             <RequiredAuth dataUser={dataUser}>
               <ListIdea dataUser={dataUser} />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/DashBoard"
+          element={
+            <RequiredAuth dataUser={dataUser}>
+              <DashBoard/>
             </RequiredAuth>
           }
         />
