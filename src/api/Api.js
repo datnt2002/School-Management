@@ -20,6 +20,7 @@ export const apiEventInDate = `${server}api/event/EnventInDate`;
 //apiIdea
 export const apiIdea = `${server}api/idea`;
 export const apiIdeaByEvent = `${server}api/idea/ByEvent`;
+export const apiIdeaByDetail = `${server}api/idea/detail`;
 export const apiIdeaByUser = `${server}api/idea/ByUser`;
 export const apiCountIdeaByUser = `${server}api/idea/countByUser`;
 
