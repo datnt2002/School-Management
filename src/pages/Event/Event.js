@@ -39,12 +39,12 @@ function Event({ token }) {
   }
   const [selectEventId, setSelectEventId] = useState(-1);
   useEffect(() => {
-    const editBtn = document.querySelectorAll(".editEventBtn")
-    for(var i = 0; i < editBtn.length; i++){
-      editBtn[i].addEventListener("click", handleOpenEdit)
+    const editBtn = document.querySelectorAll(".editEventBtn");
+    for (var i = 0; i < editBtn.length; i++) {
+      editBtn[i].addEventListener("click", handleOpenEdit);
     }
-  },[selectEventId])
-  
+  }, [selectEventId]);
+
   function handleOpenCreate() {
     setShowModalCreate(true);
     setModal(true);
@@ -130,20 +130,17 @@ function Event({ token }) {
           </div>
         </div>
       </div>
-      {showModalCreate && 
-        <CreateNewEvent
-          handleClose={handleClose}
-          token={token}
-        />
-      }
-      
-      {showModalEdit &&
+      {showModalCreate && (
+        <CreateNewEvent handleClose={handleClose} token={token} />
+      )}
+
+      {showModalEdit && (
         <EditEvent
           handleClose={handleClose}
           token={token}
           selectEventId={selectEventId}
         />
-      }
+      )}
     </>
   );
 }
