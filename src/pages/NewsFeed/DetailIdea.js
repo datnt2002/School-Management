@@ -5,7 +5,7 @@ import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 
 import Style from "./newsFeed.module.css";
-import { apiIdeaByDetail, server } from "../../api/Api";
+import { apiIdea, apiIdeaByDetail, server } from "../../api/Api";
 
 function DetailIdea({ token }) {
   const [ideaComment, setIdeaComment] = useState([]);
@@ -30,7 +30,7 @@ function DetailIdea({ token }) {
   const ideaId = location.state.ideaId;
 
   useEffect(() => {
-    fetch(apiIdeaByDetail + "/" + ideaId, {
+    fetch(apiIdea + "/" + ideaId, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
