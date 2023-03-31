@@ -14,7 +14,7 @@ import Loading from "../../components/optional/Loading";
 function Event({ token }) {
   // const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [showModalEdit, setShowModalEdit] = useState(false);
+  const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
   const [showModalCreate, setShowModalCreate] = useState(false);
   const [modal, setModal] = useState(false);
 
@@ -33,8 +33,12 @@ function Event({ token }) {
     setItemOffSet(newOffSet);
   }
 
+  const [selectEventId, setSelectEventId] = useState(-1);
+  console.log(selectEventId);
   function handleOpenEdit() {
-    setShowModalEdit(true);
+    setShowModalEdit({
+      display: "",
+    });
     setModal(true);
   }
   const [selectEventId, setSelectEventId] = useState(-1);
@@ -102,7 +106,7 @@ function Event({ token }) {
                             apiLink={apiEvent}
                             onSetData={setData}
                             token={token}
-                            // handleOpen={handleOpenEdit}
+                            handleOpen={handleOpenEdit}
                             setSelectEventId={setSelectEventId}
                             path="/ListIdea"
                           />
@@ -136,6 +140,7 @@ function Event({ token }) {
 
       {showModalEdit && (
         <EditEvent
+          style={showModalEdit}
           handleClose={handleClose}
           token={token}
           selectEventId={selectEventId}
