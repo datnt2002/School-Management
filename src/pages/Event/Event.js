@@ -14,8 +14,8 @@ import Loading from "../../components/optional/Loading";
 function Event({ token }) {
   // const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
-  const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
-  const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
+  const [showModalEdit, setShowModalEdit] = useState(false);
+  const [showModalCreate, setShowModalCreate] = useState(false);
   const [modal, setModal] = useState(false);
 
   //paginate
@@ -33,28 +33,25 @@ function Event({ token }) {
     setItemOffSet(newOffSet);
   }
 
-  const [selectEventId, setSelectEventId] = useState(-1);
-  console.log(selectEventId);
   function handleOpenEdit() {
-    setShowModalEdit({
-      display: "",
-    });
+    setShowModalEdit(true);
     setModal(true);
   }
+  const [selectEventId, setSelectEventId] = useState(-1);
+  useEffect(() => {
+    const editBtn = document.querySelectorAll(".editEventBtn")
+    for(var i = 0; i < editBtn.length; i++){
+      editBtn[i].addEventListener("click", handleOpenEdit)
+    }
+  },[selectEventId])
+  
   function handleOpenCreate() {
-    setShowModalCreate({
-      display: "",
-    });
-
+    setShowModalCreate(true);
     setModal(true);
   }
   function handleClose() {
-    setShowModalCreate({
-      display: "none",
-    });
-    setShowModalEdit({
-      display: "none",
-    });
+    setShowModalCreate(false);
+    setShowModalEdit(false);
     setModal(false);
   }
 
@@ -95,7 +92,6 @@ function Event({ token }) {
                       <div className="row">
                         <div className="col-sm-12">
                           <Table
-                            // hidden="hidden"
                             name="Event"
                             content="Name"
                             description="Description"
@@ -106,7 +102,7 @@ function Event({ token }) {
                             apiLink={apiEvent}
                             onSetData={setData}
                             token={token}
-                            handleOpen={handleOpenEdit}
+                            // handleOpen={handleOpenEdit}
                             setSelectEventId={setSelectEventId}
                             path="/ListIdea"
                           />
@@ -115,7 +111,6 @@ function Event({ token }) {
                     </div>
                   </div>
                 </div>
-                {/* <Pagination dataPerPage={dataPerPage} totalData={data.length} paginate={Paginate} currentPage={currentPage}/> */}
                 <ReactPaginate
                   breakLabel="..."
                   nextLabel=">"
@@ -135,18 +130,20 @@ function Event({ token }) {
           </div>
         </div>
       </div>
-
-      <CreateNewEvent
-        style={showModalCreate}
-        handleClose={handleClose}
-        token={token}
-      />
-      <EditEvent
-        style={showModalEdit}
-        handleClose={handleClose}
-        token={token}
-        selectEventId={selectEventId}
-      />
+      {showModalCreate && 
+        <CreateNewEvent
+          handleClose={handleClose}
+          token={token}
+        />
+      }
+      
+      {showModalEdit &&
+        <EditEvent
+          handleClose={handleClose}
+          token={token}
+          selectEventId={selectEventId}
+        />
+      }
     </>
   );
 }

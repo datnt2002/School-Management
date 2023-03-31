@@ -7,9 +7,9 @@ function SubNavAdmin() {
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="subNav-item">
-              <a className="nav-link" href="/Dashboard">
+              <Link className="nav-link" to="/DashBoard">
                 Dashboard
-              </a>
+              </Link>
             </li>
             <li className="subNav-item">
               <Link className="nav-link" to="/NewsFeed">

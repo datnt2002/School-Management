@@ -10,7 +10,6 @@ import { Navigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
 
 function Category({ token }) {
-  const [loading, setLoading] = useState(true)
   const [data, setData] = useState([]);
   const [showModal, setShowModal] = useState({ display: "none" });
   const [modal, setModal] = useState(false);
@@ -33,7 +32,6 @@ function Category({ token }) {
       fetch(apiCategory, { headers: { Authorization: `Bearer ${token}` } })
         .then((res) => res.json())
         .then((data) => setData(data))
-        .then(setLoading(false))
         .catch((er) => Navigate("/*"));
     };
     fetchData();
@@ -54,9 +52,7 @@ function Category({ token }) {
     setItemOffSet(newOffSet);
   }
 
-  if(loading){
-    return <Loading/>
-  }
+  
 
   return (
     <>

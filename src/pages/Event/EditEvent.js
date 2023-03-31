@@ -5,7 +5,7 @@ import { apiEvent } from "../../api/Api";
 import "../../components/Tags/select.css";
 import SelectDate from "../../components/Tags/SelectDate";
 
-function EditEvent({ token, style, handleClose, selectEventId }) {
+function EditEvent({ token, style, handleClose, selectEventId, readOnly }) {
   const [name, setName] = useState("");
   const [content, setContent] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
@@ -75,7 +75,6 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
     <div
       className="container-fluid edit"
       id="edit"
-      style={style}
       key={selectEventId}
     >
       <div className="modalOverlay" onClick={handleClose}></div>
@@ -155,7 +154,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                   <SelectDate
                     value={last_Closure}
                     disable="true"
-                    readOnly
+                    readOnly={true}
                   />
                 </div>
               </div>
