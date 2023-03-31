@@ -11,7 +11,7 @@ function DashIdeaPerDepart() {
 
   useEffect(() => {
     const myChartRef = chartRef1.current.getContext('2d');
-    new Chart(myChartRef, {
+    let chart1 = new Chart(myChartRef, {
       type: 'bar',
       data: {
         labels: ['2020', '2021', '2022', '2023'],
@@ -46,6 +46,9 @@ function DashIdeaPerDepart() {
         },
       },
     });
+    return () => {
+      chart1.destroy();
+    }
   }, []);
 
   return (

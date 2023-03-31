@@ -37,6 +37,9 @@ function Post({ token, apiUrl, id }) {
   console.log(dataIdea);
   return (
     <>
+      <div className={Style.arrange}>
+        <p>helooo</p>
+      </div>
       {dataIdea.map((dataIdea) => {
         return (
           <div className={Style.news_post} key={dataIdea.id}>

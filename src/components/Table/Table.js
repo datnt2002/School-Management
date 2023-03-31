@@ -52,7 +52,7 @@ function Table({
   const getEventId = (e) => {
     const eventId = e.target.getAttribute("data-id");
     setSelectEventId(eventId); // Set giá trị event id vào state bên ngoài component Table
-    // handleOpen();
+    handleOpen();
   };
 
   const handleViewListIdea = (evId) => {

@@ -1,8 +1,8 @@
 import React, { useRef, useEffect } from 'react';
-import { Chart, BarController, BarElement, CategoryScale, LinearScale } from 'chart.js';
+import { Chart, LineElement, LineController, PointElement, LinearScale, Title } from 'chart.js';
 import Style from "./dashContributes.module.css"
 
-Chart.register(BarElement, BarController, CategoryScale, LinearScale);
+Chart.register( LineElement, LineController, PointElement, LinearScale, Title );
 
 
 function DashContributes() {
@@ -10,8 +10,8 @@ function DashContributes() {
 
   useEffect(() => {
     const myChartRef = chartRef2.current.getContext('2d');
-    new Chart(myChartRef, {
-      type: 'bar',
+    let chart2 = new Chart(myChartRef, {
+      type: 'line',
       data: {
         labels: ['IT', 'Marketing', 'Gì đấy'],
         datasets: [
@@ -22,14 +22,28 @@ function DashContributes() {
           },
         ],
       },
+      
       options: {
         scales: {
+          x: {
+            type: 'category',
+            labels: ['IT', 'Marketing', 'Gì đấy']
+          },
           y: {
-                beginAtZero: true,
-              },
+            beginAtZero: true,
+          },
         },
+        plugins: {
+          title: {
+            display: true,
+            text: 'My Chart Title'
+          }
+        }
       },
     });
+    return () => {
+      chart2.destroy();
+    }
   }, []);
 
   return (
