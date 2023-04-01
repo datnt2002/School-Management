@@ -5,7 +5,9 @@ import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 
 import Style from "./newsFeed.module.css";
-import { apiIdea, apiIdeaByDetail, server } from "../../api/Api";
+import { apiComment, apiIdea, apiIdeaByDetail, server } from "../../api/Api";
+import { useContext } from "react";
+import UserContext from "../../api/UserContext";
 
 function DetailIdea({ token }) {
   const [ideaComment, setIdeaComment] = useState([]);
@@ -29,8 +31,11 @@ function DetailIdea({ token }) {
   const location = useLocation();
   const ideaId = location.state.ideaId;
 
+  const user = useContext(UserContext);
+  const userId = user.userId;
+
   useEffect(() => {
-    fetch(apiIdea + "/" + ideaId, {
+    fetch(apiIdeaByDetail + "/" + ideaId, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
@@ -42,7 +47,27 @@ function DetailIdea({ token }) {
       });
   }, [ideaId, token]);
 
-  const handlePostComment = () => {};
+  const handlePostComment = (e) => {
+    e.preventDefault();
+
+    const newComment = { content: ideaComment, ideaId, userId };
+    console.log(newComment);
+    fetch(apiComment, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newComment),
+    })
+      .then((res) => {
+        res.text();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(() => console.log("loi r"));
+  };
 
   return (
     <div className="container">
@@ -93,7 +118,7 @@ function DetailIdea({ token }) {
                   <LikeCmt />
 
                   <hr />
-                  <Comment />
+                  <Comment token={token} />
                   <div className="media mb-2 reply col-12">
                     <img
                       className="mr-2 rounded"

@@ -16,6 +16,7 @@ function ListIdea({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setDataIdea(data);
       })
       .catch(() => {
@@ -86,7 +87,9 @@ function ListIdea({ token }) {
                               <td className="table-action">
                                 <div className="d-flex justify-content-evenly">
                                   <button
-                                    onClick={() => handleDetail(dataIdea.id)}
+                                    onClick={() =>
+                                      handleDetail(dataIdea.ideaId)
+                                    }
                                   >
                                     View Detail
                                   </button>
