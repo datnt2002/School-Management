@@ -3,7 +3,6 @@ import "./like.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartCrack } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 function LikeCmt({ userId, ideaId, likes, comments }) {
@@ -84,9 +83,6 @@ function LikeCmt({ userId, ideaId, likes, comments }) {
             id="Crack"
             style={disLike}
           />
-        </button>
-        <button className={Style.button_name}>
-          <FontAwesomeIcon icon={faComment} className={Style.fasCmt} />
         </button>
         {/* </div> */}
       </div>
