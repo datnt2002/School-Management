@@ -8,6 +8,9 @@ import Style from "./newsFeed.module.css";
 import { apiComment, apiIdea, apiIdeaByDetail, server } from "../../api/Api";
 import { useContext } from "react";
 import UserContext from "../../api/UserContext";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
+import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 
 function DetailIdea({ token }) {
   const [ideaComment, setIdeaComment] = useState([]);
@@ -109,36 +112,43 @@ function DetailIdea({ token }) {
                     </p>
                   </div>
 
-                  <div className="font-16 text-dark">
-                    <p className={`${Style.content} my-1`}>
-                      Css may cai file phat {detail.ideaFile}
-                    </p>
+                  <div className={`${Style.file} mt-5`}>
+                    <button class={Style.cssbuttons_io_button}>
+                      <FontAwesomeIcon icon={faFileArrowDown}/>
+                      <span>{detail.ideaFile}</span>
+                    </button>
                   </div>
 
                   <LikeCmt />
 
                   <hr />
                   <Comment token={token} />
-                  <div className="media mb-2 reply col-12">
-                    <img
-                      className="mr-2 rounded"
-                      src={server + detail.avatar}
-                      alt="placeholder"
-                      height="50"
-                    />
-                    <textarea
-                      placeholder="Tạm thế css sau"
-                      className="textArea col-12"
-                      onClick={autoHeight}
-                      style={{ height: "3rem", resize: "none" }}
-                      value={ideaComment}
-                      onChange={(e) => {
-                        setIdeaComment(e.target.value);
-                      }}
-                    />
-                    <button onClick={handlePostComment}>
-                      Kiem icon hinh may bay de gui tin nhan
-                    </button>
+                  <hr />
+                  
+                  <div className="d-flex justify-content-between">
+                    {/* <div className="col-sm-2"> */}
+                      <img
+                        className={Style.commentAvatar}
+                        src={server + user.avatar}
+                        alt="placeholder"
+                        height="50"
+                      />
+                    {/* </div> */}
+                    <div className={`${Style.commentBox}`}>
+                      <textarea
+                        placeholder="Tạm thế css sau"
+                        className={`${Style.textArea}`}
+                        onClick={autoHeight}
+                        style={{ height: "3rem", resize: "none" }}
+                        value={ideaComment}
+                        onChange={(e) => {
+                          setIdeaComment(e.target.value);
+                        }}
+                      />
+                      <button className={Style.commetBtn} onClick={handlePostComment}>
+                        <FontAwesomeIcon icon={faPaperPlane}/>
+                      </button>
+                  </div>
                   </div>
                 </div>
               </div>

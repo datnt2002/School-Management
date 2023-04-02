@@ -29,36 +29,29 @@ function DashBoard({token}) {
             <div className={`${Style.dash_board} container-fluid mt-5`}>
                 <div className="row">
                     <div className="col-3">
-                        <DashCountUser numberOf={numberOf}/>
-                    </div>
-                    <div className="col-3">
-                        <DashCountEvent numberOf={numberOf}/>
-                    </div>
-                    <div className="col-3">
-                        <DashCountCate numberOf={numberOf}/>
-                    </div>
-                    <div className="col-3">
-                        <DashCountIdea numberOf={numberOf}/>
-                    </div>
-                </div>
-            </div>
-            <div className={`${Style.dash_board} container-fluid mt-5`}>
-                <div className="row">
-                    <div className="col-12">
-                        <div className="card">
-                            <DashIdeaPerDepart/>
+                        <div className="mb-3">
+                            <DashCountUser numberOf={numberOf}/>
+                        </div>
+                        <div className="mb-3">
+                            <DashCountEvent numberOf={numberOf}/>
+                        </div>
+                        <div className="mb-3">
+                            <DashCountCate numberOf={numberOf}/>
+                        </div>
+                        <div className="mb-3">
+                            <DashCountIdea numberOf={numberOf}/>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className={`${Style.dash_board} container-fluid mt-5`}>
-                <div className="row">
-                    <div className="col-12">
-                        <div className="card">
+                    <div className="col-9">
+                        <div className="col-6 card">
+                            <DashIdeaPerDepart/>
+                        </div>
+                        <div className="col-6 card">
                             <DashContributes/>
                         </div>
                     </div>
                 </div>
+                    
             </div>
         </>
     );
