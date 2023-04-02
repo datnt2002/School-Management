@@ -1,0 +1,8 @@
+.dropdown-menu {
+    background-color: #f8f9fa;
+    border-color: #f8f9fa;
+    box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px;
+  }
+.dropdown-item {
+    color: #343a40;
+}

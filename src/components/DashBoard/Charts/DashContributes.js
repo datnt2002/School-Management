@@ -36,7 +36,7 @@ function DashContributes() {
         plugins: {
           title: {
             display: true,
-            text: 'My Chart Title'
+            text: 'Contribute '
           }
         }
       },

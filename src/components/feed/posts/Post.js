@@ -2,9 +2,11 @@ import React, { useState, useEffect, useContext } from "react";
 import Profile from "../../profile/Profile";
 import { apiIdea, server } from "../../../api/Api";
 import Style from "../../../pages/NewsFeed/newsFeed.module.css";
+import "./dropDown.css"
 import { useNavigate } from "react-router-dom";
 import LikeCmt from "./LikeCmt";
 import UserContext from "../../../api/UserContext";
+import { Dropdown, DropdownButton } from "react-bootstrap";
 
 function Post({ token, apiUrl, id }) {
   const [dataIdea, setDataIdea] = useState([]);
@@ -34,11 +36,29 @@ function Post({ token, apiUrl, id }) {
     console.log(id);
     navigate("/DetailIdea", { state: { ideaId: id } });
   };
+
+  //Dropdown
+  const [selectedOption, setSelectedOption] = useState('');
+  const options = [
+    { value: 'option1', label: 'Sort by Most Vote' },
+    { value: 'option2', label: 'Sort by Most View' },
+    { value: 'option3', label: 'Newest' },
+  ];
+  function handleOptionChange(selectedOption) {
+    setSelectedOption(selectedOption);
+  }
+
   console.log(dataIdea);
   return (
     <>
       <div className={Style.arrange}>
-        <p>helooo</p>
+        <DropdownButton id="dropdown-basic-button" title={selectedOption || '--Please choose an option--'}>
+          {options.map((option) => (
+            <Dropdown.Item key={option.value} onClick={() => handleOptionChange(option.value)}>
+              {option.label}
+            </Dropdown.Item>
+          ))}
+        </DropdownButton>
       </div>
       {dataIdea.map((dataIdea) => {
         return (
