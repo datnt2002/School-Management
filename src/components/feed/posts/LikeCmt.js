@@ -47,18 +47,28 @@ function LikeCmt({ userId, ideaId, likes, comments }) {
   // }
 
   const [vote, setVote] = useState(null);
+
   const handleVote = (e) => {
     e.preventDefault();
   };
+
+  const handleLike = (e) => {
+    e.preventDefault();
+
+    if (e.currentTarget.classList.contains("active")) {
+      e.currentTarget.classList.remove("active");
+    } else {
+      e.currentTarget.classList.add("active");
+    }
+  };
+
   return (
     <div style={{ width: "100%", marginTop: "2rem" }}>
-      
-
       <hr style={{ width: "100%" }} />
 
       <div className={`${Style.like_cmt} my-1 d-flex`}>
         {/* <div className=""> */}
-        <button className={Style.button_name} onClick={handleVote}>
+        <button className={Style.button_name} onClick={handleLike}>
           <FontAwesomeIcon
             icon={faHeart}
             className="fasHeart"
