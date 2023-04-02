@@ -9,7 +9,6 @@ import EditEvent from "./EditEvent";
 import "./event.css";
 import Style from "../Account/myExp.module.css";
 import StylePaginate from "../../components/Pagination/pagination.module.css";
-import Loading from "../../components/optional/Loading";
 
 function Event({ token }) {
   // const [loading, setLoading] = useState(true);
@@ -34,14 +33,14 @@ function Event({ token }) {
   }
 
   const [selectEventId, setSelectEventId] = useState(-1);
-  console.log(selectEventId);
+
   function handleOpenEdit() {
     setShowModalEdit({
       display: "",
     });
     setModal(true);
   }
-  
+
   function handleOpenCreate() {
     setShowModalCreate(true);
     setModal(true);
@@ -127,21 +126,18 @@ function Event({ token }) {
           </div>
         </div>
       </div>
-      {showModalCreate && 
-        <CreateNewEvent
-          handleClose={handleClose}
-          token={token}
-        />
-      }
-      
-      {showModalEdit &&
+      {showModalCreate && (
+        <CreateNewEvent handleClose={handleClose} token={token} />
+      )}
+
+      {showModalEdit && (
         <EditEvent
           style={showModalEdit}
           handleClose={handleClose}
           token={token}
           selectEventId={selectEventId}
         />
-      }
+      )}
     </>
   );
 }

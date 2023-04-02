@@ -6,7 +6,7 @@ import "rc-tooltip/assets/bootstrap.css";
 import "./table.css";
 import Style from "./modu.module.css";
 import { faPenToSquare } from "@fortawesome/free-regular-svg-icons";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Table({
   data,
   content,
@@ -46,11 +46,13 @@ function Table({
 
     fetch(apiLink, { headers: { Authorization: `Bearer ${token}` } })
       .then((res) => res.json())
-      .then((data) => onSetData(data));
+      .then((data) => {
+        onSetData(data);
+      });
   };
 
   const getEventId = (e) => {
-    const eventId = e.target.getAttribute("data-id");
+    const eventId = e.currentTarget.getAttribute("data-id");
     setSelectEventId(eventId); // Set giá trị event id vào state bên ngoài component Table
     handleOpen();
   };

@@ -4,9 +4,8 @@ import { apiAccount } from "../../api/Api";
 import ComfirmPassword from "../../components/authentication/ComfirmPassword";
 import CreateAccount from "./CreateAccount";
 import Style from "./account.module.css";
-import StyleCard from "../Account/myExp.module.css"
-import StylePaginate from "../../components/Pagination/pagination.module.css"
-import Loading from "../../components/optional/Loading";
+import StyleCard from "../Account/myExp.module.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css";
 import ReactPaginate from "react-paginate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -44,7 +43,7 @@ function Account({ token }) {
       .catch(() => {
         navigate("*");
       });
-  }, [modal, token]);
+  }, [modal, token, navigate]);
 
   const handleOpenConfirm = (e) => {
     e.preventDefault();
@@ -65,7 +64,7 @@ function Account({ token }) {
     setCurrentItems(data.slice(itemOffSet, endOffSet));
     setPageCount(Math.ceil(data.length / itemPerPage));
   }, [itemOffSet, itemPerPage, data]);
-  function handlePageClick(e){
+  function handlePageClick(e) {
     const newOffSet = (e.selected * itemPerPage) % data.length;
     setItemOffSet(newOffSet);
   }

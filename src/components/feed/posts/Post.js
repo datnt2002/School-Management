@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import Profile from "../../profile/Profile";
-import { apiIdea, server } from "../../../api/Api";
+import { server } from "../../../api/Api";
 import Style from "../../../pages/NewsFeed/newsFeed.module.css";
 import "./dropDown.css"
 import { useNavigate } from "react-router-dom";
@@ -62,7 +61,11 @@ function Post({ token, apiUrl, id }) {
       </div>
       {dataIdea.map((dataIdea) => {
         return (
-          <div className={Style.news_post} key={dataIdea.id}>
+          <div
+            className={Style.news_post}
+            key={dataIdea.id}
+            onClick={() => handleDetail(dataIdea.id)}
+          >
             <div className="card-body pb-1">
               <div className={Style.card}>
                 <div className={Style.media}>
@@ -92,10 +95,14 @@ function Post({ token, apiUrl, id }) {
                   style={{ overflowWrap: "break-word" }}
                 >
                   <p className="my-1">
-                    {`${dataIdea.content.substring(0, 250)}`}
-                    <button onClick={() => handleDetail(dataIdea.id)}>
-                      Read more
-                    </button>
+                    {dataIdea.content.length > 50 ? (
+                      <>
+                        {dataIdea.content.substring(0, 50)}
+                        <button>Read more</button>
+                      </>
+                    ) : (
+                      dataIdea.content
+                    )}
                   </p>
                 </div>
                 <div className="file-group"></div>
@@ -105,7 +112,7 @@ function Post({ token, apiUrl, id }) {
                   <span>{dataIdea.vote} Likes</span>
                   <span>{dataIdea.comments} Comments</span>
                 </div>
-                <LikeCmt userId={user.userId} ideaId={dataIdea.id} />
+                {/* <LikeCmt userId={user.userId} ideaId={dataIdea.id} /> */}
               </div>
             </div>
           </div>

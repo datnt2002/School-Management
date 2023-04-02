@@ -56,12 +56,11 @@ function CreateNewEvent({ token, style, handleClose }) {
       firstClosure.getTime() + 7 * 24 * 60 * 60 * 1000 + 7 * 60 * 60 * 1000
     );
     let formattedDate = sevenDay.toISOString().slice(0, 16);
-    console.log(formattedDate);
     setLast_Closure(formattedDate);
   }
 
   return (
-    <>
+
       <div className="container-fluid create" style={style}>
         <div className="modalOverlay" onClick={handleClose}></div>
         <div className="modalEvent">
@@ -170,7 +169,7 @@ function CreateNewEvent({ token, style, handleClose }) {
           </div>
         </div>
       </div>
-    </>
+
   );
 }
 export default CreateNewEvent;
