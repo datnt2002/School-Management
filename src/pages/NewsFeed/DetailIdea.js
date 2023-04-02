@@ -5,7 +5,7 @@ import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 
 import Style from "./newsFeed.module.css";
-import { apiComment, apiIdea, apiIdeaByDetail, server } from "../../api/Api";
+import { apiComment, apiIdeaByDetail, server } from "../../api/Api";
 import { useContext } from "react";
 import UserContext from "../../api/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -64,7 +64,7 @@ function DetailIdea({ token }) {
       body: JSON.stringify(newComment),
     })
       .then((res) => {
-        res.text();
+        res.json();
       })
       .then((data) => {
         console.log(data);
@@ -114,25 +114,29 @@ function DetailIdea({ token }) {
 
                   <div className={`${Style.file} mt-5`}>
                     <button class={Style.cssbuttons_io_button}>
-                      <FontAwesomeIcon icon={faFileArrowDown}/>
+                      <FontAwesomeIcon icon={faFileArrowDown} />
                       <span>{detail.ideaFile}</span>
                     </button>
                   </div>
 
-                  <LikeCmt />
+                  <LikeCmt
+                    token={token}
+                    ideaId={detail.ideaId}
+                    userId={userId}
+                  />
 
                   <hr />
                   <Comment token={token} />
                   <hr />
-                  
+
                   <div className="d-flex justify-content-between">
                     {/* <div className="col-sm-2"> */}
-                      <img
-                        className={Style.commentAvatar}
-                        src={server + user.avatar}
-                        alt="placeholder"
-                        height="50"
-                      />
+                    <img
+                      className={Style.commentAvatar}
+                      src={server + user.avatar}
+                      alt="placeholder"
+                      height="50"
+                    />
                     {/* </div> */}
                     <div className={`${Style.commentBox}`}>
                       <textarea
@@ -145,10 +149,13 @@ function DetailIdea({ token }) {
                           setIdeaComment(e.target.value);
                         }}
                       />
-                      <button className={Style.commetBtn} onClick={handlePostComment}>
-                        <FontAwesomeIcon icon={faPaperPlane}/>
+                      <button
+                        className={Style.commetBtn}
+                        onClick={handlePostComment}
+                      >
+                        <FontAwesomeIcon icon={faPaperPlane} />
                       </button>
-                  </div>
+                    </div>
                   </div>
                 </div>
               </div>
