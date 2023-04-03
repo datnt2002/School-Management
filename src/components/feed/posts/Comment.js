@@ -1,23 +1,8 @@
-import React, { useState, useEffect } from "react";
-import { apiComment, server } from "../../../api/Api";
-import { useLocation } from "react-router-dom";
+import React from "react";
 import Style from "./comment.module.css";
+import { server } from "../../../api/Api";
 
 function Comment({ dataComment }) {
-  // const location = useLocation();
-  // const ideaId = location.state.ideaId;
-
-  // const [dataComment, setDataComment] = useState([]);
-
-  // useEffect(() => {
-  //   fetch(apiComment + "/" + ideaId, {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setDataComment(data);
-  //     });
-  // }, [ideaId, token]);
   return (
     <>
       {dataComment.map((dataComment) => {
@@ -33,7 +18,9 @@ function Comment({ dataComment }) {
               className={Style.commentAvatar}
             />
             <div className={Style.comment}>
-              <small class={Style.comment_author}>{dataComment.userName}</small>
+              <small className={Style.comment_author}>
+                {dataComment.userName}
+              </small>
               <div className={Style.comment_user}>{dataComment.content}</div>
             </div>
           </div>

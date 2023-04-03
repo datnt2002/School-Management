@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
@@ -23,6 +23,8 @@ function CreateIdea({ token, readOnly, dataUser }) {
   const eventId = location.state.eventId;
 
   const [errMes, setErrMess] = useState();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(apiCategory, {
@@ -77,7 +79,9 @@ function CreateIdea({ token, readOnly, dataUser }) {
         }
         return res.json();
       })
-
+      .then(() => {
+        navigate("/profile");
+      })
       .catch((err) =>
         err.json().then((err) => {
           let errMes = Object.values(err.errors);
@@ -214,7 +218,14 @@ function CreateIdea({ token, readOnly, dataUser }) {
                 />
               </div>
             </div>
-            <div className="form" style={{ backgroundColor:"#fff", boxShadow:"0 10px 60px rgb(218, 229, 255)", borderRadius:"4px" }}>
+            <div
+              className="form"
+              style={{
+                backgroundColor: "#fff",
+                boxShadow: "0 10px 60px rgb(218, 229, 255)",
+                borderRadius: "4px",
+              }}
+            >
               <span className="form-title">Upload your file</span>
               <p className="form-paragraph">File should be an image</p>
               <label htmlFor="file-input" className="drop-container">

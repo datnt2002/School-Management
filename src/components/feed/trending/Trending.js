@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Style from "./trending.module.css";
 import { useEffect } from "react";
-import { apiTrending } from "../../../api/Api";
+import { apiIdeaSort, apiTrending, server } from "../../../api/Api";
 import { useNavigate } from "react-router-dom";
 
 function Trending({ token }) {
@@ -9,11 +9,14 @@ function Trending({ token }) {
 
   const navigate = useNavigate();
 
+  //list idea most view
   useEffect(() => {
-    fetch(apiTrending, {
+    fetch(apiIdeaSort + "?sortType=mvi", {
       headers: { Authorization: `Bearer ${token}` },
     })
-      .then((res) => res.json())
+      .then((res) => {
+        return res.json();
+      })
       .then((data) => {
         setListPopular(data.slice(0, 3));
       });
@@ -33,18 +36,15 @@ function Trending({ token }) {
           {listPopular.map((idea) => {
             return (
               <div className={Style.description} key={idea.id}>
-                <img src="" alt="join avatar" />
-                <span className={Style.text_muted}>
-                  {" "}
-                  doi join username{idea.userName}
-                </span>
-                <button
+                <img src={server + idea.avatar} alt="" height="50" />
+                <span className={Style.text_muted}>{idea.userName}</span>
+                <div
                   className="mt-1 font-14"
                   onClick={() => viewIdeaTrending(idea.id)}
                 >
                   <strong>{idea.name} </strong>
-                  <span className={Style.text_muted}>Vote: {idea.vote}</span>
-                </button>
+                  <span className={Style.text_muted}>View: {idea.viewed}</span>
+                </div>
               </div>
             );
           })}
