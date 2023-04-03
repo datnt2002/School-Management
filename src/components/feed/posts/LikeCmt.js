@@ -3,6 +3,7 @@ import "./like.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartCrack } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faComment } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 
 function LikeCmt({ userId, ideaId, likes, comments }) {

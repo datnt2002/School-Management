@@ -108,10 +108,11 @@ function Header({ dataUser }) {
               >
                 <form className="p-3">
                   <input
-                    type="text"
+                    type="search"
                     className="form-control"
                     placeholder="Search ..."
                     aria-label="Recipient's username"
+                    name="SearchString"
                   />
                 </form>
               </div>
@@ -180,7 +181,7 @@ function Header({ dataUser }) {
             <form>
               <div className="input-group">
                 <input
-                  type="text"
+                  type="search"
                   className="form-control"
                   placeholder="Search..."
                   id="top-search"

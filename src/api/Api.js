@@ -19,6 +19,7 @@ export const apiEventInDate = `${server}api/event/EnventInDate`;
 
 //apiIdea
 export const apiIdea = `${server}api/idea`;
+export const apiIdeaSort = `${server}api/idea/sort`;
 export const apiIdeaByEvent = `${server}api/idea/ByEvent`;
 export const apiIdeaByDetail = `${server}api/idea/byDetail`;
 export const apiIdeaByUser = `${server}api/idea/ByUser`;

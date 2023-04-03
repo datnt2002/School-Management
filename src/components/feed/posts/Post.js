@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import LikeCmt from "./LikeCmt";
 import UserContext from "../../../api/UserContext";
 import { Dropdown, DropdownButton } from "react-bootstrap";
+import { apiIdeaSort } from "../../../api/Api";
 
 function Post({ token, apiUrl, id }) {
   const [dataIdea, setDataIdea] = useState([]);
@@ -37,27 +38,51 @@ function Post({ token, apiUrl, id }) {
   };
 
   //Dropdown
-  const [selectedOption, setSelectedOption] = useState('');
-  const options = [
-    { value: 'option1', label: 'Sort by Most Vote' },
-    { value: 'option2', label: 'Sort by Most View' },
-    { value: 'option3', label: 'Newest' },
-  ];
-  function handleOptionChange(selectedOption) {
-    setSelectedOption(selectedOption);
+  const [selectedOption, setSelectedOption] = useState('--Please choose an option--');
+  function handleSelect(eventKey) {
+    let sortType = "";
+    switch (eventKey) {
+      case "Most Likes":
+        sortType = "mpi";
+        break;
+      case "Most Views":
+        sortType = "mvi";
+        break;
+      case "Newest":
+        sortType = "lid";
+        break;
+      default:
+        break;
+    }
+  
+    fetch(apiUrl + "/sort?sortType=" + sortType, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setDataIdea(data);
+      })
+      .catch(() => {
+        console.log("Error retrieving sorted data from the API.");
+      });
+    setSelectedOption(eventKey);
   }
 
   console.log(dataIdea);
   return (
     <>
       <div className={Style.arrange}>
-        <DropdownButton id="dropdown-basic-button" title={selectedOption || '--Please choose an option--'}>
-          {options.map((option) => (
-            <Dropdown.Item key={option.value} onClick={() => handleOptionChange(option.value)}>
-              {option.label}
-            </Dropdown.Item>
-          ))}
-        </DropdownButton>
+        <Dropdown onSelect={handleSelect}>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            {selectedOption}
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
+            <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
+            <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
       </div>
       {dataIdea.map((dataIdea) => {
         return (
