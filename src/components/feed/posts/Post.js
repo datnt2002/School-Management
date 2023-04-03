@@ -79,17 +79,17 @@ function Post({ token, apiUrl, id, dataIdea }) {
                     </div>
                   </div>
                   <div>
-                    <span>{dataIdea.ideaViewed}</span>
+                    <span>{dataIdea.viewed}</span>
                     <span> views</span>
                   </div>
                 </div>
 
                 <hr />
                 <div className="font-16 text-dark my-3">
-                  <h5 className="my-1">Category: {dataIdea.categoryName}</h5>
+                  <small className="my-1"><strong>Category: {dataIdea.categoryName}</strong></small>
                 </div>
                 <div className="font-16 text-dark my-3">
-                  <h2 className="my-1">{dataIdea.ideaName}</h2>
+                  <h2 className="my-1">{dataIdea.name}</h2>
                 </div>
                 <div
                   className="font-16 text-dark my-3"
@@ -104,13 +104,14 @@ function Post({ token, apiUrl, id, dataIdea }) {
                     ) : (
                       dataIdea.ideaContent
                     )} */}
+                    content
                   </p>
                 </div>
                 <div className="file-group"></div>
 
                 <hr />
                 <div className="d-flex justify-content-between">
-                  <span>{dataIdea.ideaVote} Vote</span>
+                  <span>{dataIdea.vote} Votes</span>
                 </div>
               </div>
             </div>

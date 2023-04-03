@@ -232,6 +232,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                       type="password"
                       placeholder="Enter your current password to edit your profile"
                       value={currentPassword}
+                      autoComplete="off"
                       onChange={(e) => {
                         setCurrentPassword(e.target.value);
                       }}

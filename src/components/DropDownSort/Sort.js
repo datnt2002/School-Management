@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Style from "../../pages/NewsFeed/newsFeed.module.css";
 import { Dropdown } from "react-bootstrap";
-import { apiIdea } from "../../api/Api";
+import { apiIdeaSort } from "../../api/Api";
 
 function Sort({ token, setDataIdea }) {
   const [selectedOption, setSelectedOption] = useState(
@@ -27,7 +27,7 @@ function Sort({ token, setDataIdea }) {
   }
 
   const sortIdea = (sortType) => {
-    fetch(apiIdea + "?sortType=" + sortType, {
+    fetch(apiIdeaSort + "/?sortType=" + sortType, {
       headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
