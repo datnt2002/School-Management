@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useContext } from "react";
 import { server } from "../../../api/Api";
 import Style from "../../../pages/NewsFeed/newsFeed.module.css";
-import "./dropDown.css"
+import "./dropDown.css";
 import { useNavigate } from "react-router-dom";
 import LikeCmt from "./LikeCmt";
 import UserContext from "../../../api/UserContext";
@@ -38,7 +38,9 @@ function Post({ token, apiUrl, id }) {
   };
 
   //Dropdown
-  const [selectedOption, setSelectedOption] = useState('--Please choose an option--');
+  const [selectedOption, setSelectedOption] = useState(
+    "--Please choose an option--"
+  );
   function handleSelect(eventKey) {
     let sortType = "";
     switch (eventKey) {
@@ -54,7 +56,7 @@ function Post({ token, apiUrl, id }) {
       default:
         break;
     }
-  
+
     fetch(apiUrl + "/sort?sortType=" + sortType, {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -67,8 +69,6 @@ function Post({ token, apiUrl, id }) {
       });
     setSelectedOption(eventKey);
   }
-
-  console.log(dataIdea);
   return (
     <>
       <div className={Style.arrange}>

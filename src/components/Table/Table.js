@@ -30,7 +30,7 @@ function Table({
   const handleDelete = async (e) => {
     e.preventDefault();
 
-    const itemId = e.target.getAttribute("data-id");
+    const itemId = e.currentTarget.getAttribute("data-id");
 
     await fetch(apiLink + `/${itemId}`, {
       method: "DELETE",

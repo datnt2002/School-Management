@@ -17,11 +17,11 @@ function NewsFeed({ token }) {
         <div className="row" style={{ marginTop: "4rem" }}>
           <div className={`col-lg-3 ${Style.leftContent}`}>
             {/* <Profile/> */}
-            <Trending />
+            <Trending token={token} />
           </div>
           <div className={`col-lg-6 ${Style.centerContent}`}>
             {/* <Suspense fallback={<div>Loading...</div>}> */}
-              <Post token={token} apiUrl={apiIdea} />
+            <Post token={token} apiUrl={apiIdea} />
             {/* </Suspense> */}
           </div>
           <div className={`col-lg-3 ${Style.rightContent}`}>
