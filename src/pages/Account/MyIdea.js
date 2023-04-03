@@ -1,25 +1,26 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { apiIdeaByUser } from "../../api/Api";
 import UserContext from "../../api/UserContext";
 import Post from "../../components/feed/posts/Post";
 
 function MyIdea({ token }) {
   // const [activeCmt, setActiveCmt] = useState("hidden");
-  // const [dataIdea, setDataIdea] = useState([]);
+  const [dataIdea, setDataIdea] = useState([]);
   const user = useContext(UserContext);
-  // useEffect(() => {
-  //   fetch(apiIdeaByUser, {
-  //     headers: { Authorization: `Bearer ${token}` },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => {
-  //       setDataIdea(data);
-  //     })
-  //     .catch(() => {
-  //       console.log("k fetch dc idea");
-  //     });
-  // }, []);
-  console.log(user);
+  const userId = user.userId;
+  console.log(userId);
+  useEffect(() => {
+    fetch(apiIdeaByUser + "/" + userId, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setDataIdea(data);
+      })
+      .catch(() => {
+        console.log("k fetch dc idea");
+      });
+  }, [token, userId]);
 
   return (
     <div className="col-lg-7">
@@ -67,7 +68,7 @@ function MyIdea({ token }) {
           </div>
         );
       })} */}
-      <Post token={token} apiUrl={apiIdeaByUser} id={user.userId} />
+      <Post dataIdea={dataIdea} />
     </div>
   );
 }

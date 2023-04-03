@@ -6,25 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 import UserContext from "../../../api/UserContext";
 
-function Post({ token, apiUrl, id }) {
-  const [dataIdea, setDataIdea] = useState([]);
+function Post({ token, apiUrl, id, dataIdea }) {
+  // const [dataIdea, setDataIdea] = useState([]);
 
   // const user = useContext(UserContext);
 
   const navigate = useNavigate();
-
-  useEffect(() => {
-    fetch(id ? apiUrl + "/" + id : apiUrl, {
-      headers: { Authorization: `Bearer ${token}` },
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        setDataIdea(data);
-      })
-      .catch(() => {
-        console.log("k get dc idea");
-      });
-  }, [apiUrl, token, id]);
 
   const handleDetail = (id) => {
     console.log(id);
@@ -109,21 +96,21 @@ function Post({ token, apiUrl, id }) {
                   style={{ overflowWrap: "break-word" }}
                 >
                   <p className="my-1">
-                    {dataIdea.ideaContent.length > 50 ? (
+                    {/* {dataIdea.ideaContent.length > 50 ? (
                       <>
                         {dataIdea.ideaContent.substring(0, 50)}
                         <button>Read more</button>
                       </>
                     ) : (
                       dataIdea.ideaContent
-                    )}
+                    )} */}
                   </p>
                 </div>
                 <div className="file-group"></div>
 
                 <hr />
                 <div className="d-flex justify-content-between">
-                  <span>{dataIdea.ideaVote} Likes</span>
+                  <span>{dataIdea.ideaVote} Vote</span>
                 </div>
               </div>
             </div>
