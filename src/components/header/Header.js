@@ -23,8 +23,6 @@ function Header({ dataUser }) {
     const btnDrop = document.getElementById("menuLine");
     const btnHideDrop = document.getElementById("hideMenuLine");
     const subNavBar = document.querySelector(".subNavBar");
-    const btnSearc = document.querySelector(".btnSearc");
-    const icon = document.querySelector(".btnSearc svg");
     function Show() {
       if (showDropDown === "") {
         setShowDropDown("show");
@@ -34,16 +32,6 @@ function Header({ dataUser }) {
         setShowDropDown("");
         h5.setAttribute("style", "color:#98a6ad");
         p.setAttribute("style", "color:#98a6ad");
-      }
-    }
-
-    function showSearch() {
-      if (showDropDownSearch === "") {
-        setShowDropDownSearch("show");
-        icon.setAttribute("style", "color:white");
-      } else {
-        setShowDropDownSearch("");
-        icon.removeAttribute("style");
       }
     }
     function unShow() {
@@ -63,7 +51,6 @@ function Header({ dataUser }) {
       subNavBar.setAttribute("style", "display:none")
     }
 
-    btnSearc.addEventListener("click", showSearch);
     btn.addEventListener("click", Show);
     item.addEventListener("mouseup", unShow);
     for (var i = 0; i < subNavItem.length; i++) {
@@ -93,30 +80,6 @@ function Header({ dataUser }) {
             </span>
           </Link>
           <ul className="list-unstyled topbar-right-menu float-right mb-0">
-            <li className="dropdown notification-list d-lg-none btnSearc">
-              <button
-                className="nav-link arrow-none"
-                data-toggle="dropdown"
-                aria-haspopup="false"
-                aria-expanded="false"
-                style={{ backgroundColor: "#313a46", border: "none" }}
-              >
-                <Search className="search-icon" />
-              </button>
-              <div
-                className={`dropdown-menu dropdown-menu-animated dropdown-lg p-0 dropSearch ${showDropDownSearch}`}
-              >
-                <form className="p-3">
-                  <input
-                    type="search"
-                    className="form-control"
-                    placeholder="Search ..."
-                    aria-label="Recipient's username"
-                    name="SearchString"
-                  />
-                </form>
-              </div>
-            </li>
             <li className="dropdown notification-list">
               <button
                 className="nav-link nav-user arrow-none mr-0"
@@ -177,27 +140,6 @@ function Header({ dataUser }) {
               <span></span>
             </div>
           </button>
-          <div className="app-search dropdown">
-            <form>
-              <div className="input-group">
-                <input
-                  type="search"
-                  className="form-control"
-                  placeholder="Search..."
-                  id="top-search"
-                  autoFocus={false}
-                />
-                <span>
-                  <Search className="search-icon" />
-                </span>
-                <div className="input-group-append">
-                  <button className="btn-primary btnSearch" type="submit">
-                    Search
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
         </div>
       </div>
     </>

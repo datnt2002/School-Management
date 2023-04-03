@@ -7,6 +7,7 @@ import LikeCmt from "./LikeCmt";
 import UserContext from "../../../api/UserContext";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { apiIdeaSort } from "../../../api/Api";
+import { Search } from "bootstrap-icons-react";
 
 function Post({ token, apiUrl, id }) {
   const [dataIdea, setDataIdea] = useState([]);
@@ -83,6 +84,27 @@ function Post({ token, apiUrl, id }) {
             <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+      </div>
+      <div className="search">
+        <form>
+          <div className="input-group">
+            <input
+              type="search"
+              className="form-control"
+              placeholder="Search..."
+              id="top-search"
+              autoFocus={false}
+            />
+            <span>
+              <Search className="search-icon" />
+            </span>
+            <div className="input-group-append">
+              <button className="btn-primary btnSearch" type="submit">
+                Search
+              </button>
+            </div>
+          </div>
+        </form>
       </div>
       {dataIdea.map((dataIdea) => {
         return (
