@@ -50,12 +50,12 @@ function DetailIdea({ token }) {
       });
   }, [ideaId, token]);
 
-  const handlePostComment = (e) => {
+  const handlePostComment = async (e) => {
     e.preventDefault();
 
-    const newComment = { content: ideaComment, ideaId, userId };
-    console.log(newComment);
-    fetch(apiComment, {
+    const newComment = await { content: ideaComment, ideaId, userId };
+
+    await fetch(apiComment, {
       method: "POST",
       headers: {
         Authorization: `Bearer ${token}`,
@@ -64,13 +64,33 @@ function DetailIdea({ token }) {
       body: JSON.stringify(newComment),
     })
       .then((res) => {
-        res.json();
+        return res.text();
       })
       .then((data) => {
-        console.log(data);
+        setIdeaComment("");
       })
       .catch(() => console.log("loi r"));
+
+    fetch(apiComment + "/" + ideaId, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setDataComment(data);
+      });
   };
+
+  const [dataComment, setDataComment] = useState([]);
+
+  useEffect(() => {
+    fetch(apiComment + "/" + ideaId, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setDataComment(data);
+      });
+  }, [ideaId, token]);
 
   return (
     <div className="container">
@@ -126,7 +146,7 @@ function DetailIdea({ token }) {
                   />
 
                   <hr />
-                  <Comment token={token} />
+                  <Comment token={token} dataComment={dataComment} />
                   <hr />
 
                   <div className="d-flex justify-content-between">

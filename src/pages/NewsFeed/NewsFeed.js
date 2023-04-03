@@ -48,12 +48,12 @@ function NewsFeed({ token }) {
         <div className="row" style={{ marginTop: "4rem" }}>
           <div className={`col-lg-3 ${Style.leftContent}`}>
             {/* <Profile/> */}
-            <Trending />
+            <Trending token={token} />
           </div>
           <div className={`col-lg-6 ${Style.centerContent}`}>
             <Sort token={token} handleSelect={handleSelect} />
             {/* <Suspense fallback={<div>Loading...</div>}> */}
-              <Post token={token} apiUrl={apiIdea} selectedOption={selectedOption}/>
+            <Post token={token} apiUrl={apiIdea} />
             {/* </Suspense> */}
           </div>
           <div className={`col-lg-3 ${Style.rightContent}`}>

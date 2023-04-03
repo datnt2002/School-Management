@@ -7,8 +7,10 @@ import { server } from "../../api/Api";
 import { set } from "animejs";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 
-
 function Header({ dataUser }) {
+  //search state
+  const [search, setSearch] = useState("");
+
   const [showDropDown, setShowDropDown] = useState("");
   const [showDropDownSearch, setShowDropDownSearch] = useState("");
   const [showBtnSub, setShowBtnSuv] = useState(false);
@@ -41,14 +43,14 @@ function Header({ dataUser }) {
     }
 
     function showSubNav() {
-      setShowBtnSuv(true)
-      setHideBtnSuv(false)
-      subNavBar.setAttribute("style", "display:block")
+      setShowBtnSuv(true);
+      setHideBtnSuv(false);
+      subNavBar.setAttribute("style", "display:block");
     }
     function hideSubNav() {
-      setShowBtnSuv(false)
-      setHideBtnSuv(true)
-      subNavBar.setAttribute("style", "display:none")
+      setShowBtnSuv(false);
+      setHideBtnSuv(true);
+      subNavBar.setAttribute("style", "display:none");
     }
 
     btn.addEventListener("click", Show);
@@ -65,7 +67,7 @@ function Header({ dataUser }) {
   const handleLogout = () => {
     localStorage.removeItem("token");
   };
-  
+
   return (
     <>
       <div className="navbar-custom topnav-navbar topnav-navbar-dark" id="Top">
@@ -127,7 +129,7 @@ function Header({ dataUser }) {
               </div>
             </li>
           </ul>
-          
+
           <button className="navbar-toggle">
             <div className="lines" id="menuLine" hidden={showBtnSub}>
               <span></span>
