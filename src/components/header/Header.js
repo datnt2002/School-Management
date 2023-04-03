@@ -8,11 +8,8 @@ import { set } from "animejs";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 
 function Header({ dataUser }) {
-  //search state
-  const [search, setSearch] = useState("");
 
-  const [showDropDown, setShowDropDown] = useState("");
-  const [showDropDownSearch, setShowDropDownSearch] = useState("");
+  const [showDropDown, setShowDropDown] = useState(""); 
   const [showBtnSub, setShowBtnSuv] = useState(false);
   const [hideBtnSub, setHideBtnSuv] = useState(true);
 

@@ -1,13 +1,13 @@
 import React, { useState, useEffect, useContext } from "react";
 import { server } from "../../../api/Api";
 import Style from "../../../pages/NewsFeed/newsFeed.module.css";
-import "./dropDown.css";
+import "./dropDown.css"
 import { useNavigate } from "react-router-dom";
 import LikeCmt from "./LikeCmt";
 import UserContext from "../../../api/UserContext";
 import { Dropdown, DropdownButton } from "react-bootstrap";
 import { apiIdeaSort } from "../../../api/Api";
-import { Search } from "bootstrap-icons-react";
+import SearchBar from "../../Search/SearchBar";
 
 function Post({ token, apiUrl, id }) {
   const [dataIdea, setDataIdea] = useState([]);
@@ -39,9 +39,7 @@ function Post({ token, apiUrl, id }) {
   };
 
   //Dropdown
-  const [selectedOption, setSelectedOption] = useState(
-    "--Please choose an option--"
-  );
+  const [selectedOption, setSelectedOption] = useState('--Please choose an option--');
   function handleSelect(eventKey) {
     let sortType = "";
     switch (eventKey) {
@@ -57,7 +55,7 @@ function Post({ token, apiUrl, id }) {
       default:
         break;
     }
-
+  
     fetch(apiUrl + "/sort?sortType=" + sortType, {
       headers: { Authorization: `Bearer ${token}` },
     })
@@ -70,6 +68,8 @@ function Post({ token, apiUrl, id }) {
       });
     setSelectedOption(eventKey);
   }
+
+  console.log(dataIdea);
   return (
     <>
       <div className={Style.arrange}>
@@ -84,27 +84,7 @@ function Post({ token, apiUrl, id }) {
             <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-      </div>
-      <div className="search">
-        <form>
-          <div className="input-group">
-            <input
-              type="search"
-              className="form-control"
-              placeholder="Search..."
-              id="top-search"
-              autoFocus={false}
-            />
-            <span>
-              <Search className="search-icon" />
-            </span>
-            <div className="input-group-append">
-              <button className="btn-primary btnSearch" type="submit">
-                Search
-              </button>
-            </div>
-          </div>
-        </form>
+        <SearchBar/>
       </div>
       {dataIdea.map((dataIdea) => {
         return (
