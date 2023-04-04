@@ -99,11 +99,7 @@ function DetailIdea({ token }) {
       {detailIdea &&
         detailIdea.map((detail) => {
           return (
-            <div
-              className="row"
-              style={{ marginTop: "4rem" }}
-              key={detail.ideaId}
-            >
+            <div className="row" style={{ marginTop: "4rem" }} key={detail.id}>
               <div className={`col-lg-9 ${Style.centerContent}`}>
                 <div className="card">
                   <div className={Style.media}>
@@ -120,7 +116,7 @@ function DetailIdea({ token }) {
                       </div>
                     </div>
                     <div>
-                      <span>{detail.ideaViewed} </span>
+                      <span>{detail.viewed} </span>
                       <span>views</span>
                     </div>
                   </div>
@@ -132,12 +128,10 @@ function DetailIdea({ token }) {
                     className="font-16 text-dark my-3"
                     style={{ overflowWrap: "break-word" }}
                   >
-                    <h2 className="my-1">{detail.ideaName}</h2>
+                    <h2 className="my-1">{detail.name}</h2>
                   </div>
                   <div className="font-16 text-dark">
-                    <p className={`${Style.content} my-1`}>
-                      {detail.ideaContent}
-                    </p>
+                    <p className={`${Style.content} my-1`}>{detail.content}</p>
                   </div>
                   <div className={`${Style.file} mt-5`}>
                     <button className={Style.cssbuttons_io_button}>
@@ -145,11 +139,7 @@ function DetailIdea({ token }) {
                       <span>{detail.ideaFile}</span>
                     </button>
                   </div>
-                  <LikeCmt
-                    token={token}
-                    ideaId={detail.ideaId}
-                    userId={userId}
-                  />
+                  <LikeCmt token={token} ideaId={detail.id} userId={userId} />
                   <hr />
                   <Comment token={token} dataComment={dataComment} />
                   <hr />
