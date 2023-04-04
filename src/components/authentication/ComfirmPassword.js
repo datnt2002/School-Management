@@ -39,7 +39,7 @@ function ComfirmPassword({ handleClose, userName, token }) {
 
   return (
     <div className={`${Style.comfirmPassword}`}>
-      <div className={Style.modalOverlay} onClick={handleClose}></div>
+      <div className="modalOverlay" onClick={handleClose}></div>
       <div className={Style.modalComfirm}>
         <div className={Style.comfirmForm}>
           <form className={Style.comfirmForm_Input}>

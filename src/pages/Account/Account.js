@@ -26,6 +26,7 @@ function Account({ token }) {
     setShowModalCreate(true);
     setModal(true);
   }
+  
   function handleClose() {
     setShowModalCreate(false);
     setShowModalComfirm(false);

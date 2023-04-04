@@ -115,7 +115,13 @@ function CreateIdea({ token, readOnly, dataUser }) {
         <div className="row">
           <div className="col-lg-7">
             <div className="card mb-4">
-              <h1>Your Idea</h1>
+              <div className="d-flex justify-content-between">
+                <h1>Your Idea</h1>
+                <div className="d-flex align-items-center">
+                  <span><input type="checkbox"/>  <strong>Anonymous</strong></span>
+                </div>
+              </div>
+              
               <div className="mb-4 mt-4">
                 <Input
                   id="title"
