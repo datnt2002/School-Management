@@ -92,8 +92,6 @@ function DetailIdea({ token }) {
       });
   }, [ideaId, token]);
 
-  console.log(detailIdea);
-
   return (
     <div className="container">
       {detailIdea &&

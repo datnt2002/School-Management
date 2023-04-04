@@ -11,7 +11,7 @@ function LikeCmt({ userId, ideaId, token }) {
   //flag to add class css active song song with put
   const [flag, setFlag] = useState(0);
   const [interactId, setInteractId] = useState();
-
+  
   useEffect(() => {
     //post to get data of interaction
     const getInteract = { userId, ideaId };
@@ -28,17 +28,15 @@ function LikeCmt({ userId, ideaId, token }) {
         return res.json();
       })
       .then((data) => {
-        console.log(data);
-        setInteractId(data[0].interacId);
-
-        if (data[0].voted === true) {
-          setVote(data[0].vote);
+        setInteractId(data.interacId);
+        if (data.voted === true) {
+          setVote(data.vote);
         } else {
-          setVote(undefined);
+          setVote(undefined)
           setFlag(0);
         }
       })
-      .catch(() => console.log("loi r"));
+      .catch((err) => console.log(err));
   }, [userId, ideaId, token]);
 
   useEffect(() => {
@@ -86,7 +84,7 @@ function LikeCmt({ userId, ideaId, token }) {
       .then((data) => {
         console.log(data);
       })
-      .catch(() => console.log("loi r"));
+      .catch(() => console.log("loi r2"));
   };
   const handleDislike = (valueFlag) => {
     if (flag !== -1) {
@@ -108,7 +106,7 @@ function LikeCmt({ userId, ideaId, token }) {
       .then((data) => {
         console.log(data);
       })
-      .catch(() => console.log("loi r"));
+      .catch(() => console.log("loi r3"));
   };
 
   return (
@@ -140,71 +138,3 @@ function LikeCmt({ userId, ideaId, token }) {
   );
 }
 export default LikeCmt;
-
-// const handleVote = (value) => {
-//   //if current value of vote is not true or the click handle pass true value, setVote = true so that vote state become true
-//   if (value === true && vote !== true) {
-//     setVote(true);
-//   } else if (value === false && vote !== false) {
-//     setVote(false);
-//   }
-//   //if the value is true or false and the click pass the same value, it will cancel the vote
-//   else {
-//     setVote(undefined);
-//   }
-// };
-
-// useEffect(() => {
-//   const buttonVoteList = document.getElementsByClassName(Style.button_name);
-
-//   if (vote === true) {
-//     buttonVoteList[0].classList.add("active");
-//     buttonVoteList[1].classList.remove("active");
-//   } else if (vote === false) {
-//     buttonVoteList[0].classList.remove("active");
-//     buttonVoteList[1].classList.add("active");
-//   } else {
-//     //if vote is undefined, there is no button have change color
-//     buttonVoteList[0].classList.remove("active");
-//     buttonVoteList[1].classList.remove("active");
-//   }
-// }, [vote]);
-// useEffect(() => {
-//   if (vote !== undefined) {
-//     fetch(apiInteract, {
-//       method: "PUT",
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({ voted: true, vote, interactionId: interactId }),
-//     })
-//       .then((res) => {
-//         return res.json();
-//       })
-//       .then((data) => {
-//         console.log(data);
-//       })
-//       .catch(() => console.log("loi r"));
-//   } else {
-//     fetch(apiInteract, {
-//       method: "PUT",
-//       headers: {
-//         Authorization: `Bearer ${token}`,
-//         "Content-Type": "application/json",
-//       },
-//       body: JSON.stringify({
-//         voted: false,
-//         vote: false,
-//         interactionId: interactId,
-//       }),
-//     })
-//       .then((res) => {
-//         return res.json();
-//       })
-//       .then((data) => {
-//         console.log(data);
-//       })
-//       .catch(() => console.log("loi r"));
-//   }
-// }, [vote]);
