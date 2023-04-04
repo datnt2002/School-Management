@@ -47,9 +47,16 @@ function RequiredAuth({ children, dataUser }) {
       "/NewsFeed",
       "/ListIdea",
       "/DetailIdea",
-      "/DashBoard"
+      "/DashBoard",
     ],
-    QAM: ["/", "/NewsFeed", "/profile", "/Category", "/editProfile"],
+    QAM: [
+      "/",
+      "/NewsFeed",
+      "/profile",
+      "/Category",
+      "/DetailIdea",
+      "/editProfile",
+    ],
     QAC: ["/", "/NewsFeed", "profile", "/editProfile"],
     Staff: [
       "/",

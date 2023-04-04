@@ -1,13 +1,21 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import Style from "../../pages/NewsFeed/newsFeed.module.css";
+import { Dropdown as AntdDropdown, Space } from "antd";
 import { Dropdown } from "react-bootstrap";
-import { apiIdeaSort } from "../../api/Api";
-import UserContext from "../../api/UserContext";
+import {
+  apiCategory,
+  apiDepartment,
+  apiIdeaByDepartment,
+  apiIdeaSort,
+} from "../../api/Api";
+import { useEffect } from "react";
 
 function Sort({ token, setDataIdea }) {
-  const [selectedOption, setSelectedOption] = useState(
-    "--Please choose an option--"
+  //for sort idea
+  const [selectedOptionToSort, setSelectedOptionToSort] = useState(
+    "--Please choose an option to sort--"
   );
+
   function handleSelect(eventKey) {
     let sortType = "";
     switch (eventKey) {
@@ -23,7 +31,7 @@ function Sort({ token, setDataIdea }) {
       default:
         break;
     }
-    setSelectedOption(eventKey);
+    setSelectedOptionToSort(eventKey);
     sortIdea(sortType);
   }
 
@@ -40,18 +48,85 @@ function Sort({ token, setDataIdea }) {
       });
   };
 
-  const user = useContext(UserContext);
+  //filter posst
+  const [departmentData, setDepartmentData] = useState([]);
+  const [categoryData, setCategoryData] = useState([]);
+  useEffect(() => {
+    fetch(apiDepartment, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setDepartmentData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    fetch(apiCategory, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setCategoryData(data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, [token]);
+
+  const items = [
+    {
+      key: "1",
+      label: "department",
+      children: departmentData.map((department) => {
+        return {
+          key: `dep-${department.depId}`,
+          label: department.name,
+        };
+      }),
+    },
+    {
+      key: "2",
+      label: "category",
+      children: categoryData.map((category) => {
+        return { key: `cate-${category.id}`, label: category.name };
+      }),
+    },
+  ];
+
+  const handleMenuSelect = ({ key }) => {
+    const isDepartment = items[0].children.some((item) => item.key === key);
+    const isCategory = items[1].children.some((item) => item.key === key);
+
+    if (isDepartment) {
+      console.log("Selected department:", key.substring(4, 5));
+
+      // Call API to get ideas by department
+      fetch(apiIdeaByDepartment + "/" + key.substring(4, 5), {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setDataIdea(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    } else if (isCategory) {
+      console.log("Selected category:", key);
+      // Call API to get ideas by category
+    }
+  };
 
   return (
     <div className={Style.arrange}>
-      
-      
-      {user.role === "QAM" ?
       <div className="d-flex justify-content-between">
         <div>
           <Dropdown onSelect={handleSelect}>
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {selectedOption}
+              {selectedOptionToSort}
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
@@ -60,30 +135,16 @@ function Sort({ token, setDataIdea }) {
             </Dropdown.Menu>
           </Dropdown>
         </div>
-        <div>
-          <Dropdown onSelect={handleSelect}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {selectedOption}
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item eventKey="">Idea by Department</Dropdown.Item>
-              <Dropdown.Item eventKey="">Idea by Event</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
+        <AntdDropdown
+          trigger={["click"]}
+          menu={{
+            items,
+            onClick: handleMenuSelect,
+          }}
+        >
+          <Space>Cascading menu</Space>
+        </AntdDropdown>
       </div>
-      
-      : <Dropdown onSelect={handleSelect}>
-          <Dropdown.Toggle variant="success" id="dropdown-basic">
-            {selectedOption}
-          </Dropdown.Toggle>
-          <Dropdown.Menu>
-            <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
-            <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
-            <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-      }
     </div>
   );
 }
