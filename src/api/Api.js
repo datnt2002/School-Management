@@ -11,6 +11,7 @@ export const apiAccount = `${server}api/auth`;
 export const apiProfile = `${server}api/auth/profile`;
 export const apiCreateAccount = `${server}api/auth/CreateAccount`;
 export const apiEditAccount = `${server}api/auth/update`;
+export const apiEditPassword = `${server}api/auth/ChangePassword`;
 export const apiForgotPassword = `${server}api/auth/resetpassword`;
 
 //apiEvent

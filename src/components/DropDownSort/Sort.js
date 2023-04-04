@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Style from "../../pages/NewsFeed/newsFeed.module.css";
 import { Dropdown } from "react-bootstrap";
 import { apiIdeaSort } from "../../api/Api";
+import UserContext from "../../api/UserContext";
 
 function Sort({ token, setDataIdea }) {
   const [selectedOption, setSelectedOption] = useState(
@@ -39,18 +40,50 @@ function Sort({ token, setDataIdea }) {
       });
   };
 
+  const user = useContext(UserContext);
+
   return (
     <div className={Style.arrange}>
-      <Dropdown onSelect={handleSelect}>
-        <Dropdown.Toggle variant="success" id="dropdown-basic">
-          {selectedOption}
-        </Dropdown.Toggle>
-        <Dropdown.Menu>
-          <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
-          <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
-          <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
-        </Dropdown.Menu>
-      </Dropdown>
+      
+      
+      {user.role === "QAM" ?
+      <div className="d-flex justify-content-between">
+        <div>
+          <Dropdown onSelect={handleSelect}>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              {selectedOption}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
+              <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
+              <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+        <div>
+          <Dropdown onSelect={handleSelect}>
+            <Dropdown.Toggle variant="success" id="dropdown-basic">
+              {selectedOption}
+            </Dropdown.Toggle>
+            <Dropdown.Menu>
+              <Dropdown.Item eventKey="">Idea by Department</Dropdown.Item>
+              <Dropdown.Item eventKey="">Idea by Event</Dropdown.Item>
+            </Dropdown.Menu>
+          </Dropdown>
+        </div>
+      </div>
+      
+      : <Dropdown onSelect={handleSelect}>
+          <Dropdown.Toggle variant="success" id="dropdown-basic">
+            {selectedOption}
+          </Dropdown.Toggle>
+          <Dropdown.Menu>
+            <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
+            <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
+            <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
+      }
     </div>
   );
 }

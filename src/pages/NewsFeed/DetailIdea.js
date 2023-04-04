@@ -105,7 +105,7 @@ function DetailIdea({ token }) {
               key={detail.ideaId}
             >
               <div className={`col-lg-9 ${Style.centerContent}`}>
-                <div className={Style.card}>
+                <div className="card">
                   <div className={Style.media}>
                     <div className={Style.media_body}>
                       <img

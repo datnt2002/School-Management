@@ -61,7 +61,7 @@ function Post({ token, apiUrl, id, dataIdea }) {
             key={dataIdea.ideaId}
             onClick={() => handleDetail(dataIdea.ideaId)}
           >
-            <div className="card-body pb-1">
+            <div className="card-body">
               <div className={Style.card}>
                 <div className={Style.media}>
                   <div className={Style.media_body}>

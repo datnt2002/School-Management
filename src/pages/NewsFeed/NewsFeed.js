@@ -10,8 +10,7 @@ import React, { lazy, Suspense } from "react";
 import { apiIdeaSort } from "../../api/Api";
 import Sort from "../../components/DropDownSort/Sort";
 import SearchBar from "../../components/Search/SearchBar";
-import { useState } from "react";
-import { useEffect } from "react";
+import { useState, useEffect } from "react";
 
 function NewsFeed({ token }) {
   // const Post = lazy(() => import("../../components/feed/posts/Post"));
