@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { apiDownloadAllFiles, apiIdeaByEvent } from "../../api/Api";
 import "./event.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCircleInfo } from "@fortawesome/free-solid-svg-icons";
+
 
 function ListIdea({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
@@ -19,6 +18,7 @@ function ListIdea({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setDataIdea(data);
       })
       .catch(() => {
@@ -88,10 +88,14 @@ function ListIdea({ token }) {
                               <td>{dataIdea.userName}</td>
                               <td className="table-action">
                                 <div className="d-flex justify-content-evenly">
-                                  <button className="btn btn-info" 
-                                    onClick={() => handleDetail(dataIdea.id)}
-                                  >                            
-                                    Detail
+
+                                  <button
+                                    onClick={() =>
+                                      handleDetail(dataIdea.ideaId)
+                                    }
+                                  >
+                                    View Detail
+
                                   </button>
                                 </div>
                               </td>

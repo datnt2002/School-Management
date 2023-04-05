@@ -9,13 +9,12 @@ import EditEvent from "./EditEvent";
 import "./event.css";
 import Style from "../Account/myExp.module.css";
 import StylePaginate from "../../components/Pagination/pagination.module.css";
-import Loading from "../../components/optional/Loading";
 
 function Event({ token }) {
   // const [loading, setLoading] = useState(true);
   const [data, setData] = useState([]);
   const [showModalEdit, setShowModalEdit] = useState({ display: "none" });
-  const [showModalCreate, setShowModalCreate] = useState({ display: "none" });
+  const [showModalCreate, setShowModalCreate] = useState(false);
   const [modal, setModal] = useState(false);
 
   //paginate
@@ -34,27 +33,21 @@ function Event({ token }) {
   }
 
   const [selectEventId, setSelectEventId] = useState(-1);
-  console.log(selectEventId);
+
   function handleOpenEdit() {
     setShowModalEdit({
       display: "",
     });
     setModal(true);
   }
-  function handleOpenCreate() {
-    setShowModalCreate({
-      display: "",
-    });
 
+  function handleOpenCreate() {
+    setShowModalCreate(true);
     setModal(true);
   }
   function handleClose() {
-    setShowModalCreate({
-      display: "none",
-    });
-    setShowModalEdit({
-      display: "none",
-    });
+    setShowModalCreate(false);
+    setShowModalEdit(false);
     setModal(false);
   }
 
@@ -95,7 +88,6 @@ function Event({ token }) {
                       <div className="row">
                         <div className="col-sm-12">
                           <Table
-                            // hidden="hidden"
                             name="Event"
                             content="Name"
                             description="Description"
@@ -115,7 +107,6 @@ function Event({ token }) {
                     </div>
                   </div>
                 </div>
-                {/* <Pagination dataPerPage={dataPerPage} totalData={data.length} paginate={Paginate} currentPage={currentPage}/> */}
                 <ReactPaginate
                   breakLabel="..."
                   nextLabel=">"
@@ -135,18 +126,18 @@ function Event({ token }) {
           </div>
         </div>
       </div>
+      {showModalCreate && (
+        <CreateNewEvent handleClose={handleClose} token={token} />
+      )}
 
-      <CreateNewEvent
-        style={showModalCreate}
-        handleClose={handleClose}
-        token={token}
-      />
-      <EditEvent
-        style={showModalEdit}
-        handleClose={handleClose}
-        token={token}
-        selectEventId={selectEventId}
-      />
+      {showModalEdit && (
+        <EditEvent
+          style={showModalEdit}
+          handleClose={handleClose}
+          token={token}
+          selectEventId={selectEventId}
+        />
+      )}
     </>
   );
 }

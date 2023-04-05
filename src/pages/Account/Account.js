@@ -4,9 +4,8 @@ import { apiAccount } from "../../api/Api";
 import ComfirmPassword from "../../components/authentication/ComfirmPassword";
 import CreateAccount from "./CreateAccount";
 import Style from "./account.module.css";
-import StyleCard from "../Account/myExp.module.css"
-import StylePaginate from "../../components/Pagination/pagination.module.css"
-import Loading from "../../components/optional/Loading";
+import StyleCard from "../Account/myExp.module.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css";
 import ReactPaginate from "react-paginate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -14,7 +13,6 @@ import { faPlus, faUserSlash } from "@fortawesome/free-solid-svg-icons";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Account({ token }) {
-  const [loading, setLoading] = useState(true)
   const [data, setData] = useState([]);
   const [showModalCreate, setShowModalCreate] = useState(false);
   const [showModalComfirm, setShowModalComfirm] = useState(false);
@@ -28,6 +26,7 @@ function Account({ token }) {
     setShowModalCreate(true);
     setModal(true);
   }
+  
   function handleClose() {
     setShowModalCreate(false);
     setShowModalComfirm(false);
@@ -42,11 +41,10 @@ function Account({ token }) {
       .then((data) => {
         setData(data);
       })
-      .then(setLoading(false))
       .catch(() => {
         navigate("*");
       });
-  }, [modal, token]);
+  }, [modal, token, navigate]);
 
   const handleOpenConfirm = (e) => {
     e.preventDefault();
@@ -67,13 +65,9 @@ function Account({ token }) {
     setCurrentItems(data.slice(itemOffSet, endOffSet));
     setPageCount(Math.ceil(data.length / itemPerPage));
   }, [itemOffSet, itemPerPage, data]);
-  function handlePageClick(e){
+  function handlePageClick(e) {
     const newOffSet = (e.selected * itemPerPage) % data.length;
     setItemOffSet(newOffSet);
-  }
-
-  if(loading){
-    return <Loading/>
   }
 
   return (

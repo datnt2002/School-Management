@@ -20,6 +20,10 @@
     transform-origin: 0% 100%;
 }
 
+.active{
+    color: red
+}
+
 @keyframes Like {
     25%{
         transform: rotate(15deg);

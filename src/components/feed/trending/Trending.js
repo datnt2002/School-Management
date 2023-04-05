@@ -1,6 +1,31 @@
-import Style from "./trending.module.css"
+import { useState } from "react";
+import Style from "./trending.module.css";
+import { useEffect } from "react";
+import { apiIdeaSort, apiTrending, server } from "../../../api/Api";
+import { useNavigate } from "react-router-dom";
 
-function Trending() {
+function Trending({ token }) {
+  const [listPopular, setListPopular] = useState([]);
+
+  const navigate = useNavigate();
+
+  //list idea most view
+  useEffect(() => {
+    fetch(apiIdeaSort + "?sortType=mvi", {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setListPopular(data.slice(0, 3));
+      });
+  }, [token]);
+
+  const viewIdeaTrending = (id) => {
+    navigate("/DetailIdea", { state: { ideaId: id } });
+  };
+
   return (
     <div className={Style.card}>
       <div className={Style.content}>
@@ -8,30 +33,21 @@ function Trending() {
           <h3 className={Style.title}>Trending</h3>
         </div>
         <div className={Style.back}>
-          <div className={Style.description}>
-            <a className="mt-1 font-14" href="javascript:void(0);">
-              <strong>Golden Globes: </strong>
-              <span className={Style.text_muted}>
-                The 27 Best moments from the Golden Globe Awards
-              </span>
-            </a>
-          </div>
-          <div className={Style.description}>
-            <a className="mt-1 font-14" href="javascript:void(0);">
-              <strong>Golden Globes: </strong>
-              <span className={Style.text_muted}>
-                The 27 Best moments from the Golden Globe Awards
-              </span>
-            </a>
-          </div>
-          <div className={Style.description}>
-            <a className="mt-1 font-14" href="javascript:void(0);">
-              <strong>Golden Globes: </strong>
-              <span className={Style.text_muted}>
-                The 27 Best moments from the Golden Globe Awards
-              </span>
-            </a>
-          </div>
+          {listPopular.map((idea) => {
+            return (
+              <div className={Style.description} key={idea.id}>
+                <img src={server + idea.avatar} alt="" height="50" />
+                <span className={Style.text_muted}>{idea.userName}</span>
+                <div
+                  className="mt-1 font-14"
+                  onClick={() => viewIdeaTrending(idea.id)}
+                >
+                  <strong>{idea.name} </strong>
+                  <span className={Style.text_muted}>View: {idea.viewed}</span>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </div>

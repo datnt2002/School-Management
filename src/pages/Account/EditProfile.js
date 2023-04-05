@@ -4,9 +4,11 @@ import Style from "./editProfile.module.css";
 // import "../SubmitIdea/style.css";
 import "./editProfile.css";
 import { useNavigate } from "react-router-dom";
+import ChangePassword from "../../components/authentication/ChangePassword"
 
 function EditProfile({ dataUser, token, setDataUser }) {
   //dang chet o file avatar
+  console.log(setDataUser)
   const [fileAvatarInDb, setFileAvatarInDb] = useState(dataUser.avatar);
   const [address, setAddress] = useState("");
   const [email, setEmail] = useState("");
@@ -73,7 +75,17 @@ function EditProfile({ dataUser, token, setDataUser }) {
     setFileAvatarInDb(dataUser.avatar);
   }, [dataUser]);
 
+  
+  const [modalChangePassword, setModalChangePassword] = useState(false);
+  function handleChangePassModal(){
+    setModalChangePassword(true)
+  }
+  function handleCloseChangePassModal() {
+    setModalChangePassword(false);
+  }
+
   return (
+    <>
     <div className="editProfile">
       <div className="container-xl px-4 mt-4">
         <div className="row">
@@ -233,6 +245,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                       type="password"
                       placeholder="Enter your current password to edit your profile"
                       value={currentPassword}
+                      autoComplete="off"
                       onChange={(e) => {
                         setCurrentPassword(e.target.value);
                       }}
@@ -246,6 +259,13 @@ function EditProfile({ dataUser, token, setDataUser }) {
                     >
                       Save changes
                     </button>
+                    <button
+                      className="btn btn-primary"
+                      type="button"
+                      onClick={handleChangePassModal}
+                    >
+                      Change Password
+                    </button>
                   </div>
                 </form>
               </div>
@@ -254,6 +274,12 @@ function EditProfile({ dataUser, token, setDataUser }) {
         </div>
       </div>
     </div>
+    
+    {modalChangePassword && 
+      <ChangePassword handleClose={handleCloseChangePassModal} setDataUser={setDataUser} token={token}/>
+    }
+    </>
+    
   );
 }
 export default EditProfile;

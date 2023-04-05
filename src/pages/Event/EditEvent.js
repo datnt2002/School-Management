@@ -75,8 +75,8 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
     <div
       className="container-fluid edit"
       id="edit"
-      style={style}
       key={selectEventId}
+      style={style}
     >
       <div className="modalOverlay" onClick={handleClose}></div>
       <div className="modalEvent">
@@ -155,7 +155,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                   <SelectDate
                     value={last_Closure}
                     disable="true"
-                    readOnly
+                    readOnly={true}
                   />
                 </div>
               </div>

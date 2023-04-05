@@ -8,8 +8,8 @@ import { set } from "animejs";
 import { faL } from "@fortawesome/free-solid-svg-icons";
 
 function Header({ dataUser }) {
-  const [showDropDown, setShowDropDown] = useState("");
-  const [showDropDownSearch, setShowDropDownSearch] = useState("");
+
+  const [showDropDown, setShowDropDown] = useState(""); 
   const [showBtnSub, setShowBtnSuv] = useState(false);
   const [hideBtnSub, setHideBtnSuv] = useState(true);
 
@@ -22,8 +22,6 @@ function Header({ dataUser }) {
     const btnDrop = document.getElementById("menuLine");
     const btnHideDrop = document.getElementById("hideMenuLine");
     const subNavBar = document.querySelector(".subNavBar");
-    const btnSearc = document.querySelector(".btnSearc");
-    const icon = document.querySelector(".btnSearc svg");
     function Show() {
       if (showDropDown === "") {
         setShowDropDown("show");
@@ -35,16 +33,6 @@ function Header({ dataUser }) {
         p.setAttribute("style", "color:#98a6ad");
       }
     }
-
-    function showSearch() {
-      if (showDropDownSearch === "") {
-        setShowDropDownSearch("show");
-        icon.setAttribute("style", "color:white");
-      } else {
-        setShowDropDownSearch("");
-        icon.removeAttribute("style");
-      }
-    }
     function unShow() {
       setShowDropDown("");
       h5.setAttribute("style", "color:#98a6ad");
@@ -52,17 +40,16 @@ function Header({ dataUser }) {
     }
 
     function showSubNav() {
-      setShowBtnSuv(true)
-      setHideBtnSuv(false)
-      subNavBar.setAttribute("style", "display:block")
+      setShowBtnSuv(true);
+      setHideBtnSuv(false);
+      subNavBar.setAttribute("style", "display:block");
     }
     function hideSubNav() {
-      setShowBtnSuv(false)
-      setHideBtnSuv(true)
-      subNavBar.setAttribute("style", "display:none")
+      setShowBtnSuv(false);
+      setHideBtnSuv(true);
+      subNavBar.setAttribute("style", "display:none");
     }
 
-    btnSearc.addEventListener("click", showSearch);
     btn.addEventListener("click", Show);
     item.addEventListener("mouseup", unShow);
     for (var i = 0; i < subNavItem.length; i++) {
@@ -77,7 +64,6 @@ function Header({ dataUser }) {
   const handleLogout = () => {
     localStorage.removeItem("token");
   };
-  
 
   return (
     <>
@@ -93,30 +79,7 @@ function Header({ dataUser }) {
             </span>
           </Link>
           <ul className="list-unstyled topbar-right-menu float-right mb-0">
-            <li className="dropdown notification-list d-lg-none btnSearc">
-              <button
-                className="nav-link arrow-none"
-                data-toggle="dropdown"
-                aria-haspopup="false"
-                aria-expanded="false"
-                style={{ backgroundColor: "#313a46", border: "none"}}
-              >
-                <Search className="search-icon" />
-              </button>
-              <div
-                className={`dropdown-menu dropdown-menu-animated dropdown-lg p-0 dropSearch ${showDropDownSearch}`}
-              >
-                <form className="p-3">
-                  <input
-                    type="text"
-                    className="form-control"
-                    placeholder="Search ..."
-                    aria-label="Recipient's username"
-                  />
-                </form>
-              </div>
-            </li>
-            <li className="dropdown notification-list" style={{  }}>
+            <li className="dropdown notification-list">
               <button
                 className="nav-link nav-user arrow-none mr-0"
                 data-toggle="dropdown"
@@ -163,7 +126,7 @@ function Header({ dataUser }) {
               </div>
             </li>
           </ul>
-          
+
           <button className="navbar-toggle">
             <div className="lines" id="menuLine" hidden={showBtnSub}>
               <span></span>
@@ -176,27 +139,6 @@ function Header({ dataUser }) {
               <span></span>
             </div>
           </button>
-          <div className="app-search dropdown">
-            <form>
-              <div className="input-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Search..."
-                  id="top-search"
-                  autoFocus={false}
-                />
-                <span>
-                  <Search className="search-icon" />
-                </span>
-                <div className="input-group-append">
-                  <button className="btn-primary btnSearch" type="submit">
-                    Search
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
         </div>
       </div> 
     </>

@@ -3,85 +3,134 @@ import "./like.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeartCrack } from "@fortawesome/free-solid-svg-icons";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
-import { faComment } from "@fortawesome/free-solid-svg-icons";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { apiInteract } from "../../../api/Api";
 
-function LikeCmt({ userId, ideaId, likes, comments }) {
-  const [like, setLike] = useState({ animationName: "" });
-  const [disLike, setDisLike] = useState({ animationName: "" });
-  // function handleLike() {
-  //   // const fasHeart = document.getElementById("Heart");
-  //   // setDisLike({
-  //   //   animationName: "",
-  //   //   color:""
-  //   // })
-  //   // if(fasHeart.style.animationName==="")
-  //   // setLike({
-  //   //   animationName: "Like",
-  //   //   color:"red"
-  //   // })
-  //   // else{
-  //   //   setLike({
-  //   //     animationName: "",
-  //   //     color:""
-  //   //   })
-  //   // }
-  // }
-  // function handleDisLike() {
-  //   // const fasCrack = document.getElementById("Crack");
-  //   // setLike({
-  //   //   animationName: "",
-  //   //   color:""
-  //   // })
-  //   // if(fasCrack.style.animationName==="")
-  //   //   setDisLike({
-  //   //     animationName: "Like",
-  //   //     color:"red"
-  //   //   })
-  //   // else{
-  //   //   setDisLike({
-  //   //     animationName: "",
-  //   //     color:""
-  //   //   })
-  //   // }
-  // }
+function LikeCmt({ userId, ideaId, token }) {
+  const [vote, setVote] = useState();
+  //flag to add class css active song song with put
+  const [flag, setFlag] = useState(0);
+  const [interactId, setInteractId] = useState();
+  
+  useEffect(() => {
+    //post to get data of interaction
+    const getInteract = { userId, ideaId };
 
-  const [vote, setVote] = useState(null);
-  const handleVote = (e) => {
-    e.preventDefault();
+    fetch(apiInteract, {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(getInteract),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setInteractId(data.interacId);
+        if (data.voted === true) {
+          setVote(data.vote);
+        } else {
+          setVote(undefined)
+          setFlag(0);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [userId, ideaId, token]);
+
+  useEffect(() => {
+    if (vote === true) {
+      setFlag(1);
+    } else {
+      setFlag(-1);
+    }
+  }, [vote]);
+
+  useEffect(() => {
+    const buttonVoteList = document.getElementsByClassName(Style.button_name);
+    if (flag === 1) {
+      buttonVoteList[0].classList.add("active");
+      buttonVoteList[1].classList.remove("active");
+    } else if (flag === -1) {
+      buttonVoteList[0].classList.remove("active");
+      buttonVoteList[1].classList.add("active");
+    } else {
+      //if flag = -1, there is no button have change color
+      buttonVoteList[0].classList.remove("active");
+      buttonVoteList[1].classList.remove("active");
+    }
+  }, [flag]);
+
+  const handleLike = (valueFlag) => {
+    if (flag !== 1) {
+      setFlag(valueFlag);
+    } else {
+      setFlag(0);
+    }
+    fetch(apiInteract, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ vote: true, interactionId: interactId }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(() => console.log("loi r2"));
   };
+  const handleDislike = (valueFlag) => {
+    if (flag !== -1) {
+      setFlag(valueFlag);
+    } else {
+      setFlag(0);
+    }
+    fetch(apiInteract, {
+      method: "PUT",
+      headers: {
+        Authorization: `Bearer ${token}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ vote: false, interactionId: interactId }),
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch(() => console.log("loi r3"));
+  };
+
   return (
     <div style={{ width: "100%", marginTop: "2rem" }}>
-      <div className="d-flex justify-content-between">
-        <span>{likes} Likes</span>
-        <span>{comments} Comments</span>
-      </div>
-
       <hr style={{ width: "100%" }} />
 
       <div className={`${Style.like_cmt} my-1 d-flex`}>
-        {/* <div className=""> */}
-        <button className={Style.button_name} onClick={handleVote}>
-          <FontAwesomeIcon
-            icon={faHeart}
-            className="fasHeart"
-            id="Heart"
-            style={like}
-          />
+        <button
+          className={Style.button_name}
+          value={flag}
+          onClick={() => handleLike(1)}
+        >
+          <FontAwesomeIcon icon={faHeart} className="fasHeart" id="Heart" />
         </button>
 
-        <button className={Style.button_name} onClick={handleVote}>
+        <button
+          className={Style.button_name}
+          onClick={() => handleDislike(-1)}
+          value={flag}
+        >
           <FontAwesomeIcon
             icon={faHeartCrack}
             className="fasCrack"
             id="Crack"
-            style={disLike}
           />
         </button>
-        <button className={Style.button_name}>
-          <FontAwesomeIcon icon={faComment} className={Style.fasCmt} />
-        </button>
-        {/* </div> */}
       </div>
     </div>
   );

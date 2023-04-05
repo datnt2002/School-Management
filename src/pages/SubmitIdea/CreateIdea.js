@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
@@ -12,6 +12,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
   const [eventName, setEventName] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
   const [lastClosure, setLastClosure] = useState("");
+  const [anonymous, setAnonymous] = useState(false);
 
   //state of idea form
   const [ideaName, setIdeaName] = useState("");
@@ -23,6 +24,8 @@ function CreateIdea({ token, readOnly, dataUser }) {
   const eventId = location.state.eventId;
 
   const [errMes, setErrMess] = useState();
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(apiCategory, {
@@ -63,6 +66,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
     formData.append("cId", cateId);
     formData.append("eId", eventId);
     formData.append("uId", dataUser.userId);
+    formData.append("anonymous", anonymous);
 
     fetch(apiIdea, {
       method: "POST",
@@ -77,7 +81,9 @@ function CreateIdea({ token, readOnly, dataUser }) {
         }
         return res.json();
       })
-
+      .then(() => {
+        navigate("/profile");
+      })
       .catch((err) =>
         err.json().then((err) => {
           let errMes = Object.values(err.errors);
@@ -111,7 +117,20 @@ function CreateIdea({ token, readOnly, dataUser }) {
         <div className="row">
           <div className="col-lg-7">
             <div className="card mb-4">
-              <h1>Your Idea</h1>
+              <div className="d-flex justify-content-between">
+                <h1>Your Idea</h1>
+                <div className="d-flex align-items-center">
+                  <span>
+                    <input
+                      type="checkbox"
+                      value={anonymous}
+                      onChange={(e) => setAnonymous(e.target.checked)}
+                    />
+                    <strong>Anonymous</strong>
+                  </span>
+                </div>
+              </div>
+
               <div className="mb-4 mt-4">
                 <Input
                   id="title"
@@ -142,24 +161,6 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   })}
                 </select>
               </div>
-              {/* <div
-                className="createFormIdea_Select mb-4 mt-1"
-                style={{ overflow: "hidden" }}
-              >
-                <label className="form-label">
-                  Drop files here or click to upload
-                </label>
-                <div className="">
-                  <div className="fileUploadInput">
-                    <input
-                      type="file"
-                      // value={ideaFile}
-                      // onChange={(e) => setIdeaFile(e.target.value)}
-                    />
-                    <button>+</button>
-                  </div>
-                </div>
-              </div> */}
             </div>
             <div className="card mb-4">
               <h1>Content</h1>
@@ -168,7 +169,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   placeholder="Tạm thế css sau"
                   className="textArea col-12"
                   onClick={autoHeight}
-                  // style={{ height: "30rem", resize: "none" }}
+                  style={{ height: "30rem", resize: "none" }}
                   value={ideaContent}
                   onChange={(e) => {
                     setIdeaContent(e.target.value);
@@ -214,13 +215,20 @@ function CreateIdea({ token, readOnly, dataUser }) {
                 />
               </div>
             </div>
-            <div className="form" style={{ backgroundColor:"#fff", boxShadow:"0 10px 60px rgb(218, 229, 255)", borderRadius:"4px" }}>
+            <div
+              className="form"
+              style={{
+                backgroundColor: "#fff",
+                boxShadow: "0 10px 60px rgb(218, 229, 255)",
+                borderRadius: "4px",
+              }}
+            >
               <span className="form-title">Upload your file</span>
               <p className="form-paragraph">File should be an image</p>
               <label htmlFor="file-input" className="drop-container">
-                <span className="drop-title">Drop files here  </span>
+                <span className="drop-title">Drop files here</span>
                 <p className="or">or</p>
-                <input type="file" id="file-input" />
+                <input type="file" id="file-input"  accept="*"/>
               </label>
             </div>
             {errMes &&
