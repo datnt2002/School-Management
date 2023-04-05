@@ -115,7 +115,11 @@ function Table({
                   {data.name}
                 </p>
               </td>
-              <td>{data.content}</td>
+              <td>
+                {data.content.length > 15
+                  ? data.content.substring(0, 15) + " ..."
+                  : data.content}
+              </td>
 
               <td hidden={!data.cateName ? "hidden" : ""}>{data.cateName}</td>
               <td hidden={!data.addedDate ? "hidden" : ""}>{data.addedDate}</td>

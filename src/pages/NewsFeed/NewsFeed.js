@@ -1,13 +1,10 @@
 import { apiIdea } from "../../api/Api";
-import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Post from "../../components/feed/posts/Post";
 import Trending from "../../components/feed/trending/Trending";
 import ShowGotoTop from "../../components/optional/ShowGotoTop";
 import Weather from "../../components/optional/Weather";
-import Profile from "../../components/profile/Profile";
 import Style from "./newsFeed.module.css";
 import React, { lazy, Suspense } from "react";
-import { apiIdeaSort } from "../../api/Api";
 import Sort from "../../components/DropDownSort/Sort";
 import SearchBar from "../../components/Search/SearchBar";
 import { useState, useEffect } from "react";

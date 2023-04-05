@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import "../header/header.css";
 import { Search } from "bootstrap-icons-react";
 import { apiIdea } from "../../api/Api";

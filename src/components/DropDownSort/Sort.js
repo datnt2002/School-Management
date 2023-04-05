@@ -5,6 +5,7 @@ import { Dropdown } from "react-bootstrap";
 import {
   apiCategory,
   apiDepartment,
+  apiIdeaByCategory,
   apiIdeaByDepartment,
   apiIdeaSort,
 } from "../../api/Api";
@@ -115,8 +116,18 @@ function Sort({ token, setDataIdea }) {
           console.log(err);
         });
     } else if (isCategory) {
-      console.log("Selected category:", key);
+      console.log("Selected category:", key.substring(5, 6));
       // Call API to get ideas by category
+      fetch(apiIdeaByCategory + "/" + key.substring(5, 6), {
+        headers: { Authorization: `Bearer ${token}` },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setDataIdea(data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
     }
   };
 

@@ -56,6 +56,7 @@ function RequiredAuth({ children, dataUser }) {
       "/Category",
       "/DetailIdea",
       "/editProfile",
+      "/DashBoard",
     ],
     QAC: ["/", "/NewsFeed", "profile", "/editProfile"],
     Staff: [
