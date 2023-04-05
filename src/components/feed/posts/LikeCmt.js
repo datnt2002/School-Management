@@ -49,8 +49,6 @@ function LikeCmt({ userId, ideaId, token }) {
 
   useEffect(() => {
     const buttonVoteList = document.getElementsByClassName(Style.button_name);
-    console.log(flag);
-    console.log(buttonVoteList);
     if (flag === 1) {
       buttonVoteList[0].classList.add("active");
       buttonVoteList[1].classList.remove("active");

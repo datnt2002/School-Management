@@ -138,6 +138,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                       id="inputUsername"
                       type="text"
                       value={dataUser.userName}
+                      disabled
                     />
                   </div>
                   <div className="row gx-3 mb-3">

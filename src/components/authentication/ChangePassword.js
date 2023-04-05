@@ -2,6 +2,7 @@ import Input from "../Tags/Input";
 import Style from "./changePassword.module.css";
 import { apiEditPassword } from "../../api/Api";
 import { useState } from "react";
+import Authentication from "../../pages/Authentication/Authentication";
 
 function ChangePassword({handleClose,token, setDataUser}) {
   const [oldPassword, setOldPassword] = useState("");
@@ -20,11 +21,7 @@ function ChangePassword({handleClose,token, setDataUser}) {
       },
       body: formData,
     })
-      .then((res) => res.json())
-      .then((data) => {
-        setDataUser(data);
-        // handleClose();
-      })
+      .then(() => handleClose())
       .catch(() => {
         console.log("k edit dc");
         

@@ -152,24 +152,6 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   })}
                 </select>
               </div>
-              {/* <div
-                className="createFormIdea_Select mb-4 mt-1"
-                style={{ overflow: "hidden" }}
-              >
-                <label className="form-label">
-                  Drop files here or click to upload
-                </label>
-                <div className="">
-                  <div className="fileUploadInput">
-                    <input
-                      type="file"
-                      // value={ideaFile}
-                      // onChange={(e) => setIdeaFile(e.target.value)}
-                    />
-                    <button>+</button>
-                  </div>
-                </div>
-              </div> */}
             </div>
             <div className="card mb-4">
               <h1>Content</h1>
@@ -237,7 +219,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
               <label htmlFor="file-input" className="drop-container">
                 <span className="drop-title">Drop files here</span>
                 or
-                <input type="file" id="file-input" />
+                <input type="file" id="file-input" accept="*"/>
               </label>
             </div>
             {errMes &&
