@@ -5,7 +5,13 @@ import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 
 import Style from "./newsFeed.module.css";
-import { apiComment, apiIdeaByDetail, server } from "../../api/Api";
+import {
+  apiComment,
+  apiIdea,
+  apiIdeaByDetail,
+  apiIdeaDownload,
+  server,
+} from "../../api/Api";
 import { useContext } from "react";
 import UserContext from "../../api/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -43,6 +49,7 @@ function DetailIdea({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setDetailIdea(data);
       })
       .catch(() => {
@@ -92,6 +99,17 @@ function DetailIdea({ token }) {
       });
   }, [ideaId, token]);
 
+  const handleDownloadFile = (fileName) => {
+    window.location.href = window.location.href.replace(
+      window.location.href,
+      apiIdeaDownload + "/" + fileName
+    );
+
+    // fetch(apiIdeaDownload + "/" + fileName, {
+    //   headers: { Authorization: `Bearer ${token}` },
+    // }).catch(() => console.log("eo dc"));
+  };
+
   return (
     <div className="container">
       {detailIdea &&
@@ -132,7 +150,10 @@ function DetailIdea({ token }) {
                     <p className={`${Style.content} my-1`}>{detail.content}</p>
                   </div>
                   <div className={`${Style.file} mt-5`}>
-                    <button className={Style.cssbuttons_io_button}>
+                    <button
+                      className={Style.cssbuttons_io_button}
+                      onClick={() => handleDownloadFile(detail.ideaFile)}
+                    >
                       <FontAwesomeIcon icon={faFileArrowDown} />
                       <span>{detail.ideaFile}</span>
                     </button>

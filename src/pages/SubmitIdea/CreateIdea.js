@@ -12,6 +12,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
   const [eventName, setEventName] = useState("");
   const [first_Closure, setFirstClosure] = useState("");
   const [lastClosure, setLastClosure] = useState("");
+  const [anonymous, setAnonymous] = useState(false);
 
   //state of idea form
   const [ideaName, setIdeaName] = useState("");
@@ -65,6 +66,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
     formData.append("cId", cateId);
     formData.append("eId", eventId);
     formData.append("uId", dataUser.userId);
+    formData.append("anonymous", anonymous);
 
     fetch(apiIdea, {
       method: "POST",
@@ -118,10 +120,17 @@ function CreateIdea({ token, readOnly, dataUser }) {
               <div className="d-flex justify-content-between">
                 <h1>Your Idea</h1>
                 <div className="d-flex align-items-center">
-                  <span><input type="checkbox"/>  <strong>Anonymous</strong></span>
+                  <span>
+                    <input
+                      type="checkbox"
+                      value={anonymous}
+                      onChange={(e) => setAnonymous(e.target.checked)}
+                    />
+                    <strong>Anonymous</strong>
+                  </span>
                 </div>
               </div>
-              
+
               <div className="mb-4 mt-4">
                 <Input
                   id="title"
