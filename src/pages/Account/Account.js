@@ -10,7 +10,7 @@ import Loading from "../../components/optional/Loading";
 import ReactPaginate from "react-paginate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faUserSlash } from "@fortawesome/free-solid-svg-icons";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Account({ token }) {
@@ -137,7 +137,7 @@ function Account({ token }) {
                                         data-username={data.userName}
                                       >
                                         <FontAwesomeIcon
-                                          icon={faRectangleXmark}
+                                          icon={faUserSlash}
                                         />
                                       </button>
                                     </div>

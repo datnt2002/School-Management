@@ -59,3 +59,16 @@
 .timeline_item{
     position: relative;
 }
+h1{
+    font-size: 3.5rem;
+}
+
+@media screen and (max-width:819px){
+    h1 {
+        margin-left: 20px;
+    }
+
+
+
+
+}

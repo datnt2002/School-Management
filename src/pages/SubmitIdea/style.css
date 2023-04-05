@@ -224,3 +224,68 @@
    .btnSubmitIdea:focus:not(:focus-visible), .btnCancelIdea:focus:not(:focus-visible) {
     outline: none;
    }
+
+   textarea{
+    height: 30rem;
+    resize: none;
+   }
+
+
+/*createIdea responsive mobile*/
+@media screen and (max-width:819px){
+  
+ /* section{
+    margin-left: -50px;
+    width: 100%;
+  }
+
+  .userProfile_header{
+    margin-left: -40px;
+  }
+
+  textarea{
+    height: 5rem;
+  }
+
+  upload file
+  div.form{
+    margin-left: 40px;
+    width: 300px;
+    /* height:100px; 
+  }
+
+  p.form-paragraph{
+    display: none;
+  }
+
+  span.form-title{
+    display: inline;
+    font-size: 20px;
+  }
+
+  span.drop-title{
+    display: none;
+  }
+
+  span.form-title{
+    display: none;
+  }
+
+  .or{
+    display: none;
+  }
+
+  label.drop-container{
+    width: 100%;
+    margin-top: -30px;
+  };
+
+  /*event of idea*/
+  /* div.card-mb4{
+    height: 200px;
+  } */
+
+
+
+
+}

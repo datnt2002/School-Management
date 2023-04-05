@@ -5,6 +5,9 @@ import MyIdea from "./MyIdea";
 import MyExp from "./MyExp";
 import UserContext from "../../api/UserContext";
 
+import "./editProfile.css";
+import Style from "./myExp.module.css";
+
 function UserProfile({ token }) {
   const user = useContext(UserContext);
   return (
@@ -13,7 +16,7 @@ function UserProfile({ token }) {
         <div className="container-fluid">
           <div className="row">
             <div className="textHeader">
-              <h1 style={{ fontSize: "3.5rem" }}>My Account</h1>
+              <h1>My Account</h1>
             </div>
             <div className="col-lg-5">
               <Profile token={token} />

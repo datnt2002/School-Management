@@ -26,3 +26,14 @@
 .centerContent {
     /* margin: 0 5px; */
 }
+
+
+
+
+/*responsive mobile*/
+@media screen and (max-width:819px){
+    .card{
+        width: 190%;
+        margin-left: -80px;
+    }
+}

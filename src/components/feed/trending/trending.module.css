@@ -1,8 +1,13 @@
 .card {
-    width: 100%;
+    width: 20%;
     cursor: pointer;
     transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
     /* margin-top: 2rem; */
+    
+    /*sticky*/
+    position: fixed;
+    top: 10;
+    z-index: 999;
   }
   
   .content {
@@ -62,4 +67,11 @@
   }
   .text_muted{
     color: white!important;
+  }
+
+  /*responsive mobile*/
+  @media screen and (max-width:819px){
+    .card{
+      display: none;
+    }
   }

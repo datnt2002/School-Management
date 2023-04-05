@@ -59,7 +59,8 @@ function Authentication({handleSetToken}) {
       <div className="modal_image_container">
         <img
           className="modal_image"
-          src="https://i.pinimg.com/564x/60/82/74/6082748c5ab4281795d0d5f46df2cdaa.jpg"
+          /*https://i.pinimg.com/564x/60/82/74/6082748c5ab4281795d0d5f46df2cdaa.jpg*/ 
+          src="https://static.vecteezy.com/system/resources/previews/002/012/285/original/cms-icon-content-management-system-eps-vector.jpg"
           style={imageStyle}
           alt="img"
         />

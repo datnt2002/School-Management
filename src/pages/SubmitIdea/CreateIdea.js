@@ -168,7 +168,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   placeholder="Tạm thế css sau"
                   className="textArea col-12"
                   onClick={autoHeight}
-                  style={{ height: "30rem", resize: "none" }}
+                  // style={{ height: "30rem", resize: "none" }}
                   value={ideaContent}
                   onChange={(e) => {
                     setIdeaContent(e.target.value);
@@ -218,8 +218,8 @@ function CreateIdea({ token, readOnly, dataUser }) {
               <span className="form-title">Upload your file</span>
               <p className="form-paragraph">File should be an image</p>
               <label htmlFor="file-input" className="drop-container">
-                <span className="drop-title">Drop files here</span>
-                or
+                <span className="drop-title">Drop files here  </span>
+                <p className="or">or</p>
                 <input type="file" id="file-input" />
               </label>
             </div>

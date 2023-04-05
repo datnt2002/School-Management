@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 import { apiEditAccount, apiProfile, server } from "../../api/Api";
 import Style from "./editProfile.module.css";
-import "../SubmitIdea/style.css";
+// import "../SubmitIdea/style.css";
+import "./editProfile.css";
 import { useNavigate } from "react-router-dom";
 
 function EditProfile({ dataUser, token, setDataUser }) {
@@ -93,7 +94,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                   <p className="form-paragraph">File should be an image</p>
                   <label htmlFor="file-input" className="drop-container">
                     <span className="drop-title">Drop files here</span>
-                    or
+                    <p className="or">or</p>
                     <input
                       type="file"
                       id="file-input"

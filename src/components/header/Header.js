@@ -78,6 +78,7 @@ function Header({ dataUser }) {
     localStorage.removeItem("token");
   };
   
+
   return (
     <>
       <div className="navbar-custom topnav-navbar topnav-navbar-dark" id="Top">
@@ -98,7 +99,7 @@ function Header({ dataUser }) {
                 data-toggle="dropdown"
                 aria-haspopup="false"
                 aria-expanded="false"
-                style={{ backgroundColor: "#313a46", border: "none" }}
+                style={{ backgroundColor: "#313a46", border: "none"}}
               >
                 <Search className="search-icon" />
               </button>
@@ -115,7 +116,7 @@ function Header({ dataUser }) {
                 </form>
               </div>
             </li>
-            <li className="dropdown notification-list">
+            <li className="dropdown notification-list" style={{  }}>
               <button
                 className="nav-link nav-user arrow-none mr-0"
                 data-toggle="dropdown"
@@ -123,7 +124,7 @@ function Header({ dataUser }) {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <div className="media" style={{ height: "50px" }}>
+                <div className="media" style={{ height: "50px"}}>
                   <img
                     className="rounded-circle"
                     src={server + dataUser?.avatar}
@@ -197,8 +198,10 @@ function Header({ dataUser }) {
             </form>
           </div>
         </div>
-      </div>
+      </div> 
     </>
   );
 }
 export default Header;
+
+

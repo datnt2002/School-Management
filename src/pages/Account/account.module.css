@@ -20,13 +20,14 @@
     --growth-from:0.7;
     --growth-to:1;
     animation: growth linear 0.1s;
-    margin: auto;
+    margin:auto;
     background-color: white;
     border-radius: .5rem;
     width: 50%;
     height: 88%;
     display: flex;
     z-index: 3;
+    margin-top:80px;
 }
 
 
@@ -39,4 +40,27 @@
         transform: scale(var(--growth-to));
     }
 }
+
+
+/*account responsive mobile*/
+@media screen and (max-width:819px){
+    .modalAccount{
+        width: 60%;
+        height:45%;
+        margin: 80px 0 0 8px;
+    }
+
+    .createFormAccount_Select{
+        display: block;
+    }
+}
+/*account responsive tablet*/
+@media screen and ((max-width:1180px) and (min-width:819px)){
+    .modalAccount{
+        width: 60%;
+        height:50%;
+        margin: 80px 0 0 10px;
+    }
+}
+
 

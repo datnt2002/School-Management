@@ -73,3 +73,13 @@
     box-shadow: inset 0px 0.1em 0.6em #bbc0c7;
     transform: translateY(0em);
   }
+
+
+button{
+    background: none;
+    border: none;
+}
+
+button:hover{
+    color: blue;
+}

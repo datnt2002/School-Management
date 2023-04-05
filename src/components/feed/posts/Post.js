@@ -56,8 +56,8 @@ function Post({ token, apiUrl, id }) {
                 </div>
 
                 <hr />
-                <div className="font-16 text-dark my-3">
-                  <h2 className="my-1">{dataIdea.name}</h2>
+                <div className="font-16 text-dark my-3"  style={{ overflowWrap: "break-word" }}>
+                  <h2 className="my-1" >{dataIdea.name}</h2>
                 </div>
                 <div
                   className="font-16 text-dark my-3"
@@ -65,10 +65,11 @@ function Post({ token, apiUrl, id }) {
                 >
                   <p className="my-1">
                     {`${dataIdea.content.substring(0, 250)}`}
-                    <button onClick={() => handleReadMore(dataIdea.id)}>
-                      Read more
+                    <button onClick={() => handleReadMore(dataIdea.id)} >
+                      ...Read more
                     </button>
                   </p>
+
                 </div>
                 <div className="file-group"></div>
                 <div className="time-group"></div>

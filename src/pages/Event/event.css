@@ -18,7 +18,7 @@ small{
     height: 70%;
     display: flex;
     animation: growth linear 0.1s;
-    z-index: 3;
+    z-index: 999;
 }
 .createFormEvent_Select{
     display: flex;
@@ -42,6 +42,7 @@ small{
 
 .tableAdmin{
     padding-top: 2rem;
+    /* margin-top: 150px; */
 }
 
 .tableAdmin .card {
@@ -64,5 +65,121 @@ small{
     }
     to {
         transform: scale(var(--growth-to));
+    }
+}
+
+
+
+/*event responsive tablet*/
+@media screen and ((max-width:1150px) and (min-width:820px)){
+    /*header*/
+    li.dropdown.notification-list{
+        margin-right:80px; 
+        margin-left: -50px; 
+    }
+    /*table*/
+    div.myExp_card__fOcsb.card{
+        width:120%; 
+        margin-left: -70px;
+    }
+
+    /*Modal*/
+    .modalEvent{
+        margin: 100px 40px 0 0px;
+        width:65%;
+        height:40%;
+    }
+
+
+    /*List ideas*/
+    div.card{
+        width: 120%;
+        margin:20px 0 0 -70px ;
+    }
+
+}
+
+
+/*event responsive mobile*/
+@media screen and (max-width:819px){
+    /*header*/
+    /* li.dropdown.notification-list{
+        margin-right:170px;
+        margin-left: -170px; 
+    } */
+
+    /* div#Top.navbar-custom.topnav-navbar.topnav-navbar-dark{
+        width: 160%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999px;
+    } */
+
+    .media-body p{
+        display: none;
+    }
+
+    .media-body h5{
+        padding-top: 10px;
+    }
+
+    /*Table*/
+    div.myExp_card__fOcsb.card{
+        width:200%; 
+        margin-left: -40px;
+        margin-top:-30px;
+    }
+
+    div.card-body{
+        margin-left: -10px;
+    }
+
+    /* Event modal*/
+    .modalEvent{
+        margin: 100px 40px 0 10px;
+        width:60%;
+        height:35%; 
+
+    }
+
+    .First-closureDate span{ 
+        font-size: 12px;
+        margin-left: 5px;
+    }
+
+    .First-closureDate input{ 
+        width: 55%;
+        margin:0 15px 0 5px;
+    }
+
+    .Last-closureDate span{
+        margin-left: -115px;
+        font-size: 12px;
+    }
+
+    .Last-closureDate input{
+        margin-left: -71px;  
+        width: 85%;
+    }
+
+    button.btn.btn-success{
+        margin-top: -20px;
+        height: 50%;
+    }  
+    
+    /*List ideas*/
+    div.card{
+        width: 200%;
+        margin:20px 0 0 -40px ;
+    }
+
+    /*event idea card*/
+    div.row{
+        display: block;
+    }
+
+    div.col-4{
+        width: 100%;
     }
 }

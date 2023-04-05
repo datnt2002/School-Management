@@ -374,3 +374,38 @@ a:not([href]) {
 .displayBlockonclick{
     display: block;
 }
+
+
+/* Sticky header */
+/* div#Top.navbar-custom.topnav-navbar.topnav-navbar-dark{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+} 
+
+nav.navbar.navbar-expand-lg.navbar-light.bg-light.subNavBar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+    margin-top: 85px;
+} */
+
+/* div.container{
+    margin-top: 185px;
+}  */
+
+/*event responsive mobile*/
+@media screen and (max-width:819px){
+    li.dropdown.notification-list{
+        margin-right:170px;
+        margin-left: -170px; 
+    }
+
+    div#Top.navbar-custom.topnav-navbar.topnav-navbar-dark{
+        width: 160%;
+    }
+}
