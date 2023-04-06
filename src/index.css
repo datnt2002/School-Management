@@ -10,13 +10,7 @@ html{
 
 body{
   /* background-color: #e1e4ea !important; */
-  background: #949c4e;
-  background: linear-gradient(
-    115deg,
-    rgba(86, 216, 228, 1) 10%,
-    rgba(159, 1, 234, 1) 90%
-  );
-  background-attachment: fixed;
+  background-color: rgb(86, 216, 228, 1)!important;
 }
 body a{
   text-decoration: none;

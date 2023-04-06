@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Style from "../../pages/NewsFeed/newsFeed.module.css";
+import Style from "./Sort.module.css";
 import { Dropdown as AntdDropdown, Space } from "antd";
 import { Dropdown } from "react-bootstrap";
 import {
@@ -14,7 +14,7 @@ import { useEffect } from "react";
 function Sort({ token, setDataIdea }) {
   //for sort idea
   const [selectedOptionToSort, setSelectedOptionToSort] = useState(
-    "--Please choose an option to sort--"
+    "-- Please choose an option to sort --"
   );
 
   function handleSelect(eventKey) {
@@ -85,6 +85,7 @@ function Sort({ token, setDataIdea }) {
         return {
           key: `dep-${department.depId}`,
           label: department.name,
+          
         };
       }),
     },
@@ -132,31 +133,28 @@ function Sort({ token, setDataIdea }) {
   };
 
   return (
-    <div className={Style.arrange}>
-      <div className="d-flex justify-content-between">
-        <div>
-          <Dropdown onSelect={handleSelect}>
-            <Dropdown.Toggle variant="success" id="dropdown-basic">
-              {selectedOptionToSort}
-            </Dropdown.Toggle>
-            <Dropdown.Menu>
-              <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
-              <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
-              <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-        </div>
+      <div className="d-flex justify-content-between mb-4">
+        <Dropdown onSelect={handleSelect} className={Style.Dropdown}>
+          <Dropdown.Toggle variant="secondary" id="dropdown-basic" className={Style.dropdown_toggle}>
+            {selectedOptionToSort}
+          </Dropdown.Toggle>
+          <Dropdown.Menu className={Style.dropMenu}>
+            <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
+            <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
+            <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
+          </Dropdown.Menu>
+        </Dropdown>
         <AntdDropdown
           trigger={["click"]}
           menu={{
             items,
             onClick: handleMenuSelect,
           }}
+          className={Style.ant_space}
         >
-          <Space>Cascading menu</Space>
+          <Space className={Style.ant_space_item}>-- Sort gi day ko biet dat ten menu --</Space>
         </AntdDropdown>
       </div>
-    </div>
   );
 }
 export default Sort;

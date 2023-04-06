@@ -88,7 +88,7 @@ dl, ol, ul {
 .navbar-custom .topbar-right-menu .nav-link {
     padding: 0;
     color: #98a6ad;
-    min-width: 32px;
+    width: 100%;
     display: block;
     text-align: center;
     margin: 0 10px;
@@ -373,4 +373,24 @@ a:not([href]) {
 }
 .displayBlockonclick{
     display: block;
+}
+
+
+.dropdown-menu{
+    --growth-from:0px;
+    --growth-to:100%;
+    animation: growth linear 0.2s;
+    /* transform: "translate3d(9.5px, 87px, 0px)"; */
+}
+
+/* Animation */
+@keyframes growth {
+    from {
+        transform: translateY(var(--growth-from));
+        opacity: 0;
+    }
+    to {
+        transform: translateY(var(--growth-to));
+        opacity: 1;
+    }
 }

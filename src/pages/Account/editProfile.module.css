@@ -37,7 +37,7 @@
 }
 .btnSave{
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 .editProfile .card {
     height: 100%;
@@ -54,3 +54,4 @@
 .form_control::-ms-input-placeholder { /* Microsoft Edge */
  color: #adb5bd;
 }
+

@@ -2,20 +2,24 @@
     width: 100%;
     cursor: pointer;
     transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
-    /* margin-top: 2rem; */
+    margin-bottom: 2rem;
   }
-  
   .content {
     text-align: center;
     position: relative;
     transition: all 1s;
-    background-color: rgba(31, 41, 55, 1);
+    background-color: white;
     padding: 5em;
     transform-style: preserve-3d;
     border-radius: 23px;
   }
+.content strong {
+    color: black;
+  }
+
   .card:hover {
     transform: scale(1.05);
+    margin-bottom: 40%;
   }
   .card:hover .content {
     transform: rotateY(0.5turn);
@@ -40,7 +44,7 @@
   .title {
     transform: translateZ(5rem);
     font-size: 2rem;
-    color: white;
+    color: black;
   }
   
   .subtitle {
@@ -49,7 +53,7 @@
   
   .back {
     transform: rotateY(0.5turn);
-    background-color: rgba(31, 41, 55, 1);
+    background-color: white;
     height:fit-content;
     border-radius: 23px;
   }
@@ -57,9 +61,5 @@
   .description {
     transform: translateZ(3rem);
     opacity: 0;
-    color: white;
-    margin-top: 2rem;
-  }
-  .text_muted{
-    color: white!important;
+    margin-bottom: 2rem;
   }

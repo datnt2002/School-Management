@@ -1,0 +1,34 @@
+.ant_space{
+    background-color: #0246da;
+    border-radius: 0.375rem;
+    padding: 0 0.6rem;
+    cursor: pointer;
+    color: white;
+}
+
+.Dropdown{
+    position: relative;
+    display: inline-block;
+}
+
+.dropMenu {
+    --growth-from:0px;
+    --growth-to:30%;
+    animation: growth linear 0.2s;
+    width: 100%;
+}
+
+/* Animation */
+@keyframes growth {
+    from {
+        transform: translateY(var(--growth-from));
+        opacity: 0;
+    }
+    to {
+        transform: translateY(var(--growth-to));
+        opacity: 1;
+    }
+}
+.dropdown_toggle::after{
+    display: none!important;
+}

@@ -2,7 +2,7 @@ import { apiIdea } from "../../api/Api";
 import Post from "../../components/feed/posts/Post";
 import Trending from "../../components/feed/trending/Trending";
 import ShowGotoTop from "../../components/optional/ShowGotoTop";
-import Weather from "../../components/optional/Weather";
+
 import Style from "./newsFeed.module.css";
 import React, { lazy, Suspense } from "react";
 import Sort from "../../components/DropDownSort/Sort";
@@ -27,13 +27,13 @@ function NewsFeed({ token }) {
   }, [token]);
   return (
     <>
-      <div className="container">
-        <div className="row" style={{ marginTop: "4rem" }}>
-          <div className={`col-lg-3 ${Style.leftContent}`}>
+      <div className="container-fluid">
+        <div className="row" style={{ marginTop: "2rem" }}>
+          <div className={`col-lg-4 ${Style.leftContent}`}>
             {/* <Profile/> */}
             <Trending token={token} />
           </div>
-          <div className={`col-lg-6 ${Style.centerContent}`}>
+          <div className={`col-lg-8 ${Style.centerContent}`}>
             {/* <Suspense fallback={<div>Loading...</div>}> */}
             <Sort token={token} setDataIdea={setDataIdea} />
             <SearchBar token={token} setDataIdea={setDataIdea} />
@@ -44,9 +44,6 @@ function NewsFeed({ token }) {
               // setDataIdea={setDataIdea}
             />
             {/* </Suspense> */}
-          </div>
-          <div className={`col-lg-3 ${Style.rightContent}`}>
-            <Weather />
           </div>
         </div>
         <ShowGotoTop />
