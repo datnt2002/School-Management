@@ -253,7 +253,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                   </div>
                   <div className={`${Style.btnSave} mb-3`}>
                     <button
-                      className="btn btn-primary"
+                      className="btn btn-success"
                       type="button"
                       onClick={handleEditProfile}
                     >

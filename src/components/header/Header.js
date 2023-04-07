@@ -104,9 +104,9 @@ function Header({ dataUser }) {
                 className={`dropdown-menu ${showDropDown}`}
                 // className="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown show"
                 style={{
-                  width: "11rem",
+                  width: "100%",
                   position: "absolute",
-                  transform: "translate3d(12px, 87px, 0px)",
+                  transform: "translate3d(9.5px, 87px, 0px)",
                   top: "0px",
                   left: "0px",
                   willChange: "transform",

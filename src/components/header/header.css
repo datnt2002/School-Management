@@ -88,7 +88,7 @@ dl, ol, ul {
 .navbar-custom .topbar-right-menu .nav-link {
     padding: 0;
     color: #98a6ad;
-    min-width: 32px;
+    width: 100%;
     display: block;
     text-align: center;
     margin: 0 10px;
@@ -376,42 +376,21 @@ a:not([href]) {
 }
 
 
-/* Sticky header */
-/* div#Top.navbar-custom.topnav-navbar.topnav-navbar-dark{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-} 
+.dropdown-menu{
+    --growth-from:0px;
+    --growth-to:100%;
+    animation: growth linear 0.2s;
+    /* transform: "translate3d(9.5px, 87px, 0px)"; */
+}
 
-nav.navbar.navbar-expand-lg.navbar-light.bg-light.subNavBar{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 999;
-    margin-top: 85px;
-} */
-
-/* div.container{
-    margin-top: 185px;
-}  */
-
-/*event responsive mobile*/
-@media screen and (max-width:819px){
-    li.dropdown.notification-list{
-        /* margin-right:150px; */
-        margin-left: -400px; 
+/* Animation */
+@keyframes growth {
+    from {
+        transform: translateY(var(--growth-from));
+        opacity: 0;
     }
-
-    div#Top.navbar-custom.topnav-navbar.topnav-navbar-dark{
-        width: 161%;
-        /* position: fixed;
-        top: 0;
-        width: 100%;
-        z-index: 100; */
-
+    to {
+        transform: translateY(var(--growth-to));
+        opacity: 1;
     }
 }
-    

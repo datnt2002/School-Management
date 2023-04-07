@@ -55,11 +55,11 @@ function Post({ token, apiUrl, id, dataIdea }) {
                   className="font-16 text-dark my-3"
                   style={{ overflowWrap: "break-word" }}
                 >
-                  <p className="my-1" style={{ overflowWrap: "break-word" }}>
-                    {dataIdea.content.length > 50 ? (
+                  <p className="my-1">
+                    {dataIdea.content.length > 150 ? (
                       <>
-                        {dataIdea.content.substring(0, 50)}
-                        <button> ...Read more</button >
+                        {dataIdea.content.substring(0, 150)}
+                        <button>Read more</button>
                       </>
                     ) : (
                       dataIdea.content
