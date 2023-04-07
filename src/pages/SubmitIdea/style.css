@@ -230,13 +230,20 @@
     resize: none;
    }
 
+   .btnSubmitCancel{
+    justify-content: center;
+    display: flex;
+   }
 
 /*createIdea responsive mobile*/
 @media screen and (max-width:819px){
-  
- /* section{
-    margin-left: -50px;
-    width: 100%;
+  .userProfile_header h1{
+    margin-left: 10%;
+  }
+
+  section{
+    margin-left: -96%;
+    width: 380%;
   }
 
   .userProfile_header{
@@ -247,11 +254,11 @@
     height: 5rem;
   }
 
-  upload file
+  /*upload file*/
   div.form{
-    margin-left: 40px;
+    margin-left: -40px;
     width: 300px;
-    /* height:100px; 
+    height:80px; 
   }
 
   p.form-paragraph{
@@ -277,15 +284,34 @@
 
   label.drop-container{
     width: 100%;
-    margin-top: -30px;
+    margin: -30px 0 0 1px;
   };
 
-  /*event of idea*/
-  /* div.card-mb4{
-    height: 200px;
-  } */
+  span.front.text{
+    width: 50%;
+  }
 
 
+  span input{
+    margin-left: -20px;
+  }
 
+  .btnSubmitIdea{
+    width: 20%;
+    margin-left: -60%;
+  }
+
+  .btnCancelIdea{
+    width: 20%;
+  }
+
+  .justify-content-between {
+    justify-content: flex-start;
+    margin-left: -20%;
+  }
+
+.btnSubmitCancel{
+    margin-top: -15%;
+}
 
 }

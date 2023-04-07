@@ -1,0 +1,5 @@
+@media screen and (max-width:819px){
+   div.dropdown{
+    margin-left: -80px;
+   }
+}

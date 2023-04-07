@@ -401,11 +401,17 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light.subNavBar{
 /*event responsive mobile*/
 @media screen and (max-width:819px){
     li.dropdown.notification-list{
-        margin-right:170px;
-        margin-left: -170px; 
+        /* margin-right:150px; */
+        margin-left: -400px; 
     }
 
     div#Top.navbar-custom.topnav-navbar.topnav-navbar-dark{
-        width: 160%;
+        width: 161%;
+        /* position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 100; */
+
     }
 }
+    

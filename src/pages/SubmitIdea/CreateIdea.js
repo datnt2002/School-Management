@@ -169,7 +169,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   placeholder="Tạm thế css sau"
                   className="textArea col-12"
                   onClick={autoHeight}
-                  style={{ height: "30rem", resize: "none" }}
+                  // style={{ height: "30rem", resize: "none" }}
                   value={ideaContent}
                   onChange={(e) => {
                     setIdeaContent(e.target.value);
@@ -239,7 +239,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   </div>
                 );
               })}
-            <div className="d-flex justify-content-between">
+            <div className="btnSubmitCancel">
               <button className="btnSubmitIdea" onClick={handleCreateIdea}>
                 <span className="shadow"></span>
                 <span className="edge"></span>

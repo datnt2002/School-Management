@@ -72,15 +72,11 @@ small{
 
 /*event responsive tablet*/
 @media screen and ((max-width:1150px) and (min-width:820px)){
-    /*header*/
-    li.dropdown.notification-list{
-        margin-right:80px; 
-        margin-left: -50px; 
-    }
     /*table*/
     div.myExp_card__fOcsb.card{
         width:120%; 
         margin-left: -70px;
+        display: block;
     }
 
     /*Modal*/
@@ -102,37 +98,23 @@ small{
 
 /*event responsive mobile*/
 @media screen and (max-width:819px){
-    /*header*/
-    /* li.dropdown.notification-list{
-        margin-right:170px;
-        margin-left: -170px; 
-    } */
-
-    /* div#Top.navbar-custom.topnav-navbar.topnav-navbar-dark{
-        width: 160%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 999px;
-    } */
-
-    .media-body p{
-        display: none;
-    }
-
     .media-body h5{
         padding-top: 10px;
     }
 
     /*Table*/
     div.myExp_card__fOcsb.card{
-        width:200%; 
+        width:205%; 
         margin-left: -40px;
         margin-top:-30px;
     }
 
+    div.page-title-box{
+        display: block;
+    }
+
     div.card-body{
-        margin-left: -10px;
+        margin-left: -25px;
     }
 
     /* Event modal*/

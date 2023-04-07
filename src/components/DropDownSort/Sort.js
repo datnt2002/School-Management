@@ -10,6 +10,7 @@ import {
   apiIdeaSort,
 } from "../../api/Api";
 import { useEffect } from "react";
+import "./Sort.css"
 
 function Sort({ token, setDataIdea }) {
   //for sort idea

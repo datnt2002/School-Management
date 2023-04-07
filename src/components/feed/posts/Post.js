@@ -48,19 +48,19 @@ function Post({ token, apiUrl, id, dataIdea }) {
                 </div>
 
                 <hr />
-                <div className="font-16 text-dark my-3">
+                <div className="font-16 text-dark my-3"  style={{ overflowWrap: "break-word" }}>
                   <h2 className="my-1">{dataIdea.name}</h2>
                 </div>
                 <div
                   className="font-16 text-dark my-3"
                   style={{ overflowWrap: "break-word" }}
                 >
-                  <p className="my-1">
+                  <p className="my-1" style={{ overflowWrap: "break-word" }}>
                     {dataIdea.content.length > 50 ? (
                       <>
                         {dataIdea.content.substring(0, 50)}
-                        <button>Read more</button >
-                      ...</>
+                        <button> ...Read more</button >
+                      </>
                     ) : (
                       dataIdea.content
                     )}
