@@ -6,9 +6,9 @@ function SubNavStaff() {
         <div className="container-fluid">
           <ul className="navbar-nav">
             <li className="subNav-item">
-              <a className="nav-link" href="/Dashboard">
-                Dashboard
-              </a>
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
             </li>
             <li className="subNav-item">
               <Link className="nav-link" to="/NewsFeed">

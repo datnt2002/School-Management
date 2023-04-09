@@ -8,6 +8,8 @@ import { apiCategory } from "../../api/Api";
 import CreateNewCategory from "./CreateNewCategory";
 import { Navigate } from "react-router-dom";
 import ReactPaginate from "react-paginate";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 function Category({ token }) {
   const [data, setData] = useState([]);
@@ -64,21 +66,20 @@ function Category({ token }) {
                 <div className="card-body">
                   <div className="mb-4 col-12">
                     <div className="page-title-box">
-                      <h1 className="page-title">Category</h1>
+                      <h1 className="page-title">
+                        Category{" "}
+                        <span>
+                            <button
+                              className="btn btn-danger mb-2"
+                              onClick={handleOpen}
+                              style={{ borderRadius: "50%" }}
+                            >
+                              <FontAwesomeIcon icon={faPlus} />
+                            </button>
+                        </span>
+                      </h1>
                     </div>
                   </div>
-                  <div className="row mb-2">
-                    <div className="col-sm-4">
-                      <button
-                        className="btn btn-danger mb-2"
-                        onClick={handleOpen}
-                      >
-                        <i className="mdi mdi-plus-circle mr-2"></i>Create
-                        Category
-                      </button>
-                    </div>
-                  </div>
-
                   <div className="table-responsive">
                     <div className="dataTables_wrapper dt-bootstrap5 no-footer">
                       <div className="row">

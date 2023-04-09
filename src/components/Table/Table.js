@@ -1,4 +1,4 @@
-import { faLink } from "@fortawesome/free-solid-svg-icons";
+import { faLink, faTrashCan } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useState } from "react";
 import Tooltip from "rc-tooltip";
@@ -148,7 +148,7 @@ function Table({
                     onClick={handleDelete}
                     data-id={data.id}
                   >
-                    {deleteAction}
+                    <FontAwesomeIcon icon={faTrashCan}/>
                   </button>
                 </div>
               </td>

@@ -9,7 +9,7 @@ import Account from "./pages/Account/Account";
 import EditProfile from "./pages/Account/EditProfile";
 import Error404 from "./pages/Error404/Error404";
 import CreateIdea from "./pages/SubmitIdea/CreateIdea";
-import EventIdea from "./pages/SubmitIdea/eventIdea";
+import EventIdea from "./pages/SubmitIdea/EventIdea";
 import UserProfile from "./pages/Account/UserProfile";
 import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
@@ -18,6 +18,7 @@ import ComfirmPassword from "./components/authentication/ComfirmPassword";
 import CreateNewCategory from "./pages/Category/CreateNewCategory";
 import ListIdea from "./pages/Event/ListIdea";
 import DashBoard from "./pages/DashBoardMain/DashBoard";
+import Home from "./pages/LandingPage/Home";
 
 function App() {
   const [dataUser, setDataUser] = useState({});
@@ -52,7 +53,7 @@ function App() {
         />
         <Route
           path="/"
-          element={<RequiredAuth dataUser={dataUser}></RequiredAuth>}
+          element={<RequiredAuth dataUser={dataUser}><Home/></RequiredAuth>}
         ></Route>
         <Route
           path="/event"
