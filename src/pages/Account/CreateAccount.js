@@ -107,7 +107,7 @@ function CreateAccount({ handleClose, token }) {
                   onChange={(e) => setRole(e.target.value)}
                   value={role}
                 >
-                  <option value="">---Please enter role---</option>
+                  <option value="">-- Please enter role --</option>
                   <option value="Staff">Staff</option>
                   <option value="QAM">Quality Assurance Management</option>
                   <option value="QAC">Quality Cooperator Management</option>
@@ -121,7 +121,7 @@ function CreateAccount({ handleClose, token }) {
                   onChange={(e) => setDepartmentId(e.target.value)}
                   value={departmentId}
                 >
-                  <option value="">---Please enter Department---</option>
+                  <option value="">-- Please enter Department --</option>
                   <option value="1">IT</option>
                   <option value="2">HR</option>
                   <option value="3">Design</option>

@@ -13,7 +13,7 @@
 
 .dropMenu {
     --growth-from:0px;
-    --growth-to:30%;
+    --growth-to:30%!important;
     animation: growth linear 0.2s;
     width: 100%;
 }

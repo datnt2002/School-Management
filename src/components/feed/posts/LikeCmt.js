@@ -49,12 +49,16 @@ function LikeCmt({ userId, ideaId, token }) {
 
   useEffect(() => {
     const buttonVoteList = document.getElementsByClassName(Style.button_name);
+    const heart = document.getElementById("Heart");
+    const crack = document.getElementById("Crack");
     if (flag === 1) {
       buttonVoteList[0].classList.add("active");
       buttonVoteList[1].classList.remove("active");
+      heart.setAttribute("style", "animationName: Like")
     } else if (flag === -1) {
       buttonVoteList[0].classList.remove("active");
       buttonVoteList[1].classList.add("active");
+      crack.setAttribute("style", "animationName: Like")
     } else {
       //if flag = -1, there is no button have change color
       buttonVoteList[0].classList.remove("active");

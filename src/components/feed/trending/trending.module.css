@@ -2,7 +2,7 @@
     width: 100%;
     cursor: pointer;
     transition: all 0.8s cubic-bezier(0.15, 0.83, 0.66, 1);
-    margin-bottom: 2rem;
+    margin: 0;
   }
   .content {
     text-align: center;
@@ -36,7 +36,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    padding: 2em;
+    padding: 2rem;
     transform-style: preserve-3d;
     backface-visibility: hidden;
   }

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import Style from "./Sort.module.css";
 import { Dropdown as AntdDropdown, Space } from "antd";
 import { Dropdown } from "react-bootstrap";
@@ -10,11 +10,14 @@ import {
   apiIdeaSort,
 } from "../../api/Api";
 import { useEffect } from "react";
+import UserContext from "../../api/UserContext";
 
 function Sort({ token, setDataIdea }) {
+  const user = useContext(UserContext);
+
   //for sort idea
   const [selectedOptionToSort, setSelectedOptionToSort] = useState(
-    "-- Please choose an option to sort --"
+    "-- Sort --"
   );
 
   function handleSelect(eventKey) {
@@ -144,6 +147,7 @@ function Sort({ token, setDataIdea }) {
             <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
+        {user.role !== "Staff" ? 
         <AntdDropdown
           trigger={["click"]}
           menu={{
@@ -152,8 +156,8 @@ function Sort({ token, setDataIdea }) {
           }}
           className={Style.ant_space}
         >
-          <Space className={Style.ant_space_item}>-- Sort gi day ko biet dat ten menu --</Space>
-        </AntdDropdown>
+          <Space className={Style.ant_space_item}>-- Filter --</Space>
+        </AntdDropdown> : <></>}
       </div>
   );
 }
