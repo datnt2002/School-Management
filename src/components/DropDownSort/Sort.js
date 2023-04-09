@@ -134,7 +134,8 @@ function Sort({ token, setDataIdea }) {
   };
 
   return (
-      <div className="d-flex justify-content-between mb-4">
+      // <div className="d-flex justify-content-between mb-4">
+      <div className="SortMenu">
         <Dropdown onSelect={handleSelect} className={Style.Dropdown}>
           <Dropdown.Toggle variant="secondary" id="dropdown-basic" className={Style.dropdown_toggle}>
             {selectedOptionToSort}

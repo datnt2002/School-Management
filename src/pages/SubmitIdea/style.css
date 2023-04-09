@@ -242,8 +242,12 @@
   }
 
   section{
-    margin-left: -96%;
+    margin-left: -95%;
     width: 380%;
+  }
+  
+  div.col-lg-5 .card.mb-4{
+    margin-left: -50px;
   }
 
   .userProfile_header{
@@ -256,7 +260,7 @@
 
   /*upload file*/
   div.form{
-    margin-left: -40px;
+    margin-left: -20px;
     width: 300px;
     height:80px; 
   }
@@ -284,7 +288,7 @@
 
   label.drop-container{
     width: 100%;
-    margin: -30px 0 0 1px;
+    margin: -30px 0 0 0px;
   };
 
   span.front.text{
@@ -298,7 +302,7 @@
 
   .btnSubmitIdea{
     width: 20%;
-    margin-left: -60%;
+    margin-left: -65%;
   }
 
   .btnCancelIdea{
@@ -310,8 +314,12 @@
     margin-left: -20%;
   }
 
-.btnSubmitCancel{
-    margin-top: -15%;
-}
+  .btnSubmitCancel{
+      margin-top: -15%;
+  }
+
+  h1{
+    margin-left: 60px;
+  }
 
 }
