@@ -9,6 +9,8 @@ import Sort from "../../components/DropDownSort/Sort";
 import SearchBar from "../../components/Search/SearchBar";
 import { useState, useEffect } from "react";
 
+import "./newFeed.css";
+
 function NewsFeed({ token }) {
   // const Post = lazy(() => import("../../components/feed/posts/Post"));
   const [dataIdea, setDataIdea] = useState([]);

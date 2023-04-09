@@ -224,3 +224,102 @@
    .btnSubmitIdea:focus:not(:focus-visible), .btnCancelIdea:focus:not(:focus-visible) {
     outline: none;
    }
+
+   textarea{
+    height: 30rem;
+    resize: none;
+   }
+
+   .btnSubmitCancel{
+    justify-content: center;
+    display: flex;
+   }
+
+/*createIdea responsive mobile*/
+@media screen and (max-width:819px){
+  .userProfile_header h1{
+    margin-left: 10%;
+  }
+
+  section{
+    margin-left: -95%;
+    width: 380%;
+  }
+  
+  div.col-lg-5 .card.mb-4{
+    margin-left: -50px;
+  }
+
+  .userProfile_header{
+    margin-left: -40px;
+  }
+
+  textarea{
+    height: 5rem;
+  }
+
+  /*upload file*/
+  div.form{
+    margin-left: -20px;
+    width: 300px;
+    height:80px; 
+  }
+
+  p.form-paragraph{
+    display: none;
+  }
+
+  span.form-title{
+    display: inline;
+    font-size: 20px;
+  }
+
+  span.drop-title{
+    display: none;
+  }
+
+  span.form-title{
+    display: none;
+  }
+
+  .or{
+    display: none;
+  }
+
+  label.drop-container{
+    width: 100%;
+    margin: -30px 0 0 0px;
+  };
+
+  span.front.text{
+    width: 50%;
+  }
+
+
+  span input{
+    margin-left: -20px;
+  }
+
+  .btnSubmitIdea{
+    width: 20%;
+    margin-left: -65%;
+  }
+
+  .btnCancelIdea{
+    width: 20%;
+  }
+
+  .justify-content-between {
+    justify-content: flex-start;
+    margin-left: -20%;
+  }
+
+  .btnSubmitCancel{
+      margin-top: -15%;
+  }
+
+  h1{
+    margin-left: 60px;
+  }
+
+}

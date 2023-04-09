@@ -18,14 +18,15 @@
     animation-duration: 2s;
 }
 
-/* Form image */
+/* Form image  https://i.pinimg.com/564x/60/82/74/6082748c5ab4281795d0d5f46df2cdaa.jpg*/
 .modal_image {
-    background: url('https://i.pinimg.com/564x/60/82/74/6082748c5ab4281795d0d5f46df2cdaa.jpg') no-repeat left center /cover !important;
+    background: url('') no-repeat left center /cover !important;
     animation-duration: 1s;
     animation-fill-mode: forwards;
     position: absolute;
     left: 0;
-    height: 100%;
+    margin: 2rem 0 0 1rem;
+    height: 80%;
     width: 50%;
     display: block;
 }
@@ -50,6 +51,7 @@
 .btn_forgot{
     border-top-left-radius: 100px;
     border-bottom-left-radius: 100px;
+    color:white;
 }
 
 .btn_login{
@@ -59,7 +61,7 @@
 
 .active{
     background-color: #58d3e4;
-    color: black;
+    color:white;
 }
 
 /* Login field */
@@ -145,7 +147,7 @@ input::placeholder{
 }
 
 .login-form-body .field-password{
-    margin-top: 80px;
+    margin-top: 100px;
 }
 
 
@@ -174,6 +176,8 @@ input::placeholder{
     0% {opacity: 0;}
     100% {opacity: 1;}
 }
+
+
 
 /* Responsive */
 /* Mobile */
@@ -239,4 +243,3 @@ input::placeholder{
 
 
 
-  

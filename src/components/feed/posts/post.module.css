@@ -74,3 +74,12 @@
     transform: translateY(0em);
   }
 
+button{
+    background: none;
+    border: none;
+    color: grey
+}
+
+button:hover{
+    color: blue;
+}

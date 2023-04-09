@@ -87,7 +87,7 @@ function Header({ dataUser }) {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <div className="media" style={{ height: "50px" }}>
+                <div className="media" style={{ height: "50px"}}>
                   <img
                     className="rounded-circle"
                     src={server + dataUser?.avatar}
@@ -140,8 +140,10 @@ function Header({ dataUser }) {
             </div>
           </button>
         </div>
-      </div>
+      </div> 
     </>
   );
 }
 export default Header;
+
+

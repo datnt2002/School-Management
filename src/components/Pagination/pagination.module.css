@@ -21,3 +21,12 @@
     color: white;
     border-radius: 3px;
 }
+
+
+
+@media screen and (max-width:819px){
+    .pagination{
+        display: flex;
+        justify-content: left;
+    }
+}

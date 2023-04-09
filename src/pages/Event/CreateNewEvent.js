@@ -92,7 +92,7 @@ function CreateNewEvent({ token, style, handleClose }) {
                   className="col-lg-6 d-flex justify-content-between"
                   style={{ width: "100%", paddingBottom:"1px" }}
                 >
-                  <div>
+                  <div className="First-closureDate">
                     <span
                       style={{
                         position:"relative",
@@ -117,8 +117,8 @@ function CreateNewEvent({ token, style, handleClose }) {
                     />
                     <p htmlFor="err" style={{ color: "red" }}></p>
                   </div>
-                  <div>
-                    <span
+                  <div className="Last-closureDate">
+                    <span 
                       style={{
                         position:"relative",
                         backgroundColor: "white",

@@ -86,3 +86,12 @@
     color: #fff;
   }
   
+
+  /*event responsive mobile*/
+@media screen and (max-width:819px){
+      /*header*/
+    li.dropdown.notification-list{
+        margin-right:200px;
+        margin-left: -170px; 
+    }
+}

@@ -48,12 +48,7 @@ function Post({ token, apiUrl, id, dataIdea }) {
                 </div>
 
                 <hr />
-                {/* <div className="font-16 text-dark my-3">
-                  <small className="my-1">
-                    <strong>Category: {dataIdea.categoryName}</strong>
-                  </small>
-                </div> */}
-                <div className="font-16 text-dark my-3">
+                <div className="font-16 text-dark my-3"  style={{ overflowWrap: "break-word" }}>
                   <h2 className="my-1">{dataIdea.name}</h2>
                 </div>
                 <div
@@ -70,6 +65,7 @@ function Post({ token, apiUrl, id, dataIdea }) {
                       dataIdea.content
                     )}
                   </p>
+
                 </div>
                 <div className="file-group"></div>
 

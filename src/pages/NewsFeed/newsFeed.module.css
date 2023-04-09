@@ -27,6 +27,21 @@
     /* margin: 0 5px; */
 }
 
+
+
+
+/*responsive mobile*/
+@media screen and (max-width:819px){
+    .card{
+        width: 190%;
+        margin-left: -80px;
+    }
+}
+
+.arrange{
+    margin-bottom: 1rem;
+}
+
 /* comment */
 /* .comments{
     padding: 10px;

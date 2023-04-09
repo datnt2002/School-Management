@@ -169,7 +169,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   placeholder="Tạm thế css sau"
                   className="textArea col-12"
                   onClick={autoHeight}
-                  style={{ height: "30rem", resize: "none" }}
+                  // style={{ height: "30rem", resize: "none" }}
                   value={ideaContent}
                   onChange={(e) => {
                     setIdeaContent(e.target.value);
@@ -227,8 +227,8 @@ function CreateIdea({ token, readOnly, dataUser }) {
               <p className="form-paragraph">File should be an image</p>
               <label htmlFor="file-input" className="drop-container">
                 <span className="drop-title">Drop files here</span>
-                or
-                <input type="file" id="file-input" accept="*"/>
+                <p className="or">or</p>
+                <input type="file" id="file-input"  accept="*"/>
               </label>
             </div>
             {errMes &&
@@ -239,7 +239,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   </div>
                 );
               })}
-            <div className="d-flex justify-content-between">
+            <div className="btnSubmitCancel">
               <button className="btnSubmitIdea" onClick={handleCreateIdea}>
                 <span className="shadow"></span>
                 <span className="edge"></span>

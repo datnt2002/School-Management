@@ -11,6 +11,7 @@ import {
 } from "../../api/Api";
 import { useEffect } from "react";
 import UserContext from "../../api/UserContext";
+import "./Sort.css"
 
 function Sort({ token, setDataIdea }) {
   const user = useContext(UserContext);
@@ -136,7 +137,8 @@ function Sort({ token, setDataIdea }) {
   };
 
   return (
-      <div className="d-flex justify-content-between mb-4">
+      // <div className="d-flex justify-content-between mb-4">
+      <div className="SortMenu">
         <Dropdown onSelect={handleSelect} className={Style.Dropdown}>
           <Dropdown.Toggle variant="secondary" id="dropdown-basic" className={Style.dropdown_toggle}>
             {selectedOptionToSort}

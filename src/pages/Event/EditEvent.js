@@ -108,7 +108,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                 className="col-lg-6 d-flex justify-content-between"
                 style={{ width: "100%", paddingBottom:"14px" }}
               >
-                <div>
+                <div className="First-closureDate">
                   <span
                     style={{
                       position:"relative",
@@ -132,14 +132,14 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                     onChange={(e) => Dategiday(e.target.value)}
                   />
                 </div>
-                <div>
+                <div className="Last-closureDate">
                   <span
                     style={{
                       position:"relative",
                       backgroundColor: "white",
                       color: "#999",
                       display: "block",
-                      padding: "5px 20px 5px 20px",
+                      padding: "5px 18px 5px 20px",
                       width: "fit-content",
                       fontWeight: "500",
                       borderRadius:"5px 5px 0 0",
