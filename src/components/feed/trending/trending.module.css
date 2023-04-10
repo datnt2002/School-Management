@@ -42,7 +42,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    padding: 2em;
+    padding: 2rem;
     transform-style: preserve-3d;
     backface-visibility: hidden;
   }

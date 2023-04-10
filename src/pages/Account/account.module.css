@@ -6,7 +6,7 @@
     overflow: hidden;
     display: flex;
     justify-content: space-between;
-    padding-right: 4px;
+    padding: 0 4px;
 }
 .createFormAccount{
     padding: 30px 32px;

@@ -59,7 +59,7 @@ function Post({ token, apiUrl, id, dataIdea }) {
                     {dataIdea.content.length > 150 ? (
                       <>
                         {dataIdea.content.substring(0, 150)}
-                        <button>Read more</button>
+                        <button> ...Read more</button>
                       </>
                     ) : (
                       dataIdea.content

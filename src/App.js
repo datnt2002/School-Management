@@ -18,6 +18,7 @@ import ComfirmPassword from "./components/authentication/ComfirmPassword";
 import CreateNewCategory from "./pages/Category/CreateNewCategory";
 import ListIdea from "./pages/Event/ListIdea";
 import DashBoard from "./pages/DashBoardMain/DashBoard";
+import Home from "./pages/LandingPage/Home";
 
 function App() {
   const [dataUser, setDataUser] = useState({});
@@ -52,7 +53,7 @@ function App() {
         />
         <Route
           path="/"
-          element={<RequiredAuth dataUser={dataUser}></RequiredAuth>}
+          element={<RequiredAuth dataUser={dataUser}><Home/></RequiredAuth>}
         ></Route>
         <Route
           path="/event"
