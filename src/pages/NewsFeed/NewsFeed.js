@@ -21,6 +21,12 @@ function NewsFeed({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        data.map((idea) => {
+          if (idea.anonymous) {
+            idea.avatar = "/images/Avatar.jpg";
+            idea.userName = "Anonymous";
+          }
+        });
         setDataIdea(data);
       })
       .catch(() => {
@@ -39,12 +45,7 @@ function NewsFeed({ token }) {
             {/* <Suspense fallback={<div>Loading...</div>}> */}
             <Sort token={token} setDataIdea={setDataIdea} />
             <SearchBar token={token} setDataIdea={setDataIdea} />
-            <Post
-              // token={token}
-              // apiUrl={apiIdea}
-              dataIdea={dataIdea}
-              // setDataIdea={setDataIdea}
-            />
+            <Post dataIdea={dataIdea} />
             {/* </Suspense> */}
           </div>
         </div>

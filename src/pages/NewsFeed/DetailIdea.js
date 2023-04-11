@@ -50,6 +50,10 @@ function DetailIdea({ token }) {
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
+        if (data[0].anonymous) {
+          data[0].avatar = "/images/Avatar.jpg";
+          data[0].userName = "Anonymous";
+        }
         setDetailIdea(data);
       })
       .catch(() => {

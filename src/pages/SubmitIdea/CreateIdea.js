@@ -66,8 +66,9 @@ function CreateIdea({ token, readOnly, dataUser }) {
     formData.append("cId", cateId);
     formData.append("eId", eventId);
     formData.append("uId", dataUser.userId);
-    formData.append("anonymous", anonymous);
+    formData.append("IsAnonymous", anonymous);
 
+    console.log(anonymous);
     fetch(apiIdea, {
       method: "POST",
       headers: {
@@ -169,7 +170,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
                   placeholder="Write your content ..."
                   className="textArea col-12"
                   onClick={autoHeight}
-                  style={{ padding:"5px 10px 0 10px" }}
+                  style={{ padding: "5px 10px 0 10px" }}
                   value={ideaContent}
                   onChange={(e) => {
                     setIdeaContent(e.target.value);
@@ -228,7 +229,7 @@ function CreateIdea({ token, readOnly, dataUser }) {
               <label htmlFor="file-input" className="drop-container">
                 <span className="drop-title">Drop files here</span>
                 <p className="or">or</p>
-                <input type="file" id="file-input"  accept="*"/>
+                <input type="file" id="file-input" accept="*" />
               </label>
             </div>
             {errMes &&
