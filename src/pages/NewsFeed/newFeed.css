@@ -1,7 +1,7 @@
 @media screen and (max-width:819px){
     div.card-body{
-        width: 60%;
-        margin-left: 20% ;
+        width: 55%;
+        margin-left: 15% ;
     }
 
     span{
@@ -10,7 +10,11 @@
 
     div.app-search.dropdown{
         width: 100%;
-        margin-left: 0 ;
+        margin-left: -25px;
+    }
+
+    div.Sort_Dropdown__ANnec{
+        margin-left: 65%;
     }
 
 

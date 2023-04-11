@@ -242,12 +242,12 @@
   }
 
   section{
-    margin-left: -95%;
-    width: 380%;
+    margin-left: -12%;
+    width: 92%;
   }
   
   div.col-lg-5 .card.mb-4{
-    margin-left: -50px;
+    margin-left: -90px;
   }
 
   .userProfile_header{
@@ -292,34 +292,41 @@
   };
 
   span.front.text{
-    width: 50%;
+    width:150px;
   }
 
-
-  span input{
-    margin-left: -20px;
+  .btnSubmitIdea span.front.text{
+    width: 120px;
   }
 
-  .btnSubmitIdea{
-    width: 20%;
-    margin-left: -65%;
+  .btnCancelIdea span.front.text{
+    width: 120px;
   }
 
-  .btnCancelIdea{
-    width: 20%;
+  .btnSubmitCancel span.edge{
+    width: 120px;
+  }
+
+  .btnSubmitCancel span.shadow{
+    width: 120px;
   }
 
   .justify-content-between {
     justify-content: flex-start;
-    margin-left: -20%;
   }
 
   .btnSubmitCancel{
-      margin-top: -15%;
+      margin-top: -10%;
+      margin-left: -40%;
   }
 
   h1{
-    margin-left: 60px;
+    margin-left: 0px;
+    width: 500px;
+  }
+
+  div.d-flex.align-items-center span input{
+    margin-left: -100px;
   }
 
 }

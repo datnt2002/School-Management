@@ -5,18 +5,5 @@
 }
 
 @media screen and (max-width:819px){
-   .SortMenu{
-      width: 100%;
-      margin-left: -10%;
-   }
-
-   div.ant-space-item{
-      margin-top: 50px;
-   }
-
-   .Sort_Dropdown__ANnec.dropdown{
-      /* display: flex; */
-      /* height: 10%;
-      width: 10%; */
-   }
+   
 }

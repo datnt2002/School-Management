@@ -126,6 +126,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                 padding: "20.391px",
               }}
             >
+
               <div className={Style.card_header}>Account Details</div>
               <div className={Style.card_body}>
                 <form>
@@ -270,6 +271,7 @@ function EditProfile({ dataUser, token, setDataUser }) {
                 </form>
               </div>
             </div>
+
           </div>
         </div>
       </div>

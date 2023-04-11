@@ -6,3 +6,11 @@
 .dropdown-item {
     color: #343a40;
 }
+
+
+@media screen and (max-width: 819px) {
+    /* div.card{
+      width: 100%;
+    } */
+
+}
