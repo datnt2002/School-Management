@@ -12,6 +12,20 @@ body{
   /* background-color: #e1e4ea !important; */
   background-color: rgb(86, 216, 228, 1)!important;
 }
+.tableAccountList, .userProfile, .tableCate, .dashBoard, .tableAdmin, .tableListIdea {
+  position: relative;
+  width: 100%;
+  height: 89.3vh;
+  background-image: url('./images/TruongTao.png');
+  background-position: center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
 body a{
   text-decoration: none;
 }

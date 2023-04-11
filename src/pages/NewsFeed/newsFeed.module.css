@@ -24,9 +24,11 @@
     overflow-wrap:break-word;
 }
 .centerContent {
-    /* margin: 0 5px; */
+    margin-top: 2rem!important;
 }
-
+.leftContent{
+    margin-top: 2rem!important;
+}
 
 
 

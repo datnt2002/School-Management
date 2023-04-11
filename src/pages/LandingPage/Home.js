@@ -6,8 +6,8 @@ function Home() {
         <div className={Style.header}>
             <div class={Style.header_content}>
                 <div class={Style.header_content_inner}>
-                    <h1>Dramatically Idea</h1>
-                    <Link to="/NewsFeed" class="btn btn-primary btn-lg">New Feed</Link>
+                    {/* <h1>Dramatically Idea</h1>
+                    <Link to="/NewsFeed" class="btn btn-primary btn-lg">New Feed</Link> */}
                 </div>
             </div>
         </div>

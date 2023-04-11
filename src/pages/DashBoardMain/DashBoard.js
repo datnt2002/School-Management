@@ -25,8 +25,8 @@ function DashBoard({token}) {
     }, [token])
 
     return(
-        <>
-            <div className={`${Style.dash_board} container-fluid mt-5`}>
+        <div className="dashBoard">
+            <div className={`${Style.dash_board} container-fluid mt-5 `}>
                 <div className="row">
                     <div className="col-3">
                         <div className="mb-3">
@@ -53,7 +53,7 @@ function DashBoard({token}) {
                 </div>
                     
             </div>
-        </>
+        </div>
     );
 }
 export default DashBoard;
