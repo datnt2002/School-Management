@@ -119,7 +119,7 @@ function DetailIdea({ token }) {
       {detailIdea &&
         detailIdea.map((detail) => {
           return (
-            <div className="row" style={{ marginTop: "4rem" }} key={detail.id}>
+            <div className="row" style={{ marginTop: "2rem" }} key={detail.id}>
               <div className={`col-lg-9 ${Style.centerContent}`}>
                 <div className="card">
                   <div className={Style.media}>
@@ -170,32 +170,45 @@ function DetailIdea({ token }) {
                   {detail.eventLastClosure > Date.now() ? (
                     <div></div>
                   ) : (
-                    <div className="d-flex justify-content-between">
-                      <img
-                        className={Style.commentAvatar}
-                        src={server + user.avatar}
-                        alt="placeholder"
-                        height="50"
-                      />
-                      <div className={`${Style.commentBox}`}>
-                        <textarea
-                          placeholder="Enter Comment"
-                          className={`${Style.textArea}`}
-                          onClick={autoHeight}
-                          style={{ height: "3rem", resize: "none" }}
-                          value={ideaComment}
-                          onChange={(e) => {
-                            setIdeaComment(e.target.value);
-                          }}
+                    <>
+                      <div className="d-flex">
+                        <img
+                          className={Style.commentAvatar}
+                          src={server + user.avatar}
+                          alt="placeholder"
+                          height="50"
                         />
-                        <button
-                          className={Style.commetBtn}
-                          onClick={handlePostComment}
-                        >
-                          <FontAwesomeIcon icon={faPaperPlane} />
-                        </button>
+                        <div className={`${Style.commentBox}`}>
+                          <textarea
+                            placeholder="Enter Comment"
+                            className={`${Style.textArea}`}
+                            onClick={autoHeight}
+                            style={{ height: "3rem", resize: "none" }}
+                            value={ideaComment}
+                            onChange={(e) => {
+                              setIdeaComment(e.target.value);
+                            }}
+                          />
+                          <button
+                            className={Style.commetBtn}
+                            onClick={handlePostComment}
+                          >
+                            <FontAwesomeIcon icon={faPaperPlane} />
+                          </button>
+                        </div>
                       </div>
-                    </div>
+                      <div className={Style.anonumous}>
+                        <span>
+                          <input
+                            type="checkbox"
+                            // value={anonymous}
+                            // onChange={(e) => setAnonymous(e.target.checked)}
+                          />
+                          <strong>Anonymous</strong>
+                        </span>
+                      </div>
+                    </>
+                    
                   )}
                 </div>
               </div>

@@ -34,7 +34,7 @@ function NewsFeed({ token }) {
       });
   }, [token]);
   return (
-    <div className="NewFeedBackG" id="NewFeedBackG">
+    <div id="NewFeedBackG">
       <div className="container-fluid">
         <div className="row">
           <div className={`col-lg-4 ${Style.leftContent}`}>

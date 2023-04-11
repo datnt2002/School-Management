@@ -41,7 +41,7 @@ function Post({ dataIdea }) {
                   </div>
                   <div>
                     <span>{dataIdea.viewed}</span>
-                    <span> views</span>
+                    <span> Views</span>
                   </div>
                 </div>
 

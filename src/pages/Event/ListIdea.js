@@ -5,7 +5,20 @@ import "./event.css";
 
 function ListIdea({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
-
+  //paginate
+  const [currenItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffSet, setItemOffSet] = useState(0);
+  const itemPerPage = 7;
+  useEffect(() => {
+    const endOffSet = itemOffSet + itemPerPage;
+    setCurrentItems(dataIdea.slice(itemOffSet, endOffSet));
+    setPageCount(Math.ceil(dataIdea.length / itemPerPage));
+  }, [itemOffSet, itemPerPage, dataIdea]);
+  function handlePageClick(e) {
+    const newOffSet = (e.selected * itemPerPage) % dataIdea.length;
+    setItemOffSet(newOffSet);
+  }
   //useLocation to get state of eventId when navigate
   const location = useLocation();
   const eventId = location.state.eventId;

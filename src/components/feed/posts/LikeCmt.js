@@ -52,17 +52,17 @@ function LikeCmt({ userId, ideaId, token }) {
     const heart = document.getElementById("Heart");
     const crack = document.getElementById("Crack");
     if (flag === 1) {
-      buttonVoteList[0].classList.add("active");
-      buttonVoteList[1].classList.remove("active");
+      buttonVoteList[0].classList.add("active1");
+      buttonVoteList[1].classList.remove("active1");
       heart.setAttribute("style", "animationName: Like")
     } else if (flag === -1) {
-      buttonVoteList[0].classList.remove("active");
-      buttonVoteList[1].classList.add("active");
+      buttonVoteList[0].classList.remove("active1");
+      buttonVoteList[1].classList.add("active1");
       crack.setAttribute("style", "animationName: Like")
     } else {
       //if flag = -1, there is no button have change color
-      buttonVoteList[0].classList.remove("active");
-      buttonVoteList[1].classList.remove("active");
+      buttonVoteList[0].classList.remove("active1");
+      buttonVoteList[1].classList.remove("active1");
     }
   }, [flag]);
 
