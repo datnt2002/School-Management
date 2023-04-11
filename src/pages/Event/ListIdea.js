@@ -39,7 +39,8 @@ function ListIdea({ token }) {
   };
 
   return (
-    <div className="container-fluid tableListIdea">
+    <div className="tableListIdea">
+    <div className="container-fluid ">
       <div className="tableListIdea">
         <div className="card">
           <div className="card-body">
@@ -112,6 +113,7 @@ function ListIdea({ token }) {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

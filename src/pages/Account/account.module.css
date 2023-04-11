@@ -1,6 +1,7 @@
 /* Create account */
 .tableAccount{
     padding-top: 2rem;
+    padding-bottom: 2rem;
 }
 .createFormAccount_Select{
     overflow: hidden;
