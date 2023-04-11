@@ -2,11 +2,28 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { apiDownloadAllFiles, apiIdeaByEvent } from "../../api/Api";
 import "./event.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo, faDownload } from "@fortawesome/free-solid-svg-icons";
+import ReactPaginate from "react-paginate";
 
 
 function ListIdea({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
-
+  //paginate
+  const [currenItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffSet, setItemOffSet] = useState(0);
+  const itemPerPage = 7;
+  useEffect(() => {
+    const endOffSet = itemOffSet + itemPerPage;
+    setCurrentItems(dataIdea.slice(itemOffSet, endOffSet));
+    setPageCount(Math.ceil(dataIdea.length / itemPerPage));
+  }, [itemOffSet, itemPerPage, dataIdea]);
+  function handlePageClick(e) {
+    const newOffSet = (e.selected * itemPerPage) % dataIdea.length;
+    setItemOffSet(newOffSet);
+  }
   //useLocation to get state of eventId when navigate
   const location = useLocation();
   const eventId = location.state.eventId;
@@ -39,27 +56,25 @@ function ListIdea({ token }) {
   };
 
   return (
-    <div className="tableListIdea">
+    <div className="tableListIdea" style={{ marginTop:"2rem" }}>
     <div className="container-fluid ">
       <div className="tableListIdea">
         <div className="card">
           <div className="card-body">
             <div className="mb-4 col-12">
               <div className="page-title-box">
-                <h1 className="page-title">List ideas</h1>
+                <h1 className="page-title">List ideas{" "}
+                <span>
+                  <button
+                    className="btn btn-danger mb-2"
+                    onClick={handleDownloadAllFiles}
+                  >
+                    <FontAwesomeIcon icon={faDownload}/>
+                  </button>
+                </span>
+                </h1>
               </div>
             </div>
-            <div className="row mb-2">
-              <div className="col-sm-4">
-                <button
-                  className="btn btn-danger mb-2"
-                  onClick={handleDownloadAllFiles}
-                >
-                  <i className="mdi mdi-plus-circle mr-2"></i>Download All Files
-                </button>
-              </div>
-            </div>
-
             <div className="table-responsive">
               <div className="dataTables_wrapper dt-bootstrap5 no-footer">
                 <div className="row">
@@ -75,7 +90,7 @@ function ListIdea({ token }) {
                         </tr>
                       </thead>
                       <tbody>
-                        {dataIdea.map((dataIdea) => {
+                        {currenItems.map((dataIdea) => {
                           return (
                             <tr role="row" key={dataIdea.id}>
                               <td className="sorting_1">
@@ -84,8 +99,11 @@ function ListIdea({ token }) {
                                   <br />
                                 </p>
                               </td>
-                              <td>{dataIdea.content}</td>
-                              <td>{dataIdea.category}</td>
+                              <td>{dataIdea.content.length > 15
+                                  ? dataIdea.content.substring(0, 15) + " ..."
+                                  : dataIdea.content}
+                              </td>
+                              <td>{dataIdea.categoryName}</td>
                               <td>{dataIdea.userName}</td>
                               <td className="table-action">
                                 <div className="d-flex justify-content-evenly">
@@ -94,8 +112,9 @@ function ListIdea({ token }) {
                                     onClick={() =>
                                       handleDetail(dataIdea.ideaId)
                                     }
+                                    style={{ fontSize:"x-large" }}
                                   >
-                                    View Detail
+                                    <FontAwesomeIcon icon={faCircleInfo}/>
 
                                   </button>
                                 </div>
@@ -111,6 +130,20 @@ function ListIdea({ token }) {
               </div>
             </div>
           </div>
+          <ReactPaginate
+            breakLabel="..."
+            nextLabel=">"
+            onPageChange={handlePageClick}
+            pageRangeDisplayed={3}
+            pageCount={pageCount}
+            previousLabel="<"
+            renderOnZeroPageCount={null}
+            containerClassName={StylePaginate.pagination}
+            pageLinkClassName={StylePaginate.page_num}
+            previousLinkClassName={StylePaginate.page_num}
+            nextLinkClassName={StylePaginate.page_num}
+            activeClassName={StylePaginate.active}
+          />
         </div>
       </div>
     </div>
