@@ -2,6 +2,10 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { apiDownloadAllFiles, apiIdeaByEvent, server } from "../../api/Api";
 import "./event.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircleInfo, faDownload } from "@fortawesome/free-solid-svg-icons";
+import ReactPaginate from "react-paginate";
 
 function ListIdea({ token }) {
   const [dataIdea, setDataIdea] = useState([]);
@@ -50,27 +54,27 @@ function ListIdea({ token }) {
   };
 
   return (
-    <div className="tableListIdea">
+    <div className="tableListIdea mt-5">
       <div className="container-fluid ">
         <div className="tableListIdea">
           <div className="card">
             <div className="card-body">
               <div className="mb-4 col-12">
+              <div className="mb-4 col-12">
                 <div className="page-title-box">
-                  <h1 className="page-title">List ideas </h1>
+                  <h1 className="page-title">List ideas{" "}
+                  <span>
+                    <button
+                      className="btn btn-danger mb-2"
+                      onClick={handleDownloadAllFiles}
+                    >
+                      <FontAwesomeIcon icon={faDownload}/>
+                    </button>
+                  </span>
+                  </h1>
                 </div>
-              </div>
-              <div className="row mb-2">
-                <div className="col-sm-4">
-                  <button
-                    className="btn btn-danger mb-2"
-                    onClick={handleDownloadAllFiles}
-                  >
-                    <i className="mdi mdi-plus-circle mr-2"></i>Download All
-                    Files
-                  </button>
                 </div>
-              </div>
+            </div>
 
               <div className="table-responsive">
                 <div className="dataTables_wrapper dt-bootstrap5 no-footer">
@@ -111,8 +115,9 @@ function ListIdea({ token }) {
                                   <div className="d-flex justify-content-evenly">
                                     <button
                                       onClick={() => handleDetail(dataIdea.id)}
+                                      style={{ fontSize:"x-large" }}
                                     >
-                                      View Detail
+                                      <FontAwesomeIcon icon={faCircleInfo}/>
                                     </button>
                                   </div>
                                 </td>
@@ -127,6 +132,20 @@ function ListIdea({ token }) {
                 </div>
               </div>
             </div>
+            <ReactPaginate
+              breakLabel="..."
+              nextLabel=">"
+              onPageChange={handlePageClick}
+              pageRangeDisplayed={3}
+              pageCount={pageCount}
+              previousLabel="<"
+              renderOnZeroPageCount={null}
+              containerClassName={StylePaginate.pagination}
+              pageLinkClassName={StylePaginate.page_num}
+              previousLinkClassName={StylePaginate.page_num}
+              nextLinkClassName={StylePaginate.page_num}
+              activeClassName={StylePaginate.active}
+            />
           </div>
         </div>
       </div>
