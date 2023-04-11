@@ -115,7 +115,6 @@ function ListIdea({ token }) {
                                     style={{ fontSize:"x-large" }}
                                   >
                                     <FontAwesomeIcon icon={faCircleInfo}/>
-
                                   </button>
                                 </div>
                               </td>
