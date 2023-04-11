@@ -4,9 +4,7 @@ import Style from "../../../pages/NewsFeed/newsFeed.module.css";
 import "./dropDown.css";
 import { useNavigate } from "react-router-dom";
 
-import UserContext from "../../../api/UserContext";
-
-function Post({ token, apiUrl, id, dataIdea }) {
+function Post({ dataIdea }) {
   const navigate = useNavigate();
 
   const handleDetail = (id) => {
@@ -43,12 +41,15 @@ function Post({ token, apiUrl, id, dataIdea }) {
                   </div>
                   <div>
                     <span>{dataIdea.viewed}</span>
-                    <span> views</span>
+                    <span> Views</span>
                   </div>
                 </div>
 
                 <hr />
-                <div className="font-16 text-dark my-3"  style={{ overflowWrap: "break-word" }}>
+                <div
+                  className="font-16 text-dark my-3"
+                  style={{ overflowWrap: "break-word" }}
+                >
                   <h2 className="my-1">{dataIdea.name}</h2>
                 </div>
                 <div
@@ -65,7 +66,6 @@ function Post({ token, apiUrl, id, dataIdea }) {
                       dataIdea.content
                     )}
                   </p>
-
                 </div>
                 <div className="file-group"></div>
 

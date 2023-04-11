@@ -21,6 +21,12 @@ function NewsFeed({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        data.map((idea) => {
+          if (idea.anonymous) {
+            idea.avatar = "/images/Avatar.jpg";
+            idea.userName = "Anonymous";
+          }
+        });
         setDataIdea(data);
       })
       .catch(() => {
@@ -28,9 +34,9 @@ function NewsFeed({ token }) {
       });
   }, [token]);
   return (
-    <>
+    <div id="NewFeedBackG">
       <div className="container-fluid">
-        <div className="row" style={{ marginTop: "2rem" }}>
+        <div className="row">
           <div className={`col-lg-4 ${Style.leftContent}`}>
             {/* <Profile/> */}
             <Trending token={token} />
@@ -39,18 +45,13 @@ function NewsFeed({ token }) {
             {/* <Suspense fallback={<div>Loading...</div>}> */}
             <Sort token={token} setDataIdea={setDataIdea} />
             <SearchBar token={token} setDataIdea={setDataIdea} />
-            <Post
-              // token={token}
-              // apiUrl={apiIdea}
-              dataIdea={dataIdea}
-              // setDataIdea={setDataIdea}
-            />
+            <Post dataIdea={dataIdea} />
             {/* </Suspense> */}
           </div>
         </div>
         <ShowGotoTop />
       </div>
-    </>
+    </div>
   );
 }
 

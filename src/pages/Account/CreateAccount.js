@@ -1,10 +1,12 @@
-import { useState } from "react";
-import { apiCreateAccount } from "../../api/Api";
+import { useEffect, useState } from "react";
+import { apiCreateAccount, apiDepartment } from "../../api/Api";
 
 import Input from "../../components/Tags/Input";
 import Style from "./account.module.css";
 
 function CreateAccount({ handleClose, token }) {
+  const [departmentDataFromApi, setDepartmentDataFromApi] = useState([]);
+
   const [userName, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -13,6 +15,18 @@ function CreateAccount({ handleClose, token }) {
 
   const [errMes, setErrMess] = useState();
 
+  useEffect(() => {
+    fetch(apiDepartment, {
+      Authorization: `Bearer ${token}`,
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setDepartmentDataFromApi(data);
+      })
+      .catch(()=>{console.log('api department')})
+  }, [token]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -97,8 +111,6 @@ function CreateAccount({ handleClose, token }) {
                 value={password}
               />
             </div>
-          
-         
             <div className={`mt-3 mb-3 ${Style.createFormAccount_Select}`}>
               <div className="mb-3">
                 <label className="form-label">Role</label>
@@ -110,7 +122,7 @@ function CreateAccount({ handleClose, token }) {
                   <option value="">-- Please enter role --</option>
                   <option value="Staff">Staff</option>
                   <option value="QAM">Quality Assurance Management</option>
-                  <option value="QAC">Quality  Assurance Cooperator</option>
+                  <option value="QAC">Quality Assurance Cooperator</option>
                   <option value="Admin">Admin</option>
                 </select>
               </div>
@@ -121,11 +133,16 @@ function CreateAccount({ handleClose, token }) {
                   onChange={(e) => setDepartmentId(e.target.value)}
                   value={departmentId}
                 >
-                  <option value="">-- Please enter Department --</option>
-                  <option value="1">IT</option>
-                  <option value="2">HR</option>
-                  <option value="3">Design</option>
-                  <option value="4">Business</option>
+                  <option value="" key="-1">
+                    -- Please enter Department --
+                  </option>
+                  {departmentDataFromApi.map((department) => {
+                    return (
+                      <option value={department.depId} key={department.depId}>
+                        {department.name}
+                      </option>
+                    );
+                  })}
                 </select>
               </div>
             </div>

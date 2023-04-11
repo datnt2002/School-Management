@@ -11,15 +11,14 @@ import {
 } from "../../api/Api";
 import { useEffect } from "react";
 import UserContext from "../../api/UserContext";
-import "./Sort.css"
+import "./Sort.css";
 
 function Sort({ token, setDataIdea }) {
   const user = useContext(UserContext);
 
   //for sort idea
-  const [selectedOptionToSort, setSelectedOptionToSort] = useState(
-    "-- Sort --"
-  );
+  const [selectedOptionToSort, setSelectedOptionToSort] =
+    useState("-- Sort --");
 
   function handleSelect(eventKey) {
     let sortType = "";
@@ -46,6 +45,12 @@ function Sort({ token, setDataIdea }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        data.map((idea) => {
+          if (idea.anonymous) {
+            idea.avatar = "/images/Avatar.jpg";
+            idea.userName = "Anonymous";
+          }
+        });
         setDataIdea(data);
       })
       .catch((err) => {
@@ -73,7 +78,6 @@ function Sort({ token, setDataIdea }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setCategoryData(data);
       })
       .catch((err) => {
@@ -89,7 +93,6 @@ function Sort({ token, setDataIdea }) {
         return {
           key: `dep-${department.depId}`,
           label: department.name,
-          
         };
       }),
     },
@@ -115,6 +118,12 @@ function Sort({ token, setDataIdea }) {
       })
         .then((res) => res.json())
         .then((data) => {
+          data.map((idea) => {
+            if (idea.anonymous) {
+              idea.avatar = "/images/Avatar.jpg";
+              idea.userName = "Anonymous";
+            }
+          });
           setDataIdea(data);
         })
         .catch((err) => {
@@ -137,19 +146,23 @@ function Sort({ token, setDataIdea }) {
   };
 
   return (
-      // <div className="d-flex justify-content-between mb-4">
-      <div className="SortMenu">
-        <Dropdown onSelect={handleSelect} className={Style.Dropdown}>
-          <Dropdown.Toggle variant="secondary" id="dropdown-basic" className={Style.dropdown_toggle}>
-            {selectedOptionToSort}
-          </Dropdown.Toggle>
-          <Dropdown.Menu className={Style.dropMenu}>
-            <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
-            <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
-            <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
-          </Dropdown.Menu>
-        </Dropdown>
-        {user.role !== "Staff" ? 
+    // <div className="d-flex justify-content-between mb-4">
+    <div className="SortMenu">
+      <Dropdown onSelect={handleSelect} className={Style.Dropdown}>
+        <Dropdown.Toggle
+          variant="secondary"
+          id="dropdown-basic"
+          className={Style.dropdown_toggle}
+        >
+          {selectedOptionToSort}
+        </Dropdown.Toggle>
+        <Dropdown.Menu className={Style.dropMenu}>
+          <Dropdown.Item eventKey="Most Likes">Most Likes</Dropdown.Item>
+          <Dropdown.Item eventKey="Most Views">Most Views</Dropdown.Item>
+          <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
+        </Dropdown.Menu>
+      </Dropdown>
+      {user.role !== "Staff" ? (
         <AntdDropdown
           trigger={["click"]}
           menu={{
@@ -159,8 +172,11 @@ function Sort({ token, setDataIdea }) {
           className={Style.ant_space}
         >
           <Space className={Style.ant_space_item}>-- Filter --</Space>
-        </AntdDropdown> : <></>}
-      </div>
+        </AntdDropdown>
+      ) : (
+        <></>
+      )}
+    </div>
   );
 }
 export default Sort;

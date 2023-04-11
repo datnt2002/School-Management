@@ -71,8 +71,8 @@ function Account({ token }) {
   }
 
   return (
-    <>
-      <div className="container-fluid tableAccountList">
+    <div className="tableAccountList">
+      <div className="container-fluid">
         <div className={Style.tableAccount}>
           <div className={`${StyleCard.card} card`}>
             <div className="card-body">
@@ -177,7 +177,7 @@ function Account({ token }) {
           userName={userName}
         />
       )}
-    </>
+    </div>
   );
 }
 

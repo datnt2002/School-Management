@@ -57,13 +57,13 @@ function Event({ token }) {
     })
       .then((res) => res.json())
       .then((data) => setData(data))
-      .catch(() => console.log("404 r"));
+      .catch(() => console.log("api event"));
   }, [modal, token]);
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="tableAdmin">
+      <div className="tableAdmin">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-12">
               <div className={`${Style.card} card`}>
@@ -100,7 +100,6 @@ function Event({ token }) {
                             token={token}
                             handleOpen={handleOpenEdit}
                             setSelectEventId={setSelectEventId}
-                            path="/ListIdea"
                           />
                         </div>
                       </div>

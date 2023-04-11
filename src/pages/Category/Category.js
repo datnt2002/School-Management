@@ -58,8 +58,8 @@ function Category({ token }) {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="tableCate">
+      <div className="tableCate">
+        <div className="container-fluid ">
           <div className="row">
             <div className="col-12">
               <div className={`${Style.card} card`}>
