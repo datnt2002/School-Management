@@ -62,8 +62,8 @@ function Event({ token }) {
 
   return (
     <>
-      <div className="container-fluid">
-        <div className="tableAdmin">
+      <div className="tableAdmin">
+        <div className="container-fluid">
           <div className="row">
             <div className="col-12">
               <div className={`${Style.card} card`}>

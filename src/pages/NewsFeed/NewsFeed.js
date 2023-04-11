@@ -28,9 +28,9 @@ function NewsFeed({ token }) {
       });
   }, [token]);
   return (
-    <>
+    <div className="NewFeedBackG">
       <div className="container-fluid">
-        <div className="row" style={{ marginTop: "2rem" }}>
+        <div className="row">
           <div className={`col-lg-4 ${Style.leftContent}`}>
             {/* <Profile/> */}
             <Trending token={token} />
@@ -50,7 +50,7 @@ function NewsFeed({ token }) {
         </div>
         <ShowGotoTop />
       </div>
-    </>
+    </div>
   );
 }
 

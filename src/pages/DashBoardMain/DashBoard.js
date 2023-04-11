@@ -26,8 +26,8 @@ function DashBoard({ token }) {
   }, [token]);
 
   return (
-    <>
-      <div className={`${Style.dash_board} container-fluid mt-5`}>
+    <div className="dashBoard">
+      <div className={`${Style.dash_board} container-fluid mt-5 `}>
         <div className="row">
           <div className="col-3">
             <div className="mb-3">
@@ -48,15 +48,12 @@ function DashBoard({ token }) {
               <DashIdeaPerDepart />
             </div>
             <div className="col-6 card">
-              <DashIdeaPerCate />
-            </div>
-            <div className="col-6 card">
               <DashContributes />
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 export default DashBoard;
