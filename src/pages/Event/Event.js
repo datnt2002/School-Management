@@ -57,7 +57,7 @@ function Event({ token }) {
     })
       .then((res) => res.json())
       .then((data) => setData(data))
-      .catch(() => console.log("404 r"));
+      .catch(() => console.log("api event"));
   }, [modal, token]);
 
   return (
@@ -100,7 +100,6 @@ function Event({ token }) {
                             token={token}
                             handleOpen={handleOpenEdit}
                             setSelectEventId={setSelectEventId}
-                            path="/ListIdea"
                           />
                         </div>
                       </div>

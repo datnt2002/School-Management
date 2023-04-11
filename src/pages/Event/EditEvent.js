@@ -59,7 +59,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
       );
   };
 
-  async function Dategiday(value) {
+  async function CalculateDate(value) {
     await setFirstClosure(value);
     let firstClosure = new Date(value);
 
@@ -129,7 +129,7 @@ function EditEvent({ token, style, handleClose, selectEventId }) {
                   </span>
                   <SelectDate
                     value={first_Closure}
-                    onChange={(e) => Dategiday(e.target.value)}
+                    onChange={(e) => CalculateDate(e.target.value)}
                   />
                 </div>
                 <div className="Last-closureDate">

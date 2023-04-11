@@ -14,8 +14,6 @@ import UserProfile from "./pages/Account/UserProfile";
 import { useEffect, useState } from "react";
 import { apiProfile } from "./api/Api";
 import DetailIdea from "./pages/NewsFeed/DetailIdea";
-import ComfirmPassword from "./components/authentication/ComfirmPassword";
-import CreateNewCategory from "./pages/Category/CreateNewCategory";
 import ListIdea from "./pages/Event/ListIdea";
 import DashBoard from "./pages/DashBoardMain/DashBoard";
 import Home from "./pages/LandingPage/Home";
@@ -33,7 +31,7 @@ function App() {
       .then((data) => {
         setApiData(data);
       })
-      .catch((err) => console.log("gg"));
+      .catch(() => console.log("fetch api profile in App.js"));
   }, [token]);
 
   useEffect(() => {
@@ -53,7 +51,11 @@ function App() {
         />
         <Route
           path="/"
-          element={<RequiredAuth dataUser={dataUser}><Home/></RequiredAuth>}
+          element={
+            <RequiredAuth dataUser={dataUser}>
+              <Home />
+            </RequiredAuth>
+          }
         ></Route>
         <Route
           path="/event"
@@ -154,7 +156,7 @@ function App() {
           path="/DashBoard"
           element={
             <RequiredAuth dataUser={dataUser}>
-              <DashBoard/>
+              <DashBoard />
             </RequiredAuth>
           }
         />
