@@ -246,8 +246,13 @@
     width: 92%;
   }
   
+  div .card.mb-4{
+    margin-left: -40px;
+    width: 200%;
+  }
+
   div.col-lg-5 .card.mb-4{
-    margin-left: -90px;
+    margin-left: -86px;
   }
 
   .userProfile_header{

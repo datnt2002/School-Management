@@ -1,0 +1,7 @@
+/*Responsive*/
+@media screen and (max-width:819px){
+    .card{
+        width: 215%;
+        margin-left: -100px;
+    }
+}
