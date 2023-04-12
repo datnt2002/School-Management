@@ -1,17 +1,14 @@
 @media screen and (max-width:819px){
-/* 
-    h1{
+
+    .textHeader h1{
         display: none;
-    } */
+    } 
     /* section.userProfile{
         width: 150%;
         margin-left: 0%;
     }
      */
-    label.drop-container{
-        margin-left: -20px;
-    }
-    
+
     .or{
         display: none;
     }
@@ -26,21 +23,17 @@
         width: 120%;
         margin-left: -30px;
     }
-    
-    /* div.myExp_card__fOcsb.card{
-        display: none;
-    } */
-    
+
     /*edit profile*/
-    div.card.mb-4.mb-xl-0{
+    div.card{
         width: 100%;
         margin-left: 0px;
     }
     
-    div.card{
-        width: 50%;
+    /* div.card{
+        width: 100%;
         margin-left: 0px;
-    }    
+    }     */
     
     
     label div.col-md-6{
@@ -51,5 +44,23 @@
         width: 100%;
     }
     
-    
+    button.btn.btn-success{
+        margin-top: 0px;
     }
+
+    div.detail{
+        width: 100px;
+        margin-left: 0px;
+    }
+
+    div.newsFeed_news_post__GckKo{
+        margin-left: 60px ;
+        width: 95%;
+    }
+
+    div.card.mb-4.mb-xl-0{
+        width: 100%;
+        margin-left: 0px;
+    }
+
+}

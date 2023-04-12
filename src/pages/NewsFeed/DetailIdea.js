@@ -4,6 +4,8 @@ import Comment from "../../components/feed/posts/Comment";
 import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 
+import "./DetailIdea.css";
+
 import Style from "./newsFeed.module.css";
 import {
   apiComment,
