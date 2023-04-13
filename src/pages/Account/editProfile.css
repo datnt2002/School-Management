@@ -25,15 +25,15 @@
     }
 
     /*edit profile*/
-    div.card{
-        width: 100%;
-        margin-left: 0px;
-    }
-    
     /* div.card{
         width: 100%;
         margin-left: 0px;
-    }     */
+    } */
+    
+    div.col-xl-8 .card{
+        width: 100%;
+        margin-left: 1px;
+    }
     
     
     label div.col-md-6{
