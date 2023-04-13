@@ -4,6 +4,13 @@ import { apiCategory, apiEvent, apiIdea } from "../../api/Api";
 import Input from "../../components/Tags/Input";
 import "../../components/Tags/select.css";
 import "./style.css";
+import Style from "../../components/Table/modu.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+
+import Tooltip from "rc-tooltip";
+import "rc-tooltip/assets/bootstrap.css";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 
 function CreateIdea({ token, readOnly, dataUser }) {
   const [categories, setCategories] = useState([]);
@@ -113,23 +120,38 @@ function CreateIdea({ token, readOnly, dataUser }) {
     <section className="userProfile">
       <div className="container py-5">
         <div className="userProfile_header">
-          <h1>Create New Idea</h1>
+          <h1 style={{ color:"white" }}>Create New Idea</h1>
         </div>
         <div className="row">
           <div className="col-lg-7">
             <div className="card mb-4">
               <div className="d-flex justify-content-between">
                 <h1>Your Idea</h1>
-                <div className="d-flex align-items-center">
-                  <span>
-                    <input
-                      type="checkbox"
-                      value={anonymous}
-                      onChange={(e) => setAnonymous(e.target.checked)}
-                    />
-                    <strong>Anonymous</strong>
-                  </span>
-                </div>
+                <h3>
+                  <Tooltip
+                    placement="left"
+                    trigger={["hover"]}
+                    overlay={
+                      <span className={Style.tooltip}>
+                        Incognito mode {!anonymous ? "off" : "on"}
+                      </span>
+                    }
+                  >
+                    <label>
+                      <FontAwesomeIcon
+                        icon={!anonymous ? faUser : faUserSecret}
+                        style={{ cursor: "pointer" }}
+                      />
+                      <input
+                        type="checkbox"
+                        value={anonymous}
+                        onChange={(e) => setAnonymous(e.target.checked)}
+                        style={{ display: "none" }}
+                      />
+                    </label>
+                  </Tooltip>
+                  {console.log(anonymous)}
+                </h3>
               </div>
 
               <div className="mb-4 mt-4">
