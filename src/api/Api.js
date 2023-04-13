@@ -36,8 +36,7 @@ export const apiInteract = `${server}api/interactions`;
 //apiDownload
 export const apiDownloadAllFiles = `${server}api/auth/Download/Idea`;
 
-//apiCount
+//apiDashboard
 export const apiCount = `${server}api/dashboard/Count`;
 export const apiTrending = `${server}api/dashboard/IdeaPopular`;
-
-//api sort
+export const apiIdeaPerCate = `${server}api/dashboard/IdeaPerCate`;
