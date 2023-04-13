@@ -50,6 +50,9 @@ small{
     padding-top: 1rem;
 }
 
+button.btn.btn-danger.mb-2{
+    margin-left: 2%;
+}
 /* Animation */
 @keyframes fadeIn {
     from {
@@ -92,6 +95,7 @@ small{
         width: 120%;
         margin:20px 0 0 -70px ;
     }
+    
 
 }
 
@@ -102,11 +106,29 @@ small{
         padding-top: 10px;
     }
 
+    .page-title{
+        margin-right: -50px;
+    }
+
+    button.btn.btn-danger.mb-2{
+        margin-left: -80px;
+    }
+
+    div.Exp{
+        width: 63%;
+        margin: 40px 0 0 60px;
+    }
+
     /*Table*/
     div.myExp_card__fOcsb.card{
-        width:205%; 
-        margin-left: -40px;
+        width:208%; 
+        margin-left: -50px;
         margin-top:-30px;
+        padding-right: 12px;
+    }
+
+    td{
+        font-size: 14px;
     }
 
     div.page-title-box{
@@ -114,7 +136,7 @@ small{
     }
 
     div.card-body{
-        margin-left: -25px;
+        margin-left: -15px;
     }
 
     /* Event modal*/
@@ -151,9 +173,9 @@ small{
     }  
     
     /*List ideas*/
-    div.card{
-        width: 200%;
-        margin:20px 0 0 -40px ;
+    div.tableListIdea{
+        width: 140%;
+        margin:-40px 0 0 -30px ;
     }
 
     /*event idea card*/

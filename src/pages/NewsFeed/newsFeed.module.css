@@ -38,8 +38,8 @@
 /*responsive mobile*/
 @media screen and (max-width:819px){
     .card{
-        width: 190%;
-        margin-left: -80px;
+        width: 120%;
+        margin-left: -25px;
     }
 }
 

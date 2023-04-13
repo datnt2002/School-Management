@@ -366,6 +366,7 @@ a:not([href]) {
     }
     .topnav-navbar .app-search {
         display: none;
+        
     }
 }
 .displayNoneonclick{
@@ -393,4 +394,20 @@ a:not([href]) {
         transform: translateY(var(--growth-to));
         opacity: 1;
     }
+}
+
+@media screen and (max-width: 992px){
+    .dropdown.notification-list{
+        margin-left: -90%;
+    }
+
+    .media-body p{
+        display: none;
+    }
+
+    .topnav-navbar-dark{
+        width: 154%;
+    }
+
+
 }

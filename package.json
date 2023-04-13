@@ -18,6 +18,7 @@
     "chart.js": "^3.9.1",
     "chartist-plugin-tooltips-updated": "^1.0.0",
     "clsx": "^1.2.1",
+    "dotenv": "^16.0.3",
     "json-server": "^0.17.2",
     "jsonwebtoken": "^9.0.0",
     "rc-tooltip": "^6.0.1",

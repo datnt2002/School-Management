@@ -76,7 +76,7 @@ function Event({ token }) {
                           className="btn btn-danger mb-2"
                           id="createEvent"
                           onClick={handleOpenCreate}
-                          style={{ borderRadius: "50%", marginLeft: "2%" }}
+                          style={{ borderRadius: "50%"}}
                         >
                           <FontAwesomeIcon icon={faPlus} />
                         </button>

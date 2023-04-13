@@ -2,8 +2,8 @@ import { faBriefcase } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Style from "./myExp.module.css";
 function MyExp() {
-  return (
-    <div className="col-lg-7">
+  return ( 
+    <div className="col-lg-7 Exp">
       <div className={`${Style.card} card`}>
         <div className={Style.tab_pane} id="aboutme">
           <h3 className={Style.text_uppercase}>
