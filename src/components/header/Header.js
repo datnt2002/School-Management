@@ -72,9 +72,8 @@ function Header({ dataUser }) {
           <Link to="/" className="topnav-logo">
             <span className="topnav-logo-lg">
               <img
-                src="https://s3-eu-west-1.amazonaws.com/tpd/logos/5be01d787b5e5b0001ebb6bb/0x0.png"
-                alt=""
-                height="16"
+                src="../../images/book-ideas-logo-vector-22375707.jpg"
+                alt="ko co anh"
               />
             </span>
           </Link>

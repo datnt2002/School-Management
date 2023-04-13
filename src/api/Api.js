@@ -23,10 +23,10 @@ export const apiIdea = `${server}api/idea`;
 export const apiIdeaDownload = `${server}api/idea/download`;
 export const apiIdeaSort = `${server}api/idea/sort`;
 export const apiIdeaByEvent = `${server}api/idea/ByEvent`;
-export const apiIdeaByDepartment = `${server}api/idea/ByDepartment`;
-export const apiIdeaByCategory = `${server}api/idea/ByCategory`;
+export const apiIdeaByDepartment = `${server}api/idea/byDepartment`;
+export const apiIdeaByCategory = `${server}api/idea/byCategory`;
 export const apiIdeaByDetail = `${server}api/idea/byDetail`;
-export const apiIdeaByUser = `${server}api/idea/ByUser`;
+export const apiIdeaByUser = `${server}api/idea/byUser`;
 export const apiCountIdeaByUser = `${server}api/idea/countByUser`;
 
 //apiInteraction
