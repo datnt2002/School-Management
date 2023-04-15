@@ -365,9 +365,10 @@ a:not([href]) {
         min-width: 50px;
     }
     .topnav-navbar .app-search {
-        display: none;
-        
+        display: none;     
     }
+
+   
 }
 .displayNoneonclick{
     display: none;
@@ -396,9 +397,12 @@ a:not([href]) {
     }
 }
 
-@media screen and (max-width: 992px){
+
+
+    @media screen and (max-width:819px){
+
     .dropdown.notification-list{
-        margin-left: -90%;
+        margin-right: -40px;
     }
 
     .media-body p{
@@ -406,8 +410,16 @@ a:not([href]) {
     }
 
     .topnav-navbar-dark{
-        width: 154%;
+        width: 100%;
+    }
+    
+    .topnav-navbar .navbar-toggle {
+        margin-left: 50px;
     }
 
-
+    a.topnav-logo{
+        margin-left:-50px;
+        width:40%;
+    }
+    
 }

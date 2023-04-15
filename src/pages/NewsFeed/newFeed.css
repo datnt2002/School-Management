@@ -19,8 +19,29 @@
         margin-right: -95px;
     }
 
-    
+    /*header*/
+    .dropdown.notification-list{
+        margin-right: -40px;
+    }
 
+    .media-body p{
+        display: none;
+    }
+
+    .topnav-navbar-dark{
+        width: 100%;
+    }
+    
+    .topnav-navbar .navbar-toggle {
+        margin-left: 50px;
+    }
+
+    a.topnav-logo{
+        margin-left:-50px;
+        width:40%;
+    }
+    
+    
 
 
 }
