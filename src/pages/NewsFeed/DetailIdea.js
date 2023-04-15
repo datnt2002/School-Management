@@ -4,7 +4,7 @@ import Comment from "../../components/feed/posts/Comment";
 import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 
-import "./DetailIdea.css";
+import StyleDetail from "./DetailIdea.module.css";
 
 import Style from "./newsFeed.module.css";
 import {
@@ -110,7 +110,7 @@ function DetailIdea({ token }) {
       window.location.href,
       apiIdeaDownload + "/" + fileName
     );
-
+      console.log(window.location.href)
     // fetch(apiIdeaDownload + "/" + fileName, {
     //   headers: { Authorization: `Bearer ${token}` },
     // }).catch(() => console.log("eo dc"));
@@ -123,7 +123,7 @@ function DetailIdea({ token }) {
           return (
             <div className="row" style={{ marginTop: "2rem" }} key={detail.id}>
               <div className={`col-lg-9 ${Style.centerContent}`}>
-                <div className="card">
+                <div className={`${StyleDetail.Card} card`}>
                   <div className={Style.media}>
                     <div className={Style.media_body}>
                       <img
@@ -208,6 +208,28 @@ function DetailIdea({ token }) {
                           />
                           <strong>Anonymous</strong>
                         </span>
+                        {/* <Tooltip
+                        placement="left"
+                        trigger={["hover"]}
+                        overlay={
+                          <span className={Style.tooltip}>
+                            Incognito mode {!anonymous ? "off" : "on"}
+                          </span>
+                        }
+                      >
+                        <label>
+                          <FontAwesomeIcon
+                            icon={!anonymous ? faUser : faUserSecret}
+                            style={{ cursor: "pointer" }}
+                          />
+                          <input
+                            type="checkbox"
+                            value={anonymous}
+                            onChange={(e) => setAnonymous(e.target.checked)}
+                            style={{ display: "none" }}
+                          />
+                        </label>
+                      </Tooltip> */}
                       </div>
                     </>
                     

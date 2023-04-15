@@ -38,14 +38,12 @@
     min-height: 87px;
     position: relative;
     left: 0!important;
-    /* z-index: 1002; */
 }
 .topnav-navbar-dark {
     background-color: #313a46;
 }
 .navbar-custom .topbar-right-menu {
     position: relative;
-    /* z-index: 1; */
 }
 .mb-0, .my-0 {
     margin-bottom: 0!important;
@@ -343,19 +341,6 @@ a:not([href]) {
     vertical-align: middle;
     line-height: 70px;
 }
-.nav-link .search-icon {
-    display: block;
-    height: 70px;
-    position: absolute;
-    /* z-index: 9; */
-    font-size: 22px;
-    line-height: 38px;
-    top: 10.5px;
-}
-.dropSearch {
-    width: 15rem;
-    left: -50px;
-}
 
 @media screen and (max-width: 992px){
     .topnav-navbar .navbar-toggle {
@@ -369,12 +354,6 @@ a:not([href]) {
     }
 
    
-}
-.displayNoneonclick{
-    display: none;
-}
-.displayBlockonclick{
-    display: block;
 }
 
 

@@ -150,7 +150,6 @@ function CreateIdea({ token, readOnly, dataUser }) {
                       />
                     </label>
                   </Tooltip>
-                  {console.log(anonymous)}
                 </h3>
               </div>
 
