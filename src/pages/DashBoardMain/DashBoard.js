@@ -27,7 +27,7 @@ function DashBoard({ token }) {
     "rgb(255, 159, 64)",
   ];
 
-  // 
+  //
   const [numberOf, setNumberOf] = useState([]);
   useEffect(() => {
     fetch(apiCount, {
@@ -42,32 +42,13 @@ function DashBoard({ token }) {
       .catch(() => console.log("Hoc toan ngu"));
   }, [token]);
 
-  // 
-  // const dataToTest = [
-  //   {
-  //     id: 1,
-  //     year: 2016,
-  //     ideas: 500,
-  //     department: "IT",
-  //   },
-  //   {
-  //     id: 2,
-  //     year: 2017,
-  //     ideas: 600,
-  //     department: "Business",
-  //   },
-  //   {
-  //     id: 3,
-  //     year: 2018,
-  //     ideas: 700,
-  //     department: "Design",
-  //   },
-  // ];
+  //Stacked bar chart
   const [ideaPerYear, setIdeaPerYear] = useState();
+  const [barChart, setBarChart] = useState();
 
   useEffect(() => {
     fetch(apiIdeaPerYear, {
-      headers: {Authorization: `Bearer ${token}`},
+      headers: { Authorization: `Bearer ${token}` },
     })
       .then((res) => res.json())
       .then((data) => {
@@ -76,67 +57,47 @@ function DashBoard({ token }) {
       .catch(() => console.log("chet ở idea per year"));
   }, [token]);
 
-  const [barChart, setBarChart] = useState({
-    labels: [],
-    datasets: [
-      {
-        label: [],
-        data: [],
-        backgroundColor: Chart_colors.slice(0, apiIdeaPerYear.length),
-        borderColor: "yellow",
-      },
-    ],
-  });
-
   useEffect(() => {
     if (ideaPerYear) {
-      setBarChart((prevChart) => ({
-        ...prevChart,
-        labels: ideaPerYear.map((data) => data.year),
-        datasets: [
-          {
-            ...prevChart.datasets[1],
-            label: ideaPerYear.map((data) => data.iderPerDeps.map((dep) => dep.depName)),
-            data: ideaPerYear.map((data) => {
-              return data.iderPerDeps.map((dep) => {
-                return dep.ideas;
-              });
-            })
-          },
-        ],
-      }));
+      const datasets = ideaPerYear[0].iderPerDeps.map((dep, index) => {
+        const randomColor =
+          Chart_colors[Math.floor(Math.random() * Chart_colors.length)];
+        return {
+          label: dep.depName,
+          data: ideaPerYear.map((yearData) => {
+            return yearData.iderPerDeps[index].ideas;
+          }),
+          backgroundColor: randomColor,
+        };
+      });
+      // console.log(datasets);
+      setBarChart({
+        labels: ideaPerYear.map((data) => {
+          return data.year;
+        }),
+        datasets: datasets,
+        // [
+        //   {
+        //     label: "Business",
+        //     data: [1],
+        //     backgroundColor: Chart_colors[0],
+        //   },
+        //   {
+        //     label: "IT",
+        //     data: [100],
+        //     backgroundColor: Chart_colors[1],
+        //   },
+        //   {
+        //     label: "Design",
+        //     data: [3],
+        //     backgroundColor: Chart_colors[2],
+        //   },
+        // ],
+      });
     }
   }, [ideaPerYear]);
 
-
-  
-  // const [barChart, setBarChart] = useState();
-
-  
-  // useEffect(() => {
-  //   if (ideaPerYear) {
-  //     setBarChart({
-  //       labels: ideaPerYear.map((data) => {
-  //         return data.year;
-  //       }),
-  //       datasets: [
-  //         {
-  //           label: "Ideas",
-  //           data: ideaPerYear.map((data) => {
-  //             return data.iderPerDeps.map((dep) => {
-  //               return dep.ideas;
-  //             });
-  //           }),
-  //           backgroundColor: ["red", "Blue", "green"],
-  //           borderColor: "yellow",
-  //         },
-  //       ],
-  //     });
-  //   }
-  // }, [ideaPerYear])
-  
-
-  // 
+  //Doughnut chart
   const [ideaPerCate, setIdeaPerCate] = useState();
   const [doughNutChart, setDoughNutChart] = useState();
 
@@ -192,7 +153,11 @@ function DashBoard({ token }) {
           </div>
           <div className="col-9">
             <div className="col-6 card">
-              <BarChart chartData={barChart} />
+              {barChart ? (
+                <BarChart chartData={barChart} />
+              ) : (
+                <Skeleton variant="rectangular" width={210} height={118} />
+              )}
             </div>
             <div className="col-6 card">
               {/* <DashContributes /> */}

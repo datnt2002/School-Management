@@ -23,6 +23,10 @@ import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
 function DetailIdea({ token }) {
   const [ideaComment, setIdeaComment] = useState([]);
   const [detailIdea, setDetailIdea] = useState([]);
+
+  //Anonymous comment
+  const [anonymous, setAnonymous] = useState("");
+
   // function textarea
   function autoHeight() {
     const textarea = document.querySelector("textArea");
@@ -51,7 +55,6 @@ function DetailIdea({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         if (data[0].anonymous) {
           data[0].avatar = "/images/Avatar.jpg";
           data[0].userName = "Anonymous";
@@ -66,7 +69,22 @@ function DetailIdea({ token }) {
   const handlePostComment = async (e) => {
     e.preventDefault();
 
-    const newComment = await { content: ideaComment, ideaId, userId };
+    let newComment;
+    if (!anonymous) {
+      newComment = await {
+        content: ideaComment,
+        ideaId,
+        userId,
+        IsAnonymous: false,
+      };
+    } else {
+      newComment = await {
+        content: ideaComment,
+        ideaId,
+        userId,
+        IsAnonymous: true,
+      };
+    }
 
     await fetch(apiComment, {
       method: "POST",
@@ -101,6 +119,11 @@ function DetailIdea({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
+        if (data[0].anonymous) {
+          data[0].avatar = "/images/Avatar.jpg";
+          data[0].userName = "Anonymous";
+        }
         setDataComment(data);
       });
   }, [ideaId, token]);
@@ -110,7 +133,7 @@ function DetailIdea({ token }) {
       window.location.href,
       apiIdeaDownload + "/" + fileName
     );
-      console.log(window.location.href)
+    console.log(window.location.href);
     // fetch(apiIdeaDownload + "/" + fileName, {
     //   headers: { Authorization: `Bearer ${token}` },
     // }).catch(() => console.log("eo dc"));
@@ -203,8 +226,8 @@ function DetailIdea({ token }) {
                         <span>
                           <input
                             type="checkbox"
-                            // value={anonymous}
-                            // onChange={(e) => setAnonymous(e.target.checked)}
+                            value={anonymous}
+                            onChange={(e) => setAnonymous(e.target.checked)}
                           />
                           <strong>Anonymous</strong>
                         </span>
@@ -232,7 +255,6 @@ function DetailIdea({ token }) {
                       </Tooltip> */}
                       </div>
                     </>
-                    
                   )}
                 </div>
               </div>

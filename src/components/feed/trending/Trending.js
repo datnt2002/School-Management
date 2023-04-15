@@ -35,16 +35,18 @@ function Trending({ token }) {
         <div className={Style.back}>
           {listPopular.map((idea) => {
             return (
-              <div onClick={() => viewIdeaTrending(idea.id)} className={Style.description} key={idea.id}>
-                
-                  <img src={server + idea.avatar} alt="" height="50" />
-                  <span className={Style.text_muted}>{idea.userName}</span>
-                <div
-                  className="mt-1"
-                  
-                >
+              <div
+                onClick={() => viewIdeaTrending(idea.id)}
+                className={Style.description}
+                key={idea.id}
+              >
+                <img src={server + idea.avatar} alt="" height="50" />
+                <span className={Style.text_muted}>{idea.userName}</span>
+                <div className="mt-1">
                   <strong>{idea.name} </strong>
-                  <smail><span className="text-muted">View: {idea.viewed}</span></smail>
+                  <small>
+                    <span className="text-muted">View: {idea.viewed}</span>
+                  </small>
                 </div>
               </div>
             );
