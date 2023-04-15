@@ -101,34 +101,40 @@ button.btn.btn-danger.mb-2{
 
 
 /*event responsive mobile*/
-@media screen and (max-width:819px){
+@media screen and (max-width:845px){
     .media-body h5{
         padding-top: 10px;
     }
 
     .page-title{
         margin-right: -50px;
+        width: 100%;
     }
 
     button.btn.btn-danger.mb-2{
-        margin-left: -80px;
+        margin-left: -50px;
     }
 
     div.Exp{
         width: 63%;
         margin: 40px 0 0 60px;
+        display: none;
     }
 
     /*Table*/
     div.myExp_card__fOcsb.card{
-        width:208%; 
+        width:135%; 
         margin-left: -50px;
         margin-top:-30px;
         padding-right: 12px;
     }
 
+    th{
+        font-size: 9px;
+    }
+
     td{
-        font-size: 14px;
+        font-size: 9px;
     }
 
     div.page-title-box{
@@ -139,12 +145,25 @@ button.btn.btn-danger.mb-2{
         margin-left: -15px;
     }
 
+    div.table-responsive{
+        margin-top:-15px;
+        margin-left: -12px;
+        width: 110%;
+    }
+
     /* Event modal*/
     .modalEvent{
         margin: 100px 40px 0 10px;
-        width:60%;
-        height:35%; 
+        width:95%;
+        height:55%; 
+    }
 
+    div.createFormEvent{
+        width: 98%;
+    }
+
+    .createFormEvent_Header h1{
+        width: 90%;
     }
 
     .First-closureDate span{ 
@@ -167,10 +186,14 @@ button.btn.btn-danger.mb-2{
         width: 85%;
     }
 
-    button.btn.btn-success{
-        margin-top: -20px;
+    /* button.btn.btn-success{
+        margin-top: -610px;
         height: 50%;
-    }  
+    }   */
+
+    div.btnForm{
+        margin-top: 20px;
+    }
     
     /*List ideas*/
     div.tableListIdea{
@@ -186,4 +209,6 @@ button.btn.btn-danger.mb-2{
     div.col-4{
         width: 100%;
     }
+
+
 }
