@@ -16,7 +16,7 @@ function UserProfile({ token }) {
         <div className="container-fluid">
           <div className="row">
             <div className="textHeader">
-              <h1>My Account</h1>
+              <h1 style={{ color:"white" }}>My Account</h1>
             </div>
             <div className="col-lg-5">
               <Profile token={token} />

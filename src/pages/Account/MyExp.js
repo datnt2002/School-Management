@@ -6,11 +6,12 @@ function MyExp() {
     <div className="col-lg-7 Exp">
       <div className={`${Style.card} card`}>
         <div className={Style.tab_pane} id="aboutme">
-          <h3 className={Style.text_uppercase}>
-            <FontAwesomeIcon icon={faBriefcase}/>
-          </h3>
-          <h5>EXPERIENCE</h5>
-
+          <div className="d-flex">
+            <h3 className={Style.text_uppercase}>
+              <FontAwesomeIcon icon={faBriefcase}/>
+            </h3>
+            <h5 className="d-flex mx-2" style={{ alignItems:"center" }}>EXPERIENCE</h5>
+          </div>
           <div className={Style.timeline_item}>
             <span className={Style.outline}>
               <span className={Style.center}></span>

@@ -7,6 +7,8 @@ import { useEffect, useState } from "react";
 import { apiInteract } from "../../../api/Api";
 
 function LikeCmt({ userId, ideaId, token }) {
+  const [like, setLike] = useState({animationName:""});
+  const [disLike, setDisLike] = useState({animationName:""});
   const [vote, setVote] = useState();
   //flag to add class css active song song with put
   const [flag, setFlag] = useState(0);
@@ -49,16 +51,12 @@ function LikeCmt({ userId, ideaId, token }) {
 
   useEffect(() => {
     const buttonVoteList = document.getElementsByClassName(Style.button_name);
-    const heart = document.getElementById("Heart");
-    const crack = document.getElementById("Crack");
     if (flag === 1) {
       buttonVoteList[0].classList.add("active1");
       buttonVoteList[1].classList.remove("active1");
-      heart.setAttribute("style", "animationName: Like")
     } else if (flag === -1) {
       buttonVoteList[0].classList.remove("active1");
       buttonVoteList[1].classList.add("active1");
-      crack.setAttribute("style", "animationName: Like")
     } else {
       //if flag = -1, there is no button have change color
       buttonVoteList[0].classList.remove("active1");
@@ -68,8 +66,11 @@ function LikeCmt({ userId, ideaId, token }) {
 
   const handleLike = (valueFlag) => {
     if (flag !== 1) {
+      setDisLike({animationName: ""})
+      setLike({animationName: "Like"})
       setFlag(valueFlag);
     } else {
+      setLike({animationName: ""})
       setFlag(0);
     }
     fetch(apiInteract, {
@@ -90,8 +91,11 @@ function LikeCmt({ userId, ideaId, token }) {
   };
   const handleDislike = (valueFlag) => {
     if (flag !== -1) {
+      setLike({animationName: ""})
+      setDisLike({animationName: "Like"})
       setFlag(valueFlag);
     } else {
+      setDisLike({animationName: ""})
       setFlag(0);
     }
     fetch(apiInteract, {
@@ -121,7 +125,7 @@ function LikeCmt({ userId, ideaId, token }) {
           value={flag}
           onClick={() => handleLike(1)}
         >
-          <FontAwesomeIcon icon={faHeart} className="fasHeart" id="Heart" />
+          <FontAwesomeIcon icon={faHeart} className="fasHeart" id="Heart" style={like}/>
         </button>
 
         <button
@@ -133,6 +137,7 @@ function LikeCmt({ userId, ideaId, token }) {
             icon={faHeartCrack}
             className="fasCrack"
             id="Crack"
+            style={disLike}
           />
         </button>
       </div>

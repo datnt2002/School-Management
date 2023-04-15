@@ -1,22 +1,18 @@
 .fasHeart {
     /* top: 7px;
     left: 7px; */
-    /* animation-name: ""; */
+    /* animation-name: "Like"; */
     animation-duration: 1s;
     transform-origin: 0% 100%;
 }
 .fasCrack {
     /* top: 7px;
     left: 7px; */
+    /* animation-name: "Like"; */
     animation-duration: 1s;
     transform-origin: 0% 100%;
 }
-.fasCmt {
-    /* top: 7px;
-    left: 7px; */
-    animation-duration: 1s;
-    transform-origin: 0% 100%;
-}
+
 
 .active1{
     color: red

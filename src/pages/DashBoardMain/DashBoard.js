@@ -80,7 +80,7 @@ function DashBoard({ token }) {
     labels: [],
     datasets: [
       {
-        label: "Ideas",
+        label: [],
         data: [],
         backgroundColor: Chart_colors.slice(0, apiIdeaPerYear.length),
         borderColor: "yellow",
@@ -95,7 +95,7 @@ function DashBoard({ token }) {
         labels: ideaPerYear.map((data) => data.year),
         datasets: [
           {
-            ...prevChart.datasets[0],
+            ...prevChart.datasets[1],
             label: ideaPerYear.map((data) => data.iderPerDeps.map((dep) => dep.depName)),
             data: ideaPerYear.map((data) => {
               return data.iderPerDeps.map((dep) => {

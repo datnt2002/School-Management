@@ -25,7 +25,7 @@
 /* .fasHeart {
     top: 7px;
     left: 7px;
-    animation-name: Like;
+    animation-name: "Like";
     animation-duration: 1s;
     transform-origin: 0% 100%;
 }
