@@ -72,8 +72,9 @@ function Header({ dataUser }) {
           <Link to="/" className="topnav-logo">
             <span className="topnav-logo-lg">
               <img
-                src="../../images/book-ideas-logo-vector-22375707.jpg"
+                src="https://connect-assets.prosple.com/cdn/ff/y3UkxhsZs27XkGKH6fA36vGYyMP6tIKtREiomqeX2DA/1657709056/public/styles/scale_and_crop_center_890x320/public/2022-07/banner-university-of-greenwich-1786x642-2022.png?itok=1xFOwtGR"
                 alt="ko co anh"
+                height="100"
               />
             </span>
           </Link>
@@ -81,10 +82,6 @@ function Header({ dataUser }) {
             <li className="dropdown notification-list">
               <button
                 className="nav-link nav-user arrow-none mr-0"
-                data-toggle="dropdown"
-                id="topbar-userdrop"
-                aria-haspopup="true"
-                aria-expanded="false"
               >
                 <div className="media" style={{ height: "50px"}}>
                   <img

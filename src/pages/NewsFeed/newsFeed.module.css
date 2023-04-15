@@ -36,12 +36,12 @@
 
 
 /*responsive mobile*/
-@media screen and (max-width:819px){
+/* @media screen and (max-width:819px){
     .card{
         width: 120%;
         margin-left: -75px;
     }
-}
+} */
 
 .arrange{
     margin-bottom: 1rem;
@@ -119,5 +119,6 @@
 
   .anonumous{
     margin-top: 1rem;
-    float: right;
+    display: flex;
+    justify-content: end;
   }

@@ -3,12 +3,10 @@ import DashCountEvent from "../../components/DashBoard/HeaderDash/DashCountEvent
 import DashCountIdea from "../../components/DashBoard/HeaderDash/DashCountIdea";
 import DashCountUser from "../../components/DashBoard/HeaderDash/DashCountUser";
 import React from "react";
-import { apiCount, apiIdeaPerCate } from "../../api/Api";
+import { apiCount, apiIdeaPerCate, apiIdeaPerYear } from "../../api/Api";
 import Style from "./dashBoard.module.css";
 import { useEffect, useState } from "react";
-import DashIdeaPerDepart from "../../components/DashBoard/Charts/DashIdeaPerDepart";
-import DashContributes from "../../components/DashBoard/Charts/DashContributes";
-import DashIdeaPerCate from "../../components/DashBoard/Charts/DashIdeaPerCate";
+
 import BarChart from "../../components/DashBoard/Charts/BarChart";
 import DoughNutChart from "../../components/DashBoard/Charts/DoughNutChart";
 import { Skeleton } from "antd";
@@ -29,6 +27,7 @@ function DashBoard({ token }) {
     "rgb(255, 159, 64)",
   ];
 
+  // 
   const [numberOf, setNumberOf] = useState([]);
   useEffect(() => {
     fetch(apiCount, {
@@ -43,41 +42,101 @@ function DashBoard({ token }) {
       .catch(() => console.log("Hoc toan ngu"));
   }, [token]);
 
-  const dataToTest = [
-    {
-      id: 1,
-      year: 2016,
-      ideas: 500,
-      department: "IT",
-    },
-    {
-      id: 2,
-      year: 2017,
-      ideas: 600,
-      department: "Business",
-    },
-    {
-      id: 3,
-      year: 2018,
-      ideas: 700,
-      department: "Design",
-    },
-  ];
+  // 
+  // const dataToTest = [
+  //   {
+  //     id: 1,
+  //     year: 2016,
+  //     ideas: 500,
+  //     department: "IT",
+  //   },
+  //   {
+  //     id: 2,
+  //     year: 2017,
+  //     ideas: 600,
+  //     department: "Business",
+  //   },
+  //   {
+  //     id: 3,
+  //     year: 2018,
+  //     ideas: 700,
+  //     department: "Design",
+  //   },
+  // ];
+  const [ideaPerYear, setIdeaPerYear] = useState();
+
+  useEffect(() => {
+    fetch(apiIdeaPerYear, {
+      headers: {Authorization: `Bearer ${token}`},
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        setIdeaPerYear(data);
+      })
+      .catch(() => console.log("chet ở idea per year"));
+  }, [token]);
 
   const [barChart, setBarChart] = useState({
-    labels: [2016, 2017, 2018],
+    labels: [],
     datasets: [
       {
         label: "Ideas",
-        data: dataToTest.map((data) => {
-          return data.ideas;
-        }),
-        backgroundColor: ["red", "Blue", "green"],
+        data: [],
+        backgroundColor: Chart_colors.slice(0, apiIdeaPerYear.length),
         borderColor: "yellow",
       },
     ],
   });
 
+  useEffect(() => {
+    if (ideaPerYear) {
+      setBarChart((prevChart) => ({
+        ...prevChart,
+        labels: ideaPerYear.map((data) => data.year),
+        datasets: [
+          {
+            ...prevChart.datasets[0],
+            label: ideaPerYear.map((data) => data.iderPerDeps.map((dep) => dep.depName)),
+            data: ideaPerYear.map((data) => {
+              return data.iderPerDeps.map((dep) => {
+                return dep.ideas;
+              });
+            })
+          },
+        ],
+      }));
+    }
+  }, [ideaPerYear]);
+
+
+  
+  // const [barChart, setBarChart] = useState();
+
+  
+  // useEffect(() => {
+  //   if (ideaPerYear) {
+  //     setBarChart({
+  //       labels: ideaPerYear.map((data) => {
+  //         return data.year;
+  //       }),
+  //       datasets: [
+  //         {
+  //           label: "Ideas",
+  //           data: ideaPerYear.map((data) => {
+  //             return data.iderPerDeps.map((dep) => {
+  //               return dep.ideas;
+  //             });
+  //           }),
+  //           backgroundColor: ["red", "Blue", "green"],
+  //           borderColor: "yellow",
+  //         },
+  //       ],
+  //     });
+  //   }
+  // }, [ideaPerYear])
+  
+
+  // 
   const [ideaPerCate, setIdeaPerCate] = useState();
   const [doughNutChart, setDoughNutChart] = useState();
 
@@ -102,7 +161,7 @@ function DashBoard({ token }) {
         }),
         datasets: [
           {
-            label: "cate",
+            label: "Idea",
             data: ideaPerCate.map((data) => {
               return data.ideas;
             }),
@@ -133,7 +192,6 @@ function DashBoard({ token }) {
           </div>
           <div className="col-9">
             <div className="col-6 card">
-              {/* <DashIdeaPerDepart /> */}
               <BarChart chartData={barChart} />
             </div>
             <div className="col-6 card">
