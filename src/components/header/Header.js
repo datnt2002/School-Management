@@ -1,15 +1,10 @@
-import { useContext, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.css";
-import { Search } from "bootstrap-icons-react";
-import UserContext from "../../api/UserContext";
 import { server } from "../../api/Api";
-import { set } from "animejs";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 
 function Header({ dataUser }) {
-
-  const [showDropDown, setShowDropDown] = useState(""); 
+  const [showDropDown, setShowDropDown] = useState("");
   const [showBtnSub, setShowBtnSuv] = useState(false);
   const [hideBtnSub, setHideBtnSuv] = useState(true);
 
@@ -72,7 +67,7 @@ function Header({ dataUser }) {
           <Link to="/" className="topnav-logo">
             <span className="topnav-logo-lg">
               <img
-                src="../../images/book-ideas-logo-vector-22375707.jpg"
+                src="https://luv.vn/wp-content/uploads/2021/08/hinh-anh-gai-xinh-71.jpg"
                 alt="ko co anh"
               />
             </span>
@@ -86,7 +81,7 @@ function Header({ dataUser }) {
                 aria-haspopup="true"
                 aria-expanded="false"
               >
-                <div className="media" style={{ height: "50px"}}>
+                <div className="media" style={{ height: "50px" }}>
                   <img
                     className="rounded-circle"
                     src={server + dataUser?.avatar}
@@ -139,10 +134,8 @@ function Header({ dataUser }) {
             </div>
           </button>
         </div>
-      </div> 
+      </div>
     </>
   );
 }
 export default Header;
-
-
