@@ -92,7 +92,7 @@ function ListIdea({ token }) {
                           </tr>
                         </thead>
                         <tbody>
-                          {dataIdea.map((dataIdea) => {
+                          {currenItems.map((dataIdea) => {
                             return (
                               <tr role="row" key={dataIdea.id}>
                                 <td>
