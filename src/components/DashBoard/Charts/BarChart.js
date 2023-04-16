@@ -20,7 +20,7 @@ function BarChart({ chartData }) {
       },
     },
   };
-  return <Bar data={chartData} options={options} />;
+  return <Bar data={chartData} options={options}/>;
 }
 
 export default BarChart;

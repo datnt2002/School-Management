@@ -122,3 +122,32 @@
     display: flex;
     justify-content: end;
   }
+
+/* paginate */
+.pagination{
+    list-style: none;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 1.2rem;
+    gap:5px;
+}
+.page_num {
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 3px;
+    font-weight: 400;
+    color: azure!important;
+}
+.page_num:hover {
+    background-color: #5AB1BB;
+    color: white;
+}
+.pagination .active {
+    background-color: #5AB1BB;
+    color: white;
+    border-radius: 3px;
+}
+.break_label{
+    color: azure!important;
+}
