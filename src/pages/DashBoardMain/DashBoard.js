@@ -124,18 +124,26 @@ function DashBoard({ token }) {
             <div className="mb-3">
               <DashCountUser numberOf={numberOf} />
             </div>
+          </div>
+          <div className="col-3">
             <div className="mb-3">
               <DashCountEvent numberOf={numberOf} />
             </div>
+          </div>
+          <div className="col-3">
             <div className="mb-3">
               <DashCountCate numberOf={numberOf} />
             </div>
+          </div>
+          <div className="col-3">
             <div className="mb-3">
               <DashCountIdea numberOf={numberOf} />
             </div>
           </div>
-          <div className="col-9">
-            <div className="col-6 card">
+        </div>
+        <div className="row">
+          <div className="col-8">
+            <div className="col-6 mb-5 card">
               {barChart ? (
                 <BarChart chartData={barChart} />
               ) : (
@@ -143,13 +151,16 @@ function DashBoard({ token }) {
               )}
             </div>
             <div className="col-6 card">
-              {/* <DashContributes /> */}
-              {doughNutChart ? (
-                <DoughNutChart chartData={doughNutChart} />
-              ) : (
-                <Skeleton variant="rectangular" width={210} height={118} />
-              )}
+              {/* làm chart trong này */}
             </div>
+          </div>
+            
+          <div className="col-4 card">
+            {doughNutChart ? (
+              <DoughNutChart chartData={doughNutChart} />
+            ) : (
+              <Skeleton variant="rectangular" width={210} height={118} />
+            )}
           </div>
         </div>
       </div>

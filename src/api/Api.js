@@ -32,8 +32,7 @@ export const apiCountIdeaByUser = `${server}api/idea/countByUser`;
 
 //apiInteraction
 export const apiInteract = `${server}api/interactions`;
-export const apiInteractEdit = `${server}api/interactions/Edit`;
-// export const apiInteract = `${server}api/interactions`;
+// export const apiInteractEdit = `${server}api/interactions/Edit`;
 
 //apiDownload
 export const apiDownloadAllFiles = `${server}api/auth/Download/Idea`;

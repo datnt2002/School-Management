@@ -2,10 +2,27 @@ import React, { useState, useEffect, useContext } from "react";
 import { server } from "../../../api/Api";
 import Style from "../../../pages/NewsFeed/newsFeed.module.css";
 import "./dropDown.css";
+import StylePaginate from "../../Pagination/pagination.module.css";
 import { useNavigate } from "react-router-dom";
+import ReactPaginate from "react-paginate";
 
 function Post({ dataIdea }) {
   const navigate = useNavigate();
+
+  //paginate
+  const [currenItems, setCurrentItems] = useState([]);
+  const [pageCount, setPageCount] = useState(0);
+  const [itemOffSet, setItemOffSet] = useState(0);
+  const itemPerPage = 10;
+  useEffect(() => {
+    const endOffSet = itemOffSet + itemPerPage;
+    setCurrentItems(dataIdea.slice(itemOffSet, endOffSet));
+    setPageCount(Math.ceil(dataIdea.length / itemPerPage));
+  }, [itemOffSet, itemPerPage, dataIdea]);
+  function handlePageClick(e) {
+    const newOffSet = (e.selected * itemPerPage) % dataIdea.length;
+    setItemOffSet(newOffSet);
+  }
 
   const handleDetail = (id) => {
     console.log(id);
@@ -15,7 +32,7 @@ function Post({ dataIdea }) {
   console.log(dataIdea);
   return (
     <>
-      {dataIdea.map((dataIdea) => {
+      {currenItems.map((dataIdea) => {
         return (
           <div
             className={Style.news_post}
@@ -78,6 +95,21 @@ function Post({ dataIdea }) {
           </div>
         );
       })}
+      <ReactPaginate
+        breakLabel="..."
+        nextLabel="next >"
+        onPageChange={handlePageClick}
+        pageRangeDisplayed={3}
+        pageCount={pageCount}
+        previousLabel="< previous"
+        renderOnZeroPageCount={null}
+        containerClassName={Style.pagination}
+        pageLinkClassName={Style.page_num}
+        previousLinkClassName={Style.page_num}
+        nextLinkClassName={Style.page_num}
+        activeClassName={Style.active}
+        breakLinkClassName={Style.break_label}
+      />
     </>
   );
 }
