@@ -151,3 +151,8 @@
 .break_label{
     color: azure!important;
 }
+
+.tooltip {
+  background-color: white;
+  color: black;
+}

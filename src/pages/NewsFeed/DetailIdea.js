@@ -19,6 +19,11 @@ import UserContext from "../../api/UserContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPaperPlane } from "@fortawesome/free-regular-svg-icons";
 import { faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faUser } from "@fortawesome/free-regular-svg-icons";
+import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
+import Tooltip from "rc-tooltip";
+import "rc-tooltip/assets/bootstrap.css";
+
 
 function DetailIdea({ token }) {
   const [ideaComment, setIdeaComment] = useState([]);
@@ -223,15 +228,7 @@ function DetailIdea({ token }) {
                         </div>
                       </div>
                       <div className={Style.anonumous}>
-                        <span>
-                          <input
-                            type="checkbox"
-                            value={anonymous}
-                            onChange={(e) => setAnonymous(e.target.checked)}
-                          />
-                          <strong>Anonymous</strong>
-                        </span>
-                        {/* <Tooltip
+                        <Tooltip
                         placement="left"
                         trigger={["hover"]}
                         overlay={
@@ -243,7 +240,7 @@ function DetailIdea({ token }) {
                         <label>
                           <FontAwesomeIcon
                             icon={!anonymous ? faUser : faUserSecret}
-                            style={{ cursor: "pointer" }}
+                            style={{ cursor: "pointer", fontSize:"20px" }}
                           />
                           <input
                             type="checkbox"
@@ -252,7 +249,7 @@ function DetailIdea({ token }) {
                             style={{ display: "none" }}
                           />
                         </label>
-                      </Tooltip> */}
+                      </Tooltip>
                       </div>
                     </>
                   )}
