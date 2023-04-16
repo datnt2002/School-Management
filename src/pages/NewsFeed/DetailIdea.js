@@ -149,7 +149,7 @@ function DetailIdea({ token }) {
       {detailIdea &&
         detailIdea.map((detail) => {
           return (
-            <div className="row" style={{ marginTop: "2rem" }} key={detail.id}>
+            <div className="row" style={{ marginTop: "0.5rem" }} key={detail.id}>
               <div className={`col-lg-9 ${Style.centerContent}`}>
                 <div className={`${StyleDetail.Card} card`}>
                   <div className={Style.media}>
@@ -194,7 +194,9 @@ function DetailIdea({ token }) {
                   </div>
                   <LikeCmt token={token} ideaId={detail.id} userId={userId} />
                   <hr />
-                  <Comment token={token} dataComment={dataComment} />
+                  <div style={{ maxHeight:"400px", overflow:"auto" }}>
+                    <Comment token={token} dataComment={dataComment} />
+                  </div>
                   <hr />
                   {/* //comment box */}
                   {detail.eventLastClosure > Date.now() ? (

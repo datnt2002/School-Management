@@ -18,7 +18,7 @@ function DoughNutChart({ chartData }) {
     },
   };
 
-  return <Doughnut data={chartData} options={options} />;
+  return <div className="card" id="dough_nut"><Doughnut data={chartData} options={options} /></div>
 }
 
 export default DoughNutChart;

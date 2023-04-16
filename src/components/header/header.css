@@ -364,6 +364,11 @@ a:not([href]) {
     /* transform: "translate3d(9.5px, 87px, 0px)"; */
 }
 
+/* Logo nay */
+.topnav-logo-lg > img {
+    height: 90px;
+}
+
 /* Animation */
 @keyframes growth {
     from {

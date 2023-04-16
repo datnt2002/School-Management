@@ -10,7 +10,7 @@ function BarAndLineChart({ chartData }) {
       },
     },
   };
-  return <Bar data={chartData} options={options} />;
+  return <div className="card" id="line_chart"><Bar data={chartData} options={options}/>;</div>
 }
 
 export default BarAndLineChart;
