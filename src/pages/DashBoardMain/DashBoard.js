@@ -60,39 +60,22 @@ function DashBoard({ token }) {
   useEffect(() => {
     if (ideaPerYear) {
       const datasets = ideaPerYear[0].iderPerDeps.map((dep, index) => {
-        const randomColor =
-          Chart_colors[Math.floor(Math.random() * Chart_colors.length)];
+        const backgroundColor = Chart_colors[index];
+
         return {
           label: dep.depName,
           data: ideaPerYear.map((yearData) => {
             return yearData.iderPerDeps[index].ideas;
           }),
-          backgroundColor: randomColor,
+          backgroundColor: backgroundColor,
         };
       });
-      // console.log(datasets);
+
       setBarChart({
         labels: ideaPerYear.map((data) => {
           return data.year;
         }),
         datasets: datasets,
-        // [
-        //   {
-        //     label: "Business",
-        //     data: [1],
-        //     backgroundColor: Chart_colors[0],
-        //   },
-        //   {
-        //     label: "IT",
-        //     data: [100],
-        //     backgroundColor: Chart_colors[1],
-        //   },
-        //   {
-        //     label: "Design",
-        //     data: [3],
-        //     backgroundColor: Chart_colors[2],
-        //   },
-        // ],
       });
     }
   }, [ideaPerYear]);
