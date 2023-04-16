@@ -112,6 +112,12 @@ function DetailIdea({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
+        data.forEach((comment) => {
+          if (comment.annonymous) {
+            comment.userAvatar = "/images/Avatar.jpg";
+            comment.userName = "Anonymous";
+          }
+        });
         setDataComment(data);
       });
   };

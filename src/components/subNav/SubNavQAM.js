@@ -2,9 +2,17 @@ import { Link } from "react-router-dom";
 function SubNavQAM() {
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light subNavBar" style={{ display:"none" }}>
+      <nav
+        className="navbar navbar-expand-lg navbar-light bg-light subNavBar"
+        style={{ display: "none" }}
+      >
         <div className="container-fluid">
           <ul className="navbar-nav">
+            <li className="subNav-item">
+              <Link className="nav-link" to="/">
+                Home
+              </Link>
+            </li>
             <li className="subNav-item">
               <a className="nav-link" href="/Dashboard">
                 Dashboard
