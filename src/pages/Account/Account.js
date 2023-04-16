@@ -9,7 +9,7 @@ import StylePaginate from "../../components/Pagination/pagination.module.css";
 import ReactPaginate from "react-paginate";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faUserSlash } from "@fortawesome/free-solid-svg-icons";
+import { faCrown, faPlus, faUserSlash } from "@fortawesome/free-solid-svg-icons";
 import { faRectangleXmark } from "@fortawesome/free-solid-svg-icons";
 
 function Account({ token }) {
@@ -119,21 +119,23 @@ function Account({ token }) {
                                 </td>
                                 <td>{data.email}</td>
                                 <td>{data.role}</td>
-                                <td>{data.department}</td>
+                                <td>{data.role !== "Admin" ? data.department : <FontAwesomeIcon icon={faCrown}/>}</td>
                                 <td>{data.status}</td>
                                 {data.status !== "Disable" ? (
                                   <td className="table-action">
                                     <div className="d-flex justify-content-evenly">
-                                      <button
-                                        type="button"
-                                        className="btn btn-danger"
-                                        onClick={handleOpenConfirm}
-                                        data-username={data.userName}
-                                      >
-                                        <FontAwesomeIcon
-                                          icon={faUserSlash}
-                                        />
-                                      </button>
+                                      {data.role !== "Admin" ?
+                                        <button
+                                          type="button"
+                                          className="btn btn-danger"
+                                          onClick={handleOpenConfirm}
+                                          data-username={data.userName}
+                                        >
+                                          <FontAwesomeIcon
+                                            icon={faUserSlash}
+                                          />
+                                        </button>
+                                        : <div></div>}
                                     </div>
                                   </td>
                                 ) : (

@@ -12,7 +12,7 @@ function UserProfile({ token }) {
   const user = useContext(UserContext);
   return (
     <>
-      <section className="userProfile">
+      <section id="userProfile">
         <div className="container-fluid">
           <div className="row">
             <div className="textHeader">
