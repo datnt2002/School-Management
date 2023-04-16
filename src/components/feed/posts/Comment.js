@@ -18,6 +18,10 @@ function Comment({ dataComment }) {
               className={Style.commentAvatar}
             />
             <div className={Style.comment}>
+              <small className={Style.comment_user}>
+                {dataComment.userName}
+              </small>
+
               <div className={Style.comment_user}>{dataComment.content}</div>
             </div>
           </div>

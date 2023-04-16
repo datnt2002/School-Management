@@ -36,9 +36,11 @@ export const apiInteract = `${server}api/interactions`;
 
 //apiDownload
 export const apiDownloadAllFiles = `${server}api/auth/Download/Idea`;
+export const apiDownloadCSV = `${server}api/auth/DownloadCSV`;
 
 //apiDashboard
 export const apiCount = `${server}api/dashboard/Count`;
 export const apiTrending = `${server}api/dashboard/IdeaPopular`;
 export const apiIdeaPerCate = `${server}api/dashboard/IdeaPerCate`;
 export const apiIdeaPerYear = `${server}api/dashboard/IdeaPerYear`;
+export const apiIdeaContributor = `${server}api/dashboard/contributor`;

@@ -3,13 +3,20 @@ import DashCountEvent from "../../components/DashBoard/HeaderDash/DashCountEvent
 import DashCountIdea from "../../components/DashBoard/HeaderDash/DashCountIdea";
 import DashCountUser from "../../components/DashBoard/HeaderDash/DashCountUser";
 import React from "react";
-import { apiCount, apiIdeaPerCate, apiIdeaPerYear } from "../../api/Api";
+import {
+  apiCount,
+  apiDownloadCSV,
+  apiIdeaContributor,
+  apiIdeaPerCate,
+  apiIdeaPerYear,
+} from "../../api/Api";
 import Style from "./dashBoard.module.css";
 import { useEffect, useState } from "react";
 
 import BarChart from "../../components/DashBoard/Charts/BarChart";
 import DoughNutChart from "../../components/DashBoard/Charts/DoughNutChart";
 import { Skeleton } from "antd";
+import BarAndLineChart from "../../components/DashBoard/Charts/BarAndLineChart";
 
 function DashBoard({ token }) {
   const Chart_colors = [
@@ -116,10 +123,65 @@ function DashBoard({ token }) {
     }
   }, [ideaPerCate]);
 
+  //bar and line chart
+  const [contributor, setContributor] = useState();
+  const [mixedChart, setMixedChart] = useState();
+
+  useEffect(() => {
+    fetch(apiIdeaContributor, {
+      headers: { Authorization: `Bearer ${token}` },
+    })
+      .then((res) => {
+        return res.json();
+      })
+      .then((data) => {
+        setContributor(data);
+      })
+      .catch(() => console.log("api ideaPerCate"));
+  }, [token]);
+
+  useEffect(() => {
+    if (contributor) {
+      setMixedChart({
+        labels: contributor.map((department) => {
+          return department.department;
+        }),
+        datasets: [
+          {
+            type: "bar",
+            label: "Staffs",
+            data: contributor.map((data) => {
+              return data.iderPerUsers.users;
+            }),
+            backgroundColor: Chart_colors[3],
+          },
+          {
+            type: "line",
+            label: "Ideas",
+            data: contributor.map((data) => {
+              return data.iderPerUsers.ideas;
+            }),
+            fill: false,
+            borderColor: Chart_colors[5],
+            backgroundColor: Chart_colors[5],
+          },
+        ],
+      });
+    }
+  }, [contributor]);
+
+  const handleDownloadCSV = () => {
+    window.location.href = window.location.href.replace(
+      window.location.href,
+      apiDownloadCSV
+    );
+  };
+
   return (
     <div className="dashBoard">
       <div className={`${Style.dash_board} container-fluid mt-5 `}>
         <div className="row">
+          <button onClick={handleDownloadCSV}>DownloadCSV</button>
           <div className="col-3">
             <div className="mb-3">
               <DashCountUser numberOf={numberOf} />
@@ -151,10 +213,14 @@ function DashBoard({ token }) {
               )}
             </div>
             <div className="col-6 card">
-              {/* làm chart trong này */}
+              {mixedChart ? (
+                <BarAndLineChart chartData={mixedChart} />
+              ) : (
+                <Skeleton variant="rectangular" width={210} height={118} />
+              )}
             </div>
           </div>
-            
+
           <div className="col-4 card">
             {doughNutChart ? (
               <DoughNutChart chartData={doughNutChart} />

@@ -119,11 +119,12 @@ function DetailIdea({ token }) {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
-        if (data[0].anonymous) {
-          data[0].avatar = "/images/Avatar.jpg";
-          data[0].userName = "Anonymous";
-        }
+        data.forEach((comment) => {
+          if (comment.annonymous) {
+            comment.userAvatar = "/images/Avatar.jpg";
+            comment.userName = "Anonymous";
+          }
+        });
         setDataComment(data);
       });
   }, [ideaId, token]);
@@ -133,7 +134,6 @@ function DetailIdea({ token }) {
       window.location.href,
       apiIdeaDownload + "/" + fileName
     );
-    console.log(window.location.href);
     // fetch(apiIdeaDownload + "/" + fileName, {
     //   headers: { Authorization: `Bearer ${token}` },
     // }).catch(() => console.log("eo dc"));
