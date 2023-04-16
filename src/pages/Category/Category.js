@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import Table from "../../components/Table/Table";
-import Loading from "../../components/optional/Loading";
 import "./category.css";
 import Style from "../Account/myExp.module.css"
 import StylePaginate from "../../components/Pagination/pagination.module.css"
