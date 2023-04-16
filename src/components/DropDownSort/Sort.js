@@ -162,7 +162,7 @@ function Sort({ token, setDataIdea }) {
           <Dropdown.Item eventKey="Newest">Newest</Dropdown.Item>
         </Dropdown.Menu>
       </Dropdown>
-      {user.role !== "Staff" ? (
+      {user.role === "QAC" ? (
         <AntdDropdown
           trigger={["click"]}
           menu={{
