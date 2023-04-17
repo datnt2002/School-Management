@@ -178,7 +178,7 @@ function DashBoard({ token }) {
   };
 
   return (
-    <div className="dashBoard">
+    <div id="dashBoard">
       <div className={`${Style.dash_board} container-fluid mt-5 `}>
         <div className="row">
           <button onClick={handleDownloadCSV}>DownloadCSV</button>
@@ -204,30 +204,27 @@ function DashBoard({ token }) {
           </div>
         </div>
         <div className="row">
-          <div className="col-8">
-            <div className="col-6 mb-5 card">
+            <div className="col-xl-8 col-lg-7">
               {barChart ? (
-                <BarChart chartData={barChart} />
+                <BarChart chartData={barChart}/>
               ) : (
-                <Skeleton variant="rectangular" width={210} height={118} />
+                <Skeleton variant="rectangular" width={210} height={118}/>
               )}
             </div>
-            <div className="col-6 card">
-              {mixedChart ? (
-                <BarAndLineChart chartData={mixedChart} />
+            <div className="col-xl-4 col-lg-5">
+              {doughNutChart ? (
+                <DoughNutChart chartData={doughNutChart} />
               ) : (
-                <Skeleton variant="rectangular" width={210} height={118} />
+                <Skeleton variant="rectangular" width={210} height={118}/>
               )}
             </div>
-          </div>
-
-          <div className="col-4 card">
-            {doughNutChart ? (
-              <DoughNutChart chartData={doughNutChart} />
-            ) : (
-              <Skeleton variant="rectangular" width={210} height={118} />
-            )}
-          </div>
+        </div>
+        <div className="mt-3">
+          {mixedChart ? (
+            <BarAndLineChart chartData={mixedChart} />
+          ) : (
+            <Skeleton variant="rectangular" width={210} height={118} />
+          )}
         </div>
       </div>
     </div>

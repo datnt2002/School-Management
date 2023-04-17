@@ -23,6 +23,7 @@ import { faUser } from "@fortawesome/free-regular-svg-icons";
 import { faUserSecret } from "@fortawesome/free-solid-svg-icons";
 import Tooltip from "rc-tooltip";
 import "rc-tooltip/assets/bootstrap.css";
+import { useRef } from "react";
 
 
 function DetailIdea({ token }) {
@@ -31,6 +32,7 @@ function DetailIdea({ token }) {
 
   //Anonymous comment
   const [anonymous, setAnonymous] = useState("");
+  const commentContainerRef = useRef(null);
 
   // function textarea
   function autoHeight() {
@@ -47,6 +49,8 @@ function DetailIdea({ token }) {
       }, 0);
     }
   }
+
+ 
 
   const location = useLocation();
   const ideaId = location.state.ideaId;
@@ -139,6 +143,11 @@ function DetailIdea({ token }) {
         setDataComment(data);
       });
   }, [ideaId, token]);
+  useEffect(() => {
+    if (commentContainerRef.current) {
+      commentContainerRef.current.scrollTop = commentContainerRef.current.scrollHeight;
+    }
+  }, [dataComment]);
 
   const handleDownloadFile = (fileName) => {
     window.location.href = window.location.href.replace(
@@ -155,7 +164,7 @@ function DetailIdea({ token }) {
       {detailIdea &&
         detailIdea.map((detail) => {
           return (
-            <div className="row" style={{ marginTop: "2rem" }} key={detail.id}>
+            <div className="row" style={{ marginTop: "0.5rem" }} key={detail.id}>
               <div className={`col-lg-9 ${Style.centerContent}`}>
                 <div className={`${StyleDetail.Card} card`}>
                   <div className={Style.media}>
@@ -200,7 +209,9 @@ function DetailIdea({ token }) {
                   </div>
                   <LikeCmt token={token} ideaId={detail.id} userId={userId} />
                   <hr />
-                  <Comment token={token} dataComment={dataComment} />
+                  <div style={{ maxHeight:"400px", overflow:"auto" }} ref={commentContainerRef}>
+                    <Comment token={token} dataComment={dataComment} />
+                  </div>
                   <hr />
                   {/* //comment box */}
                   {detail.eventLastClosure > Date.now() ? (

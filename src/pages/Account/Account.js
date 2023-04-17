@@ -119,7 +119,7 @@ function Account({ token }) {
                                 </td>
                                 <td>{data.email}</td>
                                 <td>{data.role}</td>
-                                <td>{data.role !== "Admin" ? data.department : <FontAwesomeIcon icon={faCrown}/>}</td>
+                                <td>{data.role !== "Admin" && data.role !== "QAM" ? data.department : <FontAwesomeIcon icon={faCrown}/>}</td>
                                 <td>{data.status}</td>
                                 {data.status !== "Disable" ? (
                                   <td className="table-action">

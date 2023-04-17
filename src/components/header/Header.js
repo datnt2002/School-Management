@@ -67,9 +67,8 @@ function Header({ dataUser }) {
           <Link to="/" className="topnav-logo">
             <span className="topnav-logo-lg">
               <img
-                src="https://connect-assets.prosple.com/cdn/ff/y3UkxhsZs27XkGKH6fA36vGYyMP6tIKtREiomqeX2DA/1657709056/public/styles/scale_and_crop_center_890x320/public/2022-07/banner-university-of-greenwich-1786x642-2022.png?itok=1xFOwtGR"
+                src="https://i.pinimg.com/originals/4e/8d/86/4e8d860d448e34859d2f3fe1abdef6f9.jpg"
                 alt="ko co anh"
-                height="100"
               />
             </span>
           </Link>

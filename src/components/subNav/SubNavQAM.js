@@ -14,9 +14,9 @@ function SubNavQAM() {
               </Link>
             </li>
             <li className="subNav-item">
-              <a className="nav-link" href="/Dashboard">
+              <Link className="nav-link" to="/Dashboard">
                 Dashboard
-              </a>
+              </Link>
             </li>
             <li className="subNav-item">
               <Link className="nav-link" to="/NewsFeed">

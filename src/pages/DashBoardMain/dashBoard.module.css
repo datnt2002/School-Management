@@ -1,0 +1,17 @@
+.chart_area{
+    position: relative;
+    height: 10rem;
+    width: 100%;
+}
+.chartjs_size_monitor, .chartjs_size_monitor_expand, .chartjs_size_monitor_shrink {
+    position: absolute;
+    direction: ltr;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    pointer-events: none;
+    visibility: hidden;
+    z-index: -1;
+}
