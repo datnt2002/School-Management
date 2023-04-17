@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
 import Table from "../../components/Table/Table";
-import Loading from "../../components/optional/Loading";
 import "./category.css";
-import Style from "../Account/myExp.module.css"
-import StylePaginate from "../../components/Pagination/pagination.module.css"
+import Style from "../Account/myExp.module.css";
+import StylePaginate from "../../components/Pagination/pagination.module.css";
 import { apiCategory } from "../../api/Api";
 import CreateNewCategory from "./CreateNewCategory";
 import { Navigate } from "react-router-dom";
@@ -38,7 +37,7 @@ function Category({ token }) {
     };
     fetchData();
   }, [modal, token]);
-  
+
   //paginate
   const [currenItems, setCurrentItems] = useState([]);
   const [pageCount, setPageCount] = useState(0);
@@ -49,12 +48,10 @@ function Category({ token }) {
     setCurrentItems(data.slice(itemOffSet, endOffSet));
     setPageCount(Math.ceil(data.length / itemPerPage));
   }, [itemOffSet, itemPerPage, data]);
-  function handlePageClick(e){
+  function handlePageClick(e) {
     const newOffSet = (e.selected * itemPerPage) % data.length;
     setItemOffSet(newOffSet);
   }
-
-  
 
   return (
     <>
@@ -69,13 +66,13 @@ function Category({ token }) {
                       <h1 className="page-title">
                         Category{" "}
                         <span>
-                            <button
-                              className="btn btn-danger mb-2"
-                              onClick={handleOpen}
-                              style={{ borderRadius: "50%" }}
-                            >
-                              <FontAwesomeIcon icon={faPlus} />
-                            </button>
+                          <button
+                            className="btn btn-danger mb-2"
+                            onClick={handleOpen}
+                            style={{ borderRadius: "50%" }}
+                          >
+                            <FontAwesomeIcon icon={faPlus} />
+                          </button>
                         </span>
                       </h1>
                     </div>
