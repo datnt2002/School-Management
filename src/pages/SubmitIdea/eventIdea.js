@@ -28,7 +28,8 @@ function EventIdea({ token }) {
 
   return (
     <>
-      <div className="container-fluid">
+    <div className="eventIdea">
+    <div className="container-fluid">
         <div className={Style.event_idea}>
           <div className="row">
             {dataEvent.map((data) => {
@@ -59,6 +60,8 @@ function EventIdea({ token }) {
           </div>
         </div>
       </div>
+    </div>
+      
     </>
   );
 }
