@@ -41,7 +41,8 @@ function Authentication({handleSetToken}) {
   }
 
   return (
-    <div className="modal_form">
+    <div className="login">
+      <div className="modal_form">
       <div className="switch_button_container">
         <button
           className="switch_button btn_forgot"
@@ -75,6 +76,8 @@ function Authentication({handleSetToken}) {
         </div>
       )}
     </div>
+    </div>
+    
   );
 }
 export default Authentication;
