@@ -160,7 +160,8 @@ function DetailIdea({ token }) {
   };
 
   return (
-    <div className="container">
+    <div className="detailIdea">
+<div className="container-fluid ">
       {detailIdea &&
         detailIdea.map((detail) => {
           return (
@@ -279,6 +280,8 @@ function DetailIdea({ token }) {
           );
         })}
     </div>
+    </div>
+    
   );
 }
 export default DetailIdea;
