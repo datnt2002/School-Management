@@ -1,8 +1,7 @@
 .card {
     border-radius: 5px;
     background: white;
-    box-shadow: 15px 15px 30px #bebebe,
-               -15px -15px 30px #ffffff;
+    box-shadow: 15px 15px 30px #bebebe;
 }
 .card_body h6{
     font-size: smaller;
