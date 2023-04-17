@@ -5,6 +5,7 @@ import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 
 import StyleDetail from "./DetailIdea.module.css";
+import "./Detail.css";
 
 import Style from "./newsFeed.module.css";
 import {
