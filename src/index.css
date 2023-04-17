@@ -12,7 +12,7 @@ body{
   /* background-color: #e1e4ea !important; */
   background-color: rgb(86, 216, 228, 1)!important;
 }
-.App>.login, .detailIdea, .tableAccountList, .userProfile, .tableCate, .tableAdmin, .tableListIdea {
+.App>.login, .detailIdea, .tableAccountList, .userProfile, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile {
   /* position: relative */
   width: 100%;
   height: 100vh;
@@ -21,6 +21,39 @@ body{
   background-attachment: fixed;
   background-size: cover;
 }
+
+@media  screen and (max-width:1921px){
+  .App>.detailIdea {
+      height: 160vh;
+  }
+
+  .App>.tableCate{
+    height: 90vh;
+  }
+
+  .App>.userProfile{
+    height: 155vh;
+  }
+
+  .App>.eventIdea{
+    height: 85vh;
+  }
+
+}
+@media  screen and (max-width:845px){
+.App>.editProfile{
+  background:none;
+}
+
+.App>.userProfile{
+  background:none;
+}
+
+.App>#userProfile{
+  background:none;
+}
+}
+
 #NewFeedBackG, #userProfile, #dashBoard{
   width: 100%;
   background-image: url('./images/TruongTao.png');

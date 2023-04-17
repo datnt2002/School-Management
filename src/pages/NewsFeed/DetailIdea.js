@@ -5,7 +5,7 @@ import LikeCmt from "../../components/feed/posts/LikeCmt";
 import Trending from "../../components/feed/trending/Trending";
 
 import StyleDetail from "./DetailIdea.module.css";
-import "./Detail.css";
+
 
 import Style from "./newsFeed.module.css";
 import {
@@ -166,7 +166,7 @@ function DetailIdea({ token }) {
       {detailIdea &&
         detailIdea.map((detail) => {
           return (
-            <div className="row" style={{ marginTop: "0.5rem" }} key={detail.id}>
+            <div className="row"  key={detail.id}>
               <div className={`col-lg-9 ${Style.centerContent}`}>
                 <div className={`${StyleDetail.Card} card`}>
                   <div className={Style.media}>

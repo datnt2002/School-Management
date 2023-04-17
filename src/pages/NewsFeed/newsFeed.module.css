@@ -36,12 +36,17 @@
 
 
 /*responsive mobile*/
-/* @media screen and (max-width:819px){
-    .card{
-        width: 120%;
-        margin-left: -75px;
+@media screen and (max-width:819px){
+    .centerContent {
+        margin-top: 0rem!important;
     }
-} */
+    .leftContent{
+        margin-top: 0rem!important;
+    }
+    .rightContent{
+        margin-top: 0rem!important;
+    }
+}
 
 .arrange{
     margin-bottom: 1rem;
