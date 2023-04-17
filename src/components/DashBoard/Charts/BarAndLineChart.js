@@ -4,13 +4,24 @@ import { Chart as ChartJS } from "chart.js/auto";
 
 function BarAndLineChart({ chartData }) {
   const options = {
+    plugins: {
+      title: {
+        display: true,
+        text: "Contributor",
+      },
+    },
+    responsive: true,
     scales: {
       y: {
         beginAtZero: true,
       },
     },
   };
-  return <div className="card" id="line_chart"><Bar data={chartData} options={options}/>;</div>
+  return (
+    <div className="card" id="line_chart">
+      <Bar data={chartData} options={options} />;
+    </div>
+  );
 }
 
 export default BarAndLineChart;
