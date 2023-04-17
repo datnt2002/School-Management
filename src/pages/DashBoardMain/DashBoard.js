@@ -180,8 +180,10 @@ function DashBoard({ token }) {
   return (
     <div id="dashBoard">
       <div className={`${Style.dash_board} container-fluid mt-5 `}>
+        <div className="mb-4">
+          <button onClick={handleDownloadCSV} class="btn btn-success">DownloadCSV</button>
+        </div>
         <div className="row">
-          <button onClick={handleDownloadCSV}>DownloadCSV</button>
           <div className="col-3">
             <div className="mb-3">
               <DashCountUser numberOf={numberOf} />
