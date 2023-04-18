@@ -383,7 +383,7 @@ a:not([href]) {
 
 
 
-@media screen and (max-width:819px){
+@media screen and (max-width:1080px){
 
     .dropdown.notification-list{
         margin-right: -40px;
@@ -401,13 +401,13 @@ a:not([href]) {
         margin-left: 50px;
     }
 
-    a.topnav-logo{
-        margin-left:-50px;
-        width:40%;
+    span img{
+        width: 200%;
+        margin-left: -50px;
     }
 
     .topnav-logo-lg > img {
-        height: 80px;
+        height: 82px;
     }
     
 }

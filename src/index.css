@@ -40,18 +40,31 @@ body{
   }
 
 }
-@media  screen and (max-width:845px){
-.App>.editProfile{
-  background:none;
-}
+@media  screen and (max-width:1080px){
+  .App>.editProfile{
+    background:none;
+  }
 
-.App>.userProfile{
-  background:none;
-}
+  .App>.userProfile{
+    background:none;
+  }
 
-.App>#userProfile{
-  background:none;
-}
+  .App>#userProfile{
+    background:none;
+  }
+
+  .tableCate table{
+    margin-left: 70px;
+  }
+
+  .tableCate table th{
+    font-size: 14px;
+  }
+
+  .tableCate table td{
+    font-size: 12px;
+  }
+
 }
 
 #NewFeedBackG, #userProfile, #dashBoard{
