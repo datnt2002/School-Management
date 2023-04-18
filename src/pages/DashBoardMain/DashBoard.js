@@ -179,10 +179,10 @@ function DashBoard({ token }) {
 
   return (
     <div id="dashBoard">
-      <div className={`${Style.dash_board} container-fluid mt-5 `}>
-        <div className="mb-4">
-          <button onClick={handleDownloadCSV} class="btn btn-success">DownloadCSV</button>
-        </div>
+      <div className={`${Style.dash_board} container-fluid  `}>
+        {/* <div className="mb-4 "> */}
+          <button onClick={handleDownloadCSV} class="btn btn-success mb-4 mt-4">DownloadCSV</button>
+        {/* </div> */}
         <div className="row">
           <div className="col-3">
             <div className="mb-3">

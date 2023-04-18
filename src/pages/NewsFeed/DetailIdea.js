@@ -6,6 +6,7 @@ import Trending from "../../components/feed/trending/Trending";
 
 import StyleDetail from "./DetailIdea.module.css";
 
+
 import Style from "./newsFeed.module.css";
 import {
   apiComment,
@@ -160,11 +161,12 @@ function DetailIdea({ token }) {
   };
 
   return (
-    <div className="container">
+    <div className="detailIdea">
+<div className="container-fluid ">
       {detailIdea &&
         detailIdea.map((detail) => {
           return (
-            <div className="row" style={{ marginTop: "0.5rem" }} key={detail.id}>
+            <div className="row"  key={detail.id}>
               <div className={`col-lg-9 ${Style.centerContent}`}>
                 <div className={`${StyleDetail.Card} card`}>
                   <div className={Style.media}>
@@ -279,6 +281,8 @@ function DetailIdea({ token }) {
           );
         })}
     </div>
+    </div>
+    
   );
 }
 export default DetailIdea;

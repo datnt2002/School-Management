@@ -84,3 +84,9 @@
         transform: scale(1);
     }
 }
+
+@media screen and (max-width:845px){
+  div.col-4.mt-5{
+    margin-top: 0px;
+  } 
+}

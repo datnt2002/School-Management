@@ -294,7 +294,17 @@
   label.drop-container{
     width: 100%;
     margin: -30px 0 0 0px;
-  };
+  }
+
+  /*edit profile*/
+  div.card-body.text-center{
+    margin-left: 1px;
+  }
+
+  div.card-body.text-center img{
+    margin-left: -60px;
+  }
+
 
   span.front.text{
     width:150px;
@@ -334,4 +344,10 @@
     margin-left: -100px;
   }
 
+}
+
+@media  screen and (max-width:1921px){
+  .App {
+    height: 100vh;
+  }
 }

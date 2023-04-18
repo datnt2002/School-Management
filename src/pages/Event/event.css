@@ -107,8 +107,8 @@ button.btn.btn-danger.mb-2{
     }
 
     .page-title{
-        margin-right: -50px;
-        width: 100%;
+        margin-left: 80px;
+        width: 70%;
     }
 
     button.btn.btn-danger.mb-2{
@@ -129,6 +129,16 @@ button.btn.btn-danger.mb-2{
         padding-right: 12px;
     }
 
+
+    table{
+        margin-left: 70px;
+    }
+
+
+    div.col-sm-12{
+        width: 50%;
+    }
+
     th{
         font-size: 9px;
     }
@@ -141,10 +151,21 @@ button.btn.btn-danger.mb-2{
         display: block;
     }
 
+    /*post*/
     div.card-body{
-        margin-left: -15px;
+        margin-left: -90px;
+        width: 125%;
     }
 
+    /*profile*/
+    div.card.mt-4 div.card-body{
+        margin-left: 10px;
+        width: 100%;
+    }
+
+   
+
+    /**/
     div.table-responsive{
         margin-top:-15px;
         margin-left: -12px;
@@ -153,7 +174,7 @@ button.btn.btn-danger.mb-2{
 
     /* Event modal*/
     .modalEvent{
-        margin: 100px 40px 0 10px;
+        margin: 100px 40px 0 5px;
         width:95%;
         height:55%; 
     }
