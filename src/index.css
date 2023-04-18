@@ -12,7 +12,7 @@ body{
   /* background-color: #e1e4ea !important; */
   background-color: rgb(86, 216, 228, 1)!important;
 }
-.App>.login, .detailIdea, .tableAccountList, .userProfile, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile {
+.App>.login, .detailIdea, .tableAccountList, .userProfile, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile, .tableListIdea {
   /* position: relative */
   width: 100%;
   height: 100vh;
@@ -36,6 +36,10 @@ body{
   }
 
   .App>.eventIdea{
+    height: 85vh;
+  }
+
+  .App>.tableListIdea{
     height: 85vh;
   }
 

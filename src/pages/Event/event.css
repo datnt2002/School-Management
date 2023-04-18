@@ -229,20 +229,43 @@ button.btn.btn-danger.mb-2{
         width: 85%;
     }
 
-    /* button.btn.btn-success{
-        margin-top: -610px;
-        height: 50%;
-    }   */
+
+    /*Account modal*/
+    div.account_modalAccount__RAScl{
+        margin-top: 100px;
+        width: 93%;
+        height: 70%;
+    }
+
 
     div.btnForm{
         margin-top: 20px;
     }
     
     /*List ideas*/
-    div.tableListIdea{
-        width: 140%;
-        margin:-40px 0 0 -30px ;
+    .tableListIdea {
+        width: 100%;
+        margin: 0px 0 0 1px ;
     }
+
+    .tableListIdea .card{
+        width: 137%;
+        margin: 0px 0 0 -55px ;
+    }
+
+    .tableListIdea table {
+        width: 120%;
+        margin: 40px 0 0 80px ;
+    }
+
+    .tableListIdea th {
+        font-size: 12px;
+    }
+
+    .tableListIdea td {
+        font-size: 10px;
+    }
+
 
     /*event idea card*/
     div.row{
@@ -254,4 +277,10 @@ button.btn.btn-danger.mb-2{
     }
 
 
+
+
+}
+
+.tableListIdea .container-fluid{
+    margin-top: 0px;
 }
