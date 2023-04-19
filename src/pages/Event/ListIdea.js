@@ -54,7 +54,7 @@ function ListIdea({ token }) {
   };
 
   return (
-    <div className="tableListIdea mt-5">
+    <div className="tableListIdea ">
       <div className="container-fluid ">
         <div className="tableListIdea">
           <div className="card">

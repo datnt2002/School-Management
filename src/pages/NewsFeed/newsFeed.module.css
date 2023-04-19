@@ -36,7 +36,7 @@
 
 
 /*responsive mobile*/
-@media screen and (max-width:819px){
+@media screen and (max-width:1080px){
     .centerContent {
         margin-top: 0rem!important;
     }

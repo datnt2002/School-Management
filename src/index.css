@@ -12,7 +12,7 @@ body{
   /* background-color: #e1e4ea !important; */
   background-color: rgb(86, 216, 228, 1)!important;
 }
-.App>.login, .detailIdea, .tableAccountList, .userProfile, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile {
+.App>.login, .detailIdea, .tableAccountList, .userProfile, .tableCate, .tableAdmin, .tableListIdea, .eventIdea, .editProfile, .tableListIdea {
   /* position: relative */
   width: 100%;
   height: 100vh;
@@ -39,19 +39,36 @@ body{
     height: 85vh;
   }
 
-}
-@media  screen and (max-width:845px){
-.App>.editProfile{
-  background:none;
-}
+  .App>.tableListIdea{
+    height: 85vh;
+  }
 
-.App>.userProfile{
-  background:none;
 }
+@media  screen and (max-width:480px){
+  .App>.editProfile{
+    background:none;
+  }
 
-.App>#userProfile{
-  background:none;
-}
+  .App>.userProfile{
+    background:none;
+  }
+
+  .App>#userProfile{
+    background:none;
+  }
+
+  .tableCate table{
+    margin-left: 70px;
+  }
+
+  .tableCate table th{
+    font-size: 14px;
+  }
+
+  .tableCate table td{
+    font-size: 12px;
+  }
+
 }
 
 #NewFeedBackG, #userProfile, #dashBoard{
