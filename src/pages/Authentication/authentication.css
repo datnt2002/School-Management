@@ -180,7 +180,7 @@ input::placeholder{
 
 /* Responsive */
 /* Mobile */
-@media only screen and (min-width: 374px) and (max-width: 799px){
+@media only screen and (max-width: 799px){
     .modal_form {
         position: fixed;
         width: 100%;
@@ -223,19 +223,8 @@ input::placeholder{
 }
 /* Tablet */
 @media only screen and (min-width: 800px) and (max-width: 1023px){
-    .form-field > input{
-        padding: 8px 8px 8px 1px;
-        margin-top: 8px;
-        background: transparent;
-        border: 0;
-        outline: 0;
-        border-bottom: 2px solid #fff;
-    }
     .modal_form{
         overflow:hidden;
-    }
-    .modal_image_container .modal_image{
-        object-fit: cover;
     }
 }
 
