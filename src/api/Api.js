@@ -36,7 +36,8 @@ export const apiInteract = `${server}api/interactions`;
 
 //apiDownload
 export const apiDownloadAllFiles = `${server}api/auth/Download/Idea`;
-export const apiDownloadCSV = `${server}api/auth/DownloadCSV`;
+export const apiDownloadCSV = `${server}api/auth/Download/csv`;
+export const apiExportCSV = `${server}api/auth/DownloadCSV`;
 
 //apiDashboard
 export const apiCount = `${server}api/dashboard/Count`;

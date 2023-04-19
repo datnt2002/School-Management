@@ -1,28 +1,22 @@
 @media screen and (max-width:480px){
 
-    .textHeader h1{
+    /* .textHeader h1{
         display: none;
-    } 
+    }  */
     /* section.userProfile{
         width: 150%;
         margin-left: 0%;
     }
      */
 
-    .or{
+    /* .or{
         display: none;
-    }
+    } */
     
-    div.col-lg-5{
-        /* width: 200%; */
-        margin:20px 0 0 50px ;
-    
-    }
-    
-    div.card.mt-4{
+    /* div.card.mt-4{
         width: 120%;
         margin-left: -30px;
-    }
+    } */
 
     /*edit profile*/
     /* div.card{
@@ -30,7 +24,7 @@
         margin-left: 0px;
     } */
     
-    div.col-xl-8 .card{
+    /* div.col-xl-8 .card{
         width: 100%;
         margin-left: 1px;
     }
@@ -56,16 +50,16 @@
     div.newsFeed_news_post__GckKo{
         margin-left: 60px ;
         width: 95%;
-    }
+    } */
 
-    div.card.mb-4.mb-xl-0{
+    /* div.card.mb-4.mb-xl-0{
         width: 100%;
         margin-left: 0px;
     }
     
      div.newsFeed_card__P7+le{
-        /* margin-left: 40px; */
-        display: none;
-    }
+        /* margin-left: 40px;
+        /* display: none;
+    } */ 
 
 }

@@ -35,3 +35,8 @@ input:-webkit-autofill,
   input:-webkit-autofill:focus {
     transition: background-color 600000s 0s, color 600000s 0s;
   }
+@media only screen and (min-width: 800px) and (max-width: 1023px){
+  .form_input{
+    width: 90%;
+  }
+}

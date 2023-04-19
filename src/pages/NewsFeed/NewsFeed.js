@@ -12,7 +12,6 @@ import { useState, useEffect } from "react";
 import "./newFeed.css";
 
 function NewsFeed({ token }) {
-  // const Post = lazy(() => import("../../components/feed/posts/Post"));
   const [dataIdea, setDataIdea] = useState([]);
 
   useEffect(() => {
@@ -38,15 +37,12 @@ function NewsFeed({ token }) {
       <div className="container-fluid">
         <div className="row">
           <div className={`col-lg-4 ${Style.leftContent}`}>
-            {/* <Profile/> */}
             <Trending token={token} />
           </div>
           <div className={`col-lg-8 ${Style.centerContent}`}>
-            {/* <Suspense fallback={<div>Loading...</div>}> */}
             <Sort token={token} setDataIdea={setDataIdea} />
             <SearchBar token={token} setDataIdea={setDataIdea} />
             <Post dataIdea={dataIdea} />
-            {/* </Suspense> */}
           </div>
         </div>
         <ShowGotoTop />
