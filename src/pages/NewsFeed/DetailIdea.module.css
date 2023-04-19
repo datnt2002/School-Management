@@ -1,5 +1,5 @@
 /*Responsive*/
-@media screen and (max-width:1080px){
+@media screen and (max-width:480px){
     .Card.card{
         width: 215%;
         margin-left: -100px;

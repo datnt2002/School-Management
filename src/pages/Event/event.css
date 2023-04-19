@@ -101,7 +101,7 @@ button.btn.btn-danger.mb-2{
 
 
 /*event responsive mobile*/
-@media screen and (max-width:1080px){
+@media screen and (max-width:480px){
     .media-body h5{
         padding-top: 10px;
     }
