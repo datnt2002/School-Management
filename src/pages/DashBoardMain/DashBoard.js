@@ -19,6 +19,8 @@ import DoughNutChart from "../../components/DashBoard/Charts/DoughNutChart";
 import { Skeleton } from "antd";
 import BarAndLineChart from "../../components/DashBoard/Charts/BarAndLineChart";
 
+import "./dashboard.css";
+
 function DashBoard({ token }) {
   const Chart_colors = [
     "rgb(255, 99, 132)",

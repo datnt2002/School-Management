@@ -55,3 +55,17 @@
         transform: scale(var(--growth-to));
     }
 }
+
+@media screen and (max-width:480px){
+    .tableCate table{
+        margin-left: 0px;
+    }
+
+    .tableCate .card-body{
+        width: 200%;
+    }
+
+    .modalCate {
+        width: 90%;
+    }
+}

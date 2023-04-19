@@ -236,7 +236,7 @@
    }
 
 /*createIdea responsive mobile*/
-@media screen and (max-width:1080px){
+@media screen and (max-width:480px){
   .userProfile_header h1{
     margin-left: 10%;
   }
@@ -246,13 +246,23 @@
     width: 92%;
   }
   
-  div .card.mb-4{
+  /*your idea*/
+  div.col-lg-7 .card.mb-4{
     margin-left: -40px;
     width: 200%;
   }
 
+
+
+ /*avatar upload*/
+  div .card.mb-4{
+    margin-left: 0px;
+    width: 100%;
+  }
+
   div.col-lg-5 .card.mb-4{
-    margin-left: -86px;
+    margin-left: -40px;
+    width: 200%;
   }
 
   .userProfile_header{
@@ -265,11 +275,11 @@
 
   /*upload file*/
   div.form{
-    margin-left: -20px;
-    width: 300px;
-    height:80px; 
+    margin-left: -10px;
+    width: 200px;
+    height:60px;  
   }
-
+ 
   p.form-paragraph{
     display: none;
   }
@@ -292,8 +302,8 @@
   }
 
   label.drop-container{
-    width: 100%;
-    margin: -30px 0 0 0px;
+    width: 190%;
+    margin: -33px 0 0 -20px;
   }
 
   /*edit profile*/
@@ -331,8 +341,8 @@
   }
 
   .btnSubmitCancel{
-      margin-top: -10%;
-      margin-left: -40%;
+      margin-top: 10px;
+      margin-left: 40px;
   }
 
   h1{
@@ -344,10 +354,7 @@
     margin-left: -100px;
   }
 
+
+
 }
 
-@media  screen and (max-width:1921px){
-  .App {
-    height: 100vh;
-  }
-}

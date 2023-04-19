@@ -106,10 +106,6 @@ button.btn.btn-danger.mb-2{
         padding-top: 10px;
     }
 
-    .page-title{
-        margin-left: 80px;
-        width: 70%;
-    }
 
     button.btn.btn-danger.mb-2{
         margin-left: -50px;
@@ -130,8 +126,12 @@ button.btn.btn-danger.mb-2{
     }
 
     /*table event*/
+    .tableAdmin {
+       margin-left: -1px;
+       padding-right: 5px;
+    }
     .tableAdmin table{
-    margin-left: 80px;
+    margin-left: -5px;
     }
 
     .tableAdmin table th{
@@ -145,6 +145,10 @@ button.btn.btn-danger.mb-2{
     
 
     /*table account*/
+    .tableAccountList {
+        margin-left: -1px;
+        padding-right: 5px;
+     }
     .tableAccountList .card-body{
         width: 110%;
         margin-left: -20px;
@@ -173,11 +177,6 @@ button.btn.btn-danger.mb-2{
         display: block;
     }
 
-    /*post*/
-    /* div.card-body{
-        margin-left: -90px;
-        width: 125%;
-    } */
 
     /*profile*/
     div.card.mt-4 div.card-body{
@@ -198,7 +197,7 @@ button.btn.btn-danger.mb-2{
     .modalEvent{
         margin: 100px 40px 0 5px;
         width:95%;
-        height:55%; 
+        height:56%; 
     }
 
     div.createFormEvent{
@@ -232,9 +231,9 @@ button.btn.btn-danger.mb-2{
 
     /*Account modal*/
     div.account_modalAccount__RAScl{
-        margin-top: 100px;
+        margin: 80px 0 0 10px;
         width: 93%;
-        height: 70%;
+        height: 85%;
     }
 
 
@@ -255,7 +254,6 @@ button.btn.btn-danger.mb-2{
 
     .tableListIdea table {
         width: 120%;
-        margin: 40px 0 0 80px ;
     }
 
     .tableListIdea th {
@@ -270,6 +268,7 @@ button.btn.btn-danger.mb-2{
     /*event idea card*/
     div.row{
         display: block;
+        padding-top: 10px;
     }
 
     div.col-4{
@@ -279,6 +278,11 @@ button.btn.btn-danger.mb-2{
 
 
 
+
+
+
+
+ 
 }
 
 .tableListIdea .container-fluid{

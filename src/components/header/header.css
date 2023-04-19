@@ -398,11 +398,13 @@ a:not([href]) {
     }
     
     .topnav-navbar .navbar-toggle {
-        margin-left: 50px;
+        margin-left: 20px;
     }
 
     .topnav-logo-lg > img {
-        height: 82px;
+        height: 85px;
+        margin-left: -30px;
+        margin-top: -5px;
     }
     
 }
