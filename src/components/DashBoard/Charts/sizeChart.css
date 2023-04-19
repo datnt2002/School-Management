@@ -1,4 +1,4 @@
-#bar_chart,#dough_nut,#bar_chart > canvas{
+#bar_chart,#dough_nut,#line_chart > canvas{
     width: 100%!important;
     height: 100%!important;
 }

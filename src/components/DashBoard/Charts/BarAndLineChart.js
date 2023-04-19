@@ -19,7 +19,7 @@ function BarAndLineChart({ chartData }) {
   };
   return (
     <div className="card" id="line_chart">
-      <Bar data={chartData} options={options} />;
+      <Bar data={chartData} options={options} />
     </div>
   );
 }
